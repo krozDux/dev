@@ -3,7 +3,6 @@
 				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
 					<div id="kt_header" class="header">
 						<div class="container-fluid d-flex flex-stack">
-							<div class="d-flex align-items-center me-5">
 								<div class="d-lg-none btn btn-icon btn-active-color-white w-30px h-30px ms-n2 me-3" id="kt_aside_toggle">
 									<span class="svg-icon svg-icon-2">
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -12,7 +11,7 @@
 										</svg>
 									</span>
 								</div>
-								<a href="../../demo14/dist/index.html">
+								<a href="panel/index.php">
 									<img alt="Logo" src="assets/media/logos/logo-2.svg" class="h-25px h-lg-30px" />
 								</a>
 							</div>
