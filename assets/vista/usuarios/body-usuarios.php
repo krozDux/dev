@@ -13,7 +13,7 @@
 										</svg>
 									</span>
 								</div>
-								<a href="../../demo14/dist/index.html">
+								<a href="panel/index.php">
 									<img alt="Logo" src="assets/media/logos/logo-2.svg" class="h-25px h-lg-30px" />
 								</a>
 							</div>
