@@ -31,7 +31,7 @@
 												</div>
 											</div>
 										</div>
-										<?php  if ($rol != "Invitado") { ?>
+										<?php  if ($rol != "invitado") { ?>
 										<div class="menu-item">
 											<div class="menu-content pt-8 pb-2">
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE CONTRATOS</span>
@@ -240,7 +240,7 @@
 											</div>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link" href="usuarios/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Build your layout and export HTML for server side integration">>
+											<a class="menu-link" href="usuarios/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar usuarios">>
 												<span class="menu-icon">
 													<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
 													<span class="svg-icon svg-icon-2">
