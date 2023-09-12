@@ -32,7 +32,7 @@
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE CONTRATOS</span>
 											</div>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link" href="contratos/clientes.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los clientes">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
@@ -45,7 +45,7 @@
 												<span class="menu-title">Clientes</span>
 											</span>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link" href="contratos/proveedores.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los proveedores">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
@@ -58,7 +58,7 @@
 												<span class="menu-title">Proveedores</span>
 											</span>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link" href="contratos/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los contratos">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
@@ -72,7 +72,7 @@
 												<span class="menu-title">Contratos</span>
 											</span>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link" href="contratos/reportes.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Reportes de los contratos">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
@@ -92,7 +92,7 @@
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE PROYECTOS</span>
 											</div>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link" href="proyectos/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar proyectos">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
@@ -105,7 +105,7 @@
 												<span class="menu-title">Proyectos</span>
 											</span>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link" href="proyectos/recursos.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de recursos">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
@@ -119,7 +119,7 @@
 												<span class="menu-title">Recursos</span>
 											</span>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link" href="proyectos/riesgos.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de riesgos">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
@@ -137,7 +137,7 @@
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE PLANTILLAS</span>
 											</div>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link" href="plantillas/contratos.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar plantilla de contratos">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
@@ -151,7 +151,7 @@
 												<span class="menu-title">Contratos</span>
 											</span>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link" href="plantillas/proyectos.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar plantilla de proyectos">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
@@ -170,7 +170,7 @@
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE DOCUMENTOS</span>
 											</div>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link" href="documentos/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar usuarios">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
@@ -184,7 +184,7 @@
 												<span class="menu-title">Documentos</span>
 											</span>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link" href="documentos/reportes.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar usuarios">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
@@ -204,7 +204,7 @@
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE AUTENTIFICACIÓN</span>
 											</div>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item">
+										<div  class="menu-item">
 											<a class="menu-link active" href="usuarios/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar usuarios">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
