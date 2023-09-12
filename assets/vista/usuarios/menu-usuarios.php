@@ -242,8 +242,8 @@
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE AUTENTIFICACIÓN</span>
 											</div>
 										</div>
-										<div data-kt-menu-trigger="click" class="menu-item active">
-											<span class="menu-link active">
+										<div class="menu-item">
+											<a class="menu-link active" href="usuarios/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar usuarios">>
 												<span class="menu-icon">
 													<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
 													<span class="svg-icon svg-icon-2">
