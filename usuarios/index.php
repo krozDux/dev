@@ -18,6 +18,7 @@
 		<script>
 		$(document).ready(function () {
 			$('#kt_table_users').DataTable({
+				responsive: true,
 				dom: 'fBrtip',
 				buttons: [
 					{
