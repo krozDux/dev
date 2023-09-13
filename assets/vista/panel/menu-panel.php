@@ -32,22 +32,20 @@
 										<?php  if ($rol != "invitado") { ?>
 											<div class="menu-item">
 											<div class="menu-content pt-8 pb-0">
-												<span class="menu-section text-muted text-uppercase fs-8 ls-1">Layout</span>
+												<span class="menu-section text-muted text-uppercase fs-8 ls-1">GESTIÓN DE CONTRATOS</span>
 											</div>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link" href="https://preview.keenthemes.com/metronic8/demo14/layout-builder.html" title="Build your layout and export HTML for server side integration" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+											<a class="menu-link" href="contratos/clientes.php" title="Build your layout and export HTML for server side integration" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
 												<span class="menu-icon">
-													<!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
 													<span class="svg-icon svg-icon-2">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-															<path d="M17.5 11H6.5C4 11 2 9 2 6.5C2 4 4 2 6.5 2H17.5C20 2 22 4 22 6.5C22 9 20 11 17.5 11ZM15 6.5C15 7.9 16.1 9 17.5 9C18.9 9 20 7.9 20 6.5C20 5.1 18.9 4 17.5 4C16.1 4 15 5.1 15 6.5Z" fill="currentColor" />
-															<path opacity="0.3" d="M17.5 22H6.5C4 22 2 20 2 17.5C2 15 4 13 6.5 13H17.5C20 13 22 15 22 17.5C22 20 20 22 17.5 22ZM4 17.5C4 18.9 5.1 20 6.5 20C7.9 20 9 18.9 9 17.5C9 16.1 7.9 15 6.5 15C5.1 15 4 16.1 4 17.5Z" fill="currentColor" />
+															<path d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z" fill="currentColor" />
+															<rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4" fill="currentColor" />
 														</svg>
 													</span>
-													<!--end::Svg Icon-->
 												</span>
-												<span class="menu-title">Layout Builder</span>
+												<span class="menu-title">Clientes</span>
 											</a>
 										</div>
 											<!-- <div class="menu-item">
