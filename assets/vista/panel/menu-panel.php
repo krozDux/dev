@@ -30,7 +30,7 @@
 											</div>
 										</div>
 										<?php  if ($rol != "invitado") { ?>
-											<div class="menu-item">
+										<div class="menu-item">
 											<div class="menu-content pt-8 pb-0">
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1">GESTIÓN DE CONTRATOS</span>
 											</div>
@@ -46,6 +46,21 @@
 													</span>
 												</span>
 												<span class="menu-title">Clientes</span>
+											</a>
+										</div>
+										
+									
+										<div class="menu-item">
+											<a class="menu-link" href="contratos/proveedores.php" title="Build your layout and export HTML for server side integration" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+												<span class="menu-icon">
+													<span class="svg-icon svg-icon-2">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path opacity="0.3" d="M20 15H4C2.9 15 2 14.1 2 13V7C2 6.4 2.4 6 3 6H21C21.6 6 22 6.4 22 7V13C22 14.1 21.1 15 20 15ZM13 12H11C10.5 12 10 12.4 10 13V16C10 16.5 10.4 17 11 17H13C13.6 17 14 16.6 14 16V13C14 12.4 13.6 12 13 12Z" fill="currentColor" />
+															<path d="M14 6V5H10V6H8V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V6H14ZM20 15H14V16C14 16.6 13.5 17 13 17H11C10.5 17 10 16.6 10 16V15H4C3.6 15 3.3 14.9 3 14.7V18C3 19.1 3.9 20 5 20H19C20.1 20 21 19.1 21 18V14.7C20.7 14.9 20.4 15 20 15Z" fill="currentColor" />
+														</svg>
+													</span>
+												</span>
+												<span class="menu-title">Proveedores</span>
 											</a>
 										</div>
 											<!-- <div class="menu-item">
@@ -66,6 +81,7 @@
 												<span class="menu-title">Clientes</span>
 											</span>
 										</div>
+
 										<div  class="menu-item">
 											<a class="menu-link" href="contratos/proveedores.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los proveedores">
 												<span class="menu-icon">
