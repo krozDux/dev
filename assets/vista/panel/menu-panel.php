@@ -20,7 +20,7 @@
 											</span>
 											<div class="menu-sub menu-sub-accordion menu-active-bg">
 												<div class="menu-item">
-													<a class="menu-link active" href="index.php">
+													<a class="menu-link active" href="panel/index.php">
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
