@@ -46,7 +46,6 @@
 							<!--begin::Aside menu-->
 							<?php include_once 'menu-panel.php'?>
 							<!--end::Footer-->
-						
 						<!--end::Aside-->
 						<!--begin::Container-->
 						<div class="d-flex flex-column flex-column-fluid container-fluid">
