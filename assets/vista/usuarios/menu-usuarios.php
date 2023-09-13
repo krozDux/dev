@@ -17,7 +17,7 @@
 												<span class="menu-title">Panel</span>
 												<span class="menu-arrow"></span>
 											</span>
-											<div class="menu-sub menu-sub-accordion menu-active-bg">
+											<div class="menu-sub menu-sub-accordion menu-bg">
 												<div class="menu-item">
 													<a class="menu-link" href="panel/index.php">
 														<span class="menu-bullet">
