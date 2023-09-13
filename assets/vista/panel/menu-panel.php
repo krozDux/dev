@@ -56,7 +56,6 @@
 													</span>
 												</span>
 												<span class="menu-title">Proveedores</span>
-											</span>
 										</div>
 										<div  class="menu-item">
 											<a class="menu-link" href="contratos/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los contratos">
@@ -70,7 +69,6 @@
 													</span>
 												</span>
 												<span class="menu-title">Contratos</span>
-											</span>
 										</div>
 										<div  class="menu-item">
 											<a class="menu-link" href="contratos/reportes.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Reportes de los contratos">
@@ -83,7 +81,6 @@
 															<path opacity="0.3" d="M17.2929 8.70711C17.6834 8.31658 18.3166 8.31658 18.7071 8.70711L21.2929 11.2929C21.6834 11.6834 21.6834 12.3166 21.2929 12.7071L18.7071 15.2929C18.3166 15.6834 17.6834 15.6834 17.2929 15.2929L14.7071 12.7071C14.3166 12.3166 14.3166 11.6834 14.7071 11.2929L17.2929 8.70711Z" fill="currentColor"></path>
 														</svg>
 													</span>
-												</span>
 												<span class="menu-title">Reportes</span>
 											</span>
 										</div>
