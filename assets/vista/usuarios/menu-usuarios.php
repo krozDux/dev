@@ -1,4 +1,6 @@
-<div class="aside-menu flex-column-fluid px-5">
+<div id="kt_aside" class="aside card" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
+							<div class="aside-menu flex-column-fluid px-5">
+								<div class="aside-menu flex-column-fluid px-5">
 								<div class="hover-scroll-overlay-y my-5 pe-4 me-n4" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_header, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu" data-kt-scroll-offset="{lg: '75px'}">
 									<div class="menu menu-column menu-rounded fw-bold fs-6" id="#kt_aside_menu" data-kt-menu="true">
 										<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
@@ -27,6 +29,7 @@
 												</div>
 											</div>
 										</div>
+										<?php  if ($rol != "invitado") { ?>
 										<div class="menu-item">
 											<div class="menu-content pt-8 pb-2">
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE CONTRATOS</span>
@@ -43,8 +46,9 @@
 													</span>
 												</span>
 												<span class="menu-title">Clientes</span>
-											</span>
+										</a>
 										</div>
+
 										<div  class="menu-item">
 											<a class="menu-link" href="contratos/proveedores.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los proveedores">
 												<span class="menu-icon">
@@ -56,7 +60,7 @@
 													</span>
 												</span>
 												<span class="menu-title">Proveedores</span>
-											</span>
+											</a>
 										</div>
 										<div  class="menu-item">
 											<a class="menu-link" href="contratos/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los contratos">
@@ -70,7 +74,7 @@
 													</span>
 												</span>
 												<span class="menu-title">Contratos</span>
-											</span>
+											</a>
 										</div>
 										<div  class="menu-item">
 											<a class="menu-link" href="contratos/reportes.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Reportes de los contratos">
@@ -85,7 +89,7 @@
 													</span>
 												</span>
 												<span class="menu-title">Reportes</span>
-											</span>
+											</a>
 										</div>
 										<div class="menu-item">
 											<div class="menu-content pt-8 pb-2">
@@ -103,7 +107,7 @@
 													</span>
 												</span>
 												<span class="menu-title">Proyectos</span>
-											</span>
+											</a>
 										</div>
 										<div  class="menu-item">
 											<a class="menu-link" href="proyectos/recursos.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de recursos">
@@ -117,7 +121,7 @@
 													</span>
 												</span>
 												<span class="menu-title">Recursos</span>
-											</span>
+											</a>
 										</div>
 										<div  class="menu-item">
 											<a class="menu-link" href="proyectos/riesgos.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de riesgos">
@@ -130,7 +134,7 @@
 													</span>
 												</span>
 												<span class="menu-title">Riesgos</span>
-											</span>
+											</a>
 										</div>
 										<div class="menu-item">
 											<div class="menu-content pt-8 pb-2">
@@ -149,7 +153,7 @@
 													</span>
 												</span>
 												<span class="menu-title">Contratos</span>
-											</span>
+											</a>
 										</div>
 										<div  class="menu-item">
 											<a class="menu-link" href="plantillas/proyectos.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar plantilla de proyectos">
@@ -163,8 +167,9 @@
 													</span>
 												</span>
 												<span class="menu-title">Proyectos</span>
-											</span>
+											</a>
 										</div>
+
 										<div class="menu-item">
 											<div class="menu-content pt-8 pb-2">
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE DOCUMENTOS</span>
@@ -182,7 +187,7 @@
 													</span>
 												</span>
 												<span class="menu-title">Documentos</span>
-											</span>
+											</a>
 										</div>
 										<div  class="menu-item">
 											<a class="menu-link" href="documentos/reportes.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar usuarios">
@@ -197,8 +202,10 @@
 													</span>
 												</span>
 												<span class="menu-title">Reportes</span>
-											</span>
+											</a>
 										</div>
+
+							
 										<div class="menu-item">
 											<div class="menu-content pt-8 pb-2">
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE AUTENTIFICACIÓN</span>
@@ -215,9 +222,10 @@
 													</span>
 												</span>
 												<span class="menu-title">Usuarios</span>
-											</span>
+											</a>
 										</div>
 									</div>
+									<?php } ?>
 								</div>
 							</div>
 							<div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
@@ -226,3 +234,5 @@
 								</a>
 							</div>
 							</div>
+							</div>
+							

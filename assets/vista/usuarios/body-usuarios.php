@@ -35,10 +35,9 @@
 						</div>
 					</div>
 					<div class="d-flex flex-column-fluid">
-						<div id="kt_aside" class="aside card" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
-							<div class="aside-menu flex-column-fluid px-5">
+						
 								<?php include_once 'menu-usuarios.php'?>
-						</div>
+						
 						<div class="d-flex flex-column flex-column-fluid container-fluid">
 							<div class="toolbar mb-2 mb-lg-2" id="kt_toolbar">
 								<div class="page-title d-flex flex-column me-3 mb-1">
