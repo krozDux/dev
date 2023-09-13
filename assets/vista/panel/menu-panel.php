@@ -28,7 +28,7 @@
 											</div>
 										</div>
 										<?php  if ($rol != "invitado") { ?>
-											<div class="menu-item">
+										<div class="menu-item">
 											<div class="menu-content pt-8 pb-2">
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE CONTRATOS</span>
 											</div>
@@ -44,7 +44,6 @@
 													</span>
 												</span>
 												<span class="menu-title">Clientes</span>
-											</span>
 										</div>
 										<div  class="menu-item">
 											<a class="menu-link" href="contratos/proveedores.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los proveedores">
