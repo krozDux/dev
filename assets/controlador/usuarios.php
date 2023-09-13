@@ -119,7 +119,7 @@ if (!empty($_POST['btnreset'])) {
         echo $fecha;
         echo $nombres;
         echo $resetId;
-        $consulta4 = "INSERT `resetPasswords` (`reset`,`fecha`,`idUsuario`) VALUES ('$nombres','$fecha','$resetId')";
+        $consulta4 = "INSERT `resetPasswords` (`reset`,`fecha`,`idUsuario`) VALUES ('$nombres.' '.$apellidos','$fecha','$resetId')";
         $resultado4 = mysqli_query($con, $consulta4);
         header("location: index.php");
 }}
