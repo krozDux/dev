@@ -4,17 +4,10 @@
 	<?php include_once '../assets/vista/usuarios/head-usuarios.php'?>
 	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
 		<?php include_once '../assets/vista/usuarios/body-usuarios.php'?>
-		<!--end::Modal - Invite Friend-->
-		<!--end::Modals-->
-		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
-		<!--begin::Global Javascript Bundle(used by all pages)-->
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
-		<!--end::Global Javascript Bundle-->
-		<!--begin::Page Vendors Javascript(used by this page)-->
 		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
-		
 		<script>
 		$(document).ready(function () {
 			$('#kt_table_users').DataTable({
@@ -29,7 +22,6 @@
 							'</span>Registrar',
 						className: 'btn btn-primary',
 						action: function (e, dt, node, config) {
-							// Obtiene los datos de la fila correspondiente
 							$('#kt_modal_add_user').modal('show');
 						}
 					},
@@ -67,15 +59,11 @@
 		});
 	
 		</script>
-		<!--end::Page Vendors Javascript-->
-		<!--begin::Page Custom Javascript(used by this page)-->
 		<script src="assets/js/widgets.bundle.js"></script>
 		<script src="assets/js/custom/widgets.js"></script>
 		<script src="assets/js/custom/apps/chat/chat.js"></script>
 		<script src="assets/js/custom/utilities/modals/create-app.js"></script>
 		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
-		<!--end::Page Custom Javascript-->
-		<!--end::Javascript-->
 		<script>
 		$('.del-usuario').on('click', function() {
 			var id = $(this).data('id');
@@ -86,8 +74,6 @@
 			$('#delId').val(id);
     		$('#delNombres').val(nombres + " " + apellidos);
     		$('#delRol').val(rolM);
-
-			// Muestra el formulario de edición (puedes personalizar el método para mostrarlo)
 			$('#kt_modal_remove_user').modal('show');
 		});
 		</script>
@@ -115,7 +101,6 @@
 		</script>
 
 		<script>
-
 		$('.modal-close').on('click', function() {
 			$('#kt_modal_remove_user').modal('hide');
 			$('#kt_modal_add_user').modal('hide');
@@ -123,5 +108,4 @@
 		});
 		</script>
 	</body>
-	<!--end::Body-->
 </html>

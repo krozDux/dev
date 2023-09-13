@@ -146,42 +146,24 @@
 																			</div>
 																		</div>
 																		<div class='separator separator-dashed my-5'></div>
-																		<!--begin::Input row-->
 																		<div class="d-flex fv-row">
-																			<!--begin::Radio-->
 																			<div class="form-check form-check-custom form-check-solid">
-																				<!--begin::Input-->
 																				<input class="form-check-input me-3" name="user_role" type="radio" value="3" id="kt_modal_update_role_option_3" />
-																				<!--end::Input-->
-																				<!--begin::Label-->
 																				<label class="form-check-label" for="kt_modal_update_role_option_3">
 																					<div class="fw-bolder text-gray-800">Support</div>
 																				</label>
-																				<!--end::Label-->
 																			</div>
-																			<!--end::Radio-->
 																		</div>
-																		<!--end::Input row-->
 																		<div class='separator separator-dashed my-5'></div>
-																		<!--begin::Input row-->
 																		<div class="d-flex fv-row">
-																			<!--begin::Radio-->
 																			<div class="form-check form-check-custom form-check-solid">
-																				<!--begin::Input-->
 																				<input class="form-check-input me-3" name="user_role" type="radio" value="4" id="kt_modal_update_role_option_4" />
-																				<!--end::Input-->
-																				<!--begin::Label-->
 																				<label class="form-check-label" for="kt_modal_update_role_option_4">
 																					<div class="fw-bolder text-gray-800">Trial</div>
 																				</label>
-																				<!--end::Label-->
 																			</div>
-																			<!--end::Radio-->
 																		</div>
-																		<!--end::Input row-->
-																		<!--end::Roles-->
 																	</div>
-																	<!--end::Input group-->
 																</div>
 																<div class="text-center pt-15">
 																	<button type="reset" class="btn btn-light me-3">Discard</button>
@@ -256,7 +238,6 @@
 																		<label class="required fw-bold fs-6 mb-2">Número</label>
 																		<input type="text" name="numero" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editNumero"/>
 																	</div>
-																	<!--end::Input group-->
 																</div>
 																<div class="text-center pt-6">
 																
