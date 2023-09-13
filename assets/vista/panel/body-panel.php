@@ -43,11 +43,10 @@
 					<!--begin::Content wrapper-->
 					<div class="d-flex flex-column-fluid">
 						<!--begin::Aside-->
-						<div id="kt_aside" class="aside card" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
 							<!--begin::Aside menu-->
 							<?php include_once 'menu-panel.php'?>
 							<!--end::Footer-->
-						</div>
+						
 						<!--end::Aside-->
 						<!--begin::Container-->
 						<div class="d-flex flex-column flex-column-fluid container-fluid">
