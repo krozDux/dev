@@ -115,7 +115,7 @@ if (!empty($_POST['btnreset'])) {
         $consulta3 = "UPDATE `usuarios` SET `pass`='$hashedPassword2' where id='$resetId'";
         $resultado3 = mysqli_query($con, $consulta3);
 
-        $fecha = date('m/d/Y h:i:s a', time());
+        $fecha = date('Y-m-d H:i:s');
         echo $fecha;
         echo $nombres;
         echo $resetId;
