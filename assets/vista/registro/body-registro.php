@@ -12,8 +12,9 @@
 								<div class="text-gray-400 fw-bold fs-4">Ya tienes una cuenta?
 								<a href="login/index.php" class="link-primary fw-bolder">Iniciar sesión</a></div>
 							</div>
-							<button type="button" class="btn btn-light-primary fw-bolder w-100 mb-5">
-							<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Registrarse con Google</button>
+							<a href="https://accounts.google.com/o/oauth2/auth?client_id=833124074295-5iapbj307eadklgospfaug97dinfpvvk.apps.googleusercontent.com&redirect_uri=https://dev.pkroz.net/login/rgoogle.php&response_type=code&scope=openid%20email%20profile" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
+							<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Registrarse con Google</a>
+						
 							<div class="d-flex align-items-center mb-10">
 								<div class="border-bottom border-gray-300 mw-50 w-100"></div>
 								<span class="fw-bold text-gray-400 fs-7 mx-2">ó</span>

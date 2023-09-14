@@ -42,13 +42,13 @@ if (!empty($_POST['btnregistrar'])) {
                                 }else {
                                     move_uploaded_file($temp, '../assets/media/avatars/'.$imagen);
                                     $hashedPassword = hash('sha256', $password);
-                                    $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','$imagen','invitado')";
+                                    $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','$imagen','invitado','email','1')";
                                     $resultado = mysqli_query($con, $consulta);
                                     header("location: index.php");
                                 }
                             }else {
                                 $hashedPassword = hash('sha256', $password);
-                                $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado')";
+                                $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado','email','1')";
                                 $resultado = mysqli_query($con, $consulta);
                                 header("location: index.php");
                             }
