@@ -1,8 +1,7 @@
-<?php require_once('auth.php') ?>
-<?php require_once('vendor/autoload.php') ?>
+<?php require_once('../vendor/autoload.php') ?>
 <?php
-$clientID = "899232069625-i9nb4pl8gp7upnteihjosea4r7p362ds.apps.googleusercontent.com";
-$secret = "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";
+$clientID = "833124074295-5iapbj307eadklgospfaug97dinfpvvk.apps.googleusercontent.com";
+$secret = "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";
 
 // Google API Client
 $gclient = new Google_Client();
