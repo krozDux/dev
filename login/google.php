@@ -38,6 +38,7 @@ $resultado_email = mysqli_query($con, $consulta_email);
     $hashedPassword = hash('sha256', $password);
     $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado')";
     $resultado = mysqli_query($con, $consulta);
+    header("location: panel/index.php");
                         }
                           else {
                             echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
