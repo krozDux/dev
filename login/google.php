@@ -3,7 +3,7 @@ include('../config.php');
 $code = $_GET['code'];
 $client_id = '833124074295-5iapbj307eadklgospfaug97dinfpvvk.apps.googleusercontent.com';
 $client_secret = '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';
-$redirect_uri = 'https://dev.pkroz.net/login/index.php';
+$redirect_uri = 'https://dev.pkroz.net/login/google.php';
 
 $url = 'https://accounts.google.com/o/oauth2/token';
 $post_data = [
@@ -53,3 +53,13 @@ $resultado_email = mysqli_query($con, $consulta_email);
                         </div>';
                         }
 ?>
+
+<!DOCTYPE html>
+<html lang="es">
+	<?php include_once '../assets/vista/login/head-login.php'?>
+	<body id="kt_body" class="bg-body">
+	<?php include_once '../assets/vista/login/body-login.php'?>
+		<script src="assets/plugins/global/plugins.bundle.js"></script>
+		<script src="assets/js/scripts.bundle.js"></script>
+	</body>
+	</html>
