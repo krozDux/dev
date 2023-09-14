@@ -38,6 +38,8 @@ $resultado_email = mysqli_query($con, $consulta_email);
     $hashedPassword = hash('sha256', $password);
     $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado')";
     $resultado = mysqli_query($con, $consulta);
+    session_start();
+    $_SESSION['email'] = $email;
     header("location: ../panel/index.php");
                         }
                           else {
