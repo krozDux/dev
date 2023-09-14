@@ -3,7 +3,7 @@ include('../config.php');
 $code = $_GET['code'];
 $client_id = '833124074295-5iapbj307eadklgospfaug97dinfpvvk.apps.googleusercontent.com';
 $client_secret = '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';
-$redirect_uri = 'https://dev.pkroz.net/login/google.php';
+$redirect_uri = 'https://dev.pkroz.net/login/index.php';
 
 $url = 'https://accounts.google.com/o/oauth2/token';
 $post_data = [

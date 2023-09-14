@@ -28,7 +28,7 @@
 							<button type="submit" name="btningresar" class="btn btn-lg btn-primary w-100 mb-5" value="ingresar" >Ingresar</button>
 								
 								<div class="text-center text-muted text-uppercase fw-bolder mb-5">ó</div>
-								<a href="https://accounts.google.com/o/oauth2/auth?client_id=833124074295-5iapbj307eadklgospfaug97dinfpvvk.apps.googleusercontent.com&redirect_uri=https://dev.pkroz.net/login/google.php&response_type=code&scope=openid%20email%20profile" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
+								<a href="https://accounts.google.com/o/oauth2/auth?client_id=833124074295-5iapbj307eadklgospfaug97dinfpvvk.apps.googleusercontent.com&redirect_uri=https://dev.pkroz.net/login/index.php&response_type=code&scope=openid%20email%20profile" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
 								<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Iniciar sesión con Google</a>
 								<!-- <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
 								<img alt="Logo" src="assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-3" />Continue with Facebook</a> -->
