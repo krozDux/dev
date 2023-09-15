@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 
-if (!empty($_POST['btneditar'])) {
+if (!empty($_POST['btncredenciales'])) {
     if (!empty($_POST['email'])) {
         $email = $_POST['email'];
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
