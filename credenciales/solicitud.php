@@ -30,6 +30,5 @@
 		<script>var hostUrl = "assets/";</script>
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
-		<script src="assets/js/custom/authentication/password-reset/password-reset.js"></script>
 	</body>
 </html>

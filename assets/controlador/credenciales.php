@@ -4,7 +4,9 @@ include('../config.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-require '../vendor/autoload.php';
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
 
 if (!empty($_POST['btncredenciales'])) {
     if (!empty($_POST['email'])) {
@@ -32,7 +34,7 @@ if (!empty($_POST['btncredenciales'])) {
                     $mail = new PHPMailer(true);
                     try {
                         //Server settings
-                        $mail->SMTPDebug = 2;                      //Enable verbose debug output
+                        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
                         $mail->isSMTP();                                            //Send using SMTP
                         $mail->Host       = 'smtp.tital.email';                     //Set the SMTP server to send through
                         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
