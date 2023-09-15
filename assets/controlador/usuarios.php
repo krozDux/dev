@@ -101,7 +101,7 @@ if (!empty($_POST['btneditar'])) {
 if (!empty($_POST['btneliminar'])) {
     if (!empty($_POST['id'])) {
         $id = $_POST['id'];
-        $consulta2 = "DELETE FROM usuarios WHERE id = '$id'";
+        $consulta2 = "UPDATE `usuarios` SET `estado`='2' where id='$id'";
         $resultado2 = mysqli_query($con, $consulta2);
         header("location: index.php");
 }}
