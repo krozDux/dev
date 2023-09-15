@@ -1,6 +1,6 @@
 <?php
 include('../config.php');
-$sql1 = ("SELECT * FROM usuarios");
+$sql1 = ("SELECT * FROM usuarios WHERE estado = 1");
 $query1 = mysqli_query($con, $sql1);
 ?>
 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
