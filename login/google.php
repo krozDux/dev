@@ -38,18 +38,23 @@ $resultado_email = mysqli_query($con, $consulta_email);
     $hashedPassword = hash('sha256', $password);
     $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado')";
     $resultado = mysqli_query($con, $consulta);
-    header("location: index.php");
+    session_start();
+    $_SESSION['email'] = $email;
+    header("location:../panel/index.php");
                         }
                           else {
-                            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
-                            <div class="toast-header">
-                                <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
-                                <strong class="me-auto">Alerta</strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                            </div>
-                            <div class="toast-body">
-                                El correo electrónico ya está registrado. Por favor, elija otro correo.
-                            </div>
-                        </div>';
+                            session_start();
+            $_SESSION['email'] = $email;
+            header("location:../panel/index.php");
                         }
 ?>
+
+<!DOCTYPE html>
+<html lang="es">
+	<?php include_once '../assets/vista/login/head-login.php'?>
+	<body id="kt_body" class="bg-body">
+	<?php include_once '../assets/vista/login/body-login.php'?>
+		<script src="assets/plugins/global/plugins.bundle.js"></script>
+		<script src="assets/js/scripts.bundle.js"></script>
+	</body>
+	</html>
