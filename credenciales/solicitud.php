@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+<?php include '../assets/controlador/credenciales.php'?>
 	<?php include_once '../assets/vista/credenciales/head-solicitud.php'?>
 	<body id="kt_body" class="bg-body">
 		<div class="d-flex flex-column flex-root">
@@ -30,6 +31,6 @@
 		<script>var hostUrl = "assets/";</script>
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
-		<?php include '../assets/controlador/credenciales.php'?>
+		
 	</body>
 </html>
