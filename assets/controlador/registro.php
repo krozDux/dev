@@ -31,15 +31,15 @@ if (!empty($_POST['btnregistrar'])) {
                             $extensiones_permitidas = array('png', 'jpg', 'jpeg');
 
                             if (in_array(strtolower($extension), $extensiones_permitidas)) {
-                                // Renombrar la imagen con la ID del usuario
+                                $hashedPassword = hash('sha256', $password);
+                                $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','$nuevo_nombre_imagen','invitado','email','1')";
+                                $resultado = mysqli_query($con, $consulta);
                                 $id_usuario = mysqli_insert_id($con);
                                 $nuevo_nombre_imagen = $id_usuario . '.' . $extension;
                                 $ruta_imagen = '../assets/media/avatars/' . $nuevo_nombre_imagen;
                                 move_uploaded_file($imagen_tmp, $ruta_imagen);
-
-                                $hashedPassword = hash('sha256', $password);
-                                $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','$nuevo_nombre_imagen','invitado','email','1')";
-                                $resultado = mysqli_query($con, $consulta);
+                                $consulta33 = "UPDATE `usuarios` SET `imagen`='$nuevo_nombre_imagen' where id='$id_usuario'";
+                                $resultado2 = mysqli_query($con, $consulta33);
                                 header("location: index.php");
                             } else {
                                 // Mostrar un mensaje de error si el tipo de archivo no es válido
