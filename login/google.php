@@ -43,9 +43,7 @@ $resultado_email = mysqli_query($con, $consulta_email);
     echo $email;
                         }
                           else {
-                            session_start();
-                            $_SESSION['email'] = $email;
-                            echo $email;
+                              echo "gaa";
                         }
 ?>
 
