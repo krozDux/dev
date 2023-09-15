@@ -23,7 +23,7 @@
 						<div style="border-bottom: 1px solid #eeeeee; margin: 15px 0"></div>
 						<div style="padding-bottom: 50px; word-wrap: break-all;">
 							<p style="margin-bottom: 10px;">Button not working? Try pasting this URL into your browser:</p>
-							<a href="https://keenthemes.com/password/reset/07579ae29b6?email=max%40kt.com" rel="noopener" target="_blank" style="text-decoration:none;color: #50CD89">https://keenthemes.com/account/password/reset/07579ae29b6?email=max%40kt.com</a>
+							<a href="{{url}}" rel="noopener" target="_blank" style="text-decoration:none;color: #50CD89">{{url}}</a>
 						</div>
 						<div style="padding-bottom: 10px">Kind regards,
 						<br>The Keenthemes Team.
