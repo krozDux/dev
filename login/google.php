@@ -1,8 +1,8 @@
 <?php
 include('../config.php');
 $code = $_GET['code'];
-$client_id = '833124074295-5iapbj307eadklgospfaug97dinfpvvk.apps.googleusercontent.com';
-$client_secret = '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';
+$client_id = '638975191598-dbkahvb86h4pnovdcnjln9i8r34hlcrn.apps.googleusercontent.com';
+$client_secret = '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';
 $redirect_uri = 'https://dev.pkroz.net/login/google.php';
 
 $url = 'https://accounts.google.com/o/oauth2/token';
