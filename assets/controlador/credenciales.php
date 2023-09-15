@@ -3,6 +3,7 @@ include('../config.php');
 
 if (!empty($_POST['btncredenciales'])) {
     if (!empty($_POST['email'])) {
+        $email = $_POST['email'];
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $consulta_email = "SELECT * FROM usuarios WHERE email = '$email'";
                 $resultado_email = mysqli_query($con, $consulta_email);
