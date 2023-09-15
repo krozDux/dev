@@ -16,7 +16,7 @@
 							</div>
 							<div class="fv-row mb-10">
 								<label class="form-label fw-bolder text-gray-900 fs-6">Email</label>
-								<input class="form-control form-control-solid" type="email" placeholder="" name="email" autocomplete="off" />
+								<input class="form-control form-control-solid" type="email"  name="email"  />
 							</div>
 							<div class="d-flex flex-wrap justify-content-center pb-lg-0">
 							<button type="submit" name="btncredenciales" class="btn btn-lg btn-primary fw-bolder me-4" value="credenciales" >Enviar</button>
