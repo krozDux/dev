@@ -1,8 +1,7 @@
 <?php
-include('../config.php');
 $code = $_GET['code'];
-$client_id = '638975191598-dbkahvb86h4pnovdcnjln9i8r34hlcrn.apps.googleusercontent.com';
-$client_secret = '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';
+$client_id = '833124074295-5iapbj307eadklgospfaug97dinfpvvk.apps.googleusercontent.com';
+$client_secret = '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';
 $redirect_uri = 'https://dev.pkroz.net/login/google.php';
 
 $url = 'https://accounts.google.com/o/oauth2/token';
@@ -36,23 +35,20 @@ $resultado_email = mysqli_query($con, $consulta_email);
   if (mysqli_num_rows($resultado_email) == 0) {
     $password = 'Google1234.';
     $hashedPassword = hash('sha256', $password);
-    $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`,'metodoLogin','estado') VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado','email','1')";
+    $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado')";
     $resultado = mysqli_query($con, $consulta);
-    session_start();
-    $_SESSION['email'] = $email;
-    echo $email;
+    header("location: index.php");
                         }
                           else {
-                              echo "gaa";
+                            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
+                                <strong class="me-auto">Alerta</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                El correo electrónico ya está registrado. Por favor, elija otro correo.
+                            </div>
+                        </div>';
                         }
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-	<?php include_once '../assets/vista/login/head-login.php'?>
-	<body id="kt_body" class="bg-body">
-	<?php include_once '../assets/vista/login/body-login.php'?>
-		<script src="assets/plugins/global/plugins.bundle.js"></script>
-		<script src="assets/js/scripts.bundle.js"></script>
-	</body>
-	</html>
