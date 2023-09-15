@@ -36,7 +36,7 @@ $resultado_email = mysqli_query($con, $consulta_email);
   if (mysqli_num_rows($resultado_email) == 0) {
     $password = 'Google1234.';
     $hashedPassword = hash('sha256', $password);
-    $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado')";
+    $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`,`metodoLogin`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado','google')";
     $resultado = mysqli_query($con, $consulta);
     session_start();
     $_SESSION['email'] = $email;
