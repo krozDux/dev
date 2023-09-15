@@ -6,7 +6,7 @@ if (!empty($_POST['btningresar'])){
         $password = $_POST['password'];
         $hashedPassword = hash('sha256', $password);
         // Utilizar una consulta preparada
-        $sql = "SELECT * FROM `usuarios` WHERE email = ? AND pass = ?";
+        $sql = "SELECT * FROM `usuarios` WHERE email = ? AND pass = ? AND estado = 1";
         $stmt = mysqli_prepare($con, $sql);
         mysqli_stmt_bind_param($stmt, "ss", $email, $hashedPassword);
         mysqli_stmt_execute($stmt);
