@@ -19,7 +19,7 @@
 							<div class="fv-row mb-10">
 								<div class="d-flex flex-stack mb-2">
 									<label class="form-label fw-bolder text-dark fs-6 mb-0">Contraseña</label>
-									<a href="../../demo14/dist/authentication/layouts/basic/password-reset.html" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
+									<a href="../credenciales/solicitud.php" class="link-primary fs-6 fw-bolder">Recuperar contraseña</a>
 								</div>
 								<input class="form-control form-control-lg form-control-solid" type="password" name="password" minlength="8" required />
 								<div class="fv-plugins-message-container"></div>
