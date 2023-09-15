@@ -31,9 +31,13 @@ $google_id = $user_info['id'];
 $nombres = $user_info['given_name'];
 $apellidos = $user_info['family_name'];
 $email = $user_info['email'];
-$consulta_email = "SELECT * FROM usuarios WHERE email = '$email' and metodoLogin = 'google'";
+$consulta_email = "SELECT * FROM usuarios WHERE email = '$email'";
 $resultado_email = mysqli_query($con, $consulta_email);
   if (mysqli_num_rows($resultado_email) == 0) {
+    $password = 'Google1234.';
+    $hashedPassword = hash('sha256', $password);
+    $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`,'metodoLogin','estado') VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado','google','1')";
+    $resultado = mysqli_query($con, $consulta);
     echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
                                 <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
@@ -41,7 +45,7 @@ $resultado_email = mysqli_query($con, $consulta_email);
                                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                             </div>
                             <div class="toast-body">
-                                El correo electrónico no esta asociado con ninguna cuenta google en nuestro sistema, porfavor registrarlo.
+                                El correo electrónico ya está registrado. Por favor, elija otro correo.
                             </div>
                         </div>';
                         }
