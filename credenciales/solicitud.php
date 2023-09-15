@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-	<?php include_once '../assets/vista/login/head-solicitud.php'?>
+	<?php include_once '../assets/vista/credenciales/head-solicitud.php'?>
 	<body id="kt_body" class="bg-body">
 		<div class="d-flex flex-column flex-root">
 			<!--begin::Authentication - Password reset -->
