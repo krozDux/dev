@@ -30,5 +30,6 @@
 		<script>var hostUrl = "assets/";</script>
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
+		<?php include '../assets/controlador/credenciales.php'?>
 	</body>
 </html>
