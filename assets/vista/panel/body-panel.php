@@ -16,7 +16,11 @@
 									<img alt="Logo" src="assets/media/logos/logo-2.svg" class="h-25px h-lg-30px" />
 								</a>
 							</div>
-							
+							<div class="d-flex align-items-center flex-shrink-0">
+								<!--end::Activities-->
+								<?php include_once '../assets/controlador/header.php'?>
+								<!--end::User -->
+							</div>
 							<!--end::Topbar-->
 						</div>
 						<!--end::Container-->
