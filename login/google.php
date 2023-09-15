@@ -36,11 +36,11 @@ $resultado_email = mysqli_query($con, $consulta_email);
   if (mysqli_num_rows($resultado_email) == 0) {
     $password = 'Google1234.';
     $hashedPassword = hash('sha256', $password);
-    $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`,'metodoLogin','estado') VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado','google','1')";
+    $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`,'metodoLogin','estado') VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado','email','1')";
     $resultado = mysqli_query($con, $consulta);
     session_start();
     $_SESSION['email'] = $email;
-    header("location: ../panel/index.php");
+    echo $email;
                         }
                           else {
                             echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
