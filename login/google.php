@@ -1,8 +1,8 @@
 <?php
 include('../config.php');
 $code = $_GET['code'];
-$client_id = '833124074295-464rs0j1su1lj265gatf8ap68hefqfep.apps.googleusercontent.com';
-$client_secret = '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';
+$client_id = '833124074295-5iapbj307eadklgospfaug97dinfpvvk.apps.googleusercontent.com';
+$client_secret = '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';
 $redirect_uri = 'https://dev.pkroz.net/login/google.php';
 
 $url = 'https://accounts.google.com/o/oauth2/token';
@@ -38,7 +38,12 @@ $resultado_email = mysqli_query($con, $consulta_email);
     $hashedPassword = hash('sha256', $password);
     $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`,'metodoLogin','estado') VALUES ('$email','$hashedPassword','$nombres','$apellidos','blank.png','invitado','google','1')";
     $resultado = mysqli_query($con, $consulta);
-    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
+    session_start();
+    $_SESSION['email'] = $email;
+    header("location: ../panel/index.php");
+                        }
+                          else {
+                            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
                             <div class="toast-header">
                                 <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
                                 <strong class="me-auto">Alerta</strong>
@@ -48,11 +53,6 @@ $resultado_email = mysqli_query($con, $consulta_email);
                                 El correo electrónico ya está registrado. Por favor, elija otro correo.
                             </div>
                         </div>';
-                        }
-                          else {
-                          session_start();
-                          $_SESSION['email'] = $email;
-                          header("location: ../panel/index.php");
                         }
 ?>
 
