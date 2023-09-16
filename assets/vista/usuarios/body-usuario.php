@@ -44,7 +44,6 @@
 							</div>
 							<div class="content flex-column-fluid" id="kt_content">
 								<div class="card">
-									<div class="modal-dialog modal-dialog-centered mw-650px">
 													<div class="modal-content">
 														<div class="modal-header" id="kt_modal_add_user_header">
 															<h2 class="fw-bolder">Editar Usuario</h2>
@@ -122,7 +121,6 @@
 																</form>
 															</div>
 														</div>
-													</div>
 												</div>
 									</div>
 							</div>
