@@ -42,9 +42,7 @@
 									<h1 class="d-flex text-dark fw-bolder my-1 fs-3">Usuarios</h1>
 								</div>
 							</div>
-							<div class="content flex-column-fluid" id="kt_content">
-								<div class="card">
-									<div class="card-body py-4">
+									<div class="modal-dialog modal-dialog-centered mw-650px">
 													<div class="modal-content">
 														<div class="modal-header" id="kt_modal_add_user_header">
 															<h2 class="fw-bolder">Editar Usuario</h2>
@@ -122,9 +120,7 @@
 															</div>
 														</div>
 													</div>
-									</div>
-								</div>
-							</div>
+												</div>
 							<div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
 								<div class="text-dark order-2 order-md-1">
 									<span class="text-muted fw-bold me-1">2022©</span>
