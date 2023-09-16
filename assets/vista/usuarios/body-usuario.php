@@ -45,7 +45,6 @@
 							<div class="content flex-column-fluid" id="kt_content">
 								<div class="card">
 									<div class="card-body py-4">
-									<div class="modal-dialog modal-dialog-centered mw-650px">
 													<div class="modal-content">
 														<div class="modal-header" id="kt_modal_add_user_header">
 															<h2 class="fw-bolder">Editar Usuario</h2>
@@ -105,8 +104,6 @@
 																	</div>
 																</div>
 																<div class="text-center pt-6">
-																
-																
 																	<button class="btn btn-light me-3 modal-close">Cancelar</button>
 																	<button type="submit" class="btn btn-success">
 																		<span class="indicator-label" name="btneditar" value="editar">Guardar</span>
@@ -125,7 +122,6 @@
 															</div>
 														</div>
 													</div>
-												</div>
 									</div>
 								</div>
 							</div>
