@@ -109,12 +109,12 @@
 																		</div>
 																		<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
 																	</div>
-																	<div class="fv-row mb-4">
-																		<div class="col-xl-2">
+																	<div class="row fv-row mb-4">
+																		<div class="col-xl-6">
 																			<label class="form-label fw-bolder text-dark fs-6">Nombres</label>
 																			<input type="text" name="crearNombres" class="form-control form-control-solid mb-3 mb-lg-0" id="crearNombres" required/>
 																		</div>
-																		<div class="col-xl-2">
+																		<div class="col-xl-6">
 																			<label class="form-label fw-bolder text-dark fs-6">Nombres</label>
 																			<input type="text" name="crearNombres" class="form-control form-control-solid mb-3 mb-lg-0" id="crearNombres" required/>
 																		</div>
