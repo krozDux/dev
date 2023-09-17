@@ -98,7 +98,7 @@ $query2 = mysqli_query($con, $sql2);
                                 data-id="<?php echo $dataUsuario2['id']; ?>"
                                 data-nombres="<?php echo $dataUsuario2['nombres']; ?>"
                                 data-apellidos="<?php echo $dataUsuario2['apellidos']; ?>"
-                                data-rol="<?php echo $dataUsuario2['rol']; ?>">Eliminar</buttton>
+                                data-rol="<?php echo $dataUsuario2['rol']; ?>"><?php echo $dataUsuario2['direccion']; ?> Eliminar</buttton>
                         </div>
                     </div>
             </td>

@@ -87,10 +87,10 @@
 			var email = $(this).data('email');
 			var nombres = $(this).data('nombres');
 			var apellidos = $(this).data('apellidos');
+			var direccion = $(this).data('direccion');
 			var rol = $(this).data('rol');
 			const rolM = rol.charAt(0).toUpperCase() + rol.slice(1);
 			var numero = $(this).data('numero');
-			var direccion = $(this).data('direccion');
 			var imagen = $(this).data('imagen');
 			$('#editId').val(id);
 			$('#resetId').val(id);
