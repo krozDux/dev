@@ -200,12 +200,6 @@
 																		<label class="d-block fw-bold fs-6 mb-5">Avatar</label>
 																		<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/avatars/blank.png')">
 																			<div class="image-input-wrapper w-125px h-125px" id="editImagen" style="background-image: url(assets/media/avatars/blank.png);"></div>
-																			<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-																				<i class="bi bi-x fs-2"></i>
-																			</span>
-																			<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-																				<i class="bi bi-x fs-2"></i>
-																			</span>
 																		</div>
 																		<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
 																	</div>
