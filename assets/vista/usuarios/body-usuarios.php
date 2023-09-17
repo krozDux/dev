@@ -200,7 +200,7 @@
 																		<label class="d-block fw-bold fs-6 mb-5">Avatar</label>
 																		<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/avatars/blank.png')">
 																			<div class="image-input-wrapper w-125px h-125px" id="editImagen" style="background-image: url(assets/media/avatars/blank.png);"></div>
-																			<!-- <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+																			<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
 																				<i class="bi bi-pencil-fill fs-7"></i>
 																				<input type="file" name="imagen" accept=".png, .jpg, .jpeg" />
 																				<input type="hidden" name="avatar_remove" />
@@ -210,7 +210,7 @@
 																			</span>
 																			<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
 																				<i class="bi bi-x fs-2"></i>
-																			</span> -->
+																			</span> 
 																		</div>
 																		<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
 																	</div>
