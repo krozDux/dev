@@ -110,13 +110,18 @@
 																		<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
 																	</div>
 																	<div class="fv-row mb-4">
-																		<label class="fw-bold fs-6 mb-2">Nombres completos</label>
-																		<input type="text" name="crearNombres" class="form-control form-control-solid mb-3 mb-lg-0" id="crearNombres" />
-																		<input type="text" name="crearApellidos" class="form-control form-control-solid mb-3 mb-lg-0" id="crearApellidos" />
+																		<div class="col-xl-2">
+																			<label class="form-label fw-bolder text-dark fs-6">Nombres</label>
+																			<input type="text" name="crearNombres" class="form-control form-control-solid mb-3 mb-lg-0" id="crearNombres" required/>
+																		</div>
+																		<div class="col-xl-2">
+																			<label class="form-label fw-bolder text-dark fs-6">Nombres</label>
+																			<input type="text" name="crearNombres" class="form-control form-control-solid mb-3 mb-lg-0" id="crearNombres" required/>
+																		</div>
 																	</div>
 																	<div class="fv-row mb-4">
 																		<label class="required fw-bold fs-6 mb-2">Email</label>
-																		<input type="email" name="crearEmail" class="form-control form-control-solid mb-3 mb-lg-0" id="crearEmail" />
+																		<input type="email" name="crearEmail" class="form-control form-control-solid mb-3 mb-lg-0" id="crearEmail" required/>
 																	</div>
 																	<div class="fv-row mb-4">
 																		<label class="required fw-bold fs-6 mb-2">Rol</label>
@@ -131,7 +136,7 @@
 																	</div>
 																	<div class="fv-row mb-4">
 																		<label class="required fw-bold fs-6 mb-2">Número</label>
-																		<input type="text" name="crearNumero" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="crearNumero"/>
+																		<input type="text" name="crearNumero" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="crearNumero" required/>
 																	</div>
 																</div>
 																<div class="text-center pt-6">
