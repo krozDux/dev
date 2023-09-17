@@ -1,4 +1,4 @@
-<?php include '../assets/controlador/clientes.php'?>
+<?php include '../assets/controlador/usuarios.php'?>
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
@@ -45,23 +45,23 @@
             </div>
             <div class="d-flex flex-column-fluid">
 
-                <?php include_once 'menu-clientes.php'?>
+                <?php include_once 'menu-usuarios.php'?>
 
                 <div class="d-flex flex-column flex-column-fluid container-fluid">
                     <div class="toolbar mb-2 mb-lg-2" id="kt_toolbar">
                         <div class="page-title d-flex flex-column me-3 mb-1">
-                            <h1 class="d-flex text-dark fw-bolder my-1 fs-3">Clientes</h1>
+                            <h1 class="d-flex text-dark fw-bolder my-1 fs-3">Usuarios</h1>
                         </div>
                     </div>
                     <div class="content flex-column-fluid" id="kt_content">
                         <div class="card">
                             <div class="card-body py-4">
-                                <?php include_once 'tabla-clientes.php'?>
+                                <?php include_once 'tabla-usuarios.php'?>
                             </div>
                         </div>
                     </div>
                     <div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
-                        <?php include_once 'footer-clientes.php'?>
+                        <?php include_once 'footer-usuarios.php'?>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,20 @@
                         </div>
                         <div class="fv-row mb-4">
                             <label class="required fw-bold fs-6 mb-2">Email</label>
-                            <input type="email" name="editEmail" class="form-control form-control-solid mb-3 mb-lg-0" id="editEmail" />
+                            <input type="email" name="editEmail" class="form-control form-control-solid mb-3 mb-lg-0"
+                                id="editEmail" />
+                        </div>
+                        <div class="fv-row mb-4">
+                            <label class="required fw-bold fs-6 mb-2">Rol</label>
+                            <select class="form-select form-select-solid" name="editRol" id="editRol" tabindex="-1"
+                                aria-hidden="true" required>
+                                <option selected value="">Seleccionar un rol</option>
+                                <option id="admin" value="admin">Administrador</option>
+                                <option id="proveedor" value="proveedor">Proveedor</option>
+                                <option id="cliente" value="cliente">Cliente</option>
+                                <option id="usuario" value="usuario">Usuario</option>
+                                <option id="invitado" value="invitado">Invitado</option>
+                            </select>
                         </div>
                         <div class="fv-row mb-4">
                             <label class="required fw-bold fs-6 mb-2">Número</label>
@@ -234,22 +247,17 @@
                             <div class="form-text">Archivos permitidos: png, jpg, jpeg.</div>
                         </div>
                         <div class="row fv-row mb-4">
-                            <div class="col-xl-6">
+                            <div class="col-xl-4">
                                 <label class="form-label fw-bolder text-dark fs-6">Nombres</label>
                                 <input type="text" name="crearNombres"
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearNombres" required />
                             </div>
-                            <div class="col-xl-6">
+                            <div class="col-xl-4">
                                 <label class="form-label fw-bolder text-dark fs-6">Apellidos</label>
                                 <input type="text" name="crearApellidos"
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearApellidos" required />
                             </div>
-                            <div class="col-xl-6">
-                                <label class="form-label fw-bolder text-dark fs-6">Dirección</label>
-                                <input type="text" name="crearDireccion"
-                                    class="form-control form-control-solid mb-3 mb-lg-0" id="crearDireccion" required />
-                            </div>
-                            <div class="col-xl-6">
+                            <div class="col-xl-4">
                                 <label class="form-label fw-bolder text-dark fs-6">Número</label>
                                 <input type="text" name="crearNumero"
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearNumero" required />
@@ -262,8 +270,22 @@
                             <input type="text" name="crearPassword" value="User1234."
                                 class="form-control form-control-solid mb-3 mb-lg-0" id="crearPassword" hidden />
                         </div>
+                        <div class="fv-row mb-4">
+                            <label class="required fw-bold fs-6 mb-2">Rol</label>
+                            <select class="form-select form-select-solid" name="crearRol" id="crearRol" tabindex="-1"
+                                aria-hidden="true" required>
+                                <option selected value="">Seleccionar un rol</option>
+                                <option id="admin" value="admin">Administrador</option>
+                                <option id="proveedor" value="proveedor">Proveedor</option>
+                                <option id="cliente" value="cliente">Cliente</option>
+                                <option id="usuario" value="usuario">Usuario</option>
+                                <option id="invitado" value="invitado">Invitado</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="text-center pt-6">
+
+
                         <button class="btn btn-light me-3 modal-close">Cancelar</button>
                         <button type="submit" class="btn btn-success" name="btncrear" value="crearU">
                             <span class="indicator-label">Guardar</span>
