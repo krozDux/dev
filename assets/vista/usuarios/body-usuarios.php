@@ -1,4 +1,4 @@
-<?php include '../assets/controlador/usuarios.php'?>
+<?php include '../assets/controlador/clientes.php'?>
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
@@ -45,23 +45,23 @@
             </div>
             <div class="d-flex flex-column-fluid">
 
-                <?php include_once 'menu-usuarios.php'?>
+                <?php include_once 'menu-clientes.php'?>
 
                 <div class="d-flex flex-column flex-column-fluid container-fluid">
                     <div class="toolbar mb-2 mb-lg-2" id="kt_toolbar">
                         <div class="page-title d-flex flex-column me-3 mb-1">
-                            <h1 class="d-flex text-dark fw-bolder my-1 fs-3">Usuarios</h1>
+                            <h1 class="d-flex text-dark fw-bolder my-1 fs-3">Clientes</h1>
                         </div>
                     </div>
                     <div class="content flex-column-fluid" id="kt_content">
                         <div class="card">
                             <div class="card-body py-4">
-                                <?php include_once 'tabla-usuarios.php'?>
+                                <?php include_once 'tabla-clientes.php'?>
                             </div>
                         </div>
                     </div>
                     <div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
-                        <?php include_once 'footer-usuarios.php'?>
+                        <?php include_once 'footer-clientes.php'?>
                     </div>
                 </div>
             </div>
