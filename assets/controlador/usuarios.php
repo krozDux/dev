@@ -122,9 +122,9 @@ if (!empty($_POST['btnreset'])) {
 }}
 
 if (!empty($_POST['btneditar'])) {
-    if (!empty($_POST['id']) and !empty($_POST['nombre']) and !empty($_POST['email'])) {
-        $editId = $_POST['id'];
-        $editRol = $_POST['rol'];
+    if (!empty($_POST['editId']) and !empty($_POST['nombre']) and !empty($_POST['email'])) {
+        $editId = $_POST['editId'];
+        $editRol = $_POST['editRol'];
         $editNumero = $_POST['numero'];
         $imagen = $_FILES['imagen']['name'];
         if (isset($imagen) and $imagen!=""){

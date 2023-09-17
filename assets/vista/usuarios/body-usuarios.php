@@ -216,7 +216,7 @@
 																	</div>
 																	<div class="fv-row mb-4">
 																		<label class="fw-bold fs-6 mb-2">Nombres completos</label>
-																		<input type="text" name="id" class="form-control form-control-solid mb-3 mb-lg-0" id="editId" hidden />
+																		<input type="text" name="editId" class="form-control form-control-solid mb-3 mb-lg-0" id="editId" hidden/>
 																		<input type="text" name="nombre" class="form-control form-control-solid mb-3 mb-lg-0" id="editNombres" disabled/>
 																	</div>
 																	<div class="fv-row mb-4">
@@ -225,7 +225,7 @@
 																	</div>
 																	<div class="fv-row mb-4">
 																		<label class="required fw-bold fs-6 mb-2">Rol</label>
-																		<select class="form-select form-select-solid" name="rol" id="editRol" tabindex="-1" aria-hidden="true" required>
+																		<select class="form-select form-select-solid" name="editRol" id="editRol" tabindex="-1" aria-hidden="true" required>
 																			<option selected value="">Seleccionar un rol</option>
 																			<option id="admin" value="admin">Administrador</option>
 																			<option id="proveedor" value="proveedor">Proveedor</option>
