@@ -104,16 +104,6 @@
                                     <input type="file" name="imagen" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="avatar_remove" />
                                 </label>
-                                <span
-                                    class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancelar imagen">
-                                    <i class="bi bi-x fs-2"></i>
-                                </span>
-                                <span
-                                    class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Elimnar imagen">
-                                    <i class="bi bi-x fs-2"></i>
-                                </span>
                             </div>
                             <div class="form-text">Archivos permitidos: png, jpg, jpeg.</div>
                         </div>
