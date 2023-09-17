@@ -20,15 +20,15 @@ if (!isset($_SESSION['email'])) {
     header('Location: ../login/index.php');
     exit();
 } else {
-	$email = $_SESSION['email'];
-    $sqlUser= ("SELECT * FROM `usuarios` where email = '$email'");
+	$session_email = $_SESSION['email'];
+    $sqlUser= ("SELECT * FROM `usuarios` where email = '$session_email'");
     $queryUser = mysqli_query($con, $sqlUser);
     while ($dataUser = mysqli_fetch_array($queryUser)) {
-        $id = $dataUser['id']; 
-        $nombres = $dataUser['nombres']; 
-        $apellidos = $dataUser['apellidos'];
-        $imagen = $dataUser['imagen'];
-        $rol = $dataUser['rol'];
+        $session_id = $dataUser['id']; 
+        $session_nombres = $dataUser['nombres']; 
+        $session_apellidos = $dataUser['apellidos'];
+        $session_imagen = $dataUser['imagen'];
+        $session_rol = $dataUser['rol'];
     }
 }
 ?>
