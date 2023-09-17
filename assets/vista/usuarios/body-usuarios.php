@@ -216,7 +216,7 @@
 																	</div>
 																	<div class="fv-row mb-4">
 																		<label class="fw-bold fs-6 mb-2">Nombres completos</label>
-																		<input type="text" name="id" class="form-control form-control-solid mb-3 mb-lg-0" id="editId" hidden disabled/>
+																		<input type="text" name="id" class="form-control form-control-solid mb-3 mb-lg-0" id="editId" hidden />
 																		<input type="text" name="nombre" class="form-control form-control-solid mb-3 mb-lg-0" id="editNombres" disabled/>
 																	</div>
 																	<div class="fv-row mb-4">

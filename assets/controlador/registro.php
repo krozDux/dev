@@ -25,8 +25,7 @@ if (!empty($_POST['btnregistrar'])) {
                             if (isset($imagen) and $imagen!=""){
                                     $tipo = $_FILES['imagen']['type'];
                                     $temp = $_FILES['imagen']['tmp_name'];
-                                    
-                                    // $extension = pathinfo($imagen,PATHINFO_EXTENSION);
+                                    $extension = pathinfo($imagen,PATHINFO_EXTENSION);
                                     // $imagenid = $rename.'.'.$extension;
                                 if (!((strpos($tipo, 'jpeg')) or (strpos($tipo, 'jpg')) or (strpos($tipo, 'png')))){
                                     echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
