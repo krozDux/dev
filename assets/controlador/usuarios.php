@@ -25,11 +25,11 @@ if (!empty($_POST['btnreset'])) {
 }}
 
 if (!empty($_POST['btneditar'])) {
-    if (!empty($_POST['editId']) and !empty($_POST['nombre']) and !empty($_POST['email'])) {
+    if (!empty($_POST['editId']) and !empty($_POST['editNombre']) and !empty($_POST['editEmail'])) {
         $editId = $_POST['editId'];
         $editRol = $_POST['editRol'];
-        $editNumero = $_POST['numero'];
-        $imagen = $_FILES['imagen']['name'];
+        $editNumero = $_POST['editNumero'];
+        $editImagen = $_FILES['imagen']['name'];
         if (isset($imagen) and $imagen!=""){
             $tipo = $_FILES['imagen']['type'];
             $temp = $_FILES['imagen']['tmp_name'];

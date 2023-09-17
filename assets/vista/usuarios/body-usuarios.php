@@ -202,7 +202,7 @@
 																			<div class="image-input-wrapper w-125px h-125px" id="editImagen" style="background-image: url(assets/media/avatars/blank.png);"></div>
 																			<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
 																				<i class="bi bi-pencil-fill fs-7"></i>
-																				<input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+																				<input type="file" name="imagen" accept=".png, .jpg, .jpeg" />
 																				<input type="hidden" name="avatar_remove" />
 																			</label>
 																			<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
@@ -217,11 +217,11 @@
 																	<div class="fv-row mb-4">
 																		<label class="fw-bold fs-6 mb-2">Nombres completos</label>
 																		<input type="text" name="editId" class="form-control form-control-solid mb-3 mb-lg-0" id="editId" hidden/>
-																		<input type="text" name="nombre" class="form-control form-control-solid mb-3 mb-lg-0" id="editNombres" disabled/>
+																		<input type="text" name="editNombre" class="form-control form-control-solid mb-3 mb-lg-0" id="editNombres" disabled/>
 																	</div>
 																	<div class="fv-row mb-4">
 																		<label class="required fw-bold fs-6 mb-2">Email</label>
-																		<input type="email" name="email" class="form-control form-control-solid mb-3 mb-lg-0" id="editEmail" />
+																		<input type="email" name="editEmail" class="form-control form-control-solid mb-3 mb-lg-0" id="editEmail" />
 																	</div>
 																	<div class="fv-row mb-4">
 																		<label class="required fw-bold fs-6 mb-2">Rol</label>
@@ -236,7 +236,7 @@
 																	</div>
 																	<div class="fv-row mb-4">
 																		<label class="required fw-bold fs-6 mb-2">Número</label>
-																		<input type="text" name="numero" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editNumero"/>
+																		<input type="text" name="editNumero" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editNumero"/>
 																	</div>
 																</div>
 																<div class="text-center pt-6">
