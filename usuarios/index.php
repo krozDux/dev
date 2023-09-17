@@ -15,6 +15,9 @@
 		$(document).ready(function () {
 			$('#kt_table_users').DataTable({
 				dom: 'fBrtip',
+				searchPanes: {
+            viewTotal: true
+        },
 				buttons: [
 					{
 						text: '<span class="svg-icon svg-icon-2">'+
