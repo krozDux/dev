@@ -139,10 +139,6 @@
 																			<option id="invitado" value="invitado">Invitado</option>
 																		</select>
 																	</div>
-																	<div class="fv-row mb-4">
-																		<label class="required fw-bold fs-6 mb-2">Número</label>
-																		<input type="text" name="crearNumero" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="crearNumero" required/>
-																	</div>
 																</div>
 																<div class="text-center pt-6">
 																
