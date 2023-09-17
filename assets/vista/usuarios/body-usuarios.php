@@ -89,15 +89,15 @@
 															</div>
 														</div>
 														<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-															<form id="kt_modal_add_user_form" class="form" method="POST" enctype="multipart/form-data">
+														<form class="form" method="POST" enctype="multipart/form-data">
 																<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
-																	<div class="fv-row mb-7">
+																	<div class="fv-row mb-4">
 																		<label class="d-block fw-bold fs-6 mb-5">Avatar</label>
 																		<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/avatars/blank.png')">
-																			<div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/blank.png);"></div>
+																			<div class="image-input-wrapper w-125px h-125px" id="editImagen" style="background-image: url(assets/media/avatars/blank.png);"></div>
 																			<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
 																				<i class="bi bi-pencil-fill fs-7"></i>
-																				<input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+																				<input type="file" name="imagen" accept=".png, .jpg, .jpeg" />
 																				<input type="hidden" name="avatar_remove" />
 																			</label>
 																			<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
@@ -105,73 +105,42 @@
 																			</span>
 																			<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
 																				<i class="bi bi-x fs-2"></i>
-																			</span>
+																			</span> 
 																		</div>
 																		<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
 																	</div>
-																	<div class="fv-row mb-7">
-																		<label class="required fw-bold fs-6 mb-2">Full Name</label>
-																		<input type="text" name="user_name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Full name" value="Emma Smith" />
+																	<div class="fv-row mb-4">
+																		<label class="fw-bold fs-6 mb-2">Nombres completos</label>
+																		<input type="text" name="crearNombres" class="form-control form-control-solid mb-3 mb-lg-0" id="crearNombres" />
+																		<input type="text" name="crearApellidos" class="form-control form-control-solid mb-3 mb-lg-0" id="crearApellidos" />
 																	</div>
-																	<div class="fv-row mb-7">
+																	<div class="fv-row mb-4">
 																		<label class="required fw-bold fs-6 mb-2">Email</label>
-																		<input type="email" name="user_email" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="example@domain.com" value="smith@kpmg.com" />
+																		<input type="email" name="crearEmail" class="form-control form-control-solid mb-3 mb-lg-0" id="crearEmail" />
 																	</div>
-																	<div class="mb-7">
-																		<label class="required fw-bold fs-6 mb-5">Role</label>
-																		<div class="d-flex fv-row">
-																			<div class="form-check form-check-custom form-check-solid">
-																				<input class="form-check-input me-3" name="user_role" type="radio" value="0" id="kt_modal_update_role_option_0" checked='checked' />
-																				<label class="form-check-label" for="kt_modal_update_role_option_0">
-																					<div class="fw-bolder text-gray-800">Administrator</div>
-																				</label>
-																			</div>
-																		</div>
-																		<div class='separator separator-dashed my-5'></div>
-																		<div class="d-flex fv-row">
-																			<div class="form-check form-check-custom form-check-solid">
-																				<input class="form-check-input me-3" name="user_role" type="radio" value="1" id="kt_modal_update_role_option_1" />
-																				<label class="form-check-label" for="kt_modal_update_role_option_1">
-																					<div class="fw-bolder text-gray-800">Developer</div>
-																				</label>
-																			</div>
-																		</div>
-																		<div class='separator separator-dashed my-5'></div>
-																		<div class="d-flex fv-row">
-																			<div class="form-check form-check-custom form-check-solid">
-																				<input class="form-check-input me-3" name="user_role" type="radio" value="2" id="kt_modal_update_role_option_2" />
-																				<label class="form-check-label" for="kt_modal_update_role_option_2">
-																					<div class="fw-bolder text-gray-800">Analyst</div>
-																				</label>
-																			</div>
-																		</div>
-																		<div class='separator separator-dashed my-5'></div>
-																		<div class="d-flex fv-row">
-																			<div class="form-check form-check-custom form-check-solid">
-																				<input class="form-check-input me-3" name="user_role" type="radio" value="3" id="kt_modal_update_role_option_3" />
-																				<label class="form-check-label" for="kt_modal_update_role_option_3">
-																					<div class="fw-bolder text-gray-800">Support</div>
-																				</label>
-																			</div>
-																		</div>
-																		<div class='separator separator-dashed my-5'></div>
-																		<div class="d-flex fv-row">
-																			<div class="form-check form-check-custom form-check-solid">
-																				<input class="form-check-input me-3" name="user_role" type="radio" value="4" id="kt_modal_update_role_option_4" />
-																				<label class="form-check-label" for="kt_modal_update_role_option_4">
-																					<div class="fw-bolder text-gray-800">Trial</div>
-																				</label>
-																			</div>
-																		</div>
+																	<div class="fv-row mb-4">
+																		<label class="required fw-bold fs-6 mb-2">Rol</label>
+																		<select class="form-select form-select-solid" name="crearRol" id="crearRol" tabindex="-1" aria-hidden="true" required>
+																			<option selected value="">Seleccionar un rol</option>
+																			<option id="admin" value="admin">Administrador</option>
+																			<option id="proveedor" value="proveedor">Proveedor</option>
+																			<option id="cliente" value="cliente">Cliente</option>
+																			<option id="usuario" value="usuario">Usuario</option>
+																			<option id="invitado" value="invitado">Invitado</option>
+																		</select>
+																	</div>
+																	<div class="fv-row mb-4">
+																		<label class="required fw-bold fs-6 mb-2">Número</label>
+																		<input type="text" name="crearNumero" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="crearNumero"/>
 																	</div>
 																</div>
-																<div class="text-center pt-15">
-																	<button type="reset" class="btn btn-light me-3">Discard</button>
-																	<button type="submit" class="btn btn-primary">
-																		<span class="indicator-label">Submit</span>
-																		<span class="indicator-progress">Please wait...
-																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-																	</button>
+																<div class="text-center pt-6">
+																
+																
+																	<button class="btn btn-light me-3 modal-close">Cancelar</button>
+																<button type="submit" class="btn btn-success" name="btncrear" value="crearU">
+																	<span class="indicator-label">Guardar</span>
+																</button>
 																</div>
 															</form>
 														</div>
