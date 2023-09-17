@@ -123,11 +123,6 @@
                             <input type="text" name="editNumero"
                                 class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editNumero" />
                         </div>
-                        <div class="fv-row mb-4">
-                            <label class="required fw-bold fs-6 mb-2">Dirección</label>
-                            <input type="text" name="editDireccion"
-                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editDireccion" />
-                        </div>
                     </div>
                     <div class="text-center pt-6">
 
