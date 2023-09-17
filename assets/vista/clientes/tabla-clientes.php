@@ -90,7 +90,6 @@ $query2 = mysqli_query($con, $sql2);
                                 data-apellidos="<?php echo $dataUsuario2['apellidos']; ?>"
                                 data-rol="<?php echo $dataUsuario2['rol']; ?>"
                                 data-numero="<?php echo $dataUsuario2['numero']; ?>"
-								data-dire="<?php echo $dataUsuario2['direccion']; ?>"
                                 data-imagen="<?php echo $dataUsuario2['imagen']; ?>">Editar</buttton>
                         </div>
                         <div class="menu-item px-3">
