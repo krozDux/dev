@@ -114,7 +114,7 @@ if (!empty($_POST['btnreset'])) {
         $resetNombres = $_POST['resetNombres'];
         $hashedPassword2 = hash('sha256', $resetPass);
         $fecha = date('Y-m-d H:i:s');
-        $consulta4 = "INSERT `resetPasswords` (`usuarioSolicitante`,`fecha`,`usuarioReset`) VALUES ('$nombres $apellidos','$fecha','$resetNombres')";
+        $consulta4 = "INSERT `resetPasswords` (`usuarioSolicitante`,`fecha`,`idReset`,`nombreReset`) VALUES ('$nombres $apellidos','$fecha','$resetId','$resetNombres')";
         $resultado4 = mysqli_query($con, $consulta4);
         $consulta3 = "UPDATE `usuarios` SET `pass`='$hashedPassword2' where id='$resetId'";
         $resultado3 = mysqli_query($con, $consulta3);
