@@ -30,10 +30,12 @@ if (!empty($_POST['btneditar'])) {
         $editRol = $_POST['editRol'];
         $editNumero = $_POST['editNumero'];
         $imagen = $_FILES['imagen']['name'];
+        echo 'ga';
         if (isset($imagen) and $imagen!=""){
             $tipo = $_FILES['imagen']['type'];
             $temp = $_FILES['imagen']['tmp_name'];
             $extension = pathinfo($imagen,PATHINFO_EXTENSION);
+            echo 'ga2';
             if (!((strpos($tipo, 'jpeg')) or (strpos($tipo, 'jpg')) or (strpos($tipo, 'png')))){
                 echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
@@ -51,12 +53,12 @@ if (!empty($_POST['btneditar'])) {
             move_uploaded_file($temp, $ruta_imagen);
             $consulta4 = "UPDATE `usuarios` SET `rol`='$editRol', `numero`='$editNumero', `imagen`='$nuevo_nombre_imagen' where id='$editId'";
             $resultado4 = mysqli_query($con, $consulta4);
-            header("location: index.php");
+            echo 'ga3';
         }
     }else {
             $consulta5 = "UPDATE `usuarios` SET `rol`='$editRol', `numero`='$editNumero' where id='$editId'";
             $resultado5 = mysqli_query($con, $consulta5);
-            header("location: index.php");
+            echo 'ga4';
     }
 }
 }
