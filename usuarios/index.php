@@ -13,10 +13,8 @@
 		<script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
 		<script>
 		$(document).ready(function () {
-			
 			$('#kt_table_users').DataTable({
-			
-				dom: 'PlfBrtip',
+				dom: 'fBrtip',
 				buttons: [
 					{
 						text: '<span class="svg-icon svg-icon-2">'+
