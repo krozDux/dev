@@ -94,7 +94,7 @@ if (!empty($_POST['btncrear'])) {
                         </div>';
                         } else{
                             $hashedPassword = hash('sha256', $crearPassword);
-                            $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','$imagen','invitado','email','1')";
+                            $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','$imagen','$crearRol','email','1')";
                             $resultado = mysqli_query($con, $consulta);
                             $id_usuario = mysqli_insert_id($con);
                             $nuevo_nombre_imagen = $id_usuario . '.' . $extension;
@@ -106,7 +106,7 @@ if (!empty($_POST['btncrear'])) {
                         }
                     } else{
                         $hashedPassword = hash('sha256', $crearPassword);
-                        $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','blank.png','invitado','email','1')";
+                        $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','blank.png','$crearRol','email','1')";
                         $resultado = mysqli_query($con, $consulta);
                         header("location: index.php");
                     }
