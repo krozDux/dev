@@ -99,23 +99,23 @@
                                     style="background-image: url(assets/media/avatars/blank.png);"></div>
                                 <label
                                     class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                    data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Cambiar imagen">
                                     <i class="bi bi-pencil-fill fs-7"></i>
                                     <input type="file" name="imagen" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="avatar_remove" />
                                 </label>
                                 <span
                                     class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                    data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancelar imagen">
                                     <i class="bi bi-x fs-2"></i>
                                 </span>
                                 <span
                                     class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                    data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Elimnar imagen">
                                     <i class="bi bi-x fs-2"></i>
                                 </span>
                             </div>
-                            <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+                            <div class="form-text">Archivos permitidos: png, jpg, jpeg.</div>
                         </div>
                         <div class="fv-row mb-4">
                             <label class="fw-bold fs-6 mb-2">Nombres completos</label>
@@ -165,7 +165,7 @@
                         <input type="password" value="User1234." name="resetPass"
                             class="form-control form-control-solid mb-0 mb-lg-0" hidden />
                         <button type="submit" class="btn btn-primary" name="btnreset" value="resetU">
-                            <span class="indicator-label">Resetear</span>
+                            <span class="indicator-label">Resetear password</span>
                         </button>
                         <p class="mt-2"> Se reiniciara el password a "User1234."</p>
                     </form>
@@ -222,7 +222,7 @@
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <div class="modal-content">
             <div class="modal-header" id="kt_modal_add_user_header">
-                <h2 class="fw-bolder">Registrar usuario</h2>
+                <h2 class="fw-bolder">Registrar Usuario</h2>
                 <div class="btn btn-icon btn-sm btn-active-icon-primary modal-close" data-kt-users-modal-action="close">
                     <span class="svg-icon svg-icon-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -248,23 +248,23 @@
                                     style="background-image: url(assets/media/avatars/blank.png);"></div>
                                 <label
                                     class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                    data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Cambiar imagen">
                                     <i class="bi bi-pencil-fill fs-7"></i>
                                     <input type="file" name="imagen" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="avatar_remove" />
                                 </label>
                                 <span
                                     class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                    data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancelar imagen">
                                     <i class="bi bi-x fs-2"></i>
                                 </span>
                                 <span
                                     class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                    data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Elimnar imagen">
                                     <i class="bi bi-x fs-2"></i>
                                 </span>
                             </div>
-                            <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+                            <div class="form-text">Archivos permitidos: png, jpg, jpeg.</div>
                         </div>
                         <div class="row fv-row mb-4">
                             <div class="col-xl-4">
