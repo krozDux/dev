@@ -29,7 +29,7 @@ if (!empty($_POST['btneditar'])) {
         $editId = $_POST['editId'];
         $editRol = $_POST['editRol'];
         $editNumero = $_POST['editNumero'];
-        $editImagen = $_FILES['imagen']['name'];
+        $imagen = $_FILES['imagen']['name'];
         if (isset($imagen) and $imagen!=""){
             $tipo = $_FILES['imagen']['type'];
             $temp = $_FILES['imagen']['tmp_name'];
