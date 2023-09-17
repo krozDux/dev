@@ -10201,25 +10201,25 @@ var KTChartsWidget9 = {
 "undefined" != typeof module && (module.exports = KTChartsWidget9), KTUtil.onDOMContentLoaded((function() {
     KTChartsWidget9.init()
 }));
-// var KTFormsWidget1 = {
-//     init: function() {
-//         var e;
-//         e = function(e) {
-//             if (!e.id) return e.text;
-//             var a = document.createElement("span"),
-//                 t = "";
-//             return t += '<img src="' + e.element.getAttribute("data-kt-select2-icon") + '" class="rounded-circle h-20px me-2" alt="image"/>', t += e.text, a.innerHTML = t, $(a)
-//         }, $("#kt_forms_widget_1_select_1").select2({
-//             placeholder: "Select coin",
-//             minimumResultsForSearch: 1 / 0,
-//             templateSelection: e,
-//             templateResult: e
-//         })
-//     }
-// };
-// "undefined" != typeof module && (module.exports = KTFormsWidget1), KTUtil.onDOMContentLoaded((function() {
-//     KTFormsWidget1.init()
-// }));
+var KTFormsWidget1 = {
+    init: function() {
+        var e;
+        e = function(e) {
+            if (!e.id) return e.text;
+            var a = document.createElement("span"),
+                t = "";
+            return t += '<img src="' + e.element.getAttribute("data-kt-select2-icon") + '" class="rounded-circle h-20px me-2" alt="image"/>', t += e.text, a.innerHTML = t, $(a)
+        }, $("#kt_forms_widget_1_select_1").select2({
+            placeholder: "Select coin",
+            minimumResultsForSearch: 1 / 0,
+            templateSelection: e,
+            templateResult: e
+        })
+    }
+};
+"undefined" != typeof module && (module.exports = KTFormsWidget1), KTUtil.onDOMContentLoaded((function() {
+    KTFormsWidget1.init()
+}));
 var KTTimelineWidget24 = {
     init: function() {
         var e;

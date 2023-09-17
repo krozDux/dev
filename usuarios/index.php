@@ -9,13 +9,12 @@
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
 		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
-		<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-		<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-		<script src="https://cdn.datatables.net/searchpanes/2.2.0/js/dataTables.searchPanes.min.js"></script>
-		<script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
+
 		<script>
 		$(document).ready(function () {
+			
 			$('#kt_table_users').DataTable({
+			
 				dom: 'fBrtip',
 				buttons: [
 					{
@@ -61,16 +60,7 @@
 				},
 			});
 		});
-		$(document).ready(function() {
-    let table = $('#kt_table_users').DataTable(); // Inicializa DataTables en tu tabla
-    new $.fn.dataTable.SearchPanes(table, {}); // Inicializa SearchPanes en la tabla
-
-    // Mueve el contenedor de SearchPanes al inicio de la tabla
-    table.searchPanes.container().prependTo(table.table().container());
-
-    // Ajusta el tamaño de los paneles de búsqueda
-    table.searchPanes.resizePanes();
-});
+	
 		</script>
 		<script src="assets/js/widgets.bundle.js"></script>
 		<script src="assets/js/custom/widgets.js"></script>
