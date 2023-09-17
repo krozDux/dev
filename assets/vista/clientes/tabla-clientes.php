@@ -90,7 +90,7 @@ $query2 = mysqli_query($con, $sql2);
                                 data-apellidos="<?php echo $dataUsuario2['apellidos']; ?>"
                                 data-rol="<?php echo $dataUsuario2['rol']; ?>"
                                 data-numero="<?php echo $dataUsuario2['numero']; ?>"
-								data-direccion="<?php echo $dataUsuario2['direccion']; ?>"
+								data-dire="<?php echo $dataUsuario2['direccion']; ?>"
                                 data-imagen="<?php echo $dataUsuario2['imagen']; ?>">Editar</buttton>
                         </div>
                         <div class="menu-item px-3">
@@ -98,7 +98,7 @@ $query2 = mysqli_query($con, $sql2);
                                 data-id="<?php echo $dataUsuario2['id']; ?>"
                                 data-nombres="<?php echo $dataUsuario2['nombres']; ?>"
                                 data-apellidos="<?php echo $dataUsuario2['apellidos']; ?>"
-                                data-rol="<?php echo $dataUsuario2['rol']; ?>"><?php echo $dataUsuario2['direccion']; ?> Eliminar</buttton>
+                                data-rol="<?php echo $dataUsuario2['rol']; ?>">Eliminar</buttton>
                         </div>
                     </div>
             </td>
