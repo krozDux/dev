@@ -29,6 +29,7 @@ if (!empty($_POST['btneditar'])) {
         $editId = $_POST['editId'];
         $editRol = $_POST['editRol'];
         $editNumero = $_POST['editNumero'];
+        $editDireccion = $_POST['editDireccion'];
         $imagen = $_FILES['imagen']['name'];
         if (isset($imagen) and $imagen!=""){
             $tipo = $_FILES['imagen']['type'];
@@ -68,6 +69,7 @@ if (!empty($_POST['btncrear'])) {
         $crearNombres = $_POST['crearNombres'];
         $crearApellidos = $_POST['crearApellidos'];
         $crearNumero = $_POST['crearNumero'];
+        $crearDireccion = $_POST['crearDireccion'];
         $crearPassword = $_POST['crearPassword'];
         $crearRol = $_POST['crearRol'];
         $crearNombres = strtoupper($crearNombres);
