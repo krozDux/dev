@@ -9,6 +9,10 @@
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
 		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+		<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/searchpanes/2.2.0/js/dataTables.searchPanes.min.js"></script>
+		<script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
 		<script>
 		$(document).ready(function () {
 			$('#kt_table_users').DataTable({
