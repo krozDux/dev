@@ -42,6 +42,14 @@
 						autoFilter: true,
 						sheetName: 'Reporte - Usuarios'
 					},
+					{
+						extend: 'searchPanes',
+						
+						config: {
+							cascadePanes: true,
+						},
+					},
+				
 					
 				],
 				language: {
