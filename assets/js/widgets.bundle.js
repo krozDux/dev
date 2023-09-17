@@ -10217,9 +10217,9 @@ var KTChartsWidget9 = {
 //         })
 //     }
 // };
-"undefined" != typeof module && (module.exports = KTFormsWidget1), KTUtil.onDOMContentLoaded((function() {
-    KTFormsWidget1.init()
-}));
+// "undefined" != typeof module && (module.exports = KTFormsWidget1), KTUtil.onDOMContentLoaded((function() {
+//     KTFormsWidget1.init()
+// }));
 var KTTimelineWidget24 = {
     init: function() {
         var e;
