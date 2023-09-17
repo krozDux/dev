@@ -243,8 +243,8 @@
 																
 																
 																	<button class="btn btn-light me-3 modal-close">Cancelar</button>
-																<button type="submit" class="btn btn-primary" name="btneditar" value="editarU">
-																	<span class="indicator-label">Resetear</span>
+																<button type="submit" class="btn btn-success" name="btneditar" value="editarU">
+																	<span class="indicator-label">Guardar</span>
 																</button>
 																</div>
 															</form>
