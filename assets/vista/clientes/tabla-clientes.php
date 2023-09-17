@@ -37,7 +37,7 @@ $query2 = mysqli_query($con, $sql2);
             <td><?php echo $dataUsuario2['apellidos']; ?></td>
             <td><?php echo $dataUsuario2['email']; ?></td>
             <?php 
-													if ($dataUsuario2['rol'] == "admin") { ?>
+			if ($dataUsuario2['rol'] == "admin") { ?>
             <td>
                 <div class="badge badge-light-danger fw-bolder"><?php echo ucfirst($dataUsuario2['rol']); ?></div>
             </td>
@@ -61,7 +61,7 @@ $query2 = mysqli_query($con, $sql2);
 
 
             <?php 
-													if ($dataUsuario2['numero'] == "-") { ?>
+			if ($dataUsuario2['numero'] == "-") { ?>
             <td><?php echo $dataUsuario2['numero']; ?></td>
             <?php } else { ?>
             <td><a
@@ -90,6 +90,7 @@ $query2 = mysqli_query($con, $sql2);
                                 data-apellidos="<?php echo $dataUsuario2['apellidos']; ?>"
                                 data-rol="<?php echo $dataUsuario2['rol']; ?>"
                                 data-numero="<?php echo $dataUsuario2['numero']; ?>"
+								data-direccion="<?php echo $dataUsuario2['direccion']; ?>"
                                 data-imagen="<?php echo $dataUsuario2['imagen']; ?>">Editar</buttton>
                         </div>
                         <div class="menu-item px-3">
