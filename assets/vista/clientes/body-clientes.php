@@ -136,6 +136,11 @@
                             <input type="text" name="editNumero"
                                 class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editNumero" />
                         </div>
+                        <div class="fv-row mb-4">
+                            <label class="required fw-bold fs-6 mb-2">Direccion</label>
+                            <input type="text" name="editDireccion"
+                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editDireccion" />
+                        </div>
                     </div>
                     <div class="text-center pt-6">
 
@@ -247,20 +252,25 @@
                             <div class="form-text">Archivos permitidos: png, jpg, jpeg.</div>
                         </div>
                         <div class="row fv-row mb-4">
-                            <div class="col-xl-4">
+                            <div class="col-xl-6">
                                 <label class="form-label fw-bolder text-dark fs-6">Nombres</label>
                                 <input type="text" name="crearNombres"
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearNombres" required />
                             </div>
-                            <div class="col-xl-4">
+                            <div class="col-xl-6">
                                 <label class="form-label fw-bolder text-dark fs-6">Apellidos</label>
                                 <input type="text" name="crearApellidos"
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearApellidos" required />
                             </div>
-                            <div class="col-xl-4">
+                            <div class="col-xl-6">
                                 <label class="form-label fw-bolder text-dark fs-6">Número</label>
                                 <input type="text" name="crearNumero"
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearNumero" required />
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label fw-bolder text-dark fs-6">Direccion</label>
+                                <input type="text" name="crearDireccion"
+                                    class="form-control form-control-solid mb-3 mb-lg-0" id="crearDireccion" required />
                             </div>
                         </div>
                         <div class="fv-row mb-4">
@@ -269,18 +279,6 @@
                                 id="crearEmail" required />
                             <input type="text" name="crearPassword" value="User1234."
                                 class="form-control form-control-solid mb-3 mb-lg-0" id="crearPassword" hidden />
-                        </div>
-                        <div class="fv-row mb-4">
-                            <label class="required fw-bold fs-6 mb-2">Rol</label>
-                            <select class="form-select form-select-solid" name="crearRol" id="crearRol" tabindex="-1"
-                                aria-hidden="true" required>
-                                <option selected value="">Seleccionar un rol</option>
-                                <option id="admin" value="admin">Administrador</option>
-                                <option id="proveedor" value="proveedor">Proveedor</option>
-                                <option id="cliente" value="cliente">Cliente</option>
-                                <option id="usuario" value="usuario">Usuario</option>
-                                <option id="invitado" value="invitado">Invitado</option>
-                            </select>
                         </div>
                     </div>
                     <div class="text-center pt-6">

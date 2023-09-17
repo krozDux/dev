@@ -1,6 +1,6 @@
 <?php
 include('../config.php');
-$sql1 = ("SELECT * FROM usuarios WHERE estado = 1");
+$sql1 = ("SELECT * FROM usuarios WHERE estado = 1 and rol='cliente'");
 $query1 = mysqli_query($con, $sql1);
 ?>
 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
@@ -70,7 +70,7 @@ $query1 = mysqli_query($con, $sql1);
 																data-email="<?php echo $dataUsuario1['email']; ?>"
 																data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
 																data-apellidos="<?php echo $dataUsuario1['apellidos']; ?>"
-																data-rol="<?php echo $dataUsuario1['rol']; ?>"
+																data-direccion="<?php echo $dataUsuario1['direccion']; ?>"
 																data-numero="<?php echo $dataUsuario1['numero']; ?>"
 																data-imagen="<?php echo $dataUsuario1['imagen']; ?>"
 																>Editar</buttton>

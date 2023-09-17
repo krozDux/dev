@@ -87,8 +87,7 @@
 			var email = $(this).data('email');
 			var nombres = $(this).data('nombres');
 			var apellidos = $(this).data('apellidos');
-			var rol = $(this).data('rol');
-			const rolM = rol.charAt(0).toUpperCase() + rol.slice(1);
+			var direccion = $(this).data('direccion');
 			var numero = $(this).data('numero');
 			var imagen = $(this).data('imagen');
 			$('#editId').val(id);
@@ -96,10 +95,9 @@
 			$('#resetNombres').val(nombres + " " + apellidos);
 			$('#editEmail').val(email);
     		$('#editNombres').val(nombres + " " + apellidos);
-    		$('#editRol').val(rolM);
+    		$('#editDireccion').val(direccion);
 			$('#editNumero').val(numero);
 			document.getElementById("editImagen").style.backgroundImage="url(assets/media/avatars/"+imagen+")";
-			document.getElementById("editRol").selectedIndex = document.getElementById(rol).index;
 			$('#kt_modal_edit_user').modal('show');
 		});
 		</script>
