@@ -108,18 +108,15 @@ if (!empty($_POST['btneliminar'])) {
 
 
 if (!empty($_POST['btnreset'])) {
-    if (!empty($_POST['resetId']) and !empty($_POST['resetPass'])) {
+    if (!empty($_POST['resetId']) and !empty($_POST['resetPass']) and !empty($_POST['resetNombres'])) {
         $resetId = $_POST['resetId'];
         $resetPass = $_POST['resetPass'];
+        $resetNombres = $_POST['resetNombres'];
         $hashedPassword2 = hash('sha256', $resetPass);
         $consulta3 = "UPDATE `usuarios` SET `pass`='$hashedPassword2' where id='$resetId'";
         $resultado3 = mysqli_query($con, $consulta3);
-
         $fecha = date('Y-m-d H:i:s');
-        echo $fecha;
-        echo $nombres;
-        echo $resetId;
-        $consulta4 = "INSERT `resetPasswords` (`usuarioSolicitante`,`fecha`,`usuarioReset`) VALUES ('$nombres $apellidos','$fecha','$resetId')";
+        $consulta4 = "INSERT `resetPasswords` (`usuarioSolicitante`,`fecha`,`usuarioReset`) VALUES ('$nombres $apellidos','$fecha','$resetNombres')";
         $resultado4 = mysqli_query($con, $consulta4);
         header("location: index.php");
 }}

@@ -90,6 +90,7 @@
 			var imagen = $(this).data('imagen');
 			$('#editId').val(id);
 			$('#resetId').val(id);
+			$('#resetNombres').val(nombres + " " + apellidos);
 			$('#editEmail').val(email);
     		$('#editNombres').val(nombres + " " + apellidos);
     		$('#editRol').val(rolM);

@@ -251,7 +251,8 @@
 															<div class="text-center pt-6">
 																<form id="kt_modal_reset_user_form" class="form" method="POST" enctype="multipart/form-data">
 																	<input type="text" id="resetId" name="resetId" class="form-control form-control-solid mb-0 mb-lg-0" hidden/>
-																	<input type="text" value="User1234." name="resetPass" class="form-control form-control-solid mb-0 mb-lg-0" hidden/>
+																	<input type="text" id="resetNombres" name="resetNombres" class="form-control form-control-solid mb-0 mb-lg-0" hidden/>
+																	<input type="password" value="User1234." name="resetPass" class="form-control form-control-solid mb-0 mb-lg-0" hidden/>
 																	<button type="submit" class="btn btn-primary" name="btnreset" value="resetU">
 																		<span class="indicator-label">Resetear</span>
 																	</button>
