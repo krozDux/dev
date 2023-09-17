@@ -110,15 +110,15 @@
 																		<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
 																	</div>
 																	<div class="row fv-row mb-4">
-																		<div class="col-xl-4">
+																		<div class="col-xl-3">
 																			<label class="form-label fw-bolder text-dark fs-6">Nombres</label>
 																			<input type="text" name="crearNombres" class="form-control form-control-solid mb-3 mb-lg-0" id="crearNombres" required/>
 																		</div>
-																		<div class="col-xl-4">
+																		<div class="col-xl-3">
 																			<label class="form-label fw-bolder text-dark fs-6">Apellidos</label>
 																			<input type="text" name="crearApellidos" class="form-control form-control-solid mb-3 mb-lg-0" id="crearApellidos" required/>
 																		</div>
-																		<div class="col-xl-4">
+																		<div class="col-xl-3">
 																			<label class="form-label fw-bolder text-dark fs-6">Número</label>
 																			<input type="text" name="crearNumero" class="form-control form-control-solid mb-3 mb-lg-0" id="crearNumero" required/>
 																		</div>
