@@ -30,7 +30,7 @@ if (!empty($_POST['btneditar'])) {
         $editRol = $_POST['editRol'];
         $editNumero = $_POST['editNumero'];
         $consulta4 = "UPDATE `usuarios` SET `rol`='$editRol', `numero`='$editNumero' where id='$editId'";
-        $resultado4 = mysqli_query($con, $consulta5);
+        $resultado4 = mysqli_query($con, $consulta4);
         header("location:ga4.php");
     }
 }
