@@ -12,7 +12,7 @@ $query1 = mysqli_query($con, $sql1);
 													<th class="min-w-125px">Nombres</th>
 													<th class="min-w-125px">Apellidos</th>
 													<th class="min-w-125px">Email</th>
-													<th class="min-w-125px">Rol</th>
+													<th class="min-w-125px">Dirección</th>
 													<th class="min-w-125px">Número</th>
 													<th class="min-w-125px">Opciones</th>
 												</tr>
@@ -34,20 +34,7 @@ $query1 = mysqli_query($con, $sql1);
 													<td><?php echo $dataUsuario1['nombres']; ?></td>
 													<td><?php echo $dataUsuario1['apellidos']; ?></td>
 													<td><?php echo $dataUsuario1['email']; ?></td>
-													<?php 
-													if ($dataUsuario1['rol'] == "admin") { ?>
-													<td><div class="badge badge-light-danger fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div></td>
-													<?php } else if ($dataUsuario1['rol'] == "cliente") { ?>
-														<td><div class="badge badge-light-success fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div></td>
-													<?php } else if ($dataUsuario1['rol'] == "proveedor"){ ?>
-														<td><div class="badge badge-light-warning fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div></td>
-													<?php } else if ($dataUsuario1['rol'] == "usuario"){ ?>
-														<td><div class="badge badge-light-info fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div></td>
-													<?php } else { ?>
-														<td><div class="badge badge-light-dark fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div></td>
-													<?php } ?>
-
-
+													<td><?php echo $dataUsuario1['direccion']; ?></td>
 													<?php 
 													if ($dataUsuario1['numero'] == "-") { ?>
 													<td><?php echo $dataUsuario1['numero']; ?></td>
