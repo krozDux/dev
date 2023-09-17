@@ -59,7 +59,16 @@
 				},
 			});
 		});
-	
+		$(document).ready(function() {
+    let table = $('#kt_table_users').DataTable(); // Inicializa DataTables en tu tabla
+    new $.fn.dataTable.SearchPanes(table, {}); // Inicializa SearchPanes en la tabla
+
+    // Mueve el contenedor de SearchPanes al inicio de la tabla
+    table.searchPanes.container().prependTo(table.table().container());
+
+    // Ajusta el tamaño de los paneles de búsqueda
+    table.searchPanes.resizePanes();
+});
 		</script>
 		<script src="assets/js/widgets.bundle.js"></script>
 		<script src="assets/js/custom/widgets.js"></script>
