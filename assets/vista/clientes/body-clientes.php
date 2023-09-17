@@ -116,25 +116,17 @@
                         </div>
                         <div class="fv-row mb-4">
                             <label class="required fw-bold fs-6 mb-2">Email</label>
-                            <input type="email" name="editEmail" class="form-control form-control-solid mb-3 mb-lg-0"
-                                id="editEmail" />
-                        </div>
-                        <div class="fv-row mb-4">
-                            <label class="required fw-bold fs-6 mb-2">Rol</label>
-                            <select class="form-select form-select-solid" name="editRol" id="editRol" tabindex="-1"
-                                aria-hidden="true" required>
-                                <option selected value="">Seleccionar un rol</option>
-                                <option id="admin" value="admin">Administrador</option>
-                                <option id="proveedor" value="proveedor">Proveedor</option>
-                                <option id="cliente" value="cliente">Cliente</option>
-                                <option id="usuario" value="usuario">Usuario</option>
-                                <option id="invitado" value="invitado">Invitado</option>
-                            </select>
+                            <input type="email" name="editEmail" class="form-control form-control-solid mb-3 mb-lg-0" id="editEmail" />
                         </div>
                         <div class="fv-row mb-4">
                             <label class="required fw-bold fs-6 mb-2">Número</label>
                             <input type="text" name="editNumero"
                                 class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editNumero" />
+                        </div>
+                        <div class="fv-row mb-4">
+                            <label class="required fw-bold fs-6 mb-2">Dirección</label>
+                            <input type="text" name="editDireccion"
+                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editDireccion" />
                         </div>
                     </div>
                     <div class="text-center pt-6">
@@ -258,14 +250,14 @@
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearApellidos" required />
                             </div>
                             <div class="col-xl-6">
-                                <label class="form-label fw-bolder text-dark fs-6">Número</label>
-                                <input type="text" name="crearNumero"
-                                    class="form-control form-control-solid mb-3 mb-lg-0" id="crearNumero" required />
-                            </div>
-                            <div class="col-xl-6">
                                 <label class="form-label fw-bolder text-dark fs-6">Dirección</label>
                                 <input type="text" name="crearDireccion"
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearDireccion" required />
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="form-label fw-bolder text-dark fs-6">Número</label>
+                                <input type="text" name="crearNumero"
+                                    class="form-control form-control-solid mb-3 mb-lg-0" id="crearNumero" required />
                             </div>
                         </div>
                         <div class="fv-row mb-4">
@@ -275,22 +267,8 @@
                             <input type="text" name="crearPassword" value="User1234."
                                 class="form-control form-control-solid mb-3 mb-lg-0" id="crearPassword" hidden />
                         </div>
-                        <div class="fv-row mb-4">
-                            <label class="required fw-bold fs-6 mb-2">Rol</label>
-                            <select class="form-select form-select-solid" name="crearRol" id="crearRol" tabindex="-1"
-                                aria-hidden="true" required>
-                                <option selected value="">Seleccionar un rol</option>
-                                <option id="admin" value="admin">Administrador</option>
-                                <option id="proveedor" value="proveedor">Proveedor</option>
-                                <option id="cliente" value="cliente">Cliente</option>
-                                <option id="usuario" value="usuario">Usuario</option>
-                                <option id="invitado" value="invitado">Invitado</option>
-                            </select>
-                        </div>
                     </div>
                     <div class="text-center pt-6">
-
-
                         <button class="btn btn-light me-3 modal-close">Cancelar</button>
                         <button type="submit" class="btn btn-success" name="btncrear" value="crearU">
                             <span class="indicator-label">Guardar</span>

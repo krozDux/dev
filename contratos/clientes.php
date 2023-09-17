@@ -90,6 +90,7 @@
 			var rol = $(this).data('rol');
 			const rolM = rol.charAt(0).toUpperCase() + rol.slice(1);
 			var numero = $(this).data('numero');
+			var direccion = $(this).data('direccion');
 			var imagen = $(this).data('imagen');
 			$('#editId').val(id);
 			$('#resetId').val(id);
@@ -98,6 +99,7 @@
     		$('#editNombres').val(nombres + " " + apellidos);
     		$('#editRol').val(rolM);
 			$('#editNumero').val(numero);
+			$('#editDireccion').val(direccion);
 			document.getElementById("editImagen").style.backgroundImage="url(assets/media/avatars/"+imagen+")";
 			document.getElementById("editRol").selectedIndex = document.getElementById(rol).index;
 			$('#kt_modal_edit_user').modal('show');
