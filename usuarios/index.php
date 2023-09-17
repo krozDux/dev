@@ -14,7 +14,7 @@
 		<script>
 		$(document).ready(function () {
 			$('#kt_table_users').DataTable({
-				dom: 'fBrtip',
+				dom: 'Plfrtip';
 				buttons: [
 					{
 						text: '<span class="svg-icon svg-icon-2">'+
