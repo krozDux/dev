@@ -25,7 +25,7 @@ if (!empty($_POST['btnreset'])) {
 }}
 
 if (!empty($_POST['btneditar'])) {
-    if (!empty($_POST['editId']) ) {
+    if (!empty($_POST['editId'])) {
         $editId = $_POST['editId'];
         $editRol = $_POST['editRol'];
         $editNumero = $_POST['editNumero'];
