@@ -120,4 +120,14 @@ if (!empty($_POST['btnreset'])) {
         $resultado3 = mysqli_query($con, $consulta3);
         header("location: index.php");
 }}
+
+if (!empty($_POST['btneditar'])) {
+    if (!empty($_POST['id']) and !empty($_POST['nombre']) and !empty($_POST['email'])) {
+        $editId = $_POST['id'];
+        $editRol = $_POST['rol'];
+        $editNumero = $_POST['numero'];
+        $consulta4 = "UPDATE `usuarios` SET `rol`='$editRol', `numero`='$editNumero' where id='$editId'";
+        $resultado4 = mysqli_query($con, $consulta4);
+        header("location: index.php");
+}}
 ?>
