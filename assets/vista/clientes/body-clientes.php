@@ -120,18 +120,6 @@
                                 id="editEmail" />
                         </div>
                         <div class="fv-row mb-4">
-                            <label class="required fw-bold fs-6 mb-2">Rol</label>
-                            <select class="form-select form-select-solid" name="editRol" id="editRol" tabindex="-1"
-                                aria-hidden="true" required>
-                                <option selected value="">Seleccionar un rol</option>
-                                <option id="admin" value="admin">Administrador</option>
-                                <option id="proveedor" value="proveedor">Proveedor</option>
-                                <option id="cliente" value="cliente">Cliente</option>
-                                <option id="usuario" value="usuario">Usuario</option>
-                                <option id="invitado" value="invitado">Invitado</option>
-                            </select>
-                        </div>
-                        <div class="fv-row mb-4">
                             <label class="required fw-bold fs-6 mb-2">Número</label>
                             <input type="text" name="editNumero"
                                 class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editNumero" />
