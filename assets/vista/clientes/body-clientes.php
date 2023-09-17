@@ -1,3 +1,4 @@
+<?php include '../assets/controlador/clientes.php'?>
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
@@ -49,7 +50,7 @@
                 <div class="d-flex flex-column flex-column-fluid container-fluid">
                     <div class="toolbar mb-2 mb-lg-2" id="kt_toolbar">
                         <div class="page-title d-flex flex-column me-3 mb-1">
-                            <h1 class="d-flex text-dark fw-bolder my-1 fs-3">clientes</h1>
+                            <h1 class="d-flex text-dark fw-bolder my-1 fs-3">Clientes</h1>
                         </div>
                     </div>
                     <div class="content flex-column-fluid" id="kt_content">

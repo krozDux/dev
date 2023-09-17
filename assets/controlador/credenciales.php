@@ -1,6 +1,5 @@
 <?php
 include('../config.php');
-
 if (!empty($_POST['btncredenciales'])) {
     if (!empty($_POST['email'])) {
         $email = $_POST['email'];
