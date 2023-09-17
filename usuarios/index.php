@@ -48,7 +48,7 @@
 						extend: 'searchPanes',
 						
 						config: {
-							cascadePanes: true,
+							viewTotal: true
 						},
 					},
 				
