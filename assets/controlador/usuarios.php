@@ -177,7 +177,13 @@ if (!empty($_POST['btncrear'])) {
                             </div>
                         </div>
                     </div>
-                </div>';
+                </div>
+                <script>
+            $(".modal-close").on("click", function() {
+                $("#kt_modal_add_user").modal("hide");
+            });
+            </script>
+                ';
                     echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
                         <div class="toast-header">
                             <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
