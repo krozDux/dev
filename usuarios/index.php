@@ -13,11 +13,13 @@
 		<script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
 		<script>
 		$(document).ready(function () {
+			let table = $('#kt_table_users').DataTable();
+			new $.fn.dataTable.SearchPanes(table, {});
+			table.searchPanes.container().prependTo(table.table().container());
+			table.searchPanes.resizePanes();
 			$('#kt_table_users').DataTable({
+				
 				dom: 'fBrtip',
-				searchPanes: {
-            viewTotal: true
-        },
 				buttons: [
 					{
 						text: '<span class="svg-icon svg-icon-2">'+
