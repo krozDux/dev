@@ -52,12 +52,12 @@ if (!empty($_POST['btneditar'])) {
             move_uploaded_file($temp, $ruta_imagen);
             $consulta4 = "UPDATE `usuarios` SET `numero`='$editNumero', `direccion`='$editDireccion' , `imagen`='$nuevo_nombre_imagen' where id='$editId'";
             $resultado4 = mysqli_query($con, $consulta4);
-            header("location: clientes.php");
+            header("location: proveedores.php");
         }
     }else {
             $consulta5 = "UPDATE `usuarios` SET `numero`='$editNumero' , `direccion`='$editDireccion' where id='$editId'";
             $resultado5 = mysqli_query($con, $consulta5);
-            header("location: clientes.php");
+            header("location: proveedores.php");
     }
 }
 }
@@ -104,13 +104,13 @@ if (!empty($_POST['btncrear'])) {
                             move_uploaded_file($temp, $ruta_imagen);
                             $consulta33 = "UPDATE `usuarios` SET `imagen`='$nuevo_nombre_imagen' where id='$id_usuario'";
                             $resultado2 = mysqli_query($con, $consulta33);
-                            header("location: index.php");
+                            header("location: proveedores.php");
                         }
                     } else{
                         $hashedPassword = hash('sha256', $crearPassword);
                         $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`direccion`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','$crearDireccion','blank.png','proveedor','email','1')";
                         $resultado = mysqli_query($con, $consulta);
-                        header("location: index.php");
+                        header("location: proveedores.php");
                     }
                 }else{
                     echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
