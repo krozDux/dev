@@ -34,8 +34,8 @@
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE CONTRATOS</span>
 											</div>
 										</div>
-										<div  class="menu-item">
-											<a class="menu-link" href="contratos/clientes.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los clientes">
+										<div  class="menu-item active">
+											<a class="menu-link " href="contratos/clientes.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los clientes">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -211,7 +211,7 @@
 											</div>
 										</div>
 										<div  class="menu-item">
-											<a class="menu-link active" href="usuarios/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar usuarios">
+											<a class="menu-link" href="usuarios/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar usuarios">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
