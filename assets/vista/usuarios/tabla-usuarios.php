@@ -14,6 +14,7 @@ $query1 = mysqli_query($con, $sql1);
 													<th class="min-w-125px">Email</th>
 													<th class="min-w-125px">Rol</th>
 													<th class="min-w-125px">Número</th>
+													<th class="min-w-125px">Dirección</th>
 													<th class="min-w-125px">Opciones</th>
 												</tr>
 											</thead>
@@ -54,7 +55,7 @@ $query1 = mysqli_query($con, $sql1);
 													<?php } else { ?>
 														<td><a href="https://wa.me/51<?php echo $dataUsuario1['numero']; ?>"><?php echo $dataUsuario1['numero']; ?></a></td>
 													<?php } ?>
-													
+													<td><?php echo $dataUsuario1['direccion']; ?></td>
 													
 													<td >
 														<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Acciones
