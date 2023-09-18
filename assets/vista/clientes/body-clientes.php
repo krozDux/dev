@@ -241,22 +241,22 @@
                         </div>
                         <div class="row fv-row mb-4">
                             <div class="col-xl-6">
-                                <label class="form-label fw-bolder text-dark fs-6">Nombres</label>
+                                <label class="form-label fw-bold mb-2 fs-6">Nombres</label>
                                 <input type="text" name="crearNombres"
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearNombres" required />
                             </div>
                             <div class="col-xl-6">
-                                <label class="form-label fw-bolder text-dark fs-6">Apellidos</label>
+                                <label class="form-label fw-bold mb-2 fs-6">Apellidos</label>
                                 <input type="text" name="crearApellidos"
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearApellidos" required />
                             </div>
                             <div class="col-xl-6">
-                                <label class="form-label fw-bolder text-dark fs-6">Número</label>
+                                <label class="form-label fw-bold mb-2 fs-6">Número</label>
                                 <input type="text" name="crearNumero"
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearNumero" required />
                             </div>
                             <div class="col-xl-6">
-                                <label class="form-label fw-bolder text-dark fs-6">Direccion</label>
+                                <label class="form-label fw-bold mb-2 fs-6">Direccion</label>
                                 <input type="text" name="crearDireccion"
                                     class="form-control form-control-solid mb-3 mb-lg-0" id="crearDireccion" required />
                             </div>
