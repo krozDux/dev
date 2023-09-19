@@ -99,6 +99,7 @@ if (!empty($_POST['btncrear'])) {
                             $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`direccion`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','$crearDireccion','$imagen','proveedor','email','1')";
                             $resultado = mysqli_query($con, $consulta);
                             $id_usuario = mysqli_insert_id($con);
+                            $consulta11 = "INSERT contratos (`observacion`,`recomendacion`,`idUsuario`) VALUES ('-','-','$id_usuario')";
                             $nuevo_nombre_imagen = $id_usuario . '.' . $extension;
                             $ruta_imagen = '../assets/media/avatars/' . $nuevo_nombre_imagen;
                             move_uploaded_file($temp, $ruta_imagen);
@@ -110,6 +111,8 @@ if (!empty($_POST['btncrear'])) {
                         $hashedPassword = hash('sha256', $crearPassword);
                         $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`direccion`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','$crearDireccion','blank.png','proveedor','email','1')";
                         $resultado = mysqli_query($con, $consulta);
+                        $id_usuario = mysqli_insert_id($con);
+                        $consulta12 = "INSERT contratos (`observacion`,`recomendacion`,`idUsuario`) VALUES ('-','-','$id_usuario')";
                         header("location: proveedores.php");
                     }
                 }else{
