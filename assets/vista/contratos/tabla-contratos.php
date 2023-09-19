@@ -66,7 +66,6 @@ $query1 = mysqli_query($con, $sql1);
 													<?php } ?>
 
 													<td >
-															<div class="menu-item px-3">
 																<buttton type="button" class="menu-link px-3 edit-usuario" 
 																data-id="<?php echo $dataUsuario1['id']; ?>"
 																data-email="<?php echo $dataUsuario1['email']; ?>"
@@ -76,16 +75,12 @@ $query1 = mysqli_query($con, $sql1);
 																data-numero="<?php echo $dataUsuario1['numero']; ?>"
 																data-imagen="<?php echo $dataUsuario1['imagen']; ?>"
 																>Editar</buttton>
-															</div>
-															<div class="menu-item px-3">
 																<buttton type="button" class="menu-link px-3 del-usuario" 
 																data-id="<?php echo $dataUsuario1['id']; ?>"
 																data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
 																data-apellidos="<?php echo $dataUsuario1['apellidos']; ?>"
 																data-rol="<?php echo $dataUsuario1['rol']; ?>"
 																>Eliminar</buttton>
-															</div>
-														</div>
 													</td>
 												</tr>
 												<?php } ?>
