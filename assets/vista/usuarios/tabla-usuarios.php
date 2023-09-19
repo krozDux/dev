@@ -25,7 +25,7 @@ $query1 = mysqli_query($con, $sql1);
 												<tr>
 													<td class="d-flex align-items-center">
 														<div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-															<a href="">
+															<a>
 																<div class="symbol-label">
 																	<img src="assets/media/avatars/<?php echo $dataUsuario1['imagen']; ?>" alt="<?php echo $dataUsuario1['nombres']; ?> <?php echo $dataUsuario1['apellidos']; ?>" class="w-100" />
 																</div>

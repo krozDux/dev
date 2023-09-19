@@ -16,6 +16,7 @@
 			$('#kt_table_users').DataTable({
 			
 				dom: 'fBrtip',
+				responsive: true,
 				buttons: [
 					{
 						text: '<span class="svg-icon svg-icon-2">'+
