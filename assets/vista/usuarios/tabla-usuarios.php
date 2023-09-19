@@ -9,7 +9,7 @@ $query1 = mysqli_query($con, $sql1);
 													<th class="min-w-120px">
 														Imagen
 													</th>
-													<th data-priority="3" class="min-w-125px">Nombres</th>
+													<th class="min-w-125px">Nombres</th>
 													<th data-priority="1" class="min-w-125px">Apellidos</th>
 													<th class="min-w-125px">Email</th>
 													<th class="min-w-125px">Rol</th>
@@ -23,11 +23,11 @@ $query1 = mysqli_query($con, $sql1);
 												$i = 1;
 												while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
 												<tr>
-													<td class="align-items-center">
+													<td class="d-flex align-items-center">
 														<div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-																<!-- <div class="symbol-label"> -->
+																<div class="symbol-label">
 																	<img src="assets/media/avatars/<?php echo $dataUsuario1['imagen']; ?>" alt="<?php echo $dataUsuario1['nombres']; ?> <?php echo $dataUsuario1['apellidos']; ?>" class="w-100" />
-																<!-- </div> -->
+																</div>
 														</div>
 													</td>
 													<td><?php echo $dataUsuario1['nombres']; ?></td>
