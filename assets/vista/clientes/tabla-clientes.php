@@ -9,12 +9,12 @@ $query1 = mysqli_query($con, $sql1);
 													<th data-priority="9" class="min-w-120px">
 														Imagen
 													</th>
-													<th data-priority="1" class="min-w-125px">Nombres</th>
-													<th data-priority="2" class="min-w-125px">Apellidos</th>
+													<th data-priority="3" class="min-w-125px">Nombres</th>
+													<th data-priority="1" class="min-w-125px">Apellidos</th>
 													<th class="min-w-125px">Email</th>
 													<th class="min-w-125px">Dirección</th>
 													<th class="min-w-125px">Número</th>
-													<th data-priority="3" class="min-w-125px">Opciones</th>
+													<th data-priority="2" class="min-w-125px">Opciones</th>
 												</tr>
 											</thead>
 											<tbody class="text-gray-600 fw-bold">
