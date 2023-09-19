@@ -1,4 +1,5 @@
-<?php  if ($session_rol = "admin") { ?>
+<?php  if ($session_rol = "admin") { echo $session_rol;?>
+	
 <!DOCTYPE html>
 <html lang="es">
 	<?php include_once '../assets/controlador/sesion.php'?>
