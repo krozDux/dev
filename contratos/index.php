@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<?php  if ($session_rol == "admin") {?>
+<?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
 <html lang="es">
 	<?php include_once '../assets/controlador/sesion.php'?>
 	<?php include_once '../assets/vista/contratos/head-contratos.php'?>
