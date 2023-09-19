@@ -1,6 +1,6 @@
 <?php
 include('../config.php');
-$sql1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE usuarios.contrato=1");
+$sql1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario");
 $query1 = mysqli_query($con, $sql1);
 ?>
 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
@@ -9,11 +9,12 @@ $query1 = mysqli_query($con, $sql1);
 													<th class="min-w-120px">
 														Imagen
 													</th>
-													<th class="min-w-125px">Nombres</th>
+													<th class="min-w-125px">Nombres y Apellidos</th>
 													<th class="min-w-125px">Rol</th>
 													<th class="min-w-125px">Email</th>
-													<th class="min-w-125px">Dirección</th>
 													<th class="min-w-125px">Número</th>
+													<th class="min-w-125px">Fecha Inicio</th>
+													<th class="min-w-125px">Fecha Fin</th>
 													<th class="min-w-125px">Opciones</th>
 												</tr>
 											</thead>
@@ -45,15 +46,14 @@ $query1 = mysqli_query($con, $sql1);
 														<td><div class="badge badge-light-dark fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div></td>
 													<?php } ?>
 													<td><?php echo $dataUsuario1['email']; ?></td>
-													<td><?php echo $dataUsuario1['direccion']; ?></td>
 													<?php 
 													if ($dataUsuario1['numero'] == "-") { ?>
 													<td><?php echo $dataUsuario1['numero']; ?></td>
 													<?php } else { ?>
 														<td><a href="https://wa.me/51<?php echo $dataUsuario1['numero']; ?>"><?php echo $dataUsuario1['numero']; ?></a></td>
 													<?php } ?>
-													
-													
+													<td><?php echo $dataUsuario1['fechaInicio']; ?></td>
+													<td><?php echo $dataUsuario1['fechaFin']; ?></td>
 													<td >
 														<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Acciones
 														<span class="svg-icon svg-icon-5 m-0">
