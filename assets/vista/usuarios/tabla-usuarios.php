@@ -23,7 +23,7 @@ $query1 = mysqli_query($con, $sql1);
 												$i = 1;
 												while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
 												<tr>
-													<td class="d-flex align-items-center">
+													<td class="align-items-center">
 														<!-- <div class="symbol symbol-circle symbol-50px overflow-hidden me-3"> -->
 																<!-- <div class="symbol-label"> -->
 																	<img src="assets/media/avatars/<?php echo $dataUsuario1['imagen']; ?>" alt="<?php echo $dataUsuario1['nombres']; ?> <?php echo $dataUsuario1['apellidos']; ?>" class="w-100" />
