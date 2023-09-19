@@ -1,6 +1,6 @@
-<?php  if ($session_rol = "admin") {?>
-	
+
 <!DOCTYPE html>
+<?php  if ($session_rol == "admin") {?>
 <html lang="es">
 	<?php include_once '../assets/controlador/sesion.php'?>
 	<?php include_once '../assets/vista/contratos/head-contratos.php'?>
