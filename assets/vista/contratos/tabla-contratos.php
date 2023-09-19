@@ -74,8 +74,7 @@ $query1 = mysqli_query($con, $sql1);
 																data-direccion="<?php echo $dataUsuario1['direccion']; ?>"
 																data-numero="<?php echo $dataUsuario1['numero']; ?>"
 																data-imagen="<?php echo $dataUsuario1['imagen']; ?>"
-																>Editar
-																<i class="fas fa-edit"></i></buttton>
+																><i class="fas fa-edit"></i></buttton>
 																<buttton type="button" class="menu-link px-3 del-usuario" 
 																data-id="<?php echo $dataUsuario1['id']; ?>"
 																data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
