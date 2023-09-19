@@ -14,7 +14,6 @@
 		$(document).ready(function () {
 			
 			$('#kt_table_users').DataTable({
-			
 				dom: 'fBrtip',
     			responsive: true,
 				columnDefs: [
