@@ -3,7 +3,7 @@ include('../config.php');
 $sql1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario");
 $query1 = mysqli_query($con, $sql1);
 ?>
-<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+<table class="table align-middle table-row-dashed fs-6 gy-5 display responsive" id="kt_table_users">
 											<thead>
 												<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
 													<th class="min-w-120px">

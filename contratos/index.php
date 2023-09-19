@@ -17,7 +17,7 @@
 			
 				dom: 'fBrtip',
 				fixedHeader: true,
-   
+    			responsive: true,
 				buttons: [
 					{
 						extend: 'excelHtml5',
