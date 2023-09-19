@@ -31,4 +31,11 @@ if (!isset($_SESSION['email'])) {
         $session_rol = $dataUser['rol'];
     }
 }
+
+if (!empty($_POST['unlogin'])) {
+    session_unset();
+    session_destroy();
+    header('Location: ../login/index.php');
+    exit();
+}
 ?>

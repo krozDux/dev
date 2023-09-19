@@ -51,7 +51,10 @@
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5">
-											<a href="../../demo14/dist/authentication/flows/basic/sign-in.html" class="menu-link px-5">Sign Out</a>
+											<!-- <a href="../../demo14/dist/authentication/flows/basic/sign-in.html" class="">Sign Out</a> -->
+											<button type="submit" class="menu-link px-5" name="unlogin" value="deslogear">
+												<span>Cerrar Sesión</span>
+											</button>
 										</div>
 
 										<!--end::Menu item-->
