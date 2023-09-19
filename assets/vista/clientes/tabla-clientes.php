@@ -42,7 +42,7 @@ $query1 = mysqli_query($con, $sql1);
 													
 													
 													<td>
-																<buttton type="button" class="menu-link px-3 edit-usuario" 
+																<buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm edit-usuario" 
 																data-id="<?php echo $dataUsuario1['id']; ?>"
 																data-email="<?php echo $dataUsuario1['email']; ?>"
 																data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
@@ -50,7 +50,10 @@ $query1 = mysqli_query($con, $sql1);
 																data-direccion="<?php echo $dataUsuario1['direccion']; ?>"
 																data-numero="<?php echo $dataUsuario1['numero']; ?>"
 																data-imagen="<?php echo $dataUsuario1['imagen']; ?>"
-																>Editar</buttton>
+																><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M3.85 16.44L13 7.29l2.86 2.86-9.15 9.15H3.85v-2.86zM14.71 5.63a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0L8.05 3.93l3.96 3.96 2.7-2.7z" fill="currentColor"></path>
+  <path d="M0 0h24v24H0z" fill="none"></path>
+</svg></buttton>
 																<buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm del-usuario" 
 																data-id="<?php echo $dataUsuario1['id']; ?>"
 																data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
@@ -62,7 +65,7 @@ $query1 = mysqli_query($con, $sql1);
 																		<path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"></path>
 																		<path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"></path>
 																	</svg>
-																</span</buttton>
+																</span></buttton>
 													</td>
 												</tr>
 												<?php } ?>
