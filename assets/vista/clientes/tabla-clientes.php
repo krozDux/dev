@@ -49,12 +49,12 @@ $query1 = mysqli_query($con, $sql1);
 																data-apellidos="<?php echo $dataUsuario1['apellidos']; ?>"
 																data-direccion="<?php echo $dataUsuario1['direccion']; ?>"
 																data-numero="<?php echo $dataUsuario1['numero']; ?>"
-																data-imagen="<?php echo $dataUsuario1['imagen']; ?>"><span class="bi bi-pencil-fill fs-7 opacity-50"></buttton>
+																data-imagen="<?php echo $dataUsuario1['imagen']; ?>"><span class="bi bi-pencil-fill fs-7 opacity-75"></buttton>
 																<buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm del-usuario" 
 																data-id="<?php echo $dataUsuario1['id']; ?>"
 																data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
 																data-apellidos="<?php echo $dataUsuario1['apellidos']; ?>"
-																data-rol="<?php echo $dataUsuario1['rol']; ?>"><span class="bi bi-trash-fill fs-7 opacity-50"></span></buttton>
+																data-rol="<?php echo $dataUsuario1['rol']; ?>"><span class="bi bi-trash-fill fs-7 opacity-75"></span></buttton>
 													</td>
 												</tr>
 												<?php } ?>
