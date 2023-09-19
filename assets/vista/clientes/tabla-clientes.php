@@ -6,11 +6,11 @@ $query1 = mysqli_query($con, $sql1);
 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
 											<thead>
 												<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-													<th data-priority="9" class="min-w-120px">
+													<th class="min-w-120px">
 														Imagen
 													</th>
-													<th data-priority="3" class="min-w-125px">Nombres</th>
-													<th data-priority="1" class="min-w-125px">Apellidos</th>
+													<th data-priority="1" class="min-w-125px">Nombres</th>
+													<th data-priority="3" class="min-w-125px">Apellidos</th>
 													<th class="min-w-125px">Email</th>
 													<th class="min-w-125px">Dirección</th>
 													<th class="min-w-125px">Número</th>
