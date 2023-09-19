@@ -1,8 +1,7 @@
+<?php  if ($session_rol = "admin") { ?>
 <!DOCTYPE html>
-
 <html lang="es">
 	<?php include_once '../assets/controlador/sesion.php'?>
-	<?php  if ($session_rol = "admin") { ?>
 	<?php include_once '../assets/vista/contratos/head-contratos.php'?>
 	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
 		<?php include_once '../assets/vista/contratos/body-contratos.php'?>
