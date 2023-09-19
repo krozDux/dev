@@ -1,4 +1,4 @@
-<?php  if ($session_rol = "admin") { echo $session_rol;?>
+<?php  if ($session_rol = "admin") ?>
 	
 <!DOCTYPE html>
 <html lang="es">
