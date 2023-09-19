@@ -1,3 +1,4 @@
+<?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
 <?php include '../assets/controlador/contratos.php'?>
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
@@ -282,3 +283,6 @@
         </div>
     </div>
 </div>
+<?php } else{
+header("location: ../panel/index.php");
+} ?>
