@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php  if ($session_rol = "admin") { echo $session_rol;?>
+<?php  if ($session_rol == "admin") { echo $session_rol;?>
 <html lang="es">
 	<?php include_once '../assets/controlador/sesion.php'?>
 	<?php include '../assets/vista/clientes/head-clientes.php'?>
