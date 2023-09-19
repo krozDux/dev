@@ -25,7 +25,7 @@
 				buttons: [
 					{
 						text: '<span class="bi bi-person-fill-add">'+
-							'</span>Registrar',
+							'Registrar</span>',
 						className: 'btn btn-primary',
 						action: function (e, dt, node, config) {
 							$('#kt_modal_add_user').modal('show');
