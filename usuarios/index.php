@@ -24,7 +24,7 @@
 				],
 				buttons: [
 					{
-						text: '<span class="person-fill-add">'+
+						text: '<span class="bi bi-person-fill-add">'+
 							'</span>Registrar',
 						className: 'btn btn-primary',
 						action: function (e, dt, node, config) {
