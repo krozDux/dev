@@ -1,6 +1,6 @@
 <?php
 include('../config.php');
-$sql1 = ("SELECT * FROM usuarios WHERE contrato=1 and rol = 'cliente' or usuarios.rol = 'proveedor'");
+$sql1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE usuarios.contrato=1");
 $query1 = mysqli_query($con, $sql1);
 ?>
 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
