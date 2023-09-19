@@ -100,6 +100,7 @@ if (!empty($_POST['btncrear'])) {
                             $resultado = mysqli_query($con, $consulta);
                             $id_usuario = mysqli_insert_id($con);
                             $consulta11 = "INSERT contratos (`observacion`,`recomendacion`,`idUsuario`) VALUES ('-','-','$id_usuario')";
+                            $resultado3 = mysqli_query($con, $consulta11);
                             $nuevo_nombre_imagen = $id_usuario . '.' . $extension;
                             $ruta_imagen = '../assets/media/avatars/' . $nuevo_nombre_imagen;
                             move_uploaded_file($temp, $ruta_imagen);
@@ -112,7 +113,8 @@ if (!empty($_POST['btncrear'])) {
                         $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`direccion`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','$crearDireccion','blank.png','cliente','email','1')";
                         $resultado = mysqli_query($con, $consulta);
                         $id_usuario = mysqli_insert_id($con);
-                        $consulta12 = "INSERT contratos (`observacion`,`recomendacion`,`idUsuario`) VALUES ('-','-','$id_usuario')";
+                        $consulta11 = "INSERT contratos (`observacion`,`recomendacion`,`idUsuario`) VALUES ('-','-','$id_usuario')";
+                        $resultado3 = mysqli_query($con, $consulta11);
                         header("location: clientes.php");
                     }
                 }else{
