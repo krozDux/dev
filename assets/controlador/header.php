@@ -54,7 +54,7 @@
 											<!-- <a href="../../demo14/dist/authentication/flows/basic/sign-in.html" class="">Sign Out</a> -->
 											<form class="menu-link px-5" method="POST">
 											<button type="submit" class="menu-link px-5" name="unlogin" value="deslogear">
-											<a >Cerrar Sesión</a>
+												<span>Cerrar Sesión</span>
 											</button>
 											</form>
 										</div>

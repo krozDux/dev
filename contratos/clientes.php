@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<?php  if ($session_rol = "admin") { ?>
+<?php  if ($session_rol = "admin") { echo $session_rol;?>
 <html lang="es">
 	<?php include_once '../assets/controlador/sesion.php'?>
-	<?php include_once '../assets/vista/clientes/head-clientes.php'?>
+	<?php include '../assets/vista/clientes/head-clientes.php'?>
 	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-		<?php include_once '../assets/vista/clientes/body-clientes.php'?>
+		<?php include '../assets/vista/clientes/body-clientes.php'?>
 		<script>var hostUrl = "assets/";</script>
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
