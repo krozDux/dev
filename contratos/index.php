@@ -16,6 +16,8 @@
 			$('#kt_table_users').DataTable({
 			
 				dom: 'fBrtip',
+				fixedHeader: true,
+    			responsive: true,
 				buttons: [
 					{
 						extend: 'excelHtml5',
