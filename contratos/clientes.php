@@ -21,6 +21,7 @@
 					{ responsivePriority: 1},
 					{ responsivePriority: 2},
 					{ responsivePriority: 3},
+					{ responsivePriority: 6},
 				],
 				
 				buttons: [
