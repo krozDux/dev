@@ -18,18 +18,6 @@
 				dom: 'fBrtip',
 				buttons: [
 					{
-						text: '<span class="svg-icon svg-icon-2">'+
-							'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">'+
-							'<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="currentColor" />'+
-							'<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor" />'+
-							'</svg>'+
-							'</span>Registrar',
-						className: 'btn btn-primary',
-						action: function (e, dt, node, config) {
-							$('#kt_modal_add_user').modal('show');
-						}
-					},
-					{
 						extend: 'excelHtml5',
 						text: '<span class="svg-icon svg-icon-2">'+
 							'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">'+
@@ -40,7 +28,7 @@
 							'</span>Exportar</button>',
 						className: 'btn btn-primary ',
 						exportOptions: {
-							columns: [1, 2, 3, 4, 5]
+							columns: [1, 2, 3, 4, 5, 6]
 						},
 						autoFilter: true,
 						sheetName: 'Reporte - contratos'
