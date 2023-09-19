@@ -66,7 +66,7 @@ $query1 = mysqli_query($con, $sql1);
 													<?php } ?>
 
 													<td >
-																<buttton type="button" class="menu-link px-3 edit-usuario" 
+																<buttton type="button" class="btn btn-lg btn-primary edit-usuario" 
 																data-id="<?php echo $dataUsuario1['id']; ?>"
 																data-email="<?php echo $dataUsuario1['email']; ?>"
 																data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
