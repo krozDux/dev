@@ -16,12 +16,9 @@
 			$('#kt_table_users').DataTable({
 			
 				dom: 'fBrtip',
-				responsive: true,
-				columnDefs: [
-					{ responsivePriority: 1, targets: 0 },
-					{ responsivePriority: 2, targets: -1 },
-					{ responsivePriority: 3, targets: 2 },
-				],
+				"sScrollX": "100%",
+       			"sScrollXInner": "110%",
+        		"bScrollCollapse": true,
 				buttons: [
 					{
 						text: '<span class="svg-icon svg-icon-2 opacity-50">'+
