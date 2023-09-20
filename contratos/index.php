@@ -16,11 +16,9 @@
 			
 			$('#kt_table_users').DataTable({
 				dom: 'fBrtip',
-    			responsive: true,
-				columnDefs: [
-					{ responsivePriority: 1, targets: 0 },
-					{ responsivePriority: 2, targets: -1 },
-				],
+    			"sScrollX": "100%",
+       			"sScrollXInner": "110%",
+        		"bScrollCollapse": true,
 				buttons: [
 					{
 						extend: 'excelHtml5',
