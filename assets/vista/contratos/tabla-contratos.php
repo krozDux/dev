@@ -9,8 +9,9 @@ $query1 = mysqli_query($con, $sql1);
 													<th class="min-w-120px">
 														Imagen
 													</th>
-													<th data-priority="1" class="min-w-125px">Nombres y Apellidos</th>
-													<th data-priority="3" class="min-w-125px">Rol</th>
+													<th class="min-w-125px">Nombres</th>
+													<th class="min-w-125px">Apellidos</th>
+													<th class="min-w-125px">Rol</th>
 													<th class="min-w-125px">Email</th>
 													<th class="min-w-125px">Número</th>
 													<th class="min-w-125px">Fecha Inicio</th>
@@ -32,7 +33,8 @@ $query1 = mysqli_query($con, $sql1);
 															</a>
 														</div>
 													</td>
-													<td><?php echo $dataUsuario1['nombres']; ?> <?php echo $dataUsuario1['apellidos']; ?></td>
+													<td><?php echo $dataUsuario1['nombres']; ?></td>
+													<td><?php echo $dataUsuario1['apellidos']; ?></td>
 													<?php 
 													if ($dataUsuario1['rol'] == "admin") { ?>
 													<td><div class="badge badge-light-danger fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div></td>
