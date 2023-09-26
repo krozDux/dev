@@ -12,7 +12,7 @@ if (!empty($_POST['btneliminar'])) {
 
 if (!empty($_POST['btnreg'])) {
     if (!empty($_POST['regId']) and !empty($_POST['regFechaInicio']) and !empty($_POST['regFechaFin'])) {
-        $regId = $_POST['editId'];
+        $regId = $_POST['regId'];
         $regFechaInicio = $_POST['FechaInicio'];
         $regFechaFin = $_POST['FechaFin'];
         
