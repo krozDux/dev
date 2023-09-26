@@ -88,6 +88,7 @@
     		$('#regDireccion').val(direccion);
 			$('#regNumero').val(numero);
 			$('#kt_modal_reg_user').modal('show');
+			
 			if (fechainicio != "-") {
 				$('#regFechaInicio').val(fechainicio);
 			}
