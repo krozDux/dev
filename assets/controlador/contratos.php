@@ -11,11 +11,11 @@ if (!empty($_POST['btneliminar'])) {
 
 
 if (!empty($_POST['btnreg'])) {
-    if (!empty($_POST['regId']) and !empty($_POST['regFechaInicio']) and !empty($_POST['regFechaFin'])) {
+    if (!empty($_POST['regId'])) {
         $regId = $_POST['regId'];
         $regFechaInicio = $_POST['FechaInicio'];
         $regFechaFin = $_POST['FechaFin'];
-        $consulta5 = "UPDATE `contratos` SET `fechaInicio`=date($regFechaInicio) , `FechaFin`='$regFechaFin' where id='$regId'";
+        $consulta5 = "UPDATE `contratos` SET `fechaInicio`=$regFechaInicio , `FechaFin`='$regFechaFin' where id='$regId'";
         $resultado5 = mysqli_query($con, $consulta5);
         header("location: index.php");
     }
