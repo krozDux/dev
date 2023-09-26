@@ -56,7 +56,7 @@ $query1 = mysqli_query($con, $sql1);
 													<?php if ($dataUsuario1['fechaInicio'] == "") { ?>
 														<td> - </td>
 													<?php } else { ?>
-														<td><?php echo str_replace('-"', '/',date("m-d-Y", $dataUsuario1['fechaInicio'])); ?></td>
+														<td><?php echo date("m-d-Y", $dataUsuario1['fechaInicio']); ?></td>
 													<?php } ?>
 													
 													<?php if ($dataUsuario1['fechaFin'] == "") { ?>
