@@ -109,7 +109,7 @@
                             <input type="text" name="regNumero"
                                 class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regNumero" disabled/>
                         </div>
-                        <div class="fv-row mb-4">
+                        <div class="row fv-row mb-4">
                             <div class="col-xl-2">
                                 <label class="required fw-bold fs-6 mb-2">Fecha Inicio</label>
                                 <input type="date" name="regFechaInicio" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regFechaInicio" />
