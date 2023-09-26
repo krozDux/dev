@@ -102,22 +102,25 @@
                         <div class="fv-row mb-4">
                             <label class="required fw-bold fs-6 mb-2">Email</label>
                             <input type="email" name="regEmail" class="form-control form-control-solid mb-3 mb-lg-0"
-                                id="regEmail" />
+                                id="regEmail" disabled/>
                         </div>
                         <div class="fv-row mb-4">
                             <label class="required fw-bold fs-6 mb-2">Número</label>
                             <input type="text" name="regNumero"
-                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regNumero" />
+                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regNumero" disabled/>
                         </div>
                         <div class="fv-row mb-4">
-                            <label class="required fw-bold fs-6 mb-2">Dirección</label>
-                            <input type="text" name="regDireccion"
-                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regDireccion" />
+                            <div class="col-xl-2">
+                                <label class="required fw-bold fs-6 mb-2">Fecha Inicio</label>
+                                <input type="date" name="regFechaInicio" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regFechaInicio" />
+                            </div>
+                            <div class="col-xl-2">
+                                <label class="required fw-bold fs-6 mb-2">Fecha Fin</label>
+                                <input type="date" name="regFechaFin" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regFechaFin" />
+                            </div>
                         </div>
                     </div>
                     <div class="text-center pt-6">
-
-
                         <button class="btn btn-light me-3 modal-close">Cancelar</button>
                         <button type="submit" class="btn btn-success" name="btnreg" value="regU">
                             <span class="indicator-label">Guardar</span>
