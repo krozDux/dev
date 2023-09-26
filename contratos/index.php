@@ -71,7 +71,7 @@
 		</script>
 
 		<script>
-		$('.edit-usuario').on('click', function() {
+		$('.reg-contrato').on('click', function() {
 			var id = $(this).data('id');
 			var email = $(this).data('email');
 			var nombres = $(this).data('nombres');
@@ -79,15 +79,14 @@
 			var direccion = $(this).data('direccion');
 			var numero = $(this).data('numero');
 			var imagen = $(this).data('imagen');
-			$('#editId').val(id);
+			$('#regId').val(id);
 			$('#resetId').val(id);
 			$('#resetNombres').val(nombres + " " + apellidos);
-			$('#editEmail').val(email);
-    		$('#editNombres').val(nombres + " " + apellidos);
-    		$('#editDireccion').val(direccion);
-			$('#editNumero').val(numero);
-			document.getElementById("editImagen").style.backgroundImage="url(assets/media/avatars/"+imagen+")";
-			$('#kt_modal_edit_user').modal('show');
+			$('#regEmail').val(email);
+    		$('#regNombres').val(nombres + " " + apellidos);
+    		$('#regDireccion').val(direccion);
+			$('#regNumero').val(numero);
+			$('#kt_modal_reg_user').modal('show');
 		});
 		</script>
 
@@ -95,7 +94,7 @@
 		$('.modal-close').on('click', function() {
 			$('#kt_modal_remove_user').modal('hide');
 			$('#kt_modal_add_user').modal('hide');
-			$('#kt_modal_edit_user').modal('hide');
+			$('#kt_modal_reg_user').modal('hide');
 		});
 		</script>
 	</body>

@@ -12,7 +12,6 @@ $query1 = mysqli_query($con, $sql1);
 													<th class="min-w-125px">Nombres</th>
 													<th class="min-w-125px">Apellidos</th>
 													<th class="min-w-125px">Rol</th>
-													<th class="min-w-125px">Email</th>
 													<th class="min-w-125px">Número</th>
 													<th class="min-w-125px">Fecha Inicio</th>
 													<th class="min-w-125px">Fecha Fin</th>
@@ -47,7 +46,6 @@ $query1 = mysqli_query($con, $sql1);
 													<?php } else { ?>
 														<td><div class="badge badge-light-dark fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div></td>
 													<?php } ?>
-													<td><?php echo $dataUsuario1['email']; ?></td>
 													<?php 
 													if ($dataUsuario1['numero'] == "-") { ?>
 													<td><?php echo $dataUsuario1['numero']; ?></td>
@@ -68,7 +66,7 @@ $query1 = mysqli_query($con, $sql1);
 													<?php } ?>
 
 													<td >
-																<buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm edit-usuario" 
+																<buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm reg-contrato" 
 																data-id="<?php echo $dataUsuario1['id']; ?>"
 																data-email="<?php echo $dataUsuario1['email']; ?>"
 																data-nombres="<?php echo $dataUsuario1['nombres']; ?>"

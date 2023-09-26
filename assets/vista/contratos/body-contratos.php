@@ -70,11 +70,11 @@
     </div>
 </div>
 
-<div class="modal fade" id="kt_modal_edit_user" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="kt_modal_reg_user" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <div class="modal-content">
             <div class="modal-header" id="kt_modal_add_user_header">
-                <h2 class="fw-bolder">Editar Usuario</h2>
+                <h2 class="fw-bolder">Registrar contrato</h2>
                 <div class="btn btn-icon btn-sm btn-active-icon-primary modal-close" data-kt-users-modal-action="close">
                     <span class="svg-icon svg-icon-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -93,67 +93,37 @@
                         data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header"
                         data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
                         <div class="fv-row mb-4">
-                            <label class="d-block fw-bold fs-6 mb-5">Avatar</label>
-                            <div class="image-input image-input-outline" data-kt-image-input="true"
-                                style="background-image: url('assets/media/avatars/blank.png')">
-                                <div class="image-input-wrapper w-125px h-125px" id="editImagen"
-                                    style="background-image: url(assets/media/avatars/blank.png);"></div>
-                                <label
-                                    class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Cambiar imagen">
-                                    <i class="bi bi-pencil-fill fs-7"></i>
-                                    <input type="file" name="imagen" accept=".png, .jpg, .jpeg" />
-                                    <input type="hidden" name="avatar_remove" />
-                                </label>
-                            </div>
-                            <div class="form-text">Archivos permitidos: png, jpg, jpeg.</div>
-                        </div>
-                        <div class="fv-row mb-4">
                             <label class="fw-bold fs-6 mb-2">Nombres completos</label>
-                            <input type="text" name="editId" class="form-control form-control-solid mb-3 mb-lg-0"
-                                id="editId" hidden />
-                            <input type="text" name="editNombre" class="form-control form-control-solid mb-3 mb-lg-0"
-                                id="editNombres" disabled />
+                            <input type="text" name="regId" class="form-control form-control-solid mb-3 mb-lg-0"
+                                id="regId" hidden />
+                            <input type="text" name="regNombre" class="form-control form-control-solid mb-3 mb-lg-0"
+                                id="regNombres" disabled />
                         </div>
                         <div class="fv-row mb-4">
                             <label class="required fw-bold fs-6 mb-2">Email</label>
-                            <input type="email" name="editEmail" class="form-control form-control-solid mb-3 mb-lg-0"
-                                id="editEmail" />
+                            <input type="email" name="regEmail" class="form-control form-control-solid mb-3 mb-lg-0"
+                                id="regEmail" />
                         </div>
                         <div class="fv-row mb-4">
                             <label class="required fw-bold fs-6 mb-2">Número</label>
-                            <input type="text" name="editNumero"
-                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editNumero" />
+                            <input type="text" name="regNumero"
+                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regNumero" />
                         </div>
                         <div class="fv-row mb-4">
                             <label class="required fw-bold fs-6 mb-2">Dirección</label>
-                            <input type="text" name="editDireccion"
-                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="editDireccion" />
+                            <input type="text" name="regDireccion"
+                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regDireccion" />
                         </div>
                     </div>
                     <div class="text-center pt-6">
 
 
                         <button class="btn btn-light me-3 modal-close">Cancelar</button>
-                        <button type="submit" class="btn btn-success" name="btneditar" value="editarU">
+                        <button type="submit" class="btn btn-success" name="btnreg" value="regU">
                             <span class="indicator-label">Guardar</span>
                         </button>
                     </div>
                 </form>
-                <div class="text-center pt-6">
-                    <form id="kt_modal_reset_user_form" class="form" method="POST" enctype="multipart/form-data">
-                        <input type="text" id="resetId" name="resetId"
-                            class="form-control form-control-solid mb-0 mb-lg-0" hidden />
-                        <input type="text" id="resetNombres" name="resetNombres"
-                            class="form-control form-control-solid mb-0 mb-lg-0" hidden />
-                        <input type="password" value="User1234." name="resetPass"
-                            class="form-control form-control-solid mb-0 mb-lg-0" hidden />
-                        <button type="submit" class="btn btn-primary" name="btnreset" value="resetU">
-                            <span class="indicator-label">Resetear password</span>
-                        </button>
-                        <p class="mt-2"> Se reiniciara el password a "User1234."</p>
-                    </form>
-                </div>
             </div>
         </div>
     </div>
@@ -228,7 +198,7 @@
                             <label class="d-block fw-bold fs-6 mb-5">Avatar</label>
                             <div class="image-input image-input-outline" data-kt-image-input="true"
                                 style="background-image: url('assets/media/avatars/blank.png')">
-                                <div class="image-input-wrapper w-125px h-125px" id="editImagen"
+                                <div class="image-input-wrapper w-125px h-125px" id="regImagen"
                                     style="background-image: url(assets/media/avatars/blank.png);"></div>
                                 <label
                                     class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
