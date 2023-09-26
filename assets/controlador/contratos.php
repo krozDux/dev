@@ -15,10 +15,9 @@ if (!empty($_POST['btnreg'])) {
         $regId = $_POST['regId'];
         $regFechaInicio = $_POST['FechaInicio'];
         $regFechaFin = $_POST['FechaFin'];
-        
-            $consulta5 = "UPDATE `contratos` SET `fechaInicio`=date($regFechaInicio) , `FechaFin`='$regFechaFin' where id='$regId'";
-            $resultado5 = mysqli_query($con, $consulta5);
-            header("location: index.php");
+        $consulta5 = "UPDATE `contratos` SET `fechaInicio`=date($regFechaInicio) , `FechaFin`='$regFechaFin' where id='$regId'";
+        $resultado5 = mysqli_query($con, $consulta5);
+        header("location: index.php");
     }
 }
 ?>
