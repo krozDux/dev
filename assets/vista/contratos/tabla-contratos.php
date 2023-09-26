@@ -73,7 +73,7 @@ $query1 = mysqli_query($con, $sql1);
 																data-apellidos="<?php echo $dataUsuario1['apellidos']; ?>"
 																data-direccion="<?php echo $dataUsuario1['direccion']; ?>"
 																data-numero="<?php echo $dataUsuario1['numero']; ?>"
-																data-fechainicio="<?php echo str_replace('-"', '/',date("m-d-Y", $dataUsuario1['fechaInicio'])); ?>"
+																data-fechainicio="<?php echo date("m-d-Y", $dataUsuario1['fechaInicio']); ?>"
 																data-fechafin="<?php echo $dataUsuario1['fechaFin']; ?>"><span class="bi bi-pencil-fill fs-7 opacity-50"></buttton>
 															
 															
