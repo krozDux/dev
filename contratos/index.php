@@ -69,8 +69,8 @@
     });
     </script>
 
-    <script>
-    $('.reg-contrato').on('click', function() {
+<script>
+    $('.reg-contrato').on('click', function () {
         var id = $(this).data('id');
         var email = $(this).data('email');
         var nombres = $(this).data('nombres');
@@ -94,12 +94,8 @@
         if (fechafin != "-") {
             $('#regFechaFin').val(fechafin);
         }
-        
-    });
-    </script>
 
-    <script>
-        // Obtén los elementos de fecha de inicio y fecha fin
+        // Obtén los elementos de fecha de inicio y fecha de fin
         var fechaInicioInput = document.getElementById("regFechaInicio");
         var fechaFinInput = document.getElementById("regFechaFin");
 
@@ -128,7 +124,10 @@
                 fechaInicioInput.value = fechaFinInput.value;
             }
         });
-    </script>
+    });
+</script>
+
+   
 
     <script>
     $('.modal-close').on('click', function() {
