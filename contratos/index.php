@@ -94,7 +94,32 @@
         if (fechafin != "-") {
             $('#regFechaFin').val(fechafin);
         }
-    });
+            var fechaInicioInput = document.getElementById("regFechaInicio");
+            var fechaFinInput = document.getElementById("regFechaFin");
+            fechaInicioInput.addEventListener("change", function () {
+            // Convierte las fechas en objetos Date
+            var fechaInicio = new Date(fechaInicioInput.value);
+            var fechaFin = new Date(fechaFinInput.value);
+
+            // Valida si fecha de inicio es mayor que fecha de fin
+            if (fechaInicio > fechaFin) {
+                // Establece la fecha de fin igual a fecha de inicio
+                fechaFinInput.value = fechaInicioInput.value;
+            }
+        });
+
+        // Agrega un evento change a fecha de fin
+        fechaFinInput.addEventListener("change", function () {
+            // Convierte las fechas en objetos Date
+            var fechaInicio = new Date(fechaInicioInput.value);
+            var fechaFin = new Date(fechaFinInput.value);
+
+            // Valida si fecha de fin es menor que fecha de inicio
+            if (fechaFin < fechaInicio) {
+                // Establece la fecha de inicio igual a fecha de fin
+                fechaInicioInput.value = fechaFinInput.value;
+            }
+         });
     </script>
 
     <script>
