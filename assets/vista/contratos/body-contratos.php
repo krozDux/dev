@@ -102,21 +102,23 @@
                         <div class="fv-row mb-4">
                             <label class="fw-bold fs-6 mb-2">Email</label>
                             <input type="email" name="regEmail" class="form-control form-control-solid mb-3 mb-lg-0"
-                                id="regEmail" disabled/>
+                                id="regEmail" disabled />
                         </div>
                         <div class="fv-row mb-4">
                             <label class="fw-bold fs-6 mb-2">Número</label>
                             <input type="text" name="regNumero"
-                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regNumero" disabled/>
+                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regNumero" disabled />
                         </div>
                         <div class="row fv-row mb-4">
                             <div class="col-xl-6">
                                 <label class="required fw-bold fs-6 mb-2">Fecha Inicio</label>
-                                <input type="date" name="regFechaInicio" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regFechaInicio" />
+                                <input type="date" name="regFechaInicio"
+                                    class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regFechaInicio" />
                             </div>
                             <div class="col-xl-6">
                                 <label class="required fw-bold fs-6 mb-2">Fecha Fin</label>
-                                <input type="date" name="regFechaFin" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regFechaFin" />
+                                <input type="date" name="regFechaFin"
+                                    class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regFechaFin" />
                             </div>
                         </div>
                     </div>
