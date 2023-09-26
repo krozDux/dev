@@ -100,12 +100,12 @@
                                 id="regNombres" disabled />
                         </div>
                         <div class="fv-row mb-4">
-                            <label class="required fw-bold fs-6 mb-2">Email</label>
+                            <label class="fw-bold fs-6 mb-2">Email</label>
                             <input type="email" name="regEmail" class="form-control form-control-solid mb-3 mb-lg-0"
                                 id="regEmail" disabled/>
                         </div>
                         <div class="fv-row mb-4">
-                            <label class="required fw-bold fs-6 mb-2">Número</label>
+                            <label class="fw-bold fs-6 mb-2">Número</label>
                             <input type="text" name="regNumero"
                                 class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regNumero" disabled/>
                         </div>

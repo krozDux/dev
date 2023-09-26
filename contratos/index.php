@@ -78,7 +78,8 @@
 			var apellidos = $(this).data('apellidos');
 			var direccion = $(this).data('direccion');
 			var numero = $(this).data('numero');
-			var imagen = $(this).data('imagen');
+			var fechainicio = $(this).data('fechainicio');
+			var fechafin = $(this).data('fechafin');
 			$('#regId').val(id);
 			$('#resetId').val(id);
 			$('#resetNombres').val(nombres + " " + apellidos);
@@ -87,6 +88,12 @@
     		$('#regDireccion').val(direccion);
 			$('#regNumero').val(numero);
 			$('#kt_modal_reg_user').modal('show');
+			if (fechainicio != "-") {
+				$('#regFechaInicio').val(fechainicio);
+			}
+			if (fechafin != "-") {
+				$('#regFechaFin').val(fechafin);
+			}
 		});
 		</script>
 
