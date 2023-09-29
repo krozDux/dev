@@ -139,9 +139,9 @@
           
         };
 
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material2'));
+        var chart = new google.charts.PieChart(document.getElementById('columnchart_material2'));
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
+        chart.draw(data, options);
       }
     </script>
 
