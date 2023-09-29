@@ -124,7 +124,7 @@ function drawChart() {
 
   downloadButton.addEventListener('click', function() {
     // Capturar el contenedor de la tarjeta como una imagen
-    html2canvas(document.querySelector('.card')).then(function(canvas) {
+    html2canvas(document.querySelector('.report1')).then(function(canvas) {
       // Convertir la imagen en un archivo
       Canvas2Image.saveAsPNG(canvas, null, null, 'grafico');
     });

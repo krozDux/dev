@@ -61,7 +61,7 @@ $query14 = mysqli_query($con, $sql14);
                     </div>
                     <div class="row g-5 g-lg-10">
 	                            <div class="col-xl-6 mb-5 mb-xl-10">
-                                <div class="card h-xl-100 pb-5">
+                                <div class="card h-xl-100 pb-5 report1">
                             <div class="card-header border-0 pt-5">
                                 <h3 class="card-title align-items-start flex-column">
                                     <span class="card-label fw-bolder fs-3 mb-1">Inicialización de contratos</span>
