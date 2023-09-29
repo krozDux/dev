@@ -37,10 +37,7 @@
         ]);
 
         var options = {
-          chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-          }
+          
         };
 
         var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
