@@ -135,16 +135,6 @@
     }
     </script>
 
-
-
-
-
-
-
-
-
-
-
     <script type="text/javascript">
     google.charts.load('current', {
         'packages': ['corechart']
@@ -160,18 +150,16 @@
             <?php } ?>
         ]);
 
-        var options = {
-
-        };
+        var options = {};
 
         var chart = new google.visualization.PieChart(document.getElementById('columnchart_material2'));
 
         chart.draw(data, options);
-        var downloadButton = document.getElementById('download-button');
+        var downloadButton = document.getElementById('download-button2');
 
         downloadButton.addEventListener('click', function() {
             // Capturar el contenedor de la tarjeta como una imagen
-            html2canvas(document.querySelector('.report1')).then(function(canvas) {
+            html2canvas(document.querySelector('.report2')).then(function(canvas) {
                 // Convertir la imagen en un archivo
                 Canvas2Image.saveAsPNG(canvas, null, null, 'grafico');
             });
