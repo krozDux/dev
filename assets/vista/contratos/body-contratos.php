@@ -98,13 +98,13 @@ $query14 = mysqli_query($con, $sql14);
                         data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header"
                         data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
                         <div class="row fv-row mb-4">
-                            <div class="col-xl-6">
+                            <div class="col-xl-12">
                                 <label class="required fw-bold fs-6 mb-2">Seleccionar trabajador</label>
                                 <select class="form-select form-select-solid" name="newNombre" id="newNombres" tabindex="-1"
                                 aria-hidden="true" required>
-                                <option selected value="">Seleccionar un rol</option>
+                                <option selected value="">Seleccionar trabajador</option>
                                 <?php  while ($dataUsuario14 = mysqli_fetch_array($query14)) { ?>
-                                <option value="<?php echo ($dataUsuario14['idUsuario']);?>"><?php echo ($dataUsuario14['nombres']);?></option>
+                                <option value="<?php echo ($dataUsuario14['idUsuario']);?>"><?php echo ($dataUsuario14['nombres']);?> <?php echo ($dataUsuario14['apellidos']);?></option>
                                 <?php } ?>
                                 </select>
                             </div>
