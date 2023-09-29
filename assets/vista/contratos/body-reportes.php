@@ -69,9 +69,7 @@ $query14 = mysqli_query($con, $sql14);
 	                                        </h3>
 	                                    </div>
 	                                    <div class="card h-md-100">
-	                                        <div class="table-responsive">
                                                 <div id="chart_div" style="height: 400px;"></div>
-	                                        </div>
 	                                    </div>
 	                                </div>
 	                            </div>
