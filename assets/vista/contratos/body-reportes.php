@@ -184,7 +184,11 @@ $query14 = mysqli_query($con, $sql14);
 	                                    <!--end::Header-->
 	                                    <!--begin::Body-->
 	                                    <div class="card-body py-3">
-                                        <div id="chart_div" style="height: 400px;"></div>
+	                                        <!--begin::Table container-->
+	                                        <div class="table-responsive">
+                                                <div id="chart_div" style="height: 400px;"></div>
+	                                        </div>
+	                                        <!--end::Table container-->
 	                                    </div>
 	                                    <!--begin::Body-->
 	                                </div>
