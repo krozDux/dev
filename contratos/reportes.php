@@ -61,11 +61,28 @@
 
   <?php
     include('../config.php');
-    $sqlchart1 = ("SELECT
-    DATE_FORMAT(c.fechaInicio, '%Y-%m') AS mes,
-    SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) AS total_registros_rol1,
-    SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_rol2,
-    SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) + SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_ambos_roles,
+    $sqlchart2 = ("SELECT DATE_FORMAT(c.fechaFin, '%Y-%m') AS mes, SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) AS total_registros_rol1, SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_rol2, SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) + SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_ambos_roles,
+    CASE
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '01' THEN 'Enero'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '02' THEN 'Febrero'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '03' THEN 'Marzo'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '04' THEN 'Abril'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '05' THEN 'Mayo'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '06' THEN 'Junio'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '07' THEN 'Julio'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '08' THEN 'Agosto'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '09' THEN 'Septiembre'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '10' THEN 'Octubre'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '11' THEN 'Noviembre'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '12' THEN 'Diciembre'
+    END AS nombre_mes FROM contratos c INNER JOIN usuarios u ON c.idUsuario = u.id WHERE c.fechaFin >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH) GROUP BY DATE_FORMAT(c.fechaFin, '%Y-%m') ORDER BY mes;");
+    $querychart2 = mysqli_query($con, $sqlchart2);
+    ?>
+
+
+    <?php
+    include('../config.php');
+    $sqlchart1 = ("SELECT DATE_FORMAT(c.fechaInicio, '%Y-%m') AS mes, SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) AS total_registros_rol1, SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_rol2, SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) + SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_ambos_roles,
     CASE
         WHEN DATE_FORMAT(c.fechaInicio, '%m') = '01' THEN 'Enero'
         WHEN DATE_FORMAT(c.fechaInicio, '%m') = '02' THEN 'Febrero'
@@ -79,17 +96,7 @@
         WHEN DATE_FORMAT(c.fechaInicio, '%m') = '10' THEN 'Octubre'
         WHEN DATE_FORMAT(c.fechaInicio, '%m') = '11' THEN 'Noviembre'
         WHEN DATE_FORMAT(c.fechaInicio, '%m') = '12' THEN 'Diciembre'
-    END AS nombre_mes
-FROM
-    contratos c
-INNER JOIN
-    usuarios u ON c.idUsuario = u.id
-WHERE
-    c.fechaInicio >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
-GROUP BY
-    DATE_FORMAT(c.fechaInicio, '%Y-%m')
-ORDER BY
-    mes;");
+    END AS nombre_mes FROM contratos c INNER JOIN usuarios u ON c.idUsuario = u.id WHERE c.fechaInicio >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH) GROUP BY DATE_FORMAT(c.fechaInicio, '%Y-%m') ORDER BY mes;");
     $querychart1 = mysqli_query($con, $sqlchart1);
     ?>
 
@@ -110,12 +117,33 @@ ORDER BY
           
         };
 
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material2'));
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material1'));
 
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
 
+  <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Mes', 'Cantidad'],
+          <?php  while ($dataChart2 = mysqli_fetch_array($querychart2)) { ?>
+          ['<?php echo $dataChart2['nombre_mes']; ?>',<?php echo $dataChart2['total_registros_ambos_roles']; ?>],
+          <?php } ?>
+        ]);
+
+        var options = {
+          
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material2'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
 
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
