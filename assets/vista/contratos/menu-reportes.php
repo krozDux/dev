@@ -81,7 +81,7 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link active" href="contratos/index.php" title="" data-bs-toggle="tooltip"
+                    <a class="menu-link" href="contratos/index.php" title="" data-bs-toggle="tooltip"
                         data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right"
                         data-bs-original-title="Gestión de los contratos">
                         <span class="menu-icon">
@@ -102,7 +102,7 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link" href="contratos/reportes.php" title="" data-bs-toggle="tooltip"
+                    <a class="menu-link active" href="contratos/reportes.php" title="" data-bs-toggle="tooltip"
                         data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right"
                         data-bs-original-title="Reportes de los contratos">
                         <span class="menu-icon">
