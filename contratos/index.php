@@ -30,7 +30,7 @@
                         '</span>Registrar',
                     className: 'btn btn-primary',
                     action: function(e, dt, node, config) {
-                        $('#kt_modal_view_user').modal('show');
+                        $('#kt_modal_new_user').modal('show');
                     }
                 },
                 {
