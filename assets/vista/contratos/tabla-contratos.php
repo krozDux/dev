@@ -12,10 +12,10 @@ $query1 = mysqli_query($con, $sql1);
             <th class="min-w-125px">Nombres</th>
             <th class="min-w-125px">Apellidos</th>
             <th class="min-w-125px">Rol</th>
-            <th class="min-w-125px">Número</th>
+            <th class="min-w-125px">Estado</th>
             <th class="min-w-125px" hidden>Fecha Inicio</th>
             <th class="min-w-125px" hidden>Fecha Fin</th>
-            <th class="min-w-125px">Estado</th>
+            <th class="min-w-125px">Número</th>
             <th class="min-w-125px">Observación</th>
             <th class="min-w-125px">Recomendación</th>
             <th data-priority="2" class="min-w-125px">Opciones</th>
@@ -41,33 +41,25 @@ $query1 = mysqli_query($con, $sql1);
             <td><?php echo $dataUsuario1['apellidos']; ?></td>
             <?php 
 			if ($dataUsuario1['rol'] == "admin") { ?>
-            <td>
-                <div class="badge badge-light-danger fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div>
-            </td>
+            <td> <div class="badge badge-light-danger fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div> </td>
             <?php } else if ($dataUsuario1['rol'] == "cliente") { ?>
-            <td>
-                <div class="badge badge-light-success fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div>
-            </td>
+            <td> <div class="badge badge-light-success fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div> </td>
             <?php } else if ($dataUsuario1['rol'] == "proveedor"){ ?>
-            <td>
-                <div class="badge badge-light-warning fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div>
-            </td>
+            <td> <div class="badge badge-light-warning fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div> </td>
             <?php } else if ($dataUsuario1['rol'] == "usuario"){ ?>
-            <td>
-                <div class="badge badge-light-info fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div>
-            </td>
+            <td> <div class="badge badge-light-info fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div> </td>
             <?php } else { ?>
-            <td>
-                <div class="badge badge-light-dark fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div>
-            </td>
+            <td> <div class="badge badge-light-dark fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div> </td>
             <?php } ?>
-            <?php 
-													if ($dataUsuario1['numero'] == "-") { ?>
+            <?php if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
+            <td> <div class="badge badge-success fw-bolder">Con contrato</div> </td>
+            <?php } else { ?>
+                <td> <div class="badge badge-danger fw-bolder">Sin contrato</div> </td>
+            <?php } ?>
+            <?php if ($dataUsuario1['numero'] == "-") { ?>
             <td><?php echo $dataUsuario1['numero']; ?></td>
             <?php } else { ?>
-            <td><a
-                    href="https://wa.me/51<?php echo $dataUsuario1['numero']; ?>"><?php echo $dataUsuario1['numero']; ?></a>
-            </td>
+            <td><a href="https://wa.me/51<?php echo $dataUsuario1['numero']; ?>"><?php echo $dataUsuario1['numero']; ?></a> </td>
             <?php } ?>
 
             <?php if ($dataUsuario1['fechaInicio'] == "") { ?>
@@ -82,15 +74,6 @@ $query1 = mysqli_query($con, $sql1);
             <td hidden><?php echo date('d/m/Y', strtotime($dataUsuario1['fechaFin'])); ?></td>
             <?php } ?>
 
-            <?php if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
-            <td>
-                <div class="badge badge-success fw-bolder">Con contrato</div>
-            </td>
-            <?php } else { ?>
-                <td>
-                <div class="badge badge-danger fw-bolder">Sin contrato</div>
-            </td>
-            <?php } ?>
             <td><?php echo $dataUsuario1['observacion']; ?></td>
             <td><?php echo $dataUsuario1['recomendacion']; ?></td>
             <td>
