@@ -28,16 +28,16 @@ if (!empty($_POST['btnregistrar'])) {
                                     $extension = pathinfo($imagen,PATHINFO_EXTENSION);
                                     // $imagenid = $rename.'.'.$extension;
                                 if (!((strpos($tipo, 'jpeg')) or (strpos($tipo, 'jpg')) or (strpos($tipo, 'png')))){
-                                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
-                                    <div class="toast-header">
-                                        <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
-                                        <strong class="me-auto">Alerta</strong>
-                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                                    </div>
-                                    <div class="toast-body">
-                                        Solo se permiten archivos con extensión jpeg, jpg o png.
-                                    </div>
-                                </div>';
+                                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                                            <div class="toast-header bg-danger">
+                                                <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                                                <strong class="me-auto text-white">Alerta</strong>
+                                                <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                                            </div>
+                                            <div class="toast-body text-white">
+                                                Solo se permiten archivos con extensión jpeg, jpg o png.
+                                            </div>
+                                        </div>';
                                 }else {
                                     $hashedPassword = hash('sha256', $password);
                                     $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$email','$hashedPassword','$nombres','$apellidos','$imagen','invitado','email','1')";
@@ -57,73 +57,73 @@ if (!empty($_POST['btnregistrar'])) {
                                 header("location: index.php");
                             }
                         } else {
-                            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
-                            <div class="toast-header">
-                                <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
-                                <strong class="me-auto">Alerta</strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                            </div>
-                            <div class="toast-body">
+                            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
                                 El correo electrónico ya está registrado. Por favor, elija otro correo.
                             </div>
                         </div>';
                         }
                     } else {
-                        echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="toast-header">
-                            <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
-                            <strong class="me-auto">Alerta</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
-                        <div class="toast-body">
+                        <div class="toast-body text-white">
                             Las contraseñas no coinciden.
                         </div>
                     </div>';
                     }
                 } else {
-                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                        <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
-                        <strong class="me-auto">Alerta</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
+                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
                         La contraseña debe tener al menos una letra mayúscula, un símbolo y un mínimo de 8 caracteres.
                     </div>
                 </div>';
                 }
             } else {
-                echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
-                    <strong class="me-auto">Alerta</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
+                echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
                     El nombre y apellido solo deben contener letras y espacios.
                 </div>
             </div>';
             }
         } else {
-            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
-                <strong class="me-auto">Alerta</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
+            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
                 El formato del correo electrónico no es válido.
             </div>
         </div>';
         }
     } else {
-        echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
-            <strong class="me-auto">Alerta</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
+        echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
             Por favor, completa todos los campos.
         </div>
     </div>';

@@ -24,13 +24,13 @@ if (!empty($_POST['btningresar'])) {
             mysqli_stmt_fetch($stmt);
 
             if ($estado == '2') {
-                echo ' <div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                        <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
-                        <strong class="me-auto">Alerta</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
+                echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
                         Su cuenta está desactivada.
                     </div>
                 </div> ';
@@ -41,26 +41,26 @@ if (!empty($_POST['btningresar'])) {
                 header("location:../panel/index.php");
             }
         } else {
-            echo ' <div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
-                    <strong class="me-auto">Alerta</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
+            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
                     Credenciales incorrectas.
                 </div>
             </div> ';
         }
         mysqli_stmt_close($stmt);
     } else {
-        echo ' <div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
-                <strong class="me-auto">Alerta</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
+        echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header bg-danger">
+                        <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                        <strong class="me-auto text-white">Alerta</strong>
+                        <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body text-white">
                 Digitar correo electrónico y contraseña.
             </div>
         </div> ';
