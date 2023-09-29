@@ -61,9 +61,7 @@ $query14 = mysqli_query($con, $sql14);
                     </div>
                     <div class="content flex-column-fluid" id="kt_content">
                     <div class="col-xl-6 mb-5 mb-xl-10">
-	                                <!--begin::Tables Widget 3-->
 	                                <div class="card h-xl-100">
-	                                    <!--begin::Header-->
 	                                    <div class="card-header border-0 pt-5">
 	                                        <h3 class="card-title align-items-start flex-column">
 	                                            <span class="card-label fw-bolder fs-3 mb-1">Files</span>
@@ -71,9 +69,7 @@ $query14 = mysqli_query($con, $sql14);
 	                                        </h3>
 	                                    </div>
 	                                    <div class="card-body py-3">
-	                                        <div class="table-responsive">
                                                 <div id="chart_div" style="max-width: 800px; max-height: 400px;"></div>
-	                                        </div>
 	                                    </div>
 	                                </div>
 	                            </div>
