@@ -51,23 +51,11 @@ $query1 = mysqli_query($con, $sql1);
             <?php } else { ?>
             <td> <div class="badge badge-light-dark fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div> </td>
             <?php } ?>
-
-
-
-
-            <?php $fechaActual = date('Y-m-d'); 
-            if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "" && strtotime($dataUsuario1['fechaFin']) < strtotime($fechaActual)) { ?>
-            <td> <div class="badge badge-danger fw-bolder">Contrato expirado</div> </td>
-            <?php } else { ?>
-            <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
-                <td> <div class="badge badge-success fw-bolder">Con contrato</div> </td>
+            <?php if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
+            <td> <div class="badge badge-success fw-bolder">Con contrato</div> </td>
             <?php } else { ?>
                 <td> <div class="badge badge-danger fw-bolder">Sin contrato</div> </td>
             <?php } ?>
-
-
-
-
             <?php if ($dataUsuario1['numero'] == "-") { ?>
             <td><?php echo $dataUsuario1['numero']; ?></td>
             <?php } else { ?>
@@ -88,8 +76,25 @@ $query1 = mysqli_query($con, $sql1);
 
             <td><?php echo $dataUsuario1['observacion']; ?></td>
             <td><?php echo $dataUsuario1['recomendacion']; ?></td>
-           
-            <?php if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
+            <?php $fechaActual = date('Y-m-d'); 
+            if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "" && strtotime($dataUsuario1['fechaFin']) < strtotime($fechaActual)) { ?>
+                <td>
+                    <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm regnew-contrato"
+                    data-id="<?php echo $dataUsuario1['id']; ?>"
+                    data-email="<?php echo $dataUsuario1['email']; ?>"
+                    data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
+                    data-apellidos="<?php echo $dataUsuario1['apellidos']; ?>"
+                    data-direccion="<?php echo $dataUsuario1['direccion']; ?>"
+                    data-rol="<?php echo ucfirst($dataUsuario1['rol']); ?>"
+                    data-numero="<?php echo $dataUsuario1['numero']; ?>"
+                    data-observacion="<?php echo $dataUsuario1['observacion']; ?>"
+                    data-recomendacion="<?php echo $dataUsuario1['recomendacion']; ?>"
+                    data-fechainicio="<?php echo $dataUsuario1['fechaInicio']; ?>"
+                    data-fechafin="<?php echo $dataUsuario1['fechaFin']; ?>"><span
+                        class="bi bi-patch-plus-fill fs-7 opacity-50"></buttton>
+                </td>
+            <?php } else { ?>
+            <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
                 <td>
                     <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"
                     data-id1="<?php echo $dataUsuario1['id']; ?>" 
