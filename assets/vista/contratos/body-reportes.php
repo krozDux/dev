@@ -60,7 +60,7 @@ $query14 = mysqli_query($con, $sql14);
                         </div>
                     </div>
                     <div class="content flex-column-fluid" id="kt_content">
-                    <div class="col-xl-6 mb-5 mb-xl-10">
+                        <div class="col-xl-6 mb-5 mb-xl-10">
 	                                <div class="card h-xl-100">
 	                                    <div class="card-header border-0 pt-5">
 	                                        <h3 class="card-title align-items-start flex-column">
@@ -68,12 +68,13 @@ $query14 = mysqli_query($con, $sql14);
 	                                            <span class="text-muted mt-1 fw-bold fs-7">Over 100 pending files</span>
 	                                        </h3>
 	                                    </div>
-                                        <div id="chart_div" style="width: 900px; height: 500px;"></div>
-	                                    <!-- <div class="card-body py-3">
-                                                <div id="chart_div" style="width: 900px; height: 500px;"></div>
-	                                    </div> -->
+	                                    <div class="card-body py-3">
+                                        <div class="table-responsive">
+                                            <div id="chart_div" class="w-100 h-100 d-flex flex-column"></div>
+                                        </div>
+	                                    </div>
 	                                </div>
-	                            </div>
+	                    </div>
                     </div>
                     <div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
                         <?php include_once 'footer-contratos.php'?>
