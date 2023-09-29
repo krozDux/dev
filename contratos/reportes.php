@@ -122,9 +122,9 @@
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
-
-  <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
+    
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
