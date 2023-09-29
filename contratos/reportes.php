@@ -19,7 +19,7 @@
     <script src="assets/js/custom/utilities/modals/users-search.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/canvas2image.js"></script>
+    <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
 
     <?php
     include('../config.php');
