@@ -75,7 +75,7 @@
           
         };
 
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material3'));
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material2'));
 
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
