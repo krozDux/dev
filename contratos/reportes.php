@@ -11,21 +11,34 @@
     </script>
     <?php
     include('../config.php');
-    $sqlchart = ("SELECT DATE_FORMAT(c.fechaFin, '%Y-%m') AS mes, COUNT(*) AS total_registros, 
+    $sqlchart = ("SELECT
+    DATE_FORMAT(c.fechaFin, '%Y-%m') AS mes,
+    SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) AS total_registros_rol1,
+    SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_rol2,
     CASE
-        WHEN MONTH(c.fechaFin) = 1 THEN 'Enero'
-        WHEN MONTH(c.fechaFin) = 2 THEN 'Febrero'
-        WHEN MONTH(c.fechaFin) = 3 THEN 'Marzo'
-        WHEN MONTH(c.fechaFin) = 4 THEN 'Abril'
-        WHEN MONTH(c.fechaFin) = 5 THEN 'Mayo'
-        WHEN MONTH(c.fechaFin) = 6 THEN 'Junio'
-        WHEN MONTH(c.fechaFin) = 7 THEN 'Julio'
-        WHEN MONTH(c.fechaFin) = 8 THEN 'Agosto'
-        WHEN MONTH(c.fechaFin) = 9 THEN 'Septiembre'
-        WHEN MONTH(c.fechaFin) = 10 THEN 'Octubre'
-        WHEN MONTH(c.fechaFin) = 11 THEN 'Noviembre'
-        WHEN MONTH(c.fechaFin) = 12 THEN 'Diciembre' 
-    END AS nombre_mes, u.rol FROM contratos c INNER JOIN usuarios u ON c.idUsuario = u.id WHERE c.fechaFin >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH) GROUP BY DATE_FORMAT(c.fechaFin, '%Y-%m'), u.rol ORDER BY mes;");
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '01' THEN 'Enero'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '02' THEN 'Febrero'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '03' THEN 'Marzo'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '04' THEN 'Abril'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '05' THEN 'Mayo'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '06' THEN 'Junio'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '07' THEN 'Julio'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '08' THEN 'Agosto'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '09' THEN 'Septiembre'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '10' THEN 'Octubre'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '11' THEN 'Noviembre'
+        WHEN DATE_FORMAT(c.fechaFin, '%m') = '12' THEN 'Diciembre'
+    END AS nombre_mes
+FROM
+    contratos c
+INNER JOIN
+    usuarios u ON c.idUsuario = u.id
+WHERE
+    c.fechaFin >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
+GROUP BY
+    DATE_FORMAT(c.fechaFin, '%Y-%m')
+ORDER BY
+    mes;");
     $querychart = mysqli_query($con, $sqlchart);
     ?>
     <script src="assets/plugins/global/plugins.bundle.js"></script>
@@ -43,9 +56,9 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Mes', 'Rol', 'Cantidad'],
+          ['Mes', 'Cliente', 'Proveedor'],
           <?php  while ($dataChart = mysqli_fetch_array($querychart)) { ?>
-          ['<?php echo $dataChart['nombre_mes']; ?>',1,1],
+          ['<?php echo $dataChart['nombre_mes']; ?>',<?php echo $dataChart['total_registros_rol1']; ?>,<?php echo $dataChart['total_registros_rol2']; ?>],
           <?php } ?>
         ]);
 
