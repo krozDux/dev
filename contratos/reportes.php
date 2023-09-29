@@ -101,8 +101,8 @@
     ?>
 
 
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
@@ -117,9 +117,9 @@
           
         };
 
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material1'));
+        var chart = new google.visualization.PieChart(document.getElementById('columnchart_material1'));
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
+        chart.draw(data, options);
       }
     </script>
     
@@ -136,7 +136,7 @@
         ]);
 
         var options = {
-          title: 'My Daily Activities'
+          
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('columnchart_material2'));
