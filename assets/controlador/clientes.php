@@ -118,13 +118,15 @@ if (!empty($_POST['btncrear'])) {
                         header("location: clientes.php");
                     }
                 }else{
-                    echo '<button type="button" class="btn btn-primary">Middle Right</button>
-                    <div class="toast-container position-fixed top-50 end-0 translate-middle-y p-3">
-                      <div class="toast toast-danger" role="alert" aria-live="assertive" aria-atomic="true">
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                        <div class="toast-header">Error</div>
-                        <div class="toast-body"> El correo electrónico ya está registrado. Por favor, elija otro correo./div>
-                      </div>
+                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <i class="ki-duotone ki-abstract-39 fs-2 text-white "><span class="path1"></span><span class="path2"></span></i>
+                            <strong class="me-auto bg-danger">Alerta</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
+                            El correo electrónico ya está registrado. Por favor, elija otro correo.
+                        </div>
                     </div>';
                 }
             } else {
