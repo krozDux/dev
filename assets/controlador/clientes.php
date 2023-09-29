@@ -120,7 +120,7 @@ if (!empty($_POST['btncrear'])) {
                 }else{
                     echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
                         <div class="toast-header">
-                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1"></span><span class="path2"></span></i>
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
                             <strong class="me-auto">Alerta</strong>
                             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
