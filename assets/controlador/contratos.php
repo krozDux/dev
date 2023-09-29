@@ -19,7 +19,7 @@ if (!empty($_POST['btnreg'])) {
                 $regFechaFin = $_POST['regFechaFin'];
                 $regObservacion = $_POST['regObservacion'];
                 $regRecomendacion = $_POST['regRecomendacion'];
-                $consulta5 = "UPDATE `contratos` SET `fechaInicio`='$regFechaInicio' , `fechaFin`='$regFechaFin', `observacion`='$regObservacion', `recomendacion`='$regRecomendacion', `nombreContratante`='$session_nombres' where id='$regId'";
+                $consulta5 = "UPDATE `contratos` SET `fechaInicio`='$regFechaInicio' , `fechaFin`='$regFechaFin', `observacion`='$regObservacion', `recomendacion`='$regRecomendacion', `nombreContratante`='$session_nombres + $session_apellidos' where id='$regId'";
                 $resultado5 = mysqli_query($con, $consulta5);
                 header("location: index.php");
             } else {
