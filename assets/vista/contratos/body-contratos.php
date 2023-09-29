@@ -62,7 +62,7 @@ $query14 = mysqli_query($con, $sql14);
                     <div class="content flex-column-fluid" id="kt_content">
                         <div class="card">
                             <div class="card-body py-4">
-                                sa
+                                <?php include_once 'tabla-contratos.php'?>
                             </div>
                         </div>
                     </div>
