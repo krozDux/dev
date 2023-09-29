@@ -13,9 +13,11 @@ $query1 = mysqli_query($con, $sql1);
             <th class="min-w-125px">Apellidos</th>
             <th class="min-w-125px">Rol</th>
             <th class="min-w-125px">Número</th>
-            <th class="min-w-125px">Fecha Inicio</th>
-            <th class="min-w-125px">Fecha Fin</th>
+            <th class="min-w-125px" hidden>Fecha Inicio</th>
+            <th class="min-w-125px" hidden>Fecha Fin</th>
             <th class="min-w-125px">Estado</th>
+            <th class="min-w-125px">Observación</th>
+            <th class="min-w-125px">Recomendación</th>
             <th data-priority="2" class="min-w-125px">Opciones</th>
         </tr>
     </thead>
@@ -35,7 +37,7 @@ $query1 = mysqli_query($con, $sql1);
                     </a>
                 </div>
             </td>
-            <td hidden><?php echo $dataUsuario1['nombres']; ?></td>
+            <td ><?php echo $dataUsuario1['nombres']; ?></td>
             <td><?php echo $dataUsuario1['apellidos']; ?></td>
             <?php 
 			if ($dataUsuario1['rol'] == "admin") { ?>
@@ -69,15 +71,15 @@ $query1 = mysqli_query($con, $sql1);
             <?php } ?>
 
             <?php if ($dataUsuario1['fechaInicio'] == "") { ?>
-            <td> - </td>
+            <td hidden> - </td>
             <?php } else { ?>
-            <td><?php echo date('d/m/Y', strtotime($dataUsuario1['fechaInicio'])); ?></td>
+            <td hidden><?php echo date('d/m/Y', strtotime($dataUsuario1['fechaInicio'])); ?></td>
             <?php } ?>
 
             <?php if ($dataUsuario1['fechaFin'] == "") { ?>
-            <td> - </td>
+            <td hidden> - </td>
             <?php } else { ?>
-            <td><?php echo date('d/m/Y', strtotime($dataUsuario1['fechaFin'])); ?></td>
+            <td hidden><?php echo date('d/m/Y', strtotime($dataUsuario1['fechaFin'])); ?></td>
             <?php } ?>
 
             <?php if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
@@ -89,6 +91,8 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="badge badge-danger fw-bolder">Sin contrato</div>
             </td>
             <?php } ?>
+            <td><?php echo $dataUsuario1['observacion']; ?></td>
+            <td><?php echo $dataUsuario1['recomendacion']; ?></td>
             <td>
                 <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm reg-contrato"
                     data-id="<?php echo $dataUsuario1['id']; ?>" data-email="<?php echo $dataUsuario1['email']; ?>"
