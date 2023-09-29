@@ -60,7 +60,7 @@
     $querychart3 = mysqli_query($con, $sqlchart3);
     ?>
 
-  <?php
+    <?php
     include('../config.php');
     $sqlchart2 = ("SELECT DATE_FORMAT(c.fechaFin, '%Y-%m') AS mes, SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) AS total_registros_rol1, SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_rol2, SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) + SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_ambos_roles,
     CASE
@@ -102,36 +102,39 @@
     ?>
 
 
-<script type="text/javascript">
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-    ['Mes', 'Cantidad'],
-    <?php while ($dataChart1 = mysqli_fetch_array($querychart1)) { ?>
-      ['<?php echo $dataChart1['nombre_mes']; ?>',<?php echo $dataChart1['total_registros_ambos_roles']; ?>],
-    <?php } ?>
-  ]);
-
-  var options = {};
-
-  var chart = new google.visualization.PieChart(document.getElementById('columnchart_material1'));
-
-  chart.draw(data, options);
-
-  var downloadButton = document.getElementById('download-button');
-
-  downloadButton.addEventListener('click', function() {
-    // Capturar el contenedor de la tarjeta como una imagen
-    html2canvas(document.querySelector('.report1')).then(function(canvas) {
-      // Convertir la imagen en un archivo
-      Canvas2Image.saveAsPNG(canvas, null, null, 'grafico');
+    <script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart']
     });
-  });
-}
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Mes', 'Cantidad'],
+            <?php while ($dataChart1 = mysqli_fetch_array($querychart1)) { ?>[
+                '<?php echo $dataChart1['nombre_mes']; ?>',
+                <?php echo $dataChart1['total_registros_ambos_roles']; ?>],
+            <?php } ?>
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.PieChart(document.getElementById('columnchart_material1'));
+
+        chart.draw(data, options);
+
+        var downloadButton = document.getElementById('download-button');
+
+        downloadButton.addEventListener('click', function() {
+            // Capturar el contenedor de la tarjeta como una imagen
+            html2canvas(document.querySelector('.report1')).then(function(canvas) {
+                // Convertir la imagen en un archivo
+                Canvas2Image.saveAsPNG(canvas, null, null, 'grafico');
+            });
+        });
+    }
     </script>
-    
+
 
 
 
@@ -143,72 +146,91 @@ function drawChart() {
 
 
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
+    function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Mes', 'Cantidad'],
-          <?php  while ($dataChart2 = mysqli_fetch_array($querychart2)) { ?>
-          ['<?php echo $dataChart2['nombre_mes']; ?>',<?php echo $dataChart2['total_registros_ambos_roles']; ?>],
-          <?php } ?>
+            ['Mes', 'Cantidad'],
+            <?php  while ($dataChart2 = mysqli_fetch_array($querychart2)) { ?>[
+                '<?php echo $dataChart2['nombre_mes']; ?>',
+                <?php echo $dataChart2['total_registros_ambos_roles']; ?>],
+            <?php } ?>
         ]);
 
         var options = {
-          
+
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('columnchart_material2'));
 
         chart.draw(data, options);
-      }
+        var downloadButton = document.getElementById('download-button');
+
+        downloadButton.addEventListener('click', function() {
+            // Capturar el contenedor de la tarjeta como una imagen
+            html2canvas(document.querySelector('.report1')).then(function(canvas) {
+                // Convertir la imagen en un archivo
+                Canvas2Image.saveAsPNG(canvas, null, null, 'grafico');
+            });
+        });
+    }
     </script>
 
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {
+        'packages': ['bar']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
+    function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Mes', 'Cliente', 'Proveedor'],
-          <?php  while ($dataChart3 = mysqli_fetch_array($querychart3)) { ?>
-          ['<?php echo $dataChart3['nombre_mes']; ?>',<?php echo $dataChart3['total_registros_rol1']; ?>,<?php echo $dataChart3['total_registros_rol2']; ?>],
-          <?php } ?>
+            ['Mes', 'Cliente', 'Proveedor'],
+            <?php  while ($dataChart3 = mysqli_fetch_array($querychart3)) { ?>[
+                '<?php echo $dataChart3['nombre_mes']; ?>', <?php echo $dataChart3['total_registros_rol1']; ?>,
+                <?php echo $dataChart3['total_registros_rol2']; ?>],
+            <?php } ?>
         ]);
 
         var options = {
-          
+
         };
 
         var chart = new google.charts.Bar(document.getElementById('columnchart_material3'));
 
         chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
+    }
     </script>
 
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {
+        'packages': ['bar']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
+    function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Mes', 'Cliente', 'Proveedor'],
-          <?php  while ($dataChart4 = mysqli_fetch_array($querychart4)) { ?>
-          ['<?php echo $dataChart4['nombre_mes']; ?>',<?php echo $dataChart4['total_registros_rol1']; ?>,<?php echo $dataChart4['total_registros_rol2']; ?>],
-          <?php } ?>
+            ['Mes', 'Cliente', 'Proveedor'],
+            <?php  while ($dataChart4 = mysqli_fetch_array($querychart4)) { ?>[
+                '<?php echo $dataChart4['nombre_mes']; ?>', <?php echo $dataChart4['total_registros_rol1']; ?>,
+                <?php echo $dataChart4['total_registros_rol2']; ?>],
+            <?php } ?>
         ]);
 
         var options = {
-          
+
         };
 
         var chart = new google.charts.Bar(document.getElementById('columnchart_material4'));
 
         chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
+    }
     </script>
-    
+
 </body>
+
 </html>
 <?php } else{
 header("location: ../panel/index.php");
