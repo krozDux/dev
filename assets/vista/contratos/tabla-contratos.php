@@ -15,6 +15,7 @@ $query1 = mysqli_query($con, $sql1);
             <th class="min-w-125px">Número</th>
             <th class="min-w-125px">Fecha Inicio</th>
             <th class="min-w-125px">Fecha Fin</th>
+            <th class="min-w-125px">Estado</th>
             <th data-priority="2" class="min-w-125px">Opciones</th>
         </tr>
     </thead>
@@ -79,6 +80,15 @@ $query1 = mysqli_query($con, $sql1);
             <td><?php echo date('d/m/Y', strtotime($dataUsuario1['fechaFin'])); ?></td>
             <?php } ?>
 
+            <?php if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
+            <td>
+                <div class="badge badge-light-info fw-bolder">Con contrato</div>
+            </td>
+            <?php } else { ?>
+                <td>
+                <div class="badge badge-light-info fw-bolder">Sin contrato</div>
+            </td>
+            <?php } ?>
             <td>
                 <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm reg-contrato"
                     data-id="<?php echo $dataUsuario1['id']; ?>" data-email="<?php echo $dataUsuario1['email']; ?>"
