@@ -1,7 +1,7 @@
 <?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
 <?php
 include('../config.php');
-$sql14 = ("SELECT u.id, u.nombres, u.apellidos, c.fechaInicio, c.fechaFin, c.observacion, c.recomendacion, c.idUsuario FROM usuarios AS u INNER JOIN contratos AS c ON u.id = c.idUsuario WHERE c.fechaFin = (SELECT MAX(fechaFin) FROM contratos WHERE fechaFin < CURDATE());");
+$sql14 = ("SELECT * FROM contratos WHERE fechaFin = (SELECT MAX(fechaFin) FROM contratos where fechaFin < CURDATE() )");
 $query14 = mysqli_query($con, $sql14);
 ?>
 <?php include '../assets/controlador/contratos.php'?>
@@ -103,9 +103,8 @@ $query14 = mysqli_query($con, $sql14);
                                 <select class="form-select form-select-solid" name="newNombre" id="newNombres" tabindex="-1"
                                 aria-hidden="true" required>
                                 <option selected value="">Seleccionar un rol</option>
-                                <?php 
-                                while ($dataUsuario14 = mysqli_fetch_array($query14)) { ?>
-                                <option value="<?php echo ($dataUsuario14['idUsuario']); ?>"><?php echo ($dataUsuario14['nombres']) ($dataUsuario14['apellidos']); ?></option>
+                                <?php  while ($dataUsuario14 = mysqli_fetch_array($query14)) { ?>
+                                <option value="<?php echo ($dataUsuario14['idUsuario']); ?>">Administrador</option>
                                 <?php } ?>
                                 </select>
                             </div>
