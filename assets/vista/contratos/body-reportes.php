@@ -61,8 +61,7 @@ $query14 = mysqli_query($con, $sql14);
                     </div>
                     <div class="content flex-column-fluid" id="kt_content">
                         <div class="card">
-                            <div class="card-body py-4">
-                            <div class="col-xl-6 mb-5 mb-xl-10">
+                        <div class="col-xl-6 mb-5 mb-xl-10">
 	                                <!--begin::Tables Widget 3-->
 	                                <div class="card h-xl-100">
 	                                    <!--begin::Header-->
@@ -375,7 +374,6 @@ $query14 = mysqli_query($con, $sql14);
 	                                </div>
 	                                <!--end::Tables Widget 3-->
 	                            </div>
-                            </div>
                         </div>
                     </div>
                     <div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
