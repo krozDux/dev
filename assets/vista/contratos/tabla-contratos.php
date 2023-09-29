@@ -82,11 +82,11 @@ $query1 = mysqli_query($con, $sql1);
 
             <?php if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
             <td>
-                <div class="badge badge-light-info fw-bolder">Con contrato</div>
+                <div class="badge badge-light-succes fw-bolder">Con contrato</div>
             </td>
             <?php } else { ?>
                 <td>
-                <div class="badge badge-light-info fw-bolder">Sin contrato</div>
+                <div class="badge badge-light-danger fw-bolder">Sin contrato</div>
             </td>
             <?php } ?>
             <td>
