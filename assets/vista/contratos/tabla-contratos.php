@@ -91,7 +91,7 @@ $query1 = mysqli_query($con, $sql1);
                     data-recomendacion="<?php echo $dataUsuario1['recomendacion']; ?>"
                     data-fechainicio="<?php echo $dataUsuario1['fechaInicio']; ?>"
                     data-fechafin="<?php echo $dataUsuario1['fechaFin']; ?>"><span
-                        class="bi bi-folder-plus fs-7 opacity-50"></buttton>
+                        class="bi bi-patch-plus-fill fs-7 opacity-50"></buttton>
                 </td>
             <?php } else { ?>
             <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
@@ -108,7 +108,7 @@ $query1 = mysqli_query($con, $sql1);
                     data-recomendacion1="<?php echo $dataUsuario1['recomendacion']; ?>"
                     data-fechainicio1="<?php echo $dataUsuario1['fechaInicio']; ?>"
                     data-fechafin1="<?php echo $dataUsuario1['fechaFin']; ?>"><span
-                        class="bi bi-folder-plus fs-7 opacity-50"></buttton>
+                        class="bi bi-eye-fill fs-7 opacity-50"></buttton>
                 </td>
             <?php } else { ?>
                 <td>
@@ -124,7 +124,7 @@ $query1 = mysqli_query($con, $sql1);
                     data-recomendacion="<?php echo $dataUsuario1['recomendacion']; ?>"
                     data-fechainicio="<?php echo $dataUsuario1['fechaInicio']; ?>"
                     data-fechafin="<?php echo $dataUsuario1['fechaFin']; ?>"><span
-                        class="bi bi-patch-plus-fill fs-7 opacity-50"></buttton>
+                        class="bi bi-file-earmark-plus fs-7 opacity-50"></buttton>
                 </td>
             <?php } ?>
         </tr>
