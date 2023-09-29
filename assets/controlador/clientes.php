@@ -124,7 +124,7 @@ if (!empty($_POST['btncrear'])) {
                             <strong class="me-auto">Alerta</strong>
                             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
-                        <div class="toast-body">
+                        <div class="toast-body text-white">
                             El correo electrónico ya está registrado. Por favor, elija otro correo.
                         </div>
                     </div>';
