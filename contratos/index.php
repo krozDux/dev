@@ -75,8 +75,11 @@
         var email = $(this).data('email');
         var nombres = $(this).data('nombres');
         var apellidos = $(this).data('apellidos');
+        var rol = $(this).data('rol');
         var direccion = $(this).data('direccion');
         var numero = $(this).data('numero');
+        var observacion = $(this).data('observacion');
+        var recomendacion = $(this).data('recomendacion');
         var fechainicio = $(this).data('fechainicio');
         var fechafin = $(this).data('fechafin');
         $('#regId').val(id);
@@ -86,6 +89,9 @@
         $('#regNombres').val(nombres + " " + apellidos);
         $('#regDireccion').val(direccion);
         $('#regNumero').val(numero);
+        $('#regRol').val(rol);
+        $('#regObservacion').val(observacion);
+        $('#regRecomendacion').val(recomendacion);
         $('#kt_modal_reg_user').modal('show');
 
         if (fechainicio != "-") {

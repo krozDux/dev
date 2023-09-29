@@ -20,8 +20,8 @@ $query1 = mysqli_query($con, $sql1);
     </thead>
     <tbody class="text-gray-600 fw-bold">
         <?php 
-												$i = 1;
-												while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
+		$i = 1;
+		while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
         <tr>
             <td class="d-flex align-items-center">
                 <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
@@ -37,7 +37,7 @@ $query1 = mysqli_query($con, $sql1);
             <td><?php echo $dataUsuario1['nombres']; ?></td>
             <td><?php echo $dataUsuario1['apellidos']; ?></td>
             <?php 
-													if ($dataUsuario1['rol'] == "admin") { ?>
+			if ($dataUsuario1['rol'] == "admin") { ?>
             <td>
                 <div class="badge badge-light-danger fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div>
             </td>
@@ -85,7 +85,10 @@ $query1 = mysqli_query($con, $sql1);
                     data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
                     data-apellidos="<?php echo $dataUsuario1['apellidos']; ?>"
                     data-direccion="<?php echo $dataUsuario1['direccion']; ?>"
+                    data-rol="<?php echo $dataUsuario1['rol']; ?>"
                     data-numero="<?php echo $dataUsuario1['numero']; ?>"
+                    data-observacion="<?php echo $dataUsuario1['observacion']; ?>"
+                    data-recomendacion="<?php echo $dataUsuario1['recomendacion']; ?>"
                     data-fechainicio="<?php echo $dataUsuario1['fechaInicio']; ?>"
                     data-fechafin="<?php echo $dataUsuario1['fechaFin']; ?>"><span
                         class="bi bi-pencil-fill fs-7 opacity-50"></buttton>

@@ -92,12 +92,17 @@
                         data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}"
                         data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header"
                         data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
-                        <div class="fv-row mb-4">
-                            <label class="fw-bold fs-6 mb-2">Nombres completos</label>
-                            <input type="text" name="regId" class="form-control form-control-solid mb-3 mb-lg-0"
-                                id="regId" hidden />
-                            <input type="text" name="regNombre" class="form-control form-control-solid mb-3 mb-lg-0"
-                                id="regNombres" disabled />
+                        <div class="row fv-row mb-4">
+                            <div class="col-xl-6">
+                                <label class="required fw-bold fs-6 mb-2">Nombres completos</label>
+                                <input type="text" name="regId" class="form-control form-control-solid mb-3 mb-lg-0" id="regId" hidden />
+                                <input type="text" name="regNombre" class="form-control form-control-solid mb-3 mb-lg-0" id="regNombres" disabled />
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="required fw-bold fs-6 mb-2">Rol</label>
+                                <input type="text" name="regRol"
+                                    class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regRol" disabled/>
+                            </div>
                         </div>
                         <div class="fv-row mb-4">
                             <label class="fw-bold fs-6 mb-2">Email</label>
@@ -119,6 +124,16 @@
                                 <label class="required fw-bold fs-6 mb-2">Fecha Fin</label>
                                 <input type="date" name="regFechaFin"
                                     class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regFechaFin" />
+                            </div>
+                        </div>
+                        <div class="row fv-row mb-4">
+                            <div class="col-xl-6">
+                                <label class="required fw-bold fs-6 mb-2">Observación</label>
+                                <input type="text" name="regObservacion" class="form-control form-control-solid mb-3 mb-lg-0" id="regObservacion"/>
+                            </div>
+                            <div class="col-xl-6">
+                                <label class="required fw-bold fs-6 mb-2">Recomendación</label>
+                                <input type="text" name="regRecomendacion" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regRecomendacion"/>
                             </div>
                         </div>
                     </div>
