@@ -123,13 +123,13 @@
 
         chart.draw(data, options);
 
-        var downloadButton = document.getElementById('download-button');
+        var downloadButton = document.getElementById('download-button1');
 
         downloadButton.addEventListener('click', function() {
             // Capturar el contenedor de la tarjeta como una imagen
             html2canvas(document.querySelector('.report1')).then(function(canvas) {
                 // Convertir la imagen en un archivo
-                Canvas2Image.saveAsPNG(canvas, null, null, 'grafico');
+                Canvas2Image.saveAsPNG(canvas, null, null, 'Grafico');
             });
         });
     }
@@ -161,7 +161,7 @@
             // Capturar el contenedor de la tarjeta como una imagen
             html2canvas(document.querySelector('.report2')).then(function(canvas) {
                 // Convertir la imagen en un archivo
-                Canvas2Image.saveAsPNG(canvas, null, null, 'grafico');
+                Canvas2Image.saveAsPNG(canvas, null, null, 'Grafico');
             });
         });
     }

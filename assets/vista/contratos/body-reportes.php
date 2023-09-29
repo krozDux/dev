@@ -68,7 +68,7 @@ $query14 = mysqli_query($con, $sql14);
                                         <span class="text-muted mt-1 fw-bold fs-7" id="chart-title">Cantidad de inicialización de contratos por mes</span>
                                     </h3>
                                     <div class="download-button-container">
-                                        <buttton id="download-button"
+                                        <buttton id="download-button1"
                                             class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                             <span class="bi bi-eye-fill fs-7 opacity-50">
                                         </buttton>
