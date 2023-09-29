@@ -18,7 +18,7 @@ $query1 = mysqli_query($con, $sql1);
             <th class="min-w-125px">Número</th>
             <th class="min-w-125px">Observación</th>
             <th class="min-w-125px">Recomendación</th>
-            <th data-priority="2" class="min-w-125px">Opciones</th>
+            <th class="min-w-125px">Opciones</th>
         </tr>
     </thead>
     <tbody class="text-gray-600 fw-bold">
@@ -76,7 +76,10 @@ $query1 = mysqli_query($con, $sql1);
 
             <td><?php echo $dataUsuario1['observacion']; ?></td>
             <td><?php echo $dataUsuario1['recomendacion']; ?></td>
-            <td>
+            <?php if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
+            <td> <div class="badge badge-success fw-bolder">Con contrato</div> </td>
+            <?php } else { ?>
+                <td>
                 <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm reg-contrato"
                     data-id="<?php echo $dataUsuario1['id']; ?>" data-email="<?php echo $dataUsuario1['email']; ?>"
                     data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
@@ -90,6 +93,7 @@ $query1 = mysqli_query($con, $sql1);
                     data-fechafin="<?php echo $dataUsuario1['fechaFin']; ?>"><span
                         class="bi bi-pencil-fill fs-7 opacity-50"></buttton>
             </td>
+            <?php } ?>
         </tr>
         <?php } ?>
     </tbody>
