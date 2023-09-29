@@ -12,12 +12,41 @@ if (!empty($_POST['btneliminar'])) {
 
 if (!empty($_POST['btnreg'])) {
     if (!empty($_POST['regId'])) {
-        $regId = $_POST['regId'];
-        $regFechaInicio = $_POST['regFechaInicio'];
-        $regFechaFin = $_POST['regFechaFin'];
-        $consulta5 = "UPDATE `contratos` SET `fechaInicio`='$regFechaInicio' , `FechaFin`='$regFechaFin' where id='$regId'";
-        $resultado5 = mysqli_query($con, $consulta5);
-        header("location: index.php");
+        if (!empty($_POST['regFechaInicio'])) {
+            if (!empty($_POST['regFechaFin'])) {
+                $regId = $_POST['regId'];
+                $regFechaInicio = $_POST['regFechaInicio'];
+                $regFechaFin = $_POST['regFechaFin'];
+                $regObservacion = $_POST['regObservacion'];
+                $regRecomendacion = $_POST['regRecomendacion'];
+                $consulta5 = "UPDATE `contratos` SET `fechaInicio`='$regFechaInicio' , `fechaFin`='$regFechaFin', `observacion`='$regObservacion', `recomendacion`='$regRecomendacion' where id='$regId'";
+                $resultado5 = mysqli_query($con, $consulta5);
+                header("location: index.php");
+            } else {
+                echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
+                            Tienes que indicar una fecha de fin.
+                        </div>
+                    </div>';
+            }
+        } else {
+            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
+                            Tienes que indicar una fecha de inicio.
+                        </div>
+                    </div>';
+        }
+        
     }
 }
 ?>
