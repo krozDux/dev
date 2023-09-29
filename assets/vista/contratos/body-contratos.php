@@ -102,33 +102,11 @@ $query14 = mysqli_query($con, $sql14);
                                 <label class="required fw-bold fs-6 mb-2">Seleccionar trabajador</label>
                                 <select class="form-select form-select-solid" name="newNombre" id="newNombres" tabindex="-1"
                                 aria-hidden="true" required>
-                                <option selected value="">Seleccionar trabajador</option>
+                                <option selected value="">Seleccionar</option>
                                 <?php  while ($dataUsuario14 = mysqli_fetch_array($query14)) { ?>
                                 <option value="<?php echo ($dataUsuario14['idUsuario']);?>"><?php echo ($dataUsuario14['nombres']);?> <?php echo ($dataUsuario14['apellidos']);?></option>
                                 <?php } ?>
                                 </select>
-                            </div>
-                        </div>
-                        <div class="row fv-row mb-4">
-                            <div class="col-xl-6">
-                                <label class="required fw-bold fs-6 mb-2">Fecha Inicio</label>
-                                <input type="date" name="newFechaInicio"
-                                    class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="newFechaInicio" />
-                            </div>
-                            <div class="col-xl-6">
-                                <label class="required fw-bold fs-6 mb-2">Fecha Fin</label>
-                                <input type="date" name="newFechaFin"
-                                    class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="newFechaFin" />
-                            </div>
-                        </div>
-                        <div class="row fv-row mb-4">
-                            <div class="col-xl-6">
-                                <label class="required fw-bold fs-6 mb-2">Observación</label>
-                                <input type="text" name="newObservacion" class="form-control form-control-solid mb-3 mb-lg-0" id="newObservacion"/>
-                            </div>
-                            <div class="col-xl-6">
-                                <label class="required fw-bold fs-6 mb-2">Recomendación</label>
-                                <input type="text" name="newRecomendacion" class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="newRecomendacion"/>
                             </div>
                         </div>
                     </div>

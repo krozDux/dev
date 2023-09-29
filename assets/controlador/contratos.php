@@ -49,4 +49,26 @@ if (!empty($_POST['btnreg'])) {
         
     }
 }
+
+
+if (!empty($_POST['btnnew'])) {
+        if (!empty($_POST['newNombre'])) {
+            $newNombre = $_POST['newNombre'];
+            $consulta5 = "INSERT `contratos` (`observacion`,`recomendacion`,`idUsuario`) VALUES ('-','-','$newNombre')";
+            $resultado5 = mysqli_query($con, $consulta5);
+            header("location: index.php");
+        } else {
+            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
+                            Tienes que seleccionar un trabajador.
+                        </div>
+                    </div>';
+        }
+        
+}
 ?>
