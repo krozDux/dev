@@ -83,10 +83,8 @@ $query14 = mysqli_query($con, $sql14);
 	                                            <span class="text-muted mt-1 fw-bold fs-7">Over 100 pending files</span>
 	                                        </h3>
 	                                    </div>
-	                                    <div class="card h-md-100">
-	                                        <div class="table-responsive px-5">
+	                                    <div class="card h-md-100 px-5">
                                                 <div id="columnchart_material" style="width: 650px; height: 400px;"></div>
-	                                        </div>
 	                                    </div>
 	                                </div>
 	                            </div>
