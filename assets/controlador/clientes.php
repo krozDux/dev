@@ -118,7 +118,7 @@ if (!empty($_POST['btncrear'])) {
                         header("location: clientes.php");
                     }
                 }else{
-                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 " role="alert" aria-live="assertive" aria-atomic="true">
+                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
                         <div class="toast-header">
                             <i class="ki-duotone ki-abstract-39 fs-2 text-primary "><span class="path1"></span><span class="path2"></span></i>
                             <strong class="me-auto">Alerta</strong>
