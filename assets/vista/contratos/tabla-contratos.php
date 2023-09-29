@@ -89,14 +89,6 @@ $query1 = mysqli_query($con, $sql1);
                     data-fechainicio="<?php echo $dataUsuario1['fechaInicio']; ?>"
                     data-fechafin="<?php echo $dataUsuario1['fechaFin']; ?>"><span
                         class="bi bi-pencil-fill fs-7 opacity-50"></buttton>
-
-
-                <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm del-usuario"
-                    data-id="<?php echo $dataUsuario1['id']; ?>" data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
-                    data-apellidos="<?php echo $dataUsuario1['apellidos']; ?>"
-                    data-rol="<?php echo $dataUsuario1['rol']; ?>"><span
-                        class="bi bi-trash-fill fs-7 opacity-50"></span></buttton>
-
             </td>
         </tr>
         <?php } ?>
