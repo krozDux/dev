@@ -45,7 +45,7 @@
         var data = google.visualization.arrayToDataTable([
           ['Mes', 'Rol', 'Cantidad'],
           <?php  while ($dataChart = mysqli_fetch_array($querychart)) { ?>
-          ['<?php echo $dataChart['nombre_mes']; ?>','<?php echo $dataChart['rol']; ?>', <?php echo $dataChart['cantidad']; ?>],
+          ['<?php echo $dataChart['nombre_mes']; ?>',1,1],
           <?php } ?>
         ]);
 
