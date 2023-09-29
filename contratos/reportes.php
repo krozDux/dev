@@ -103,7 +103,7 @@
 
 
 <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
@@ -118,11 +118,14 @@ function drawChart() {
 
   var chart = new google.visualization.PieChart(document.getElementById('columnchart_material1'));
 
-  chart.draw(data, options);
+  // Agregar el título del gráfico
+  var chartTitle = document.getElementById('chart-title');
+  chartTitle.style.textAlign = 'center';
 
-  // Agregar el botón de descarga
+  // Agregar el botón de descarga con un icono de Bootstrap
   var downloadButton = document.createElement('button');
-  downloadButton.innerHTML = 'Descargar Gráfico';
+  downloadButton.className = 'btn btn-primary';
+  downloadButton.innerHTML = '<i class="bi bi-cloud-download"></i> Descargar Gráfico';
   downloadButton.addEventListener('click', function() {
     // Generar una imagen del gráfico
     html2canvas(document.getElementById('columnchart_material1')).then(function(canvas) {
@@ -131,53 +134,9 @@ function drawChart() {
     });
   });
 
-  // Agregar el botón al elemento contenedor
-  document.getElementById('chart-container').appendChild(downloadButton);
+  // Agregar el botón y el título al elemento contenedor
+  chartTitle.appendChild(downloadButton);
 }
-    </script>
-    
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Mes', 'Cantidad'],
-          <?php  while ($dataChart2 = mysqli_fetch_array($querychart2)) { ?>
-          ['<?php echo $dataChart2['nombre_mes']; ?>',<?php echo $dataChart2['total_registros_ambos_roles']; ?>],
-          <?php } ?>
-        ]);
-
-        var options = {
-          
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('columnchart_material2'));
-
-        chart.draw(data, options);
-      }
-    </script>
-
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Mes', 'Cliente', 'Proveedor'],
-          <?php  while ($dataChart3 = mysqli_fetch_array($querychart3)) { ?>
-          ['<?php echo $dataChart3['nombre_mes']; ?>',<?php echo $dataChart3['total_registros_rol1']; ?>,<?php echo $dataChart3['total_registros_rol2']; ?>],
-          <?php } ?>
-        ]);
-
-        var options = {
-          
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material3'));
-
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
     </script>
 
     <script type="text/javascript">
