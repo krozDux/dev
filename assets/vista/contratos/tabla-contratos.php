@@ -77,7 +77,7 @@ $query1 = mysqli_query($con, $sql1);
             <td><?php echo $dataUsuario1['observacion']; ?></td>
             <td><?php echo $dataUsuario1['recomendacion']; ?></td>
             <?php $fechaActual = date('Y-m-d'); 
-            if ($dataUsuario1['fechaFin'] != "" && strtotime($dataUsuario1['fechaFin']) > strtotime($fechaActual)) { ?>
+            if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "" && strtotime($dataUsuario1['fechaFin']) < strtotime($fechaActual)) { ?>
             <td>TE PASASTE PAPU AÑADE UN</td>
             <?php } else { ?>
             <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
