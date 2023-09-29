@@ -132,7 +132,7 @@ $query1 = mysqli_query($con, $sql1);
                     data-recomendacion="<?php echo $dataUsuario1['recomendacion']; ?>"
                     data-fechainicio="<?php echo $dataUsuario1['fechaInicio']; ?>"
                     data-fechafin="<?php echo $dataUsuario1['fechaFin']; ?>"><span
-                        class="bi bi-file-earmark-plus fs-7 opacity-50"></buttton>
+                        class="bi bi-plus-square-fill fs-7 opacity-50"></buttton>
                 </td>
             <?php } ?>
         </tr>
