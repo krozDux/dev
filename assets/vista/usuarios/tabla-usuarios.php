@@ -32,7 +32,7 @@ $query1 = mysqli_query($con, $sql1);
                     </div>
                 </div>
             </td>
-            <td><?php echo $dataUsuario1['nombres']; ?></td>
+            <td hidden><?php echo $dataUsuario1['nombres']; ?></td>
             <td><?php echo $dataUsuario1['apellidos']; ?></td>
             <td><?php echo $dataUsuario1['email']; ?></td>
             <?php 
