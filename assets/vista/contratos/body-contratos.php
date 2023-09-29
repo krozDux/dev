@@ -190,7 +190,7 @@
                         <div class="fv-row mb-4">
                             <label class="fw-bold fs-6 mb-2">Número</label>
                             <input type="text" name="viewNumero"
-                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="regNumero" disabled />
+                                class="form-control form-control-solid mb-3 mb-lg-0 col-m-2" id="viewNumero" disabled />
                         </div>
                         <div class="row fv-row mb-4">
                             <div class="col-xl-6">

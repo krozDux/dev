@@ -88,6 +88,8 @@
         $('#viewDireccion').val(direccion1);
         $('#viewNumero').val(numero1);
         $('#viewRol').val(rol1);
+        $('#viewFechaInicio').val(fechainicio1);
+        $('#viewFechaFin').val(fechafin1);
         $('#viewObservacion').val(observacion1);
         $('#viewRecomendacion').val(recomendacion1);
         $('#kt_modal_view_user').modal('show');
