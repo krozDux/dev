@@ -95,8 +95,8 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Mes', 'Cliente', 'Proveedor'],
-          <?php  while ($dataChart = mysqli_fetch_array($querychart)) { ?>
-          ['<?php echo $dataChart['nombre_mes']; ?>',<?php echo $dataChart['total_registros_rol1']; ?>,<?php echo $dataChart['total_registros_rol2']; ?>],
+          <?php  while ($dataChart1 = mysqli_fetch_array($querychart1)) { ?>
+          ['<?php echo $dataChart1['nombre_mes']; ?>',<?php echo $dataChart1['total_registros_rol1']; ?>,<?php echo $dataChart1['total_registros_rol2']; ?>],
           <?php } ?>
         ]);
 
