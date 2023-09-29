@@ -9,6 +9,11 @@
     <script>
     var hostUrl = "assets/";
     </script>
+    <?php
+    include('../config.php');
+    $sqlchart = ("SELECT u.id, u.nombres, u.apellidos, c.fechaInicio, c.fechaFin, c.observacion, c.recomendacion, c.idUsuario FROM usuarios AS u INNER JOIN contratos AS c ON u.id = c.idUsuario WHERE c.fechaFin = (SELECT MAX(fechaFin) FROM contratos WHERE fechaFin < CURDATE() AND idUsuario = c.idUsuario) AND NOT EXISTS (SELECT 1 FROM contratos WHERE idUsuario = c.idUsuario AND id != c.id)");
+    $querychart = mysqli_query($con, $sqlchart);
+    ?>
     <script src="assets/plugins/global/plugins.bundle.js"></script>
     <script src="assets/js/scripts.bundle.js"></script>
     <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
