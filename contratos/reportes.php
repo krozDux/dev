@@ -17,8 +17,9 @@
     <script src="assets/js/custom/apps/chat/chat.js"></script>
     <script src="assets/js/custom/utilities/modals/create-app.js"></script>
     <script src="assets/js/custom/utilities/modals/users-search.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/canvas2image.js"></script>
 
     <?php
     include('../config.php');
@@ -103,24 +104,36 @@
 
 <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Mes', 'Cantidad'],
-          <?php  while ($dataChart1 = mysqli_fetch_array($querychart1)) { ?>
-          ['<?php echo $dataChart1['nombre_mes']; ?>',<?php echo $dataChart1['total_registros_ambos_roles']; ?>],
-          <?php } ?>
-        ]);
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+    ['Mes', 'Cantidad'],
+    <?php while ($dataChart1 = mysqli_fetch_array($querychart1)) { ?>
+      ['<?php echo $dataChart1['nombre_mes']; ?>',<?php echo $dataChart1['total_registros_ambos_roles']; ?>],
+    <?php } ?>
+  ]);
 
-        var options = {
-          
-        };
+  var options = {};
 
-        var chart = new google.visualization.PieChart(document.getElementById('columnchart_material1'));
+  var chart = new google.visualization.PieChart(document.getElementById('columnchart_material1'));
 
-        chart.draw(data, options);
-      }
+  chart.draw(data, options);
+
+  // Agregar el botón de descarga
+  var downloadButton = document.createElement('button');
+  downloadButton.innerHTML = 'Descargar Gráfico';
+  downloadButton.addEventListener('click', function() {
+    // Generar una imagen del gráfico
+    html2canvas(document.getElementById('columnchart_material1')).then(function(canvas) {
+      // Convertir la imagen en un archivo
+      Canvas2Image.saveAsPNG(canvas, null, null, 'grafico');
+    });
+  });
+
+  // Agregar el botón al elemento contenedor
+  document.getElementById('chart-container').appendChild(downloadButton);
+}
     </script>
     
     <script type="text/javascript">
