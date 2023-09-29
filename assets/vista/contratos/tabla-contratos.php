@@ -79,7 +79,8 @@ $query1 = mysqli_query($con, $sql1);
             <?php if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
                 <td>
                 <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"
-                    data-id="<?php echo $dataUsuario1['id']; ?>" data-email="<?php echo $dataUsuario1['email']; ?>"
+                    data-id="<?php echo $dataUsuario1['id']; ?>" 
+                    data-email="<?php echo $dataUsuario1['email']; ?>"
                     data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
                     data-apellidos="<?php echo $dataUsuario1['apellidos']; ?>"
                     data-direccion="<?php echo $dataUsuario1['direccion']; ?>"
@@ -94,7 +95,8 @@ $query1 = mysqli_query($con, $sql1);
             <?php } else { ?>
                 <td>
                 <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm reg-contrato"
-                    data-id="<?php echo $dataUsuario1['id']; ?>" data-email="<?php echo $dataUsuario1['email']; ?>"
+                    data-id="<?php echo $dataUsuario1['id']; ?>"
+                    data-email="<?php echo $dataUsuario1['email']; ?>"
                     data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
                     data-apellidos="<?php echo $dataUsuario1['apellidos']; ?>"
                     data-direccion="<?php echo $dataUsuario1['direccion']; ?>"
