@@ -60,70 +60,77 @@ $query14 = mysqli_query($con, $sql14);
                         </div>
                     </div>
                     <div class="row g-5 g-lg-10">
-	                            <div class="col-xl-6 mb-5 mb-xl-10">
-	                                <div class="card h-xl-100 pb-5">
-	                                    <div class="card-header border-0 pt-5">
-	                                        <h3 class="card-title align-items-start flex-column">
-	                                            <span class="card-label fw-bolder fs-3 mb-1">Inicialización de contratos</span>
-	                                            <span class="text-muted mt-1 fw-bold fs-7" id="chart-title">Cantidad de inicialización de contratos por mes</span>
-	                                        </h3>
-	                                    </div>
-	                                    <div class="card h-md-100 px-5">
-	                                        <div class="table-responsive">
-                                                <div id="chart-container">
-                                                    <div id="columnchart_material1" style="height: 400px;"></div>
-                                                </div>
-	                                        </div>
-	                                    </div>
-                                        
-	                                </div>
-	                            </div>
-	                            <div class="col-xl-6 mb-5 mb-xl-10">
-                                    <div class="card h-xl-100 pb-5">
-	                                    <div class="card-header border-0 pt-5">
-	                                        <h3 class="card-title align-items-start flex-column">
-	                                            <span class="card-label fw-bolder fs-3 mb-1">Finalización de contratos</span>
-	                                            <span class="text-muted mt-1 fw-bold fs-7">Cantidad de finalización de contratos por mes</span>
-	                                        </h3>
-	                                    </div>
-	                                    <div class="card h-md-100 px-5">
-                                            <div class="table-responsive">
-                                                <div id="columnchart_material2" style="height: 400px;"></div>
-                                            </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-                                <div class="col-xl-6 mb-5 mb-xl-10">
-	                                <div class="card h-xl-100 pb-5">
-	                                    <div class="card-header border-0 pt-5">
-	                                        <h3 class="card-title align-items-start flex-column">
-	                                            <span class="card-label fw-bolder fs-3 mb-1">Inicialización de contratos</span>
-	                                            <span class="text-muted mt-1 fw-bold fs-7">Cantidad de inicialización de contratos por mes y rol</span>
-	                                        </h3>
-	                                    </div>
-	                                    <div class="card h-md-100 px-5">
-	                                        <div class="table-responsive">
-                                                <div id="columnchart_material3" style="height: 400px;"></div>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div class="col-xl-6 mb-5 mb-xl-10">
-                                    <div class="card h-xl-100 pb-5">
-	                                    <div class="card-header border-0 pt-5">
-	                                        <h3 class="card-title align-items-start flex-column">
-	                                            <span class="card-label fw-bolder fs-3 mb-1">Finalización de contratos</span>
-	                                            <span class="text-muted mt-1 fw-bold fs-7">Cantidad de finalización de contratos por mes y rol</span>
-	                                        </h3>
-	                                    </div>
-	                                    <div class="card h-md-100 px-5">
-                                            <div class="table-responsive">
-                                                <div id="columnchart_material4" style="height: 400px;"></div>
-                                            </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                    </div>
+                        <div class="card h-xl-100 pb-5">
+                            <div class="card-header border-0 pt-5">
+                                <h3 class="card-title align-items-start flex-column">
+                                    <span class="card-label fw-bolder fs-3 mb-1">Inicialización de contratos</span>
+                                    <span class="text-muted mt-1 fw-bold fs-7" id="chart-title">Cantidad de
+                                        inicialización de contratos por mes</span>
+                                </h3>
+                                <div class="download-button-container">
+                                    <button id="download-button" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="card h-md-100 px-5">
+                                <div class="table-responsive">
+                                    <div id="chart-container">
+                                        <div id="columnchart_material1" style="height: 400px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 mb-5 mb-xl-10">
+                            <div class="card h-xl-100 pb-5">
+                                <div class="card-header border-0 pt-5">
+                                    <h3 class="card-title align-items-start flex-column">
+                                        <span class="card-label fw-bolder fs-3 mb-1">Finalización de contratos</span>
+                                        <span class="text-muted mt-1 fw-bold fs-7">Cantidad de finalización de contratos
+                                            por mes</span>
+                                    </h3>
+                                </div>
+                                <div class="card h-md-100 px-5">
+                                    <div class="table-responsive">
+                                        <div id="columnchart_material2" style="height: 400px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 mb-5 mb-xl-10">
+                            <div class="card h-xl-100 pb-5">
+                                <div class="card-header border-0 pt-5">
+                                    <h3 class="card-title align-items-start flex-column">
+                                        <span class="card-label fw-bolder fs-3 mb-1">Inicialización de contratos</span>
+                                        <span class="text-muted mt-1 fw-bold fs-7">Cantidad de inicialización de
+                                            contratos por mes y rol</span>
+                                    </h3>
+                                </div>
+                                <div class="card h-md-100 px-5">
+                                    <div class="table-responsive">
+                                        <div id="columnchart_material3" style="height: 400px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 mb-5 mb-xl-10">
+                            <div class="card h-xl-100 pb-5">
+                                <div class="card-header border-0 pt-5">
+                                    <h3 class="card-title align-items-start flex-column">
+                                        <span class="card-label fw-bolder fs-3 mb-1">Finalización de contratos</span>
+                                        <span class="text-muted mt-1 fw-bold fs-7">Cantidad de finalización de contratos
+                                            por mes y rol</span>
+                                    </h3>
+                                </div>
+                                <div class="card h-md-100 px-5">
+                                    <div class="table-responsive">
+                                        <div id="columnchart_material4" style="height: 400px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
                         <?php include_once 'footer-reportes.php'?>
                     </div>

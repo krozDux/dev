@@ -103,7 +103,7 @@
 
 
 <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
@@ -120,22 +120,28 @@ function drawChart() {
 
   chart.draw(data, options);
 
-  // Agregar el botón de descarga
-  var downloadButton = document.createElement('button');
-  downloadButton.innerHTML = 'Descargar Gráfico';
+  var downloadButton = document.getElementById('download-button');
+
   downloadButton.addEventListener('click', function() {
-    // Generar una imagen del gráfico
-    html2canvas(document.getElementById('columnchart_material1')).then(function(canvas) {
+    // Capturar el contenedor de la tarjeta como una imagen
+    html2canvas(document.querySelector('.card')).then(function(canvas) {
       // Convertir la imagen en un archivo
       Canvas2Image.saveAsPNG(canvas, null, null, 'grafico');
     });
   });
-
-  // Agregar el botón al elemento contenedor
-  document.getElementById('chart-container').appendChild(downloadButton);
 }
     </script>
     
+
+
+
+
+
+
+
+
+
+
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
