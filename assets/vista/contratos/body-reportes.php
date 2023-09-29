@@ -68,15 +68,12 @@ $query14 = mysqli_query($con, $sql14);
 	                                            <span class="text-muted mt-1 fw-bold fs-7">Over 100 pending files</span>
 	                                        </h3>
 	                                    </div>
-	                                    <div class="card-body py-3">
+	                                    <div class="card h-md-100">
 	                                        <div class="table-responsive">
                                                 <div id="chart_div" style="height: 400px;"></div>
 	                                        </div>
-	                                        <!--end::Table container-->
 	                                    </div>
-	                                    <!--begin::Body-->
 	                                </div>
-	                                <!--end::Tables Widget 3-->
 	                            </div>
 	                            <!--end::Col-->
 	                            <!--begin::Col-->
