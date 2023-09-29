@@ -122,7 +122,7 @@ if (!empty($_POST['btncrear'])) {
                         <div class="toast-header bg-danger">
                             <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
                             <strong class="me-auto text-white">Alerta</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
                         <div class="toast-body text-white">
                             El correo electrónico ya está registrado. Por favor, elija otro correo.
