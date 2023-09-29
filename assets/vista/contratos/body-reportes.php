@@ -60,7 +60,7 @@ $query14 = mysqli_query($con, $sql14);
                         </div>
                     </div>
                     <div class="content flex-column-fluid" id="kt_content">
-                        <div class="col-xl-6 mb-5 mb-xl-10">
+                        <div class="col-xl-6 mb-5 mb-xl-6">
                             <div class="card h-xl-100">
                                 <div class="card-header border-0 pt-5">
                                     <h3 class="card-title align-items-start flex-column">
@@ -75,7 +75,7 @@ $query14 = mysqli_query($con, $sql14);
                         </div>
                     </div>
                     <div class="content flex-column-fluid" id="kt_content">
-                        <div class="col-xl-6 mb-5 mb-xl-10">
+                        <div class="col-xl-6 mb-5 mb-xl-6">
                             <div class="card h-xl-100">
                                 <div class="card-header border-0 pt-5">
                                     <h3 class="card-title align-items-start flex-column">
