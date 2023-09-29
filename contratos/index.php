@@ -178,6 +178,7 @@
     $('.modal-close').on('click', function() {
         $('#kt_modal_remove_user').modal('hide');
         $('#kt_modal_add_user').modal('hide');
+        $('#kt_modal_new_user').modal('hide');
         $('#kt_modal_reg_user').modal('hide');
         $('#kt_modal_view_user').modal('hide');
     });
