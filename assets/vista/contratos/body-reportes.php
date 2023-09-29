@@ -51,7 +51,7 @@ $query14 = mysqli_query($con, $sql14);
             </div>
             <div class="d-flex flex-column-fluid">
 
-                <?php include_once 'menu-contratos.php'?>
+                <?php include_once 'menu-reportes.php'?>
 
                 <div class="d-flex flex-column flex-column-fluid container-fluid">
                     <div class="toolbar mb-2 mb-lg-2" id="kt_toolbar">
@@ -92,7 +92,7 @@ $query14 = mysqli_query($con, $sql14);
 	                            </div>
 	                        </div>
                     <div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
-                        <?php include_once 'footer-contratos.php'?>
+                        <?php include_once 'footer-reportes.php'?>
                     </div>
                 </div>
             </div>
