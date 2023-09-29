@@ -71,6 +71,32 @@
 
 <script>
     $('.ver-contrato').on('click', function () {
+        var id1 = $(this).data('id1');
+        var email1 = $(this).data('email1');
+        var nombres1 = $(this).data('nombres1');
+        var apellidos1 = $(this).data('apellidos1');
+        var rol1 = $(this).data('rol1');
+        var direccion1 = $(this).data('direccion1');
+        var numero1 = $(this).data('numero1');
+        var observacion1 = $(this).data('observacion1');
+        var recomendacion1 = $(this).data('recomendacion1');
+        var fechainicio1 = $(this).data('fechainicio1');
+        var fechafin1 = $(this).data('fechafin1');
+        $('#viewId').val(id1);
+        $('#viewNombres').val(nombres1 + " " + apellidos1);
+        $('#viewEmail').val(email1);
+        $('#viewDireccion').val(direccion1);
+        $('#viewNumero').val(numero1);
+        $('#viewRol').val(rol1);
+        $('#viewObservacion').val(observacion1);
+        $('#viewRecomendacion').val(recomendacion1);
+        $('#kt_modal_view_user').modal('show');
+
+    });
+</script>
+
+<script>
+    $('.reg-contrato').on('click', function () {
         var id = $(this).data('id');
         var email = $(this).data('email');
         var nombres = $(this).data('nombres');
@@ -92,34 +118,6 @@
         $('#regRol').val(rol);
         $('#regObservacion').val(observacion);
         $('#regRecomendacion').val(recomendacion);
-        $('#kt_modal_view_user').modal('show');
-       
-    });
-</script>
-
-<script>
-    $('.reg-contrato').on('click', function () {
-        var id = $(this).data('id');
-        var email = $(this).data('email');
-        var nombres = $(this).data('nombres');
-        var apellidos = $(this).data('apellidos');
-        var rol = $(this).data('rol');
-        var direccion = $(this).data('direccion');
-        var numero = $(this).data('numero');
-        var observacion = $(this).data('observacion');
-        var recomendacion = $(this).data('recomendacion');
-        var fechainicio = $(this).data('fechainicio');
-        var fechafin = $(this).data('fechafin');
-        $('#regId').val(id);
-        $('#resetId').val(id);
-        $('#resetNombres').val(nombres + " " + apellidos);
-        $('#viewEmail').val(email);
-        $('#viewNombres').val(nombres + " " + apellidos);
-        $('#viewDireccion').val(direccion);
-        $('#viewNumero').val(numero);
-        $('#viewRol').val(rol);
-        $('#viewObservacion').val(observacion);
-        $('#viewRecomendacion').val(recomendacion);
         $('#kt_modal_reg_user').modal('show');
 
         if (fechainicio != "-") {
