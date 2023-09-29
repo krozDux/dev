@@ -104,7 +104,7 @@ $query14 = mysqli_query($con, $sql14);
                                 aria-hidden="true" required>
                                 <option selected value="">Seleccionar un rol</option>
                                 <?php  while ($dataUsuario14 = mysqli_fetch_array($query14)) { ?>
-                                <option value="<?php echo ($dataUsuario14['idUsuario']); ?>">Administrador</option>
+                                <option value="<?php echo ($dataUsuario14['idUsuario']);?>"><?php echo ($dataUsuario14['nombres']);?></option>
                                 <?php } ?>
                                 </select>
                             </div>
