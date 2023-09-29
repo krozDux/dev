@@ -1,7 +1,7 @@
 <?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
 <?php
 include('../config.php');
-$sql14 = ("SELECT * FROM contratos WHERE fechaFin = (SELECT MAX(fechaFin) FROM contratos where fechaFin < CURDATE() )");
+$sql14 = ("SELECT u.id, u.nombres, u.apellidos, c.fechaInicio, c.fechaFin, c.observacion, c.recomendacion, c.idUsuario FROM usuarios AS u INNER JOIN contratos AS c ON u.id = c.idUsuario WHERE c.fechaFin = ( SELECT MAX(fechaFin) FROM contratos WHERE fechaFin < CURDATE()");
 $query14 = mysqli_query($con, $sql14);
 ?>
 <?php include '../assets/controlador/contratos.php'?>
