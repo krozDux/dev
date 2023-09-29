@@ -93,7 +93,6 @@
         $('#viewObservacion').val(observacion1);
         $('#viewRecomendacion').val(recomendacion1);
         $('#kt_modal_view_user').modal('show');
-
     });
 </script>
 
@@ -168,6 +167,7 @@
         $('#kt_modal_remove_user').modal('hide');
         $('#kt_modal_add_user').modal('hide');
         $('#kt_modal_reg_user').modal('hide');
+        $('#kt_modal_view_user').modal('hide');
     });
     </script>
 </body>

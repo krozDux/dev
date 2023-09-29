@@ -76,7 +76,11 @@ $query1 = mysqli_query($con, $sql1);
 
             <td><?php echo $dataUsuario1['observacion']; ?></td>
             <td><?php echo $dataUsuario1['recomendacion']; ?></td>
-            <?php if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
+            <?php $fechaActual = date('Y-m-d'); 
+            if ($dataUsuario1['fechaFin'] != "" && strtotime($dataUsuario1['fechaFin']) > strtotime($fechaActual)) { ?>
+            <td>TE PASASTE PAPU AÑADE UN</td>
+            <?php } else { ?>
+            <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
                 <td>
                 <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"
                     data-id1="<?php echo $dataUsuario1['id']; ?>" 
@@ -106,10 +110,12 @@ $query1 = mysqli_query($con, $sql1);
                     data-recomendacion="<?php echo $dataUsuario1['recomendacion']; ?>"
                     data-fechainicio="<?php echo $dataUsuario1['fechaInicio']; ?>"
                     data-fechafin="<?php echo $dataUsuario1['fechaFin']; ?>"><span
-                        class="bi bi-pencil-fill fs-7 opacity-50"></buttton>
+                        class="bi bi-plus fs-7 opacity-50"></buttton>
             </td>
             <?php } ?>
         </tr>
+        <?php } ?>
+        
         <?php } ?>
     </tbody>
 </table>
