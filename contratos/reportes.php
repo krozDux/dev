@@ -11,7 +11,21 @@
     </script>
     <?php
     include('../config.php');
-    $sqlchart = ("SELECT u.id, u.nombres, u.apellidos, c.fechaInicio, c.fechaFin, c.observacion, c.recomendacion, c.idUsuario FROM usuarios AS u INNER JOIN contratos AS c ON u.id = c.idUsuario WHERE c.fechaFin = (SELECT MAX(fechaFin) FROM contratos WHERE fechaFin < CURDATE() AND idUsuario = c.idUsuario) AND NOT EXISTS (SELECT 1 FROM contratos WHERE idUsuario = c.idUsuario AND id != c.id)");
+    $sqlchart = ("SELECT DATE_FORMAT(c.fechaFin, '%Y-%m') AS mes, COUNT(*) AS total_registros, 
+    CASE
+        WHEN MONTH(c.fechaFin) = 1 THEN 'Enero'
+        WHEN MONTH(c.fechaFin) = 2 THEN 'Febrero'
+        WHEN MONTH(c.fechaFin) = 3 THEN 'Marzo'
+        WHEN MONTH(c.fechaFin) = 4 THEN 'Abril'
+        WHEN MONTH(c.fechaFin) = 5 THEN 'Mayo'
+        WHEN MONTH(c.fechaFin) = 6 THEN 'Junio'
+        WHEN MONTH(c.fechaFin) = 7 THEN 'Julio'
+        WHEN MONTH(c.fechaFin) = 8 THEN 'Agosto'
+        WHEN MONTH(c.fechaFin) = 9 THEN 'Septiembre'
+        WHEN MONTH(c.fechaFin) = 10 THEN 'Octubre'
+        WHEN MONTH(c.fechaFin) = 11 THEN 'Noviembre'
+        WHEN MONTH(c.fechaFin) = 12 THEN 'Diciembre' 
+    END AS nombre_mes, u.rol FROM contratos c INNER JOIN usuarios u ON c.idUsuario = u.id WHERE c.fechaFin >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH) GROUP BY DATE_FORMAT(c.fechaFin, '%Y-%m'), u.rol ORDER BY mes;");
     $querychart = mysqli_query($con, $sqlchart);
     ?>
     <script src="assets/plugins/global/plugins.bundle.js"></script>
@@ -29,11 +43,10 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Mes', 'Sales', 'Expenses'],
-          ['Enero', 1000, 400],
-          ['Febrero', 1170, 460],
-          ['Marzo', 660, 1120],
-          ['Abril', 1030, 540]
+          ['Mes', 'Rol', 'Cantidad'],
+          <?php  while ($dataChart = mysqli_fetch_array($querychart)) { ?>
+          ['<?php echo $dataChart['nombre_mes']; ?>','<?php echo $dataChart['rol']; ?>', <?php echo $dataChart['cantidad']; ?>],
+          <?php } ?>
         ]);
 
         var options = {
