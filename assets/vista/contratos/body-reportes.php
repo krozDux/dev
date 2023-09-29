@@ -64,8 +64,8 @@ $query14 = mysqli_query($con, $sql14);
 	                                <div class="card h-xl-100 pb-5">
 	                                    <div class="card-header border-0 pt-5">
 	                                        <h3 class="card-title align-items-start flex-column">
-	                                            <span class="card-label fw-bolder fs-3 mb-1">Contratos iniciados</span>
-	                                            <span class="text-muted mt-1 fw-bold fs-7">Cantidad de contratos iniciados por mes</span>
+	                                            <span class="card-label fw-bolder fs-3 mb-1">Inicialización de contratos</span>
+	                                            <span class="text-muted mt-1 fw-bold fs-7">Cantidad de inicialización de contratos iniciados por mes</span>
 	                                        </h3>
 	                                    </div>
 	                                    <div class="card h-md-100 px-5">
@@ -79,8 +79,8 @@ $query14 = mysqli_query($con, $sql14);
                                     <div class="card h-xl-100 pb-5">
 	                                    <div class="card-header border-0 pt-5">
 	                                        <h3 class="card-title align-items-start flex-column">
-	                                            <span class="card-label fw-bolder fs-3 mb-1">Contratos finalizados</span>
-	                                            <span class="text-muted mt-1 fw-bold fs-7">Cantidad de contratos finalizados por mes</span>
+	                                            <span class="card-label fw-bolder fs-3 mb-1">Finalización de contratos</span>
+	                                            <span class="text-muted mt-1 fw-bold fs-7">Cantidad de finalización de contratos por mes</span>
 	                                        </h3>
 	                                    </div>
 	                                    <div class="card h-md-100 px-5">
@@ -94,8 +94,8 @@ $query14 = mysqli_query($con, $sql14);
 	                                <div class="card h-xl-100 pb-5">
 	                                    <div class="card-header border-0 pt-5">
 	                                        <h3 class="card-title align-items-start flex-column">
-	                                            <span class="card-label fw-bolder fs-3 mb-1">Contratos iniciados</span>
-	                                            <span class="text-muted mt-1 fw-bold fs-7">Cantidad de contratos iniciados por mes y rol</span>
+	                                            <span class="card-label fw-bolder fs-3 mb-1">Inicialización de contratos</span>
+	                                            <span class="text-muted mt-1 fw-bold fs-7">Cantidad de inicialización de contratos iniciados por mes y rol</span>
 	                                        </h3>
 	                                    </div>
 	                                    <div class="card h-md-100 px-5">
@@ -109,8 +109,8 @@ $query14 = mysqli_query($con, $sql14);
                                     <div class="card h-xl-100 pb-5">
 	                                    <div class="card-header border-0 pt-5">
 	                                        <h3 class="card-title align-items-start flex-column">
-	                                            <span class="card-label fw-bolder fs-3 mb-1">Contratos finalizados</span>
-	                                            <span class="text-muted mt-1 fw-bold fs-7">Cantidad de contratos finalizados por mes y rol</span>
+	                                            <span class="card-label fw-bolder fs-3 mb-1">Finalización de contratos</span>
+	                                            <span class="text-muted mt-1 fw-bold fs-7">Cantidad de finalización de contratos por mes y rol</span>
 	                                        </h3>
 	                                    </div>
 	                                    <div class="card h-md-100 px-5">
