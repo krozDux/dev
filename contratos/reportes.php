@@ -136,10 +136,10 @@
         ]);
 
         var options = {
-          
+          title: 'My Daily Activities'
         };
 
-        var chart = new google.charts.PieChart(document.getElementById('columnchart_material2'));
+        var chart = new google.visualization.PieChart(document.getElementById('columnchart_material2'));
 
         chart.draw(data, options);
       }
