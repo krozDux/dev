@@ -69,9 +69,22 @@ $query14 = mysqli_query($con, $sql14);
                                     </h3>
                                 </div>
                                 <div class="card-body py-3 h-300">
-                                   
                                     <div id="chart_div" style="height: 400px;"></div>
-                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content flex-column-fluid" id="kt_content">
+                        <div class="col-xl-6 mb-5 mb-xl-10">
+                            <div class="card h-xl-100">
+                                <div class="card-header border-0 pt-5">
+                                    <h3 class="card-title align-items-start flex-column">
+                                        <span class="card-label fw-bolder fs-3 mb-1">Files</span>
+                                        <span class="text-muted mt-1 fw-bold fs-7">Over 100 pending files</span>
+                                    </h3>
+                                </div>
+                                <div class="card-body py-3 h-300">
+                                    <div id="chart_div" style="height: 400px;"></div>
                                 </div>
                             </div>
                         </div>
