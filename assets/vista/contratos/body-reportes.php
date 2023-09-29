@@ -69,9 +69,9 @@ $query14 = mysqli_query($con, $sql14);
                                         inicialización de contratos por mes</span>
                                 </h3>
                                 <div class="download-button-container">
-                                    <button id="download-button" class="btn btn-primary btn-sm">
-                                        <i class="fas fa-download"></i>
-                                    </button>
+                                <buttton id="download-button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                        <span
+                        class="bi bi-eye-fill fs-7 opacity-50"></buttton>
                                 </div>
                             </div>
 
