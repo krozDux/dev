@@ -70,7 +70,7 @@ $query14 = mysqli_query($con, $sql14);
 	                                    </div>
 	                                    <div class="card h-md-100 px-5">
 	                                        <div class="table-responsive">
-                                                <div id="chart_div" style="height: 400px;"></div>
+                                                <div id="chart_div" style="height: 500px;"></div>
 	                                        </div>
 	                                    </div>
 	                                </div>
