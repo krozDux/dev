@@ -60,7 +60,7 @@
                 zeroRecords: 'No se encontraron registros coincidentes',
             },
             order: [
-            [4, 'asc'] // Ordenar la cuarta columna de manera ascendente
+            [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
             ]
         });
     });
