@@ -59,7 +59,27 @@
     $querychart3 = mysqli_query($con, $sqlchart3);
     ?>
 
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
 
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Mes', 'Cantidad'],
+          <?php  while ($dataChart3 = mysqli_fetch_array($querychart3)) { ?>
+          ['<?php echo $dataChart3['nombre_mes']; ?>',<?php echo $dataChart3['total_registros_rol1']; ?>],
+          <?php } ?>
+        ]);
+
+        var options = {
+          
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material3'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
 
 
     <script type="text/javascript">
@@ -83,6 +103,7 @@
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
+
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
