@@ -84,7 +84,7 @@ $query14 = mysqli_query($con, $sql14);
 	                                        </h3>
 	                                    </div>
 	                                    <div class="card h-md-100">
-	                                        <div class="table-responsive pt-5 pr-5">
+	                                        <div class="table-responsive pt-5 mr-5">
                                                 <div id="columnchart_material" style="width: 650px; height: 400px;"></div>
 	                                        </div>
 	                                    </div>
