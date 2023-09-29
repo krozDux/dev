@@ -1,4 +1,9 @@
 <?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
+<?php
+include('../config.php');
+$sql14 = ("SELECT u.id, u.nombres, u.apellidos, c.fechaInicio, c.fechaFin, c.observacion, c.recomendacion, c.idUsuario FROM usuarios AS u INNER JOIN contratos AS c ON u.id = c.idUsuario WHERE c.fechaFin = (SELECT MAX(fechaFin) FROM contratos WHERE fechaFin < CURDATE());");
+$query14 = mysqli_query($con, $sql14);
+?>
 <?php include '../assets/controlador/contratos.php'?>
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
@@ -95,7 +100,14 @@
                         <div class="row fv-row mb-4">
                             <div class="col-xl-6">
                                 <label class="required fw-bold fs-6 mb-2">Seleccionar trabajador</label>
-                                <input type="text" name="newNombre" class="form-control form-control-solid mb-3 mb-lg-0" id="newNombres" disabled />
+                                <select class="form-select form-select-solid" name="newNombre" id="newNombres" tabindex="-1"
+                                aria-hidden="true" required>
+                                <option selected value="">Seleccionar un rol</option>
+                                <?php 
+                                while ($dataUsuario14 = mysqli_fetch_array($query14)) { ?>
+                                <option value="<?php echo ($dataUsuario14['idUsuario']); ?>"><?php echo ($dataUsuario14['nombres']) ($dataUsuario14['apellidos']); ?></option>
+                                <?php } ?>
+                                </select>
                             </div>
                         </div>
                         <div class="row fv-row mb-4">
