@@ -1,49 +1,27 @@
 <!DOCTYPE html>
-<!--
-Author: Keenthemes
-Product Name: Metronic - Bootstrap 5 HTML, VueJS, React, Angular & Laravel Admin Dashboard Theme
-Purchase: https://1.envato.market/EA4JP
-Website: http://www.keenthemes.com
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
-<html lang="en">
-	
+<?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
+<html lang="es">
+<?php include_once '../assets/controlador/sesion.php'?>
+<?php include_once '../assets/vista/panel/head-proyectos.php'?>
 	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
+	<?php include_once '../assets/vista/panel/body-proyectos.php'?>
 	<div class="modal fade" id="kt_modal_new_target" tabindex="-1" aria-hidden="true">
-			<!--begin::Modal dialog-->
 			<div class="modal-dialog modal-dialog-centered mw-650px">
-				<!--begin::Modal content-->
 				<div class="modal-content rounded">
-					<!--begin::Modal header-->
 					<div class="modal-header pb-0 border-0 justify-content-end">
-						<!--begin::Close-->
 						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-							<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
 							<span class="svg-icon svg-icon-1">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
 									<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
 								</svg>
 							</span>
-							<!--end::Svg Icon-->
 						</div>
-						<!--end::Close-->
 					</div>
-					<!--begin::Modal header-->
-					<!--begin::Modal body-->
 					<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-						<!--begin:Form-->
 						<form id="kt_modal_new_target_form" class="form" action="#">
-							<!--begin::Heading-->
 							<div class="mb-13 text-center">
-								<!--begin::Title-->
 								<h1 class="mb-3">Set First Target</h1>
-								<!--end::Title-->
-								<!--begin::Description-->
 								<div class="text-muted fw-bold fs-5">If you need more info, please check
 								<a href="#" class="fw-bolder link-primary">Project Guidelines</a>.</div>
 							</div>
@@ -154,3 +132,6 @@ License: For each use you must have a valid license purchased only from above li
 	</body>
 	<!--end::Body-->
 </html>
+<?php } else{
+header("location: ../panel/index.php");
+} ?>
