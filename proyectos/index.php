@@ -2,9 +2,9 @@
 <?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
 <html lang="es">
 <?php include_once '../assets/controlador/sesion.php'?>
-<?php include_once '../assets/vista/panel/head-proyectos.php'?>
+<?php include_once '../assets/vista/proyectos/head-proyectos.php'?>
 	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-	<?php include_once '../assets/vista/panel/body-proyectos.php'?>
+	<?php include_once '../assets/vista/proyectos/body-proyectos.php'?>
 	<div class="modal fade" id="kt_modal_new_target" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered mw-650px">
 				<div class="modal-content rounded">
