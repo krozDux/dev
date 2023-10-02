@@ -3,134 +3,206 @@
 <html lang="es">
 <?php include_once '../assets/controlador/sesion.php'?>
 <?php include_once '../assets/vista/proyectos/head-proyectos.php'?>
-	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-	<?php include_once '../assets/vista/proyectos/body-proyectos.php'?>
-	<div class="modal fade" id="kt_modal_new_target" tabindex="-1" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered mw-650px">
-				<div class="modal-content rounded">
-					<div class="modal-header pb-0 border-0 justify-content-end">
-						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-							<span class="svg-icon svg-icon-1">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
-									<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
-								</svg>
-							</span>
-						</div>
-					</div>
-					<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-						<form id="kt_modal_new_target_form" class="form" action="#">
-							<div class="mb-13 text-center">
-								<h1 class="mb-3">Set First Target</h1>
-								<div class="text-muted fw-bold fs-5">If you need more info, please check
-								<a href="#" class="fw-bolder link-primary">Project Guidelines</a>.</div>
-							</div>
-							<div class="d-flex flex-column mb-8 fv-row">
-								<label class="d-flex align-items-center fs-6 fw-bold mb-2">
-									<span class="required">Target Title</span>
-									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i>
-								</label>
-								<input type="text" class="form-control form-control-solid" placeholder="Enter Target Title" name="target_title" />
-							</div>
-							<div class="row g-9 mb-8">
-								<div class="col-md-6 fv-row">
-									<label class="required fs-6 fw-bold mb-2">Assign</label>
-									<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
-										<option value="">Select user...</option>
-										<option value="1">Karina Clark</option>
-										<option value="2">Robert Doe</option>
-										<option value="3">Niel Owen</option>
-										<option value="4">Olivia Wild</option>
-										<option value="5">Sean Bean</option>
-									</select>
-								</div>
-								<div class="col-md-6 fv-row">
-									<label class="required fs-6 fw-bold mb-2">Due Date</label>
-									<div class="position-relative d-flex align-items-center">
-										<span class="svg-icon svg-icon-2 position-absolute mx-4">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path opacity="0.3" d="M21 22H3C2.4 22 2 21.6 2 21V5C2 4.4 2.4 4 3 4H21C21.6 4 22 4.4 22 5V21C22 21.6 21.6 22 21 22Z" fill="currentColor" />
-												<path d="M6 6C5.4 6 5 5.6 5 5V3C5 2.4 5.4 2 6 2C6.6 2 7 2.4 7 3V5C7 5.6 6.6 6 6 6ZM11 5V3C11 2.4 10.6 2 10 2C9.4 2 9 2.4 9 3V5C9 5.6 9.4 6 10 6C10.6 6 11 5.6 11 5ZM15 5V3C15 2.4 14.6 2 14 2C13.4 2 13 2.4 13 3V5C13 5.6 13.4 6 14 6C14.6 6 15 5.6 15 5ZM19 5V3C19 2.4 18.6 2 18 2C17.4 2 17 2.4 17 3V5C17 5.6 17.4 6 18 6C18.6 6 19 5.6 19 5Z" fill="currentColor" />
-												<path d="M8.8 13.1C9.2 13.1 9.5 13 9.7 12.8C9.9 12.6 10.1 12.3 10.1 11.9C10.1 11.6 10 11.3 9.8 11.1C9.6 10.9 9.3 10.8 9 10.8C8.8 10.8 8.59999 10.8 8.39999 10.9C8.19999 11 8.1 11.1 8 11.2C7.9 11.3 7.8 11.4 7.7 11.6C7.6 11.8 7.5 11.9 7.5 12.1C7.5 12.2 7.4 12.2 7.3 12.3C7.2 12.4 7.09999 12.4 6.89999 12.4C6.69999 12.4 6.6 12.3 6.5 12.2C6.4 12.1 6.3 11.9 6.3 11.7C6.3 11.5 6.4 11.3 6.5 11.1C6.6 10.9 6.8 10.7 7 10.5C7.2 10.3 7.49999 10.1 7.89999 10C8.29999 9.90003 8.60001 9.80003 9.10001 9.80003C9.50001 9.80003 9.80001 9.90003 10.1 10C10.4 10.1 10.7 10.3 10.9 10.4C11.1 10.5 11.3 10.8 11.4 11.1C11.5 11.4 11.6 11.6 11.6 11.9C11.6 12.3 11.5 12.6 11.3 12.9C11.1 13.2 10.9 13.5 10.6 13.7C10.9 13.9 11.2 14.1 11.4 14.3C11.6 14.5 11.8 14.7 11.9 15C12 15.3 12.1 15.5 12.1 15.8C12.1 16.2 12 16.5 11.9 16.8C11.8 17.1 11.5 17.4 11.3 17.7C11.1 18 10.7 18.2 10.3 18.3C9.9 18.4 9.5 18.5 9 18.5C8.5 18.5 8.1 18.4 7.7 18.2C7.3 18 7 17.8 6.8 17.6C6.6 17.4 6.4 17.1 6.3 16.8C6.2 16.5 6.10001 16.3 6.10001 16.1C6.10001 15.9 6.2 15.7 6.3 15.6C6.4 15.5 6.6 15.4 6.8 15.4C6.9 15.4 7.00001 15.4 7.10001 15.5C7.20001 15.6 7.3 15.6 7.3 15.7C7.5 16.2 7.7 16.6 8 16.9C8.3 17.2 8.6 17.3 9 17.3C9.2 17.3 9.5 17.2 9.7 17.1C9.9 17 10.1 16.8 10.3 16.6C10.5 16.4 10.5 16.1 10.5 15.8C10.5 15.3 10.4 15 10.1 14.7C9.80001 14.4 9.50001 14.3 9.10001 14.3C9.00001 14.3 8.9 14.3 8.7 14.3C8.5 14.3 8.39999 14.3 8.39999 14.3C8.19999 14.3 7.99999 14.2 7.89999 14.1C7.79999 14 7.7 13.8 7.7 13.7C7.7 13.5 7.79999 13.4 7.89999 13.2C7.99999 13 8.2 13 8.5 13H8.8V13.1ZM15.3 17.5V12.2C14.3 13 13.6 13.3 13.3 13.3C13.1 13.3 13 13.2 12.9 13.1C12.8 13 12.7 12.8 12.7 12.6C12.7 12.4 12.8 12.3 12.9 12.2C13 12.1 13.2 12 13.6 11.8C14.1 11.6 14.5 11.3 14.7 11.1C14.9 10.9 15.2 10.6 15.5 10.3C15.8 10 15.9 9.80003 15.9 9.70003C15.9 9.60003 16.1 9.60004 16.3 9.60004C16.5 9.60004 16.7 9.70003 16.8 9.80003C16.9 9.90003 17 10.2 17 10.5V17.2C17 18 16.7 18.4 16.2 18.4C16 18.4 15.8 18.3 15.6 18.2C15.4 18.1 15.3 17.8 15.3 17.5Z" fill="currentColor" />
-											</svg>
-										</span>
-										<input class="form-control form-control-solid ps-12" placeholder="Select a date" name="due_date" />
-									</div>
-								</div>
-							</div>
-							<div class="d-flex flex-column mb-8">
-								<label class="fs-6 fw-bold mb-2">Target Details</label>
-								<textarea class="form-control form-control-solid" rows="3" name="target_details" placeholder="Type Target Details"></textarea>
-							</div>
-							<div class="d-flex flex-column mb-8 fv-row">
-								<label class="d-flex align-items-center fs-6 fw-bold mb-2">
-									<span class="required">Tags</span>
-									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target priorty"></i>
-								</label>
-								<input class="form-control form-control-solid" value="Important, Urgent" name="tags" />
-							</div>
-							<div class="d-flex flex-stack mb-8">
-								<div class="me-5">
-									<label class="fs-6 fw-bold">Adding Users by Team Members</label>
-									<div class="fs-7 fw-bold text-muted">If you need more info, please check budget planning</div>
-								</div>
-								<label class="form-check form-switch form-check-custom form-check-solid">
-									<input class="form-check-input" type="checkbox" value="1" checked="checked" />
-									<span class="form-check-label fw-bold text-muted">Allowed</span>
-								</label>
-							</div>
-							<div class="mb-15 fv-row">
-								<div class="d-flex flex-stack">
-									<div class="fw-bold me-5">
-										<label class="fs-6">Notifications</label>
-										<div class="fs-7 text-muted">Allow Notifications by Phone or Email</div>
-									</div>
-									<div class="d-flex align-items-center">
-										<label class="form-check form-check-custom form-check-solid me-10">
-											<input class="form-check-input h-20px w-20px" type="checkbox" name="communication[]" value="email" checked="checked" />
-											<span class="form-check-label fw-bold">Email</span>
-										</label>
-										<label class="form-check form-check-custom form-check-solid">
-											<input class="form-check-input h-20px w-20px" type="checkbox" name="communication[]" value="phone" />
-											<span class="form-check-label fw-bold">Phone</span>
-										</label>
-									</div>
-								</div>
-							</div>
-							<div class="text-center">
-								<button type="reset" id="kt_modal_new_target_cancel" class="btn btn-light me-3">Cancel</button>
-								<button type="submit" id="kt_modal_new_target_submit" class="btn btn-primary">
-									<span class="indicator-label">Submit</span>
-									<span class="indicator-progress">Please wait...
-									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-								</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<script src="assets/js/widgets.bundle.js"></script>
-		<script src="assets/js/custom/widgets.js"></script>
-		<script src="assets/js/custom/apps/chat/chat.js"></script>
-		<script src="assets/js/custom/utilities/modals/new-target.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/type.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/budget.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/settings.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/team.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/targets.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/files.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/complete.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/main.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-app.js"></script>
-		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-		<script src="assets/js/custom/utilities/modals/new-address.js"></script>
-		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
-		<!--end::Page Custom Javascript-->
-		<!--end::Javascript-->
-	</body>
-	<!--end::Body-->
+
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
+    <?php include_once '../assets/vista/proyectos/body-proyectos.php'?>
+    <script>
+    var hostUrl = "assets/";
+    </script>
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script>
+    <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+
+    <script>
+    $(document).ready(function() {
+
+        $('#kt_table_users').DataTable({
+            dom: 'fBrtip',
+            "sScrollX": "100%",
+            "sScrollXInner": "110%",
+            "bScrollCollapse": true,
+            buttons: [{
+                    text: '<span class="svg-icon svg-icon-2 opacity-50">' +
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">' +
+                        '<path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>' +
+                        '<path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>' +
+                        '</svg>' +
+                        '</span>Registrar',
+                    className: 'btn btn-primary',
+                    action: function(e, dt, node, config) {
+                        $('#kt_modal_new_user').modal('show');
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<span class="svg-icon svg-icon-2 opacity-50">' +
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">' +
+                        '  <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>' +
+                        '</svg>' +
+                        '</span>Exportar</button>',
+                    className: 'btn btn-primary ',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4, 5, 6, 7]
+                    },
+                    autoFilter: true,
+                    sheetName: 'Reporte - Usuarios'
+                },
+            ],
+            language: {
+                search: 'Buscar: ',
+                emptyTable: "No hay datos disponibles en la tabla",
+                paginate: {
+                    next: "Siguiente",
+                    previous: "Anterior",
+                },
+                info: "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+                infoEmpty: "Mostrando 0 a 0 de 0 entradas",
+                infoFiltered: '(filtrado de _MAX_ registros en total)',
+                zeroRecords: 'No se encontraron registros coincidentes',
+            },
+            order: [
+                [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
+            ]
+        });
+    });
+    </script>
+
+    <script>
+    $('.del-usuario').on('click', function() {
+        var id = $(this).data('id');
+        var nombres = $(this).data('nombres');
+        var apellidos = $(this).data('apellidos');
+        var rol = $(this).data('rol');
+        const rolM = rol.charAt(0).toUpperCase() + rol.slice(1);
+        $('#delId').val(id);
+        $('#delNombres').val(nombres + " " + apellidos);
+        $('#delRol').val(rolM);
+        $('#kt_modal_remove_user').modal('show');
+    });
+    </script>
+
+    <script>
+    $('.ver-contrato').on('click', function() {
+        var id1 = $(this).data('id1');
+        var email1 = $(this).data('email1');
+        var nombres1 = $(this).data('nombres1');
+        var apellidos1 = $(this).data('apellidos1');
+        var rol1 = $(this).data('rol1');
+        var direccion1 = $(this).data('direccion1');
+        var numero1 = $(this).data('numero1');
+        var observacion1 = $(this).data('observacion1');
+        var recomendacion1 = $(this).data('recomendacion1');
+        var fechainicio1 = $(this).data('fechainicio1');
+        var fechafin1 = $(this).data('fechafin1');
+        $('#viewId').val(id1);
+        $('#viewNombres').val(nombres1 + " " + apellidos1);
+        $('#viewEmail').val(email1);
+        $('#viewDireccion').val(direccion1);
+        $('#viewNumero').val(numero1);
+        $('#viewRol').val(rol1);
+        $('#viewFechaInicio').val(fechainicio1);
+        $('#viewFechaFin').val(fechafin1);
+        $('#viewObservacion').val(observacion1);
+        $('#viewRecomendacion').val(recomendacion1);
+        $('#kt_modal_view_user').modal('show');
+    });
+    </script>
+
+    <script>
+    $('.reg-contrato').on('click', function() {
+        var id = $(this).data('id');
+        var email = $(this).data('email');
+        var nombres = $(this).data('nombres');
+        var apellidos = $(this).data('apellidos');
+        var rol = $(this).data('rol');
+        var direccion = $(this).data('direccion');
+        var numero = $(this).data('numero');
+        var observacion = $(this).data('observacion');
+        var recomendacion = $(this).data('recomendacion');
+        var fechainicio = $(this).data('fechainicio');
+        var fechafin = $(this).data('fechafin');
+        $('#regId').val(id);
+        $('#resetId').val(id);
+        $('#resetNombres').val(nombres + " " + apellidos);
+        $('#regEmail').val(email);
+        $('#regNombres').val(nombres + " " + apellidos);
+        $('#regDireccion').val(direccion);
+        $('#regNumero').val(numero);
+        $('#regRol').val(rol);
+        $('#regObservacion').val(observacion);
+        $('#regRecomendacion').val(recomendacion);
+        $('#kt_modal_reg_user').modal('show');
+
+        if (fechainicio != "-") {
+            $('#regFechaInicio').val(fechainicio);
+        }
+        if (fechafin != "-") {
+            $('#regFechaFin').val(fechafin);
+        }
+
+        // Obtén los elementos de fecha de inicio y fecha de fin
+        var fechaInicioInput = document.getElementById("regFechaInicio");
+        var fechaFinInput = document.getElementById("regFechaFin");
+
+        // Agrega un evento change a fecha de inicio
+        fechaInicioInput.addEventListener("change", function() {
+            // Convierte las fechas en objetos Date
+            var fechaInicio = new Date(fechaInicioInput.value);
+            var fechaFin = new Date(fechaFinInput.value);
+
+            // Valida si fecha de inicio es mayor que fecha de fin
+            if (fechaInicio > fechaFin) {
+                // Establece la fecha de fin igual a fecha de inicio
+                fechaFinInput.value = fechaInicioInput.value;
+            }
+        });
+
+        // Agrega un evento change a fecha de fin
+        fechaFinInput.addEventListener("change", function() {
+            // Convierte las fechas en objetos Date
+            var fechaInicio = new Date(fechaInicioInput.value);
+            var fechaFin = new Date(fechaFinInput.value);
+
+            // Valida si fecha de fin es menor que fecha de inicio
+            if (fechaFin < fechaInicio) {
+                // Establece la fecha de inicio igual a fecha de fin
+                fechaInicioInput.value = fechaFinInput.value;
+            }
+        });
+    });
+    </script>
+
+
+
+    <script>
+    $('.modal-close').on('click', function() {
+        $('#kt_modal_remove_user').modal('hide');
+        $('#kt_modal_add_user').modal('hide');
+        $('#kt_modal_new_user').modal('hide');
+        $('#kt_modal_reg_user').modal('hide');
+        $('#kt_modal_view_user').modal('hide');
+    });
+    </script>
+
+    <script src="assets/js/widgets.bundle.js"></script>
+    <script src="assets/js/custom/widgets.js"></script>
+    <script src="assets/js/custom/apps/chat/chat.js"></script>
+    <script src="assets/js/custom/utilities/modals/new-target.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/type.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/budget.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/settings.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/team.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/targets.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/files.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/complete.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/main.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-app.js"></script>
+    <script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+    <script src="assets/js/custom/utilities/modals/new-address.js"></script>
+    <script src="assets/js/custom/utilities/modals/users-search.js"></script>
+
+</body>
+
 </html>
 <?php } else{
 header("location: ../panel/index.php");

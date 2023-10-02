@@ -34,19 +34,20 @@
                     }
                 },
                 {
-                extend: 'excelHtml5',
-                text: '<span class="svg-icon svg-icon-2 opacity-50">' +
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">' +
-                    '  <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>' +
-                    '</svg>' +
-                    '</span>Exportar</button>',
-                className: 'btn btn-primary ',
-                exportOptions: {
-                    columns: [1, 2, 3, 4, 5, 6, 7]
+                    extend: 'excelHtml5',
+                    text: '<span class="svg-icon svg-icon-2 opacity-50">' +
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">' +
+                        '  <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>' +
+                        '</svg>' +
+                        '</span>Exportar</button>',
+                    className: 'btn btn-primary ',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4, 5, 6, 7]
+                    },
+                    autoFilter: true,
+                    sheetName: 'Reporte - Usuarios'
                 },
-                autoFilter: true,
-                sheetName: 'Reporte - Usuarios'
-            }, ],
+            ],
             language: {
                 search: 'Buscar: ',
                 emptyTable: "No hay datos disponibles en la tabla",
@@ -60,16 +61,12 @@
                 zeroRecords: 'No se encontraron registros coincidentes',
             },
             order: [
-            [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
+                [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
             ]
         });
     });
     </script>
-    <script src="assets/js/widgets.bundle.js"></script>
-    <script src="assets/js/custom/widgets.js"></script>
-    <script src="assets/js/custom/apps/chat/chat.js"></script>
-    <script src="assets/js/custom/utilities/modals/create-app.js"></script>
-    <script src="assets/js/custom/utilities/modals/users-search.js"></script>
+
     <script>
     $('.del-usuario').on('click', function() {
         var id = $(this).data('id');
@@ -84,8 +81,8 @@
     });
     </script>
 
-<script>
-    $('.ver-contrato').on('click', function () {
+    <script>
+    $('.ver-contrato').on('click', function() {
         var id1 = $(this).data('id1');
         var email1 = $(this).data('email1');
         var nombres1 = $(this).data('nombres1');
@@ -109,10 +106,10 @@
         $('#viewRecomendacion').val(recomendacion1);
         $('#kt_modal_view_user').modal('show');
     });
-</script>
+    </script>
 
-<script>
-    $('.reg-contrato').on('click', function () {
+    <script>
+    $('.reg-contrato').on('click', function() {
         var id = $(this).data('id');
         var email = $(this).data('email');
         var nombres = $(this).data('nombres');
@@ -148,7 +145,7 @@
         var fechaFinInput = document.getElementById("regFechaFin");
 
         // Agrega un evento change a fecha de inicio
-        fechaInicioInput.addEventListener("change", function () {
+        fechaInicioInput.addEventListener("change", function() {
             // Convierte las fechas en objetos Date
             var fechaInicio = new Date(fechaInicioInput.value);
             var fechaFin = new Date(fechaFinInput.value);
@@ -161,7 +158,7 @@
         });
 
         // Agrega un evento change a fecha de fin
-        fechaFinInput.addEventListener("change", function () {
+        fechaFinInput.addEventListener("change", function() {
             // Convierte las fechas en objetos Date
             var fechaInicio = new Date(fechaInicioInput.value);
             var fechaFin = new Date(fechaFinInput.value);
@@ -173,9 +170,9 @@
             }
         });
     });
-</script>
+    </script>
 
-   
+
 
     <script>
     $('.modal-close').on('click', function() {
@@ -186,6 +183,12 @@
         $('#kt_modal_view_user').modal('hide');
     });
     </script>
+
+    <script src="assets/js/widgets.bundle.js"></script>
+    <script src="assets/js/custom/widgets.js"></script>
+    <script src="assets/js/custom/apps/chat/chat.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-app.js"></script>
+    <script src="assets/js/custom/utilities/modals/users-search.js"></script>
 </body>
 
 </html>
