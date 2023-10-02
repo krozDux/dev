@@ -55,13 +55,13 @@ $query1 = mysqli_query($con, $sql1);
             <?php $fechaActual = date('Y-m-d'); 
             if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "" && strtotime($dataUsuario1['fechaFin']) < strtotime($fechaActual)) { ?>
              
-                <td> <div class="badge badge-danger fw-bolder">Contrato expirado</div> </td>
+                <td> <div class="badge badge-danger fw-bolder">Expirado</div> </td>
                
             <?php } else { ?>
             <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
-                <td> <div class="badge badge-success fw-bolder">Con contrato</div> </td>
+                <td> <div class="badge badge-success fw-bolder">Contratado</div> </td>
             <?php }  else { ?>
-                <td> <div class="badge badge-warning fw-bolder">Sin contrato</div> </td>
+                <td> <div class="badge badge-warning fw-bolder">Pendiente</div> </td>
             <?php } }?>
 
             <?php if ($dataUsuario1['numero'] == "-") { ?>
