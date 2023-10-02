@@ -35,7 +35,7 @@
 											</div>
 										</div>
 										<div  class="menu-item">
-											<a class="menu-link active" href="contratos/clientes.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los clientes">
+											<a class="menu-link" href="contratos/clientes.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Gestión de los clientes">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -96,7 +96,7 @@
 											</div>
 										</div>
 										<div  class="menu-item">
-											<a class="menu-link" href="proyectos/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar proyectos">
+											<a class="menu-link active" href="proyectos/index.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar proyectos">
 												<span class="menu-icon">
 													<span class="svg-icon svg-icon-2">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
