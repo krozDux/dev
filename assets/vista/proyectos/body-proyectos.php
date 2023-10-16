@@ -148,7 +148,7 @@
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                 title="Specify a target priorty"></i>
                         </label>
-                        <input class="form-control form-control-solid" name="tags" />
+                        <input class="form-control form-control-solid" name="tags1" />
                     </div>
                     <div class="d-flex flex-stack mb-8">
                         <div class="me-5">

@@ -25,7 +25,7 @@
     }
     $(document).ready(function() {
         var whitelist1 = <?php echo json_encode($whitelist); ?>;
-        var input = document.querySelector('input[name="tags"]'),
+        var input = document.querySelector('input[name="tags1"]'),
         tagify = new Tagify(input, {
         whitelist: whitelist1,
         maxTags: 10,
