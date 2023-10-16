@@ -132,7 +132,7 @@
                                             fill="currentColor" />
                                     </svg>
                                 </span>
-                                <input class="form-control form-control-solid ps-12" placeholder="Select a date"
+                                <input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date"
                                     name="due_date" />
                             </div>
                         </div>
