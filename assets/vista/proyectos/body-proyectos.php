@@ -86,7 +86,7 @@
                 </div>
             </div>
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-                <form class="form" method="POST" enctype="multipart/form-data">
+                <form id="kt_modal_new_target_form" class="form" action="#">
                     <div class="mb-13 text-center">
                         <h1 class="mb-3">Set First Target</h1>
                         <div class="text-muted fw-bold fs-5">If you need more info, please check
@@ -132,7 +132,7 @@
                                             fill="currentColor" />
                                     </svg>
                                 </span>
-                                <input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date"
+                                <input class="form-control form-control-solid ps-12" placeholder="Select a date"
                                     name="due_date" />
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                 title="Specify a target priorty"></i>
                         </label>
-                        <input class="form-control form-control-solid" value="Important, Urgent" id="equipo" name="equipo" />
+                        <input class="form-control form-control-solid" value="Important, Urgent" name="tags" />
                     </div>
                     <div class="d-flex flex-stack mb-8">
                         <div class="me-5">
