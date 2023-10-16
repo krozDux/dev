@@ -120,7 +120,7 @@
         var options = {};
 
         var chart = new google.visualization.PieChart(document.getElementById('columnchart_material1'));
-        <?php echo $dataChart1['nombre_mes']; ?>
+
         chart.draw(data, options);
 
         var downloadButton = document.getElementById('download-button1');
