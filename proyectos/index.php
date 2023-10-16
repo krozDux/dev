@@ -19,28 +19,18 @@
     ?>
     <script>
     $(document).ready(function() {
-        var input = document.querySelector('input[name="tags1"]');
-    var whitelist = [
-        <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>,
-            {
-                value: "<?php echo $dataproy1['id']; ?>", // Campo 'id' como valor interno
-                label: "<?php echo $dataproy1['nombres'] . ' ' . $dataproy1['apellidos']; ?>"
-            },
-        <?php } ?>
-    ];
-
-    var tagify = new Tagify(input, {
-        whitelist: whitelist,
-        valueProperty: 'value', // Indicamos que el campo 'value' se utilizará como valor interno
+        var input = document.querySelector('input[name="tags1"]'),
+        
+        tagify = new Tagify(input, {
+        whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?>",<?php } ?>],
         maxTags: 10,
         dropdown: {
-            maxItems: 20,
-            classname: "tags-look",
-            enabled: 0,
-            closeOnSelect: true
+            maxItems: 20,           // <- mixumum allowed rendered suggestions
+            classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
+            enabled: 0,             // <- show suggestions on focus
+            closeOnSelect: true    // <- do not hide the suggestions dropdown once an item has been selected
         }
-    });
-});
+        })
         $('#kt_table_users').DataTable({
             dom: 'fBrtip',
             "sScrollX": "100%",
