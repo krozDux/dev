@@ -15,7 +15,8 @@
 
     <script>
     $(document).ready(function() {
-        
+        var input = document.querySelector('input[name=tags]');
+        new Tagify(input)
         $('#kt_table_users').DataTable({
             dom: 'fBrtip',
             "sScrollX": "100%",
@@ -200,7 +201,6 @@
     <script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
     <script src="assets/js/custom/utilities/modals/new-address.js"></script>
     <script src="assets/js/custom/utilities/modals/users-search.js"></script>
-
 </body>
 
 </html>
