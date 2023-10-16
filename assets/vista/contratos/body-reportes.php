@@ -189,7 +189,7 @@ $query14 = mysqli_query($con, $sql14);
                                     <div class="table-responsive">
                                         <div id="columnchart_material3" style="height: 400px;"></div>
                                         <?php  while ($dataChart3 = mysqli_fetch_array($querychart3)) { ?>
-                                            <span class="text-muted mb-2 mt-1 fw-bold fs-7" id="chart-title"><?php echo $dataChart3['nombre_mes']; ?> [<?php echo $dataChart3['total_registros_rol1']; ?> clientes] [<?php echo $dataChart3['total_registros_rol2']; ?> proveedores] |</span>
+                                            <span class="text-muted mb-2 mt-1 fw-bold fs-7" id="chart-title"><?php echo $dataChart3['nombre_mes']; ?> [<?php echo $dataChart3['total_registros_rol1']; ?> clientes] [<?php echo $dataChart3['total_registros_rol2']; ?> proveedores]</span> <span class="mb-2 mt-1 fw-bold fs-7" id="chart-title">|</span>
                                             <?php } ?>
                                     </div>
                                 </div>

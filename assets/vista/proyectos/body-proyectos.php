@@ -51,7 +51,7 @@
                 <div class="d-flex flex-column flex-column-fluid container-fluid">
                     <div class="toolbar mb-2 mb-lg-2" id="kt_toolbar">
                         <div class="page-title d-flex flex-column me-3 mb-1">
-                            <h1 class="d-flex text-dark fw-bolder my-1 fs-3">proyectos</h1>
+                            <h1 class="d-flex text-dark fw-bolder my-1 fs-3">Proyectos</h1>
                         </div>
                     </div>
                     <div class="content flex-column-fluid" id="kt_content">
