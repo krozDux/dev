@@ -24,10 +24,10 @@
         $whitelist[] = $row['nombres']; // Reemplaza 'nombre_del_campo' con el nombre real del campo que deseas obtener
     }
     $(document).ready(function() {
-        var whitelist = <?php echo json_encode($whitelist); ?>;
+        var whitelist1 = <?php echo json_encode($whitelist); ?>;
         var input = document.querySelector('input[name="tags"]'),
         tagify = new Tagify(input, {
-        whitelist: whitelist,
+        whitelist: whitelist1,
         maxTags: 10,
         dropdown: {
             maxItems: 20,           // <- mixumum allowed rendered suggestions
