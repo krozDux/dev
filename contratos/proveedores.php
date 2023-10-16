@@ -46,7 +46,7 @@
                         columns: [1, 2, 3, 4, 5]
                     },
                     autoFilter: true,
-                    sheetName: 'Reporte - Usuarios'
+                    sheetName: 'Reporte - Proveedores'
                 },
             ],
             language: {

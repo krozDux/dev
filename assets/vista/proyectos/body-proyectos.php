@@ -86,7 +86,7 @@
                 </div>
             </div>
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-                <form id="kt_modal_new_target_form" class="form" action="#">
+                <form class="form" method="POST" enctype="multipart/form-data">
                     <div class="mb-13 text-center">
                         <h1 class="mb-3">Set First Target</h1>
                         <div class="text-muted fw-bold fs-5">If you need more info, please check
