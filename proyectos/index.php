@@ -22,8 +22,8 @@
         var input = document.querySelector('input[name="tags1"]'),
         tagify = new Tagify(input, {
             whitelist: [<?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>{
-            value: "<?php echo $dataproy1['id']; ?>", // Utiliza el campo 'id'
-            label: "<?php echo $dataproy1['nombres'] . ' ' . $dataproy1['apellidos']; ?>"
+            value: "<?php echo $dataproy1['nombres'] . ' ' . $dataproy1['apellidos']; ?>", // Utiliza el campo 'id'
+            label: "<?php echo $dataproy1['id']; ?>"
         },
         <?php } ?>],        
         maxTags: 10,
