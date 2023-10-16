@@ -21,10 +21,10 @@
     $(document).ready(function() {
         var input = document.querySelector('input[name="tags1"]'),
         tagify = new Tagify(input, {
-        whitelist: [ {<?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>
+        whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>{
             value: "<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?>",
             label: "<?php echo $dataproy1['id']; ?>",
-            <?php } ?>}],
+        }<?php } ?>],
         maxTags: 10,
         dropdown: {
             maxItems: 20,           // <- mixumum allowed rendered suggestions
