@@ -198,7 +198,7 @@
     <script src="assets/js/widgets.bundle.js"></script>
     <script src="assets/js/custom/widgets.js"></script>
     <script src="assets/js/custom/apps/chat/chat.js"></script>
-    <script src="assets/js/custom/utilities/modals/new-target.js"></script>
+    <!-- <script src="assets/js/custom/utilities/modals/new-target.js"></script> -->
     <script src="assets/js/custom/utilities/modals/create-project/type.js"></script>
     <script src="assets/js/custom/utilities/modals/create-project/budget.js"></script>
     <script src="assets/js/custom/utilities/modals/create-project/settings.js"></script>
