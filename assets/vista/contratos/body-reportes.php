@@ -91,9 +91,7 @@ $query14 = mysqli_query($con, $sql14);
                                         <span class="card-label fw-bolder fs-3 mb-1">Finalización de contratos</span>
                                         <span class="text-muted mt-1 fw-bold fs-7" id="chart-title">Cantidad de finalización de contratos por mes</span>
                                     </h3>
-                                    <h3 class="card-title align-items-start flex-column">
                                         <span class="text-muted mt-1 fw-bold fs-7" id="chart-title">Cantidad de finalización de contratos por mes</span>
-                                    </h3>
                                     <div class="download-button-container">
                                         <buttton id="download-button2"
                                             class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
