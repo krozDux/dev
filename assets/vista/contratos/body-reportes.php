@@ -132,9 +132,6 @@ $query14 = mysqli_query($con, $sql14);
                                     <h3 class="card-title align-items-start flex-column">
                                         <span class="card-label fw-bolder fs-3 mb-1">Finalización de contratos</span>
                                         <span class="text-muted mt-1 fw-bold fs-7" id="chart-title">Cantidad de finalización de contratos por mes</span>
-                                        <?php  while ($dataChart2 = mysqli_fetch_array($querychart2)) { ?>
-                                        <span class="text-muted mb-2 mt-1 fw-bold fs-7" id="chart-title"><?php echo $dataChart2['nombre_mes']; ?> - <?php echo $dataChart2['total_registros_ambos_roles']; ?></span>
-                                        <?php } ?>
                                     </h3>
                                     <div class="download-button-container">
                                         <buttton id="download-button2"
@@ -147,6 +144,9 @@ $query14 = mysqli_query($con, $sql14);
                                     <div class="table-responsive">
                                         <div id="chart-container">
                                             <div id="columnchart_material2" style="height: 400px;"></div>
+                                            <?php  while ($dataChart2 = mysqli_fetch_array($querychart2)) { ?>
+                                            <span class="text-muted mb-2 mt-1 fw-bold fs-7" id="chart-title"><?php echo $dataChart2['nombre_mes']; ?> - <?php echo $dataChart2['total_registros_ambos_roles']; ?></span>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
