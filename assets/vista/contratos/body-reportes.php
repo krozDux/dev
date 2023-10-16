@@ -195,6 +195,25 @@ $query14 = mysqli_query($con, $sql14);
                                 </div>
                             </div>
                         </div>
+                        <?php
+                        include('../config.php');
+                        $sqlchart4 = ("SELECT DATE_FORMAT(c.fechaFin, '%Y-%m') AS mes, SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) AS total_registros_rol1, SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_rol2,
+                            CASE
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '01' THEN 'Enero'
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '02' THEN 'Febrero'
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '03' THEN 'Marzo'
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '04' THEN 'Abril'
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '05' THEN 'Mayo'
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '06' THEN 'Junio'
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '07' THEN 'Julio'
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '08' THEN 'Agosto'
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '09' THEN 'Septiembre'
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '10' THEN 'Octubre'
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '11' THEN 'Noviembre'
+                                WHEN DATE_FORMAT(c.fechaFin, '%m') = '12' THEN 'Diciembre'
+                            END AS nombre_mes FROM contratos c INNER JOIN usuarios u ON c.idUsuario = u.id  WHERE c.fechaFin >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH) GROUP BY DATE_FORMAT(c.fechaFin, '%Y-%m') ORDER BY mes;");
+                        $querychart4 = mysqli_query($con, $sqlchart4);
+                        ?>
                         <div class="col-xl-6 mb-5 mb-xl-10">
                             <div class="card h-xl-100 pb-5">
                                 <div class="card-header border-0 pt-5">
@@ -207,6 +226,9 @@ $query14 = mysqli_query($con, $sql14);
                                 <div class="card h-md-100 px-5">
                                     <div class="table-responsive">
                                         <div id="columnchart_material4" style="height: 400px;"></div>
+                                        <?php  while ($dataChart4 = mysqli_fetch_array($querychart4)) { ?>
+                                            <span class="text-muted mb-2 mt-1 fw-bold fs-7" id="chart-title"><?php echo $dataChart4['nombre_mes']; ?> - <?php echo $dataChart4['total_registros_rol1']; ?> [Cliente] - <?php echo $dataChart4['total_registros_rol2']; ?> [Proveedor] |</span>
+                                            <?php } ?>
                                     </div>
                                 </div>
                             </div>
