@@ -15,21 +15,7 @@
 
     <script>
     $(document).ready(function() {
-        <?php
-        include('../config.php');
-        $sqlproyecto1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaFin < CURDATE();");
-        $queryproyecto1 = mysqli_query($con, $sqlproyecto1);
-        ?>
-        $('#equipos').tokenfield({
-        autocomplete:{
-        source: [<?php while ($dataproyecto1 = mysqli_fetch_array($queryproyecto1)) { ?>
-            "<?php echo $dataproyecto1['nombres']; ?> <?php echo $dataproyecto1['apellidos']; ?>", 
-            <?php } ?>],
-        delay:100
-        },
-        showAutocompleteOnFocus: true
-        });
-      
+        
         $('#kt_table_users').DataTable({
             dom: 'fBrtip',
             "sScrollX": "100%",
