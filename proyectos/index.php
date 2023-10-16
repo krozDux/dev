@@ -12,13 +12,17 @@
     <script src="assets/plugins/global/plugins.bundle.js"></script>
     <script src="assets/js/scripts.bundle.js"></script>
     <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
-
+    <?php
+    include('../config.php');
+    $sqlproy1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaFin < CURDATE();");
+    $queryproy1 = mysqli_query($con, $sqlproy1);
+    ?>
     <script>
     $(document).ready(function() {
         var input = document.querySelector('input[name="tags1"]'),
         
         tagify = new Tagify(input, {
-        whitelist: ["A# .NET", "A# (Axiom)",],
+        whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?>",<?php } ?>],
         maxTags: 10,
         dropdown: {
             maxItems: 20,           // <- mixumum allowed rendered suggestions
