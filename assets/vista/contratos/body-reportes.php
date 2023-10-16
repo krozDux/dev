@@ -59,7 +59,27 @@ $query14 = mysqli_query($con, $sql14);
                             <h1 class="d-flex text-dark fw-bolder my-1 fs-3">Reportes</h1>
                         </div>
                     </div>
+                    
                     <div class="row g-5 g-lg-10">
+                        <?php
+                        include('../config.php');
+                        $sqlchart1 = ("SELECT DATE_FORMAT(c.fechaInicio, '%Y-%m') AS mes, SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) AS total_registros_rol1, SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_rol2, SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) + SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_ambos_roles,
+                        CASE
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '01' THEN 'Enero'
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '02' THEN 'Febrero'
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '03' THEN 'Marzo'
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '04' THEN 'Abril'
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '05' THEN 'Mayo'
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '06' THEN 'Junio'
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '07' THEN 'Julio'
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '08' THEN 'Agosto'
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '09' THEN 'Septiembre'
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '10' THEN 'Octubre'
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '11' THEN 'Noviembre'
+                            WHEN DATE_FORMAT(c.fechaInicio, '%m') = '12' THEN 'Diciembre'
+                        END AS nombre_mes FROM contratos c INNER JOIN usuarios u ON c.idUsuario = u.id WHERE c.fechaInicio >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH) GROUP BY DATE_FORMAT(c.fechaInicio, '%Y-%m') ORDER BY mes;");
+                        $querychart1 = mysqli_query($con, $sqlchart1);
+                        ?>
                         <div class="col-xl-6 mb-5 mb-xl-10">
                             <div class="card h-xl-100 pb-5 report1">
                                 <div class="card-header border-0 pt-5">
@@ -84,13 +104,35 @@ $query14 = mysqli_query($con, $sql14);
                                 </div>
                             </div>
                         </div>
+
+
+
+                        <?php
+                        include('../config.php');
+                        $sqlchart2 = ("SELECT DATE_FORMAT(c.fechaFin, '%Y-%m') AS mes, SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) AS total_registros_rol1, SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_rol2, SUM(CASE WHEN u.rol = 'cliente' THEN 1 ELSE 0 END) + SUM(CASE WHEN u.rol = 'proveedor' THEN 1 ELSE 0 END) AS total_registros_ambos_roles,
+                        CASE
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '01' THEN 'Enero'
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '02' THEN 'Febrero'
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '03' THEN 'Marzo'
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '04' THEN 'Abril'
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '05' THEN 'Mayo'
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '06' THEN 'Junio'
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '07' THEN 'Julio'
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '08' THEN 'Agosto'
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '09' THEN 'Septiembre'
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '10' THEN 'Octubre'
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '11' THEN 'Noviembre'
+                            WHEN DATE_FORMAT(c.fechaFin, '%m') = '12' THEN 'Diciembre'
+                        END AS nombre_mes FROM contratos c INNER JOIN usuarios u ON c.idUsuario = u.id WHERE c.fechaFin >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH) GROUP BY DATE_FORMAT(c.fechaFin, '%Y-%m') ORDER BY mes;");
+                        $querychart2 = mysqli_query($con, $sqlchart2);
+                        ?>
                         <div class="col-xl-6 mb-5 mb-xl-10">
                             <div class="card h-xl-100 pb-5 report2">
                                 <div class="card-header border-0 pt-5">
                                     <h3 class="card-title align-items-start flex-column">
                                         <span class="card-label fw-bolder fs-3 mb-1">Finalización de contratos</span>
                                         <span class="text-muted mt-1 fw-bold fs-7" id="chart-title">Cantidad de finalización de contratos por mes</span>
-                                        <span class="text-muted mt-1 fw-bold fs-7" id="chart-title">Cantidad de finalización de contratos por mes</span>
+                                        <span class="text-muted mb-2 mt-1 fw-bold fs-7" id="chart-title"><?php echo $dataChart2['nombre_mes']; ?> - <?php echo $dataChart2['total_registros_ambos_roles']; ?></span>
                                     </h3>
                                     <div class="download-button-container">
                                         <buttton id="download-button2"
