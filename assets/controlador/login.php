@@ -23,7 +23,9 @@ if (!empty($_POST['btningresar'])) {
             mysqli_stmt_bind_result($stmt, $estado);
             mysqli_stmt_fetch($stmt);
 
-            if ($estado == '2') {
+            if ($estado == '1') {
+                header("location: index.php");
+            } else {
                 echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
                         <div class="toast-header bg-danger">
                             <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
@@ -34,8 +36,6 @@ if (!empty($_POST['btningresar'])) {
                         Su cuenta está desactivada.
                     </div>
                 </div> ';
-            } else {
-                header("location: index.php");
             }
         } else {
             echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
