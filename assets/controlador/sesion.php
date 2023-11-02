@@ -1,6 +1,15 @@
 <?php
 session_start();
 
+// Verificar si el usuario no ha iniciado sesión
+if (!isset($_SESSION['email'])) {
+    // Verificar si estamos en la página de inicio de sesión para evitar un bucle de redirección
+    $currentPage = basename($_SERVER['PHP_SELF']);
+    if ($currentPage !== 'index.php') {
+        header('Location: ../login/index.php');
+        exit();
+    }
+}
 // Verifica si el usuario no ha iniciado sesión
 if (!isset($_SESSION['email'])) {
     header('Location: ../login/index.php');
