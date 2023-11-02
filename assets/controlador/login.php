@@ -35,8 +35,7 @@ if (!empty($_POST['btningresar'])) {
                     </div>
                 </div> ';
             } else {
-                
-                header("location: gaa");
+                header("location: index.php");
             }
         } else {
             echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
