@@ -3,7 +3,7 @@ include('../config.php');
 
 if (!isset($_SESSION['email'])) {
     header('Location: ../login/index.php');
-    exit();
+
 } else {
 	$session_email = $_SESSION['email'];
     $sqlUser= ("SELECT * FROM `usuarios` where email = '$session_email'");
