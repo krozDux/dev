@@ -14,7 +14,7 @@ if (!empty($_POST['btningresar'])) {
         mysqli_stmt_store_result($stmt);
         $total = mysqli_stmt_num_rows($stmt);
 
-        if ($total >= 1) {
+        if ($total = 1) {
             // Verificar el estado de la cuenta
             $sql = "SELECT estado FROM `usuarios` WHERE email = ?";
             $stmt = mysqli_prepare($con, $sql);
@@ -35,9 +35,7 @@ if (!empty($_POST['btningresar'])) {
                     </div>
                 </div> ';
             } else {
-                session_start();
-                echo("hola");
-                $_SESSION['email'] = $email;
+                
                 header("location: gaa");
             }
         } else {
