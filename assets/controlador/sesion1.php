@@ -4,5 +4,4 @@ if (!empty($_POST['btningresar'])) {
     header('Location: ../panel/index.php');
     exit();
 }
-
 ?>
