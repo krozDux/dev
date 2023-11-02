@@ -37,6 +37,7 @@ if (!empty($_POST['btningresar'])) {
             } else {
                 session_start();
                 $_SESSION['email'] = $email;
+                include_once '../assets/controlador/sesion.php';
                 header("location:../panel/index.php");
                 exit();
             }

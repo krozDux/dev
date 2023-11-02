@@ -36,7 +36,7 @@ if (!isset($_SESSION['email'])) {
 if (!empty($_POST['unlogin'])) {
     session_unset();
     session_destroy();
-    header('Location: ../login/indexga.php');
+    header('Location: ../login/index.php');
     exit();
 }
 ?>

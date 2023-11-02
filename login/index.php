@@ -7,5 +7,5 @@
     <script src="assets/plugins/global/plugins.bundle.js"></script>
     <script src="assets/js/scripts.bundle.js"></script>
 </body>
-<?php include_once '../assets/controlador/sesion.php'?>
+
 </html>
