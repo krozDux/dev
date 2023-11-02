@@ -118,7 +118,7 @@
                             </select>
                         </div>
                         <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-bold mb-2">Due Date</label>
+                            <label class="required fs-6 fw-bold mb-2">Fecha de inicio</label>
                             <div class="position-relative d-flex align-items-center">
                                 <span class="svg-icon svg-icon-2 position-absolute mx-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -134,54 +134,23 @@
                                             fill="currentColor" />
                                     </svg>
                                 </span>
-                                <input class="form-control form-control-solid ps-12" placeholder="Select a date"
+                                <input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date"
                                     name="due_date" />
                             </div>
                         </div>
                     </div>
                     <div class="d-flex flex-column mb-8">
-                        <label class="fs-6 fw-bold mb-2">Target Details</label>
+                        <label class="fs-6 fw-bold mb-2">Descripción</label>
                         <textarea class="form-control form-control-solid" rows="3" name="target_details"
                             placeholder="Type Target Details"></textarea>
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">Tags</span>
+                            <span class="required">Miembros</span>
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                 title="Specify a target priorty"></i>
                         </label>
                         <input class="form-control form-control-solid" name="tags1" />
-                    </div>
-                    <div class="d-flex flex-stack mb-8">
-                        <div class="me-5">
-                            <label class="fs-6 fw-bold">Adding Users by Team Members</label>
-                            <div class="fs-7 fw-bold text-muted">If you need more info, please check budget planning
-                            </div>
-                        </div>
-                        <label class="form-check form-switch form-check-custom form-check-solid">
-                            <input class="form-check-input" type="checkbox" value="1" checked="checked" />
-                            <span class="form-check-label fw-bold text-muted">Allowed</span>
-                        </label>
-                    </div>
-                    <div class="mb-15 fv-row">
-                        <div class="d-flex flex-stack">
-                            <div class="fw-bold me-5">
-                                <label class="fs-6">Notifications</label>
-                                <div class="fs-7 text-muted">Allow Notifications by Phone or Email</div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <label class="form-check form-check-custom form-check-solid me-10">
-                                    <input class="form-check-input h-20px w-20px" type="checkbox" name="communication[]"
-                                        value="email" checked="checked" />
-                                    <span class="form-check-label fw-bold">Email</span>
-                                </label>
-                                <label class="form-check form-check-custom form-check-solid">
-                                    <input class="form-check-input h-20px w-20px" type="checkbox" name="communication[]"
-                                        value="phone" />
-                                    <span class="form-check-label fw-bold">Phone</span>
-                                </label>
-                            </div>
-                        </div>
                     </div>
                     <div class="text-center">
                         <button type="reset" id="kt_modal_new_target_cancel" class="btn btn-light me-3">Cancel</button>
