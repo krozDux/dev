@@ -38,7 +38,8 @@ if (!empty($_POST['btningresar'])) {
                 // Iniciar sesión
                 session_start();
                 $_SESSION['email'] = $session_email;
-                header("location:../panel/index.php");
+                header('Location: ../panel/index.php');
+                exit();
             }
         } else {
             echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
