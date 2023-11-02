@@ -88,7 +88,7 @@
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
                 <form class="form" method="POST" enctype="multipart/form-data">
                     <div class="mb-13 text-center">
-                        <h1 class="mb-3">Crear nuevo proyecto</h1>
+                        <h1 class="mb-3">CREAR NUEVO PROYECTO</h1>
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -97,7 +97,7 @@
                                 title="Specify a target name for future usage and reference"></i>
                         </label>
                         <input type="text" class="form-control form-control-solid" placeholder="Nombre"
-                            name="target_title" />
+                            name="nombre" />
                     </div>
                     <?php
                     include('../config.php');
@@ -151,6 +151,12 @@
                                 title="Specify a target priorty"></i>
                         </label>
                         <input class="form-control form-control-solid" name="tags1" />
+                    </div>
+                    <div class="text-center pt-6">
+                        <button class="btn btn-light me-3 modal-close">Cancelar</button>
+                        <button type="submit" class="btn btn-success" name="btnreg" value="regU">
+                            <span class="indicator-label">Guardar</span>
+                        </button>
                     </div>
                     <div class="text-center">
                         <button type="reset" id="kt_modal_new_target_cancel" class="btn btn-light me-3">Cancel</button>
