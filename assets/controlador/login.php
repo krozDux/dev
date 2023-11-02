@@ -14,7 +14,7 @@ if (!empty($_POST['btningresar'])) {
         mysqli_stmt_store_result($stmt);
         $total = mysqli_stmt_num_rows($stmt);
 
-        if ($total = 1) {
+        if ($total >= 1) {
             // Verificar el estado de la cuenta
             $sql = "SELECT estado FROM `usuarios` WHERE email = ?";
             $stmt = mysqli_prepare($con, $sql);
@@ -23,18 +23,7 @@ if (!empty($_POST['btningresar'])) {
             mysqli_stmt_bind_result($stmt, $estado);
             mysqli_stmt_fetch($stmt);
 
-            if ($estado == '1') {
-                echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="toast-header bg-danger">
-                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
-                            <strong class="me-auto text-white">Alerta</strong>
-                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
-                        </div>
-                        <div class="toast-body text-white">
-                        NOSEE
-                    </div>
-                </div> ';
-            } else {
+            if ($estado == '2') {
                 echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
                         <div class="toast-header bg-danger">
                             <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
@@ -45,6 +34,10 @@ if (!empty($_POST['btningresar'])) {
                         Su cuenta está desactivada.
                     </div>
                 </div> ';
+            } else {
+                session_start();
+                $_SESSION['email'] = $email;
+                header("location:../panel/index.php");
             }
         } else {
             echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
