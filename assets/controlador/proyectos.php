@@ -42,12 +42,9 @@ if (!empty($_POST['btnreg'])) {
 
                             if (isset($matches[1])) {
                                 $value = $matches[1];
-                                
-                                // Inserta el valor en la tabla MySQL
-                                $consulta7 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`) VALUES ('1','1','$fechaCreacion','$value')";
-                                $resultado7 = mysqli_query($con, $consulta7);
-                                if (!$resultado7) {
-                                    echo "Error al insertar el valor '$value'. Error: " . mysqli_error($con);
+                                if ($value != $encargado) {
+                                    $consulta7 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`) VALUES ('1','1','$fechaCreacion','$value')";
+                                    $resultado7 = mysqli_query($con, $consulta7);
                                 }
                             }
                         }
