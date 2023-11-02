@@ -106,9 +106,9 @@
                     ?>
                     <div class="row g-9 mb-8">
                         <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-bold mb-2">Jefe del proyecto</label>
+                            <label class="required fs-6 fw-bold mb-2">Encargado del proyecto</label>
                             <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                                data-placeholder="Seleccionar jefe" name="target_assign">
+                                data-placeholder="Seleccionar encargado" name="encargado">
                                 <option value="">Seleccionar usuario...</option>
                                 <?php 
                                 while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
@@ -135,14 +135,14 @@
                                     </svg>
                                 </span>
                                 <input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date"
-                                    name="due_date" />
+                                    name="fechaInicio" />
                             </div>
                         </div>
                     </div>
                     <div class="d-flex flex-column mb-8">
                         <label class="fs-6 fw-bold mb-2">Descripción</label>
-                        <textarea class="form-control form-control-solid" rows="3" name="target_details"
-                            placeholder="Type Target Details"></textarea>
+                        <textarea class="form-control form-control-solid" rows="3" name="descripcion"
+                            placeholder="Detalles y descripción del proyecto"></textarea>
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
