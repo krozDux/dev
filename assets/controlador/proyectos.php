@@ -23,10 +23,35 @@ if (!empty($_POST['btnreg'])) {
                     }
                     $tags1 = $_POST['tags1'];
                     $fechaCreacion = date('Y-m-d H:i:s');
+                    // Creación proyecto
                     $consulta5 = "INSERT `proyectos` (`nombre`,`fechaInicio`,`descripcion`,`fechaCreacion`) VALUES ('$nombre','$fechaInicio','$descripcion','$fechaCreacion')";
                     $resultado5 = mysqli_query($con, $consulta5);
+                    // Jefe del grupo
                     $consulta6 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`) VALUES ('2','1','$fechaCreacion','$encargado')";
                     $resultado6 = mysqli_query($con, $consulta6);
+
+                    // Miembros
+                    $jsonData = $_POST['tags1'];
+                    $data = json_decode($jsonData);
+
+                    if ($data) {
+                        foreach ($data as $item) {
+                            // Expresiones regulares para extraer los valores entre corchetes
+                            $matches = [];
+                            preg_match('/\[(\d+)\]/', $item->value, $matches);
+
+                            if (isset($matches[1])) {
+                                $value = $matches[1];
+                                
+                                // Inserta el valor en la tabla MySQL
+                                $consulta7 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`) VALUES ('1','1','$fechaCreacion','$value')";
+                                $resultado7 = mysqli_query($con, $consulta7);
+                                if (!$resultado7) {
+                                    echo "Error al insertar el valor '$value'. Error: " . mysqli_error($con);
+                                }
+                            }
+                        }
+                    } 
                     header("location: index.php");
                 } else{
                     echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
