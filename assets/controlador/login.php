@@ -38,7 +38,7 @@ if (!empty($_POST['btningresar'])) {
                 $_SESSION['email'] = $email;
             }
             if (!isset($_SESSION['email'])) {
-                header('Location: ../login/index.php');
+                header('Location: ../login/indeax.php');
             } else {
                 session_start();
                 $session_email = $_SESSION['email'];
