@@ -37,7 +37,7 @@ if (!empty($_POST['btningresar'])) {
             } else {
                 // Iniciar sesión
                 session_start();
-                $_SESSION['email'] = $email;
+                $_SESSION['email'] = $session_email;
                 header("location:../panel/index.php");
             }
         } else {
