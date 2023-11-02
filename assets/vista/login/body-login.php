@@ -16,7 +16,7 @@
                     <div class="fv-row mb-10">
                         <label class="form-label fs-6 fw-bolder text-dark">Correo</label>
                         <input class="form-control form-control-lg form-control-solid" type="email" name="email"
-                            required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            required
                             value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" />
                         <div class="fv-plugins-message-container"></div>
                     </div>
