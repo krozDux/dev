@@ -34,7 +34,7 @@ if (!empty($_POST['btnreg'])) {
                             <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
                         <div class="toast-body text-white">
-                            Tienes que indicar una fecha de fin.
+                            Tienes que indicar una fecha de inicio del proyecto.
                         </div>
                     </div>';
                 }
@@ -46,7 +46,7 @@ if (!empty($_POST['btnreg'])) {
                             <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
                         <div class="toast-body text-white">
-                            Tienes que indicar una fecha de fin.
+                            Tienes que indicar un encargado del proyecto.
                         </div>
                     </div>';
             }
@@ -58,7 +58,7 @@ if (!empty($_POST['btnreg'])) {
                             <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
                         <div class="toast-body text-white">
-                            Tienes que indicar una fecha de inicio.
+                            El proyecto debe tener un nombre.
                         </div>
                     </div>';
         }
