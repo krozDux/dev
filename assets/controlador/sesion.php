@@ -30,6 +30,7 @@ if (!isset($_SESSION['email'])) {
         $session_imagen = $dataUser['imagen'];
         $session_rol = $dataUser['rol'];
     }
+    header("location:../panel/index.php");
 }
 
 if (!empty($_POST['unlogin'])) {
