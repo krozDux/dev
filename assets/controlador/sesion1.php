@@ -1,6 +1,5 @@
 <?php
 if (!empty($_POST['btningresar'])) {
-    session_start();
     $_SESSION['email'] = $email;
 	$session_email = $_SESSION['email'];
     $sqlUser= ("SELECT * FROM `usuarios` where email = '$session_email'");
