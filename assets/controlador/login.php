@@ -37,8 +37,6 @@ if (isset($_POST['btningresar'])) {
                     </div>
                 </div>';
             } else {
-                // Iniciar sesión
-                session_start();
                 $_SESSION['email'] = $email;
                 header("Location: ../panel/index.php");
                 exit; // Asegura que no haya más código después de la redirección
