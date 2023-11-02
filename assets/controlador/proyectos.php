@@ -25,8 +25,8 @@ if (!empty($_POST['btnreg'])) {
                     $fechaCreacion = date('Y-m-d H:i:s');
                     $consulta5 = "INSERT `proyectos` (`nombre`,`fechaInicio`,`descripcion`,`fechaCreacion`) VALUES ('$nombre','$fechaInicio','$descripcion','$fechaCreacion')";
                     $resultado5 = mysqli_query($con, $consulta5);
-                    $consulta5 = "INSERT `proyectos` (`nombre`,`fechaInicio`,`descripcion`,`fechaCreacion`) VALUES ('$nombre','$fechaInicio','$descripcion','$fechaCreacion')";
-                    $resultado5 = mysqli_query($con, $consulta5);
+                    $consulta6 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`) VALUES ('2','1','$fechaCreacion','$encargado')";
+                    $resultado6 = mysqli_query($con, $consulta6);
                     header("location: index.php");
                 } else{
                     echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
