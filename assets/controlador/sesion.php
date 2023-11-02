@@ -9,7 +9,7 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) >
     // La sesión ha expirado por inactividad, destruye la sesión y redirige al usuario
     session_unset();
     session_destroy();
-    header('Location: ../login/index.php');
+    header('Location: ../login/indexga.php');
     exit();
 }
 
@@ -17,7 +17,7 @@ if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) >
 $_SESSION['last_activity'] = time();
 
 if (!isset($_SESSION['email'])) {
-    header('Location: ../login/index.php');
+    header('Location: ../login/ga.php');
     exit();
 } else {
 	$session_email = $_SESSION['email'];
