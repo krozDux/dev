@@ -16,7 +16,7 @@ include('../config.php');
 // // Actualiza el tiempo de actividad
 // $_SESSION['last_activity'] = time();
 
-if (!isset($session_email)) {
+if ($session_email!="") {
     header('Location: ../login/index.php');
     exit();
 } else {
