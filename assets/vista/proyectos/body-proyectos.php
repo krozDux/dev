@@ -107,7 +107,7 @@
                     <div class="row g-9 mb-8">
                         <div class="col-md-6 fv-row">
                             <label class="required fs-6 fw-bold mb-2">Encargado del proyecto</label>
-                            <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
+                            <select class="form-select form-select-solid" 
                                 data-placeholder="Seleccionar encargado" name="encargado" required>
                                 <option value="">Seleccionar usuario...</option>
                                 <?php 
