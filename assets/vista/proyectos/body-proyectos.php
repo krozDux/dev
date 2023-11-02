@@ -97,7 +97,7 @@
                                 title="Specify a target name for future usage and reference"></i>
                         </label>
                         <input type="text" class="form-control form-control-solid" placeholder="Nombre"
-                            name="nombre" />
+                            name="nombre" required/>
                     </div>
                     <?php
                     include('../config.php');
@@ -108,7 +108,7 @@
                         <div class="col-md-6 fv-row">
                             <label class="required fs-6 fw-bold mb-2">Encargado del proyecto</label>
                             <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                                data-placeholder="Seleccionar encargado" name="encargado">
+                                data-placeholder="Seleccionar encargado" name="encargado" required>
                                 <option value="">Seleccionar usuario...</option>
                                 <?php 
                                 while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
@@ -135,7 +135,7 @@
                                     </svg>
                                 </span>
                                 <input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date"
-                                    name="fechaInicio" />
+                                    name="fechaInicio" required/>
                             </div>
                         </div>
                     </div>
