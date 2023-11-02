@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<?php include_once '../assets/controlador/sesion.php'?>
 <?php include_once '../assets/vista/panel/head-panel.php'?>
 	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
 		<?php include_once '../assets/vista/panel/body-panel.php'?>
