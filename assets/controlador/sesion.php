@@ -16,11 +16,10 @@ include('../config.php');
 // // Actualiza el tiempo de actividad
 // $_SESSION['last_activity'] = time();
 
-if (!isset($_SESSION['email'])) {
+if (!isset($session_email)) {
     header('Location: ../login/index.php');
     exit();
 } else {
-	$session_email = $_SESSION['email'];
     $sqlUser= ("SELECT * FROM `usuarios` where email = '$session_email'");
     $queryUser = mysqli_query($con, $sqlUser);
     while ($dataUser = mysqli_fetch_array($queryUser)) {
