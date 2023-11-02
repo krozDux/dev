@@ -36,6 +36,7 @@ if (!empty($_POST['btningresar'])) {
                 </div> ';
             } else {
                 session_start();
+                echo("hola");
                 $_SESSION['email'] = $email;
                 header("location: gaa");
             }
