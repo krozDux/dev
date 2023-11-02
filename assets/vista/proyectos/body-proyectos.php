@@ -88,31 +88,33 @@
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
                 <form class="form" method="POST" enctype="multipart/form-data">
                     <div class="mb-13 text-center">
-                        <h1 class="mb-3">Set First Target</h1>
-                        <div class="text-muted fw-bold fs-5">If you need more info, please check
-                            <a href="#" class="fw-bolder link-primary">Project Guidelines</a>.
-                        </div>
+                        <h1 class="mb-3">Crear nuevo proyecto</h1>
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">Target Title</span>
+                            <span class="required">Nombre del proyecto</span>
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                 title="Specify a target name for future usage and reference"></i>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Enter Target Title"
+                        <input type="text" class="form-control form-control-solid" placeholder="Nombre"
                             name="target_title" />
                     </div>
+                    <?php
+                    include('../config.php');
+                    $sql1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario");
+                    $query1 = mysqli_query($con, $sql1);
+                    ?>
                     <div class="row g-9 mb-8">
                         <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-bold mb-2">Assign</label>
+                            <label class="required fs-6 fw-bold mb-2">Jefe del proyecto</label>
                             <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                                data-placeholder="Select a Team Member" name="target_assign">
-                                <option value="">Select user...</option>
-                                <option value="1">Karina Clark</option>
-                                <option value="2">Robert Doe</option>
-                                <option value="3">Niel Owen</option>
-                                <option value="4">Olivia Wild</option>
-                                <option value="5">Sean Bean</option>
+                                data-placeholder="Seleccionar jefe" name="target_assign">
+                                <option value="">Seleccionar usuario...</option>
+                                <?php 
+                                while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
+                                <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
+                                <option value="<?php echo $dataUsuario1['id']; ?>"><?php echo $dataUsuario1['nombres']; ?> <?php echo $dataUsuario1['apellidos']; ?></option>
+                                <?php } } ?>
                             </select>
                         </div>
                         <div class="col-md-6 fv-row">
