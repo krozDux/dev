@@ -35,23 +35,10 @@ if (!empty($_POST['btningresar'])) {
                     </div>
                 </div> ';
             } else {
-                $_SESSION['email'] = $email;
-            }
-            if (!isset($_SESSION['email'])) {
-                header('Location: ../login/indeax.php');
-            } else {
                 session_start();
-                $session_email = $_SESSION['email'];
-                $sqlUser= ("SELECT * FROM `usuarios` where email = '$session_email'");
-                $queryUser = mysqli_query($con, $sqlUser);
-                while ($dataUser = mysqli_fetch_array($queryUser)) {
-                    $session_id = $dataUser['id']; 
-                    $session_nombres = $dataUser['nombres']; 
-                    $session_apellidos = $dataUser['apellidos'];
-                    $session_imagen = $dataUser['imagen'];
-                    $session_rol = $dataUser['rol'];
-                }
+                $_SESSION['email'] = $email;
                 header("location:../panel/index.php");
+                exit();
             }
         } else {
             echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
