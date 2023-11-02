@@ -39,7 +39,6 @@ if (isset($_POST['btningresar'])) {
             } else {
                 $_SESSION['email'] = $email;
                 header("Location: ../panel/index.php");
-                exit; // Asegura que no haya más código después de la redirección
             }
         } else {
             // Credenciales incorrectas
