@@ -17,7 +17,7 @@ include('../config.php');
 // $_SESSION['last_activity'] = time();
 
 if (!isset($_SESSION['email'])) {
-    header('Location: ../login/indexaa.php');
+    header('Location: ../login/index.php');
     exit();
 } else {
 	$session_email = $_SESSION['email'];
