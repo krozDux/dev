@@ -16,7 +16,7 @@ session_start();
 // // Actualiza el tiempo de actividad
 // $_SESSION['last_activity'] = time();
 
-if (isset($_SESSION['email'])) {
+if (!isset($_SESSION['email'])) {
     header('Location: ../login/indexxd.php');
     exit();
 } else {
