@@ -53,8 +53,8 @@
 										<!-- Botón Cerrar Sesión con el mismo diseño -->
 										<div class="menu-item px-5">
 											<form class="menu-link px-5" method="POST">
-												<button type="submit" class="menu-link px-5" name="unlogin" value="deslogear">
-													<span style="padding: 0; border: none; background: none; text-decoration: none; color: inherit; display: inline-block;">Cerrar Sesión</span>
+												<button type="submit" class="menu-link" name="unlogin" value="deslogear" style="padding: 0; border: none; background: none; text-decoration: none; color: inherit; display: inline-block;">
+													<span>Cerrar Sesión</span>
 												</button>
 											</form>
 										</div>
