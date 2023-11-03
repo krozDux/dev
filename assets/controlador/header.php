@@ -45,19 +45,19 @@
 										<div class="separator my-2"></div>
 										<!--end::Menu separator-->
 										<!--begin::Menu item-->
-										<div class="menu-item px-5 my-1">
-											<a href="../../demo14/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
-										</div>
-										<!--end::Menu item-->
-										<!--begin::Menu item-->
-										<div class="menu-item px-5">
-											<!-- <a href="../../demo14/dist/authentication/flows/basic/sign-in.html" class="">Sign Out</a> -->
-											<form class="menu-link px-5" method="POST">
-											<button type="submit" class="menu-link px-5" name="unlogin" value="deslogear">
-												<span>Cerrar Sesión</span>
-											</button>
-											</form>
-										</div>
+										<!-- Botón Account Settings -->
+<div class="menu-item px-5 my-1">
+    <a href="../../demo14/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
+</div>
+
+<!-- Botón Cerrar Sesión con el mismo diseño -->
+<div class="menu-item px-5">
+    <form class="menu-link px-5" method="POST">
+        <button type="submit" class="menu-link px-5" name="unlogin" value="deslogear">
+            <span>Cerrar Sesión</span>
+        </button>
+    </form>
+</div>
 
 										<!--end::Menu item-->
 									</div>
