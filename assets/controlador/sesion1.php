@@ -1,8 +1,25 @@
 <?php
 include('../config.php');
-if (!empty($_POST['btningresar'])) {
-    session_start();
-    $_SESSION['email'] = $session_email;
+// $inactivityTimeout = 5000 * 60; // 5 minutos
+// ini_set('session.gc_maxlifetime', $inactivityTimeout);
+// session_set_cookie_params($inactivityTimeout);
+// session_start();
+// // Verificar si la sesión ha expirado por inactividad
+// if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $inactivityTimeout) {
+//     // La sesión ha expirado por inactividad, destruye la sesión y redirige al usuario
+//     session_unset();
+//     session_destroy();
+//     header('Location: ../login/index.php');
+//     exit();
+// }
+
+// // Actualiza el tiempo de actividad
+// $_SESSION['last_activity'] = time();
+
+if ($session_email!="") {
+    header('Location: ../login/index.php');
+    exit();
+} else {
     $sqlUser= ("SELECT * FROM `usuarios` where email = '$session_email'");
     $queryUser = mysqli_query($con, $sqlUser);
     while ($dataUser = mysqli_fetch_array($queryUser)) {
@@ -12,7 +29,12 @@ if (!empty($_POST['btningresar'])) {
         $session_imagen = $dataUser['imagen'];
         $session_rol = $dataUser['rol'];
     }
-    header('Location: ../panel/index.php');
+}
+
+if (!empty($_POST['unlogin'])) {
+    session_unset();
+    session_destroy();
+    header('Location: ../login/index.php');
     exit();
 }
 ?>
