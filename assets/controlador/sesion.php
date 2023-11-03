@@ -17,7 +17,7 @@ session_start();
 // $_SESSION['last_activity'] = time();
 
 if (!isset($_SESSION['email'])) {
-    header('Location: ../login/indexxd.php');
+    header('Location: ../login/index.php');
     exit();
 } else {
 	$session_email = $_SESSION['email'];
