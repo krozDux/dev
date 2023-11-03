@@ -35,7 +35,6 @@ if (!empty($_POST['btningresar'])) {
                     </div>
                 </div> ';
             } else {
-                // Iniciar sesión
                 session_start();
                 $_SESSION['email'] = $email;
                 header("location:../panel/index.php");
