@@ -46,18 +46,18 @@
 										<!--end::Menu separator-->
 										<!--begin::Menu item-->
 										<!-- Botón Account Settings -->
-<div class="menu-item px-5 my-1">
-    <a href="../../demo14/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
-</div>
+										<div class="menu-item px-5 my-1">
+											<a href="../../demo14/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
+										</div>
 
-<!-- Botón Cerrar Sesión con el mismo diseño -->
-<div class="menu-item px-5">
-    <form class="menu-link px-5" method="POST">
-        <button type="submit" class="menu-link px-5" name="unlogin" value="deslogear">
-            <span>Cerrar Sesión</span>
-        </button>
-    </form>
-</div>
+										<!-- Botón Cerrar Sesión con el mismo diseño -->
+										<div class="menu-item px-5">
+											<form class="menu-link px-5" method="POST">
+												<button type="submit" class="menu-link px-5" name="unlogin" value="deslogear">
+													<span style="padding: 0; border: none; background: none; text-decoration: none; color: inherit; display: inline-block;">Cerrar Sesión</span>
+												</button>
+											</form>
+										</div>
 
 										<!--end::Menu item-->
 									</div>
