@@ -31,24 +31,13 @@
 											</div>
 										</div>
 										<div class="separator my-2"></div>
-										<?php
-										include('../config.php');
-										$sql1 = ("SELECT COUNT(*) as cantidadProyectos FROM proyectosInfo WHERE idUsuario = '$session_id' and estado != 0;");
-										$query1 = mysqli_query($con, $sql1);
-										?>
+										
 										<div class="menu-item px-5">
-											<a href="https://dev.pkroz.net/proyectos/" class="menu-link px-5">
-												<span class="menu-text">Mis proyectos</span>
-												<?php 
-                                				while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
-													
-														<span class="menu-badge">
-														<span class="badge badge-light-danger badge-circle fw-bolder fs-7"><?php echo $dataUsuario1['cantidadProyectos']; ?></span>
-													</span>
-													
-												<?php } ?>
-
-												
+											<a href="../../demo14/dist/apps/projects/list.html" class="menu-link px-5">
+												<span class="menu-text">My Projects</span>
+												<span class="menu-badge">
+													<span class="badge badge-light-danger badge-circle fw-bolder fs-7">3</span>
+												</span>
 											</a>
 										</div>
 										<!--end::Menu item-->
