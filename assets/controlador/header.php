@@ -30,7 +30,7 @@ $query1 = mysqli_query($con, $sql1);
 										
 										<div class="menu-item px-5">
 											<a href="../../demo14/dist/apps/projects/list.html" class="menu-link px-5">
-												<span class="menu-text">My Projects</span>
+												<span class="menu-text">Mis proyectos</span>
 												<?php 
 												while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
 												<span class="menu-badge">
@@ -40,7 +40,7 @@ $query1 = mysqli_query($con, $sql1);
 											</a>
 										</div>
 										<div class="menu-item px-5 my-1">
-											<a href="../../demo14/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
+											<a href="../../demo14/dist/account/settings.html" class="menu-link px-5">Configuración</a>
 										</div>
 										<div class="separator my-2"></div>
 										<div class="menu-item px-5">

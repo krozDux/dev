@@ -224,7 +224,41 @@
 											</a>
 										</div>
 									</div>
-									<?php } ?>
+									<?php } else {?>
+										<div class="menu-item">
+											<div class="menu-content pt-8 pb-2">
+												<span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE PLANTILLAS</span>
+											</div>
+										</div>
+										<div  class="menu-item">
+											<a class="menu-link" href="plantillas/contratos.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar plantilla de contratos">
+												<span class="menu-icon">
+													<span class="svg-icon svg-icon-2">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path d="M6 21C6 21.6 6.4 22 7 22H17C17.6 22 18 21.6 18 21V20H6V21Z" fill="currentColor"></path>
+															<path opacity="0.3" d="M17 2H7C6.4 2 6 2.4 6 3V20H18V3C18 2.4 17.6 2 17 2Z" fill="currentColor"></path>
+															<path d="M12 4C11.4 4 11 3.6 11 3V2H13V3C13 3.6 12.6 4 12 4Z" fill="currentColor"></path>
+														</svg>
+													</span>
+												</span>
+												<span class="menu-title">Contratos</span>
+											</a>
+										</div>
+										<div  class="menu-item">
+											<a class="menu-link" href="plantillas/proyectos.php" title="" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" data-bs-original-title="Registrar, editar y eliminar plantilla de proyectos">
+												<span class="menu-icon">
+													<span class="svg-icon svg-icon-2">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path d="M6 21C6 21.6 6.4 22 7 22H17C17.6 22 18 21.6 18 21V20H6V21Z" fill="currentColor"></path>
+															<path opacity="0.3" d="M17 2H7C6.4 2 6 2.4 6 3V20H18V3C18 2.4 17.6 2 17 2Z" fill="currentColor"></path>
+															<path d="M12 4C11.4 4 11 3.6 11 3V2H13V3C13 3.6 12.6 4 12 4Z" fill="currentColor"></path>
+														</svg>
+													</span>
+												</span>
+												<span class="menu-title">Proyectos</span>
+											</a>
+										</div>
+										<?php } ?>
 								</div>
 							</div>
 							<div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
