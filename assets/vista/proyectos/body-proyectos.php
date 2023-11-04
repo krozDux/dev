@@ -1,4 +1,4 @@
-<?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
+<?php  if ($session_rol != "invitado") {?>
 <?php include '../assets/controlador/proyectos.php'?>
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
