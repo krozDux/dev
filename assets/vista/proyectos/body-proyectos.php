@@ -96,8 +96,8 @@
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                 title="Specify a target name for future usage and reference"></i>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Nombre"
-                            name="nombre" required/>
+                        <input type="text" class="form-control form-control-solid" placeholder="Nombre" name="nombre"
+                            required />
                     </div>
                     <?php
                     include('../config.php');
@@ -107,13 +107,15 @@
                     <div class="row g-9 mb-8">
                         <div class="col-md-6 fv-row">
                             <label class="required fs-6 fw-bold mb-2">Encargado del proyecto</label>
-                            <select class="form-select form-select-solid" 
-                                data-placeholder="Seleccionar encargado" name="encargado" required>
+                            <select class="form-select form-select-solid" data-placeholder="Seleccionar encargado"
+                                name="encargado" required>
                                 <option value="">Seleccionar usuario...</option>
                                 <?php 
                                 while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
                                 <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
-                                <option value="<?php echo $dataUsuario1['id']; ?>"><?php echo $dataUsuario1['nombres']; ?> <?php echo $dataUsuario1['apellidos']; ?></option>
+                                <option value="<?php echo $dataUsuario1['id']; ?>">
+                                    <?php echo $dataUsuario1['nombres']; ?> <?php echo $dataUsuario1['apellidos']; ?>
+                                </option>
                                 <?php } } ?>
                             </select>
                         </div>
@@ -134,8 +136,8 @@
                                             fill="currentColor" />
                                     </svg>
                                 </span>
-                                <input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date"
-                                    name="fechaInicio" required/>
+                                <input type="date" class="form-control form-control-solid ps-12"
+                                    placeholder="Select a date" name="fechaInicio" required />
                             </div>
                         </div>
                     </div>
