@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <?php  if ($session_rol == "invitado") { ?>
+                <?php  if ($session_rol == "admin") { ?>
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE CONTRATOS</span>
@@ -315,7 +315,7 @@
                     </a>
                 </div>
             
-            <?php } else {?>
+            <?php } else if (($session_rol == "cliente") or ($session_rol == "proveedor")) {?>
             <div class="menu-item">
                 <div class="menu-content pt-8 pb-2">
                     <span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE PROYECTOS</span>
