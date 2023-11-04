@@ -5,7 +5,7 @@ $query1 = mysqli_query($con, $sql1);
 ?>
 <div class="row g-6 g-xl-9">
     <!--begin::Col-->
-    <div class="col-md-6 col-xl-4" style="border: 1px solid #ccc;">
+    <div class="col-md-6 col-xl-4" style="border: 1px solid #e9edf1; border-radius: 10px;">
 
         <!--begin::Card-->
         <a href="/metronic8/demo14/../demo14/apps/projects/project.html" class="card border-hover-primary ">
