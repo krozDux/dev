@@ -53,16 +53,18 @@ while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
                 ?>
                 <?php 
                 while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
+                <?php 
+                if ($dataUsuario2['imagen'] != "blank.png") { ?>
                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="<?php echo $dataUsuario2['nombres']; ?> <?php echo $dataUsuario2['apellidos']; ?>"
                         data-bs-original-title="<?php echo $dataUsuario2['nombres']; ?> <?php echo $dataUsuario2['apellidos']; ?>" data-kt-initialized="1">
                         <img alt="<?php echo $dataUsuario2['nombres']; ?> <?php echo $dataUsuario2['apellidos']; ?>" src="assets/media/avatars/<?php echo $dataUsuario2['imagen']; ?>">
                     </div>
-                
-                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                        data-bs-original-title="Susan Redwood" data-kt-initialized="1">
-                        <span class="symbol-label bg-dark text-inverse-primary fw-bold"><?php echo substr($dataUsuario2['nombres'], 0, 1); ?> <?php echo substr($dataUsuario2['apellidos'], 0, 1); ?></span>
+                <?php } else {?>
+                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="<?php echo $dataUsuario2['nombres']; ?> <?php echo $dataUsuario2['apellidos']; ?>"
+                        data-bs-original-title="<?php echo $dataUsuario2['nombres']; ?> <?php echo $dataUsuario2['apellidos']; ?>" data-kt-initialized="1">
+                        <span class="symbol-label bg-dark text-inverse-primary fw-bold"><?php echo substr($dataUsuario2['nombres'], 0, 1); ?><?php echo substr($dataUsuario2['apellidos'], 0, 1); ?></span>
                     </div>
-                    <?php } ?>
+                    <?php } }?>
                 </div>
             </div>
         </a>
