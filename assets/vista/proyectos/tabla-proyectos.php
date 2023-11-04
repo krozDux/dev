@@ -4,56 +4,35 @@ $sql1 = ("SELECT * FROM usuarios WHERE estado = 1 and rol='cliente'");
 $query1 = mysqli_query($con, $sql1);
 ?>
 <div class="row g-6 g-xl-9">
-    <!--begin::Col-->
     <div class="col-md-6 col-xl-3" style="border: 2px solid #e9edf1; border-radius: 12px;">
-
-        <!--begin::Card-->
         <a href="/metronic8/demo14/../demo14/apps/projects/project.html" class="card border-hover-primary ">
-            <!--begin::Card header-->
             <div class="card-header border-0 pt-9">
-                <!--begin::Card Title-->
                 <div class="card-title m-0">
-                    <!--begin::Avatar-->
                     <div class="fs-3 fw-bold text-gray-900">
 					Fitnes App
                     </div>
-                    <!--end::Avatar-->
                 </div>
-                <!--end::Car Title-->
 
-                <!--begin::Card toolbar-->
                 <div class="card-toolbar">
                     <span class="badge badge-light-primary fw-bold me-auto px-4 py-3">In Progress</span>
                 </div>
-                <!--end::Card toolbar-->
             </div>
-            <!--end:: Card header-->
 
-            <!--begin:: Card body-->
             <div class="card-body p-9">
-                <!--begin::Name-->
-                <div class="fs-3 fw-bold text-gray-900">
-                    Fitnes App </div>
-                <!--end::Name-->
-
-                <!--begin::Description-->
                 <p class="text-gray-500 fw-semibold fs-5 mt-1 mb-7">
                     CRM App application to HR efficiency </p>
-                <!--end::Description-->
-
-                <!--begin::Info-->
                 <div class="d-flex flex-wrap mb-5">
                     <!--begin::Due-->
                     <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
                         <div class="fs-6 text-gray-800 fw-bold">Mar 10, 2023</div>
-                        <div class="fw-semibold text-gray-500">Due Date</div>
+                        <div class="fw-semibold text-gray-500">Fecha de Inicio</div>
                     </div>
                     <!--end::Due-->
 
                     <!--begin::Budget-->
                     <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 mb-3">
-                        <div class="fs-6 text-gray-800 fw-bold">$284,900.00</div>
-                        <div class="fw-semibold text-gray-500">Budget</div>
+                        <div class="fs-6 text-gray-800 fw-bold">Mar 10, 2023</div>
+                        <div class="fw-semibold text-gray-500">Fecha limite</div>
                     </div>
                     <!--end::Budget-->
                 </div>
@@ -84,7 +63,7 @@ $query1 = mysqli_query($con, $sql1);
                     <!--begin::User-->
                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
                         data-bs-original-title="Susan Redwood" data-kt-initialized="1">
-                        <span class="symbol-label bg-primary text-inverse-primary fw-bold">S</span>
+                        <span class="symbol-label bg-primary text-inverse-primary fw-bold">C</span>
                     </div>
                     <!--begin::User-->
                 </div>
@@ -94,9 +73,7 @@ $query1 = mysqli_query($con, $sql1);
         </a>
         <!--end::Card-->
     </div>
-    <!--end::Col-->
 
-    <!--begin::Col-->
     <div class="col-md-6 col-xl-4">
 
         <!--begin::Card-->
