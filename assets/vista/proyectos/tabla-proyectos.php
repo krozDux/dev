@@ -48,14 +48,14 @@ while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
                 <div class="symbol-group symbol-hover">
                 <?php
                 include('../config.php');
-                $sql2 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1'");
+                $sql2 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
                 $query2 = mysqli_query($con, $sql2);
                 ?>
                 <?php 
                 while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
-                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="Emma Smith"
-                        data-bs-original-title="Emma Smith" data-kt-initialized="1">
-                        <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-6.jpg">
+                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="<?php echo $dataUsuario2['nombres']; ?> <?php echo $dataUsuario2['apellidos']; ?>"
+                        data-bs-original-title="<?php echo $dataUsuario2['nombres']; ?> <?php echo $dataUsuario2['apellidos']; ?>" data-kt-initialized="1">
+                        <img alt="<?php echo $dataUsuario2['nombres']; ?> <?php echo $dataUsuario2['apellidos']; ?>" src="assets/media/avatars/<?php echo $dataUsuario2['imagen']; ?>">
                     </div>
                 <?php } ?>
                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
