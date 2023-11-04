@@ -25,61 +25,46 @@ while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
             $fechaInicioF = date('d/m/Y', strtotime($fechaInicio));
             $fechaFin = $dataUsuario1['fechaFin'];
             $fechaFinF = date('d/m/Y', strtotime($fechaFin));
+            $idProyecto = $dataUsuario1['id'];
             ?>
             <div class="card-body pt-1">
                 <p class="text-gray-500 fw-semibold fs-5 mt-1 mb-7">
                     CRM App application to HR efficiency </p>
                 <div class="d-flex flex-wrap mb-5">
-                    <!--begin::Due-->
                     <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
                         <div class="fs-6 text-gray-800 fw-bold"><?php echo $fechaInicioF?></div>
                         <div class="fw-semibold text-gray-500">Fecha de Inicio</div>
                     </div>
-                    <!--end::Due-->
-
-                    <!--begin::Budget-->
                     <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 mb-3">
                         <div class="fs-6 text-gray-800 fw-bold"><?php echo $fechaFinF?></div>
                         <div class="fw-semibold text-gray-500">Fecha limite</div>
                     </div>
-                    <!--end::Budget-->
                 </div>
-                <!--end::Info-->
-
-                <!--begin::Progress-->
                 <div class="h-4px w-100 bg-light mb-5" data-bs-toggle="tooltip" aria-label="This project 50% completed"
                     data-bs-original-title="This project 50% completed" data-kt-initialized="1">
                     <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow=" 50"
                         aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <!--end::Progress-->
-
-                <!--begin::Users-->
                 <div class="symbol-group symbol-hover">
-                    <!--begin::User-->
+                <?php
+                include('../config.php');
+                $sql2 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1'");
+                $query2 = mysqli_query($con, $sql2);
+                ?>
+                <?php 
+                while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="Emma Smith"
                         data-bs-original-title="Emma Smith" data-kt-initialized="1">
                         <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-6.jpg">
                     </div>
-                    <!--begin::User-->
-                    <!--begin::User-->
-                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="Rudy Stone"
-                        data-bs-original-title="Rudy Stone" data-kt-initialized="1">
-                        <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-1.jpg">
-                    </div>
-                    <!--begin::User-->
-                    <!--begin::User-->
+                <?php } ?>
                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
                         data-bs-original-title="Susan Redwood" data-kt-initialized="1">
                         <span class="symbol-label bg-dark text-inverse-primary fw-bold">C</span>
                     </div>
-                    <!--begin::User-->
                 </div>
-                <!--end::Users-->
             </div>
-            <!--end:: Card body-->
         </a>
-        <!--end::Card-->
     </div>
     <?php } ?>
 </div>
