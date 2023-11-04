@@ -63,7 +63,7 @@ $query1 = mysqli_query($con, $sql1);
                     <!--begin::User-->
                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
                         data-bs-original-title="Susan Redwood" data-kt-initialized="1">
-                        <span class="symbol-label bg-primary text-inverse-primary fw-bold">C</span>
+                        <span class="symbol-label bg-dark text-inverse-primary fw-bold">C</span>
                     </div>
                     <!--begin::User-->
                 </div>
@@ -132,7 +132,7 @@ $query1 = mysqli_query($con, $sql1);
                     <!--begin::User-->
                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
                         data-bs-original-title="Susan Redwood" data-kt-initialized="1">
-                        <span class="symbol-label bg-secondary text-inverse-primary fw-bold">C</span>
+                        <span class="symbol-label bg-dark text-inverse-primary fw-bold">C</span>
                     </div>
                     <!--begin::User-->
                 </div>

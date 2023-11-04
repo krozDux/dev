@@ -26,8 +26,9 @@ if (!empty($_POST['btnreg'])) {
                     // Creación proyecto
                     $consulta5 = "INSERT `proyectos` (`nombre`,`fechaInicio`,`descripcion`,`fechaCreacion`) VALUES ('$nombre','$fechaInicio','$descripcion','$fechaCreacion')";
                     $resultado5 = mysqli_query($con, $consulta5);
+                    $idProyecto = mysqli_insert_id($con);
                     // Jefe del grupo
-                    $consulta6 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`) VALUES ('2','1','$fechaCreacion','$encargado')";
+                    $consulta6 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`,`idProyecto`) VALUES ('2','1','$fechaCreacion','$encargado','$idProyecto')";
                     $resultado6 = mysqli_query($con, $consulta6);
 
                     // Miembros
