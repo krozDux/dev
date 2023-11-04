@@ -314,7 +314,7 @@
                         <span class="menu-title">Usuarios</span>
                     </a>
                 </div>
-            </div>
+            
             <?php } else {?>
             <div class="menu-item">
                 <div class="menu-content pt-8 pb-2">
@@ -381,6 +381,7 @@
                 </a>
             </div>
             <?php } ?>
+            </div>
         </div>
     </div>
     <div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
