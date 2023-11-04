@@ -14,7 +14,7 @@ $query1 = mysqli_query($con, $sql1);
                 <!--begin::Card Title-->
                 <div class="card-title m-0">
                     <!--begin::Avatar-->
-                    <div class="symbol symbol-50px w-50px bg-light">
+                    <div class="fs-3 fw-bold text-gray-900">
 					Fitnes App
                     </div>
                     <!--end::Avatar-->
