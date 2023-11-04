@@ -3,9 +3,10 @@ include('../config.php');
 $sql1 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInfo.idUsuario = '$session_id'");
 $query1 = mysqli_query($con, $sql1);
 ?>
+
+<div class="row g-6 g-xl-9 pt-3">
 <?php 
 while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
-<div class="row g-6 g-xl-9 pt-3">
     <div class="col-md-6 col-xl-4" style="border-radius: 12px;">
         <a href="/metronic8/demo14/../demo14/apps/projects/project.html" class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
@@ -75,5 +76,5 @@ while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
         </a>
         <!--end::Card-->
     </div>
+    <?php } ?>
 </div>
-<?php } ?>
