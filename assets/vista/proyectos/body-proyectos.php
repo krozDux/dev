@@ -54,13 +54,13 @@
                             <h1 class="d-flex text-dark fw-bolder my-1 fs-3">Proyectos</h1>
                         </div>
                     </div>
-                    <div class="content flex-column-fluid" id="kt_content">
+                    <!-- <div class="content flex-column-fluid" id="kt_content">
                         <div class="card">
-                            <div class="card-body py-4">
+                            <div class="card-body py-4"> -->
                                 <?php include_once 'tabla-proyectos.php'?>
-                            </div>
+                            <!-- </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
                         <?php include_once 'footer-proyectos.php'?>
                     </div>
