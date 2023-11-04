@@ -60,7 +60,7 @@ while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
                 <?php } ?>
                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
                         data-bs-original-title="Susan Redwood" data-kt-initialized="1">
-                        <span class="symbol-label bg-dark text-inverse-primary fw-bold">C</span>
+                        <span class="symbol-label bg-dark text-inverse-primary fw-bold"><?php echo substr($dataUsuario2['nombres'], 0, 1); ?> <?php echo substr($dataUsuario2['apellidos'], 0, 1); ?></span>
                     </div>
                 </div>
             </div>
