@@ -4,7 +4,7 @@ $sql1 = ("SELECT * FROM usuarios WHERE estado = 1 and rol='cliente'");
 $query1 = mysqli_query($con, $sql1);
 ?>
 <div class="row g-6 g-xl-9 pt-3">
-    <div class="col-md-6 col-xl-4" style="border: 2px solid #e9edf1; border-radius: 12px;">
+    <div class="col-md-6 col-xl-4" style="border-radius: 12px;">
         <a href="/metronic8/demo14/../demo14/apps/projects/project.html" class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
                 <div class="card-title m-0">
