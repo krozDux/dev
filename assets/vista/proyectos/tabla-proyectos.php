@@ -15,7 +15,7 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="card-title m-0">
                     <!--begin::Avatar-->
                     <div class="symbol symbol-50px w-50px bg-light">
-                        <img src="/metronic8/demo14/assets/media/svg/brand-logos/plurk.svg" alt="image" class="p-3">
+					Fitnes App
                     </div>
                     <!--end::Avatar-->
                 </div>
