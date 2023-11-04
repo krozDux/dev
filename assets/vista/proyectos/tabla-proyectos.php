@@ -12,7 +12,7 @@ while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
             <div class="card-header border-0 pt-9 pb-0">
                 <div class="card-title m-0">
                     <div class="fs-3 fw-bold text-gray-900">
-					Fitnes App
+					<?php echo $dataUsuario1['nombre']; ?>
                     </div>
                 </div>
 
@@ -20,21 +20,26 @@ while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
                     <span class="badge badge-light-primary fw-bold me-auto px-4 py-3">In Progress</span>
                 </div>
             </div>
-
+            <?php 
+            $fechaInicio = $dataUsuario1['fechaInicio'];
+            $fechaInicioF = date('d/m/Y', strtotime($fechaInicio));
+            $fechaFin = $dataUsuario1['fechaFin'];
+            $fechaFinF = date('d/m/Y', strtotime($fechaFin));
+            ?>
             <div class="card-body pt-1">
                 <p class="text-gray-500 fw-semibold fs-5 mt-1 mb-7">
                     CRM App application to HR efficiency </p>
                 <div class="d-flex flex-wrap mb-5">
                     <!--begin::Due-->
                     <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
-                        <div class="fs-6 text-gray-800 fw-bold">Mar 10, 2023</div>
+                        <div class="fs-6 text-gray-800 fw-bold"><?php echo $fechaInicioF?></div>
                         <div class="fw-semibold text-gray-500">Fecha de Inicio</div>
                     </div>
                     <!--end::Due-->
 
                     <!--begin::Budget-->
                     <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 mb-3">
-                        <div class="fs-6 text-gray-800 fw-bold">Mar 10, 2023</div>
+                        <div class="fs-6 text-gray-800 fw-bold"><?php echo $fechaFinF?></div>
                         <div class="fw-semibold text-gray-500">Fecha limite</div>
                     </div>
                     <!--end::Budget-->
