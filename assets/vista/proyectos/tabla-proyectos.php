@@ -46,8 +46,7 @@ $query2 = mysqli_query($con, $sql2);
         </div>
     </div>
 </div>
-<div class="row g-6 g-xl-9 mt-1">
-<div  id="card_proyectos">
+<div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
     <?php 
                         while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
     <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
@@ -119,5 +118,4 @@ $query2 = mysqli_query($con, $sql2);
         </a>
     </div>
     <?php } ?>
-    </div>
 </div>
