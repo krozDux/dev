@@ -78,8 +78,15 @@
             },
             order: [
                 [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
-            ]
-        });
+            ],
+            $('#exportar-btn').on('click', function() {
+            // Extiende la funcionalidad de DataTables para exportar
+            dataTable.buttons.exportData({
+                modifier: {
+                    columns: [1, 2, 3, 4, 5, 6, 7]
+                }
+            });
+        }),
     });
     </script>
 
