@@ -10,7 +10,7 @@ include('../config.php');
 $sql2 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInfo.idUsuario = '$session_id'");
 $query2 = mysqli_query($con, $sql2);
 ?>
-<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users" hidden>
+<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
 											<thead>
 												<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
 													<th class="min-w-120px"> Imagen</th>
