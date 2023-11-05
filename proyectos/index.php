@@ -19,7 +19,9 @@
     ?>
     <script>
     $(document).ready(function() {
-        var dataTable = $('#kt_table_users').DataTable({
+
+        $('#kt_table_users').DataTable({
+
             dom: 'fBrtip',
             "sScrollX": "100%",
             "sScrollXInner": "110%",
@@ -27,8 +29,7 @@
             searching: false,
             paging: false, // Desactiva la paginación
             info: false,  // Desactiva la información de entradas
-            buttons: [
-                {
+            buttons: [{
                     extend: 'excelHtml5',
                     text: '<span class="svg-icon svg-icon-2 opacity-50">' +
                         '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">' +
@@ -37,10 +38,10 @@
                         '</span>Exportar</button>',
                     className: 'btn btn-primary ',
                     exportOptions: {
-                        columns: [1, 2, 3, 4, 5, 6, 7]
+                        columns: [1, 2, 3, 4, 5]
                     },
                     autoFilter: true,
-                    sheetName: 'Reporte - Proyectos'
+                    sheetName: 'Reporte - Clientes'
                 },
             ],
             language: {
@@ -55,10 +56,6 @@
                 infoFiltered: '(filtrado de _MAX_ registros en total)',
                 zeroRecords: 'No se encontraron registros coincidentes',
             },
-            order: [
-                [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
-            ]
-            
         });
     });
     </script>
