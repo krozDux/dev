@@ -4,7 +4,7 @@ $sql1 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectos
 $query1 = mysqli_query($con, $sql1);
 ?>
 
-<div class="col-md-6 col-xl-4 mb-2" style="border-radius: 12px;">
+<div class="col-md-6 col-xl-4 mb-1" style="border-radius: 12px;">
 <button type="button" class="btn btn-primary add-proyecto" data-bs-toggle="modal" ><span class="svg-icon svg-icon-2 opacity-50">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
                         <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
@@ -14,7 +14,7 @@ $query1 = mysqli_query($con, $sql1);
     </div>
 
 
-<div class="row g-6 g-xl-9 mt-2">
+<div class="row g-6 g-xl-9 mt-1">
                         
 <?php 
 while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
