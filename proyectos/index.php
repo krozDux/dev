@@ -35,7 +35,7 @@
                     className: 'btn btn-primary',
                     action: function(e, dt, node, config) {
                         var div1 = document.getElementById('card_proyectos');
-                        var div2 = document.getElementById('kt_table_header');
+                        var div2 = document.getElementById('kt_table_users');
                         var div12 = document.getElementById('h_estado');
                         var div13 = document.getElementById('h_nombre');
                         var div14 = document.getElementById('h_fechaInicio');
