@@ -9,7 +9,7 @@ $query1 = mysqli_query($con, $sql1);
 $sql2 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInfo.idUsuario = '$session_id'");
 $query2 = mysqli_query($con, $sql2);
 ?>
-<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users" hidden>
 											<thead>
 												<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
 													<th class="min-w-125px">Nombre</th>
@@ -24,7 +24,7 @@ $query2 = mysqli_query($con, $sql2);
 												$i = 1;
 												while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
 												<tr>
-													<td><?php echo $dataUsuario1['nombre']; ?></td>
+													<td><?php echo strtoupper($dataUsuario1['nombre']);?></td>
 													<td><?php echo $dataUsuario1['fechaInicio']; ?></td>
 													<td><?php echo $dataUsuario1['fechaFin']; ?></td>
                                                     <?php 
@@ -53,7 +53,7 @@ $query2 = mysqli_query($con, $sql2);
                                     <div class="card-header border-0 pt-9 pb-0">
                                         <div class="card-title m-0">
                                             <div class="fs-3 fw-bold text-gray-900">
-                                            <?php echo $dataUsuario2['nombre']; ?>
+                                            <?php echo strtoupper($dataUsuario2['nombre']); ?>
                                             </div>
                                         </div>
                         
