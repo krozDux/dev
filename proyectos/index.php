@@ -69,21 +69,9 @@
         });
     });
     </script>
-<script>
-      
-      var input = document.querySelector('input[name="tags1"]');
-      var tagify = new Tagify(input, {
-          whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['id']; ?>]",<?php } ?>],
-          maxTags: 10,
-          dropdown: {
-              maxItems: 20,
-              classname: "tags-look",
-              enabled: 0,
-              closeOnSelect: true
-          }
-      });
 
-  </script>
+      
+
     <script>
     $('.del-usuario').on('click', function() {
         var id = $(this).data('id');
@@ -127,6 +115,17 @@
     <script>
     $('.add-proyecto').on('click', function() {
         $('#kt_modal_new_target').modal('show');
+        var input = document.querySelector('input[name="tags1"]');
+      var tagify = new Tagify(input, {
+          whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['id']; ?>]",<?php } ?>],
+          maxTags: 10,
+          dropdown: {
+              maxItems: 20,
+              classname: "tags-look",
+              enabled: 0,
+              closeOnSelect: true
+          }
+      });
     });
     </script>
     <script>
