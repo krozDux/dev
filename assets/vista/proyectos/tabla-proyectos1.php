@@ -13,7 +13,7 @@ $query2 = mysqli_query($con, $sql2);
 <div class="content mb-0" id="kt_content">
                         <div class="card mb-0">
                             <div class="card-body py-4 mb-0">
-<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users" hidden>
+<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users" >
 											<thead>
 												<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
 													<th class="min-w-125px">Nombre</th>
