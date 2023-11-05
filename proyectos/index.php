@@ -66,20 +66,21 @@ language: {
     zeroRecords: 'No se encontraron registros coincidentes',
 },
 });
-var input = document.querySelector('input[name="tags1"]'),
-        tagify = new Tagify(input, {
+});
+</script>
+<script>
+    var input = document.querySelector('input[name="tags1"]');
+    var tagify = new Tagify(input, {
         whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['id']; ?>]",<?php } ?>],
         maxTags: 10,
         dropdown: {
-            maxItems: 20,           // <- mixumum allowed rendered suggestions
-            classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
-            enabled: 0,             // <- show suggestions on focus
-            closeOnSelect: true    // <- do not hide the suggestions dropdown once an item has been selected
+            maxItems: 20,
+            classname: "tags-look",
+            enabled: 0,
+            closeOnSelect: true
         }
-        });
-});
+    });
 </script>
-
     <script>
     $('.del-usuario').on('click', function() {
         var id = $(this).data('id');
