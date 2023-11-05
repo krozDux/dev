@@ -44,18 +44,10 @@
                         if (div1.hasAttribute('hidden')) {
                             div1.removeAttribute('hidden');
                             div12.removeAttribute('hidden');
-                            div13.removeAttribute('hidden');
-                            div14.removeAttribute('hidden');
-                            div15.removeAttribute('hidden');
-                            div16.removeAttribute('hidden');
                             div2.setAttribute('hidden', 'true');
                         } else {
                             div1.setAttribute('hidden', 'true');
                             div12.setAttribute('hidden', 'true');
-                            div13.setAttribute('hidden', 'true');
-                            div14.setAttribute('hidden', 'true');
-                            div15.setAttribute('hidden', 'true');
-                            div16.setAttribute('hidden', 'true');
                             div2.removeAttribute('hidden');
                         }
                     }
