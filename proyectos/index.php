@@ -31,7 +31,7 @@
             info: false,  // Desactiva la información de entradas
             buttons: [{
 						text: '<span class="svg-icon svg-icon-2 opacity-50">'+
-							'<span class="bi bi-eye-fill fs-7 opacity-50"></span>'+
+							'<span class="bi bi-eye-fill fs-10"></span>'+
 							'</span>Vista',
 						className: 'btn btn-primary vista-proyecto1',
                         action: function (e, dt, node, config) {
