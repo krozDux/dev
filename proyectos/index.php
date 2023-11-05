@@ -34,7 +34,6 @@
 							'Vista 1',
 						className: 'btn btn-primary',
                         action: function (e, dt, node, config) {
-                            document.getElementById('card_proyectos').setAttribute('hidden', 'false');
 							document.getElementById('kt_table_users').setAttribute('hidden', 'true');
                             document.getElementById('kt_table_header').setAttribute('hidden', 'true');
 						}
@@ -44,8 +43,6 @@
 							'Vista 2',
 						className: 'btn btn-primary',
                         action: function (e, dt, node, config) {
-							document.getElementById('kt_table_users').setAttribute('hidden', 'false');
-                            document.getElementById('kt_table_header').setAttribute('hidden', 'false');
                             document.getElementById('card_proyectos').setAttribute('hidden', 'true');
 						}
 					},
