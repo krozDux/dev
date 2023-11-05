@@ -38,7 +38,8 @@
 							'</span>Vista',
 						className: 'btn btn-primary vista-proyecto1',
                         action: function (e, dt, node, config) {
-							document.getElementsByClassName('dataTables_scroll').setAttribute('hidden', 'true');
+							document.getElementByC('kt_table_users').setAttribute('hidden', 'true');
+                            document.getElementByC('kt_table_header').setAttribute('hidden', 'true');
 						}
 					},
                 {
