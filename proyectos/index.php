@@ -14,7 +14,7 @@
     <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
     <?php
     include('../config.php');
-    $sqlproy1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaFin < CURDATE();");
+    $sqlproy1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaFin < CURDATE() and usuarios.rol='proveedor';");
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
     <script>
