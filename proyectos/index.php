@@ -35,7 +35,7 @@
 						className: 'btn btn-primary',
                         action: function (e, dt, node, config) {
 							var div1 = document.getElementById('card_proyectos');
-                            var div1 = document.getElementById('kt_table_header');
+                            var div15 = document.getElementById('kt_table_header');
                             var div2 = document.getElementById('kt_table_users');
                             if (div1.hasAttribute('hidden')) {
             div1.removeAttribute('hidden');
