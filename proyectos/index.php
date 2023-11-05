@@ -19,11 +19,6 @@
     ?>
     <script>
     $(document).ready(function() {
-        // Inicializa tu DataTable
-        var dataTable = $('#kt_table_users').DataTable({
-            // Opciones de DataTable aquí
-        });
-
         // Agrega el evento de clic al botón "Exportar"
         $('#exportar-btn').on('click', function() {
             // Extiende la funcionalidad de DataTables para exportar
