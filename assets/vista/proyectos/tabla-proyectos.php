@@ -9,7 +9,7 @@ $query2 = mysqli_query($con, $sql2);
     <div class="card mb-0">
         <div class="card-body py-4 mb-0">
             <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users" style="display:none;">
-                <thead id="kt_table_header">
+                <thead id="kt_table_header" style="display:none;">
                     <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                         <th class="min-w-125px">Nombre</th>
                         <th class="min-w-125px">Fecha inicio</th>
@@ -47,10 +47,10 @@ $query2 = mysqli_query($con, $sql2);
     </div>
 </div>
 <div class="row g-6 g-xl-9 mt-1">
-
+<div  id="card_proyectos">
     <?php 
                         while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
-    <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;" id="card_proyectos">
+    <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
         <a href="/metronic8/demo14/../demo14/apps/projects/project.html" class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
                 <div class="card-title m-0">
@@ -119,4 +119,5 @@ $query2 = mysqli_query($con, $sql2);
         </a>
     </div>
     <?php } ?>
+    </div>
 </div>
