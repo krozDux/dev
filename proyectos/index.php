@@ -17,6 +17,7 @@
     $sqlproy1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaFin < CURDATE() and usuarios.rol='proveedor';");
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
+
     <script>
     $(document).ready(function() {
         var input = document.querySelector('input[name="tags1"]'),
@@ -30,7 +31,8 @@
             closeOnSelect: true    // <- do not hide the suggestions dropdown once an item has been selected
         }
         });
-        $('#kt_table_users').DataTable({
+        var dataTable = $('#kt_table_users').DataTable({
+            
             dom: 'fBrtip',
             "sScrollX": "100%",
             "sScrollXInner": "110%",
@@ -77,6 +79,8 @@
             order: [
                 [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
             ]
+        });
+            
             $('#exportar-btn').on('click', function() {
             // Extiende la funcionalidad de DataTables para exportar
             dataTable.buttons.exportData({
@@ -84,9 +88,9 @@
                     columns: [1, 2, 3, 4, 5, 6, 7]
                 }
             });
-        });
-        });
+        
     });
+</script>
     </script>
 
     <script>
