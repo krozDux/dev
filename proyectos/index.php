@@ -18,7 +18,6 @@
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
     <script>
-        var dataTable;
     $(document).ready(function() {
         var dataTable = $('#kt_table_users').DataTable({
             dom: 'fBrtip',
@@ -61,16 +60,7 @@
             ]
             
         });
-        $('#exportar-btn').on('click', function() {
-            // Extiende la funcionalidad de DataTables para exportar
-            dataTable.buttons.exportData({
-                modifier: {
-                    columns: [1, 2, 3, 4, 5, 6, 7]
-                }
-            });
-        });
     });
-// Agrega el evento de clic al botón "Exportar"
     </script>
 
     <script>
