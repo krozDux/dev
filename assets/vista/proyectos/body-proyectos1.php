@@ -46,7 +46,7 @@
             </div>
             <div class="d-flex flex-column-fluid">
 
-                <?php include_once 'menu-proyectos.php'?>
+                <?php include_once 'menu-proyectos1.php'?>
 
                 <div class="d-flex flex-column flex-column-fluid container-fluid">
                     <div class="toolbar mb-2 mb-lg-2" id="kt_toolbar">
@@ -57,12 +57,12 @@
                     <!-- <div class="content flex-column-fluid" id="kt_content">
                         <div class="card">
                             <div class="card-body py-4"> -->
-                                <?php include_once 'tabla-proyectos.php'?>
+                                <?php include_once 'tabla-proyectos1.php'?>
                             <!-- </div>
                         </div>
                     </div> -->
                     <div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
-                        <?php include_once 'footer-proyectos.php'?>
+                        <?php include_once 'footer-proyectos1.php'?>
                     </div>
                 </div>
             </div>
