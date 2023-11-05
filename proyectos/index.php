@@ -35,12 +35,15 @@
 						className: 'btn btn-primary',
                         action: function (e, dt, node, config) {
 							var div1 = document.getElementById('card_proyectos');
+                            var div1 = document.getElementById('kt_table_header');
                             var div2 = document.getElementById('kt_table_users');
                             if (div1.hasAttribute('hidden')) {
             div1.removeAttribute('hidden');
+            div15.removeAttribute('hidden');
             div2.setAttribute('hidden', 'true');
         } else {
             div1.setAttribute('hidden', 'true');
+            div15.setAttribute('hidden', 'true');
             div2.removeAttribute('hidden');
         }
 						}
