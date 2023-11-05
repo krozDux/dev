@@ -37,6 +37,9 @@
 							'</svg>'+
 							'</span>Vista',
 						className: 'btn btn-primary vista-proyecto1',
+                        action: function (e, dt, node, config) {
+							document.getElementById('kt_table_users').setAttribute('hidden', 'true');
+						}
 					},
                 {
                     extend: 'excelHtml5',
