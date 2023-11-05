@@ -19,19 +19,6 @@
     ?>
     <script>
     $(document).ready(function() {
-        // Agrega el evento de clic al botón "Exportar"
-        $('#exportar-btn').on('click', function() {
-            // Extiende la funcionalidad de DataTables para exportar
-            dataTable.buttons.exportData({
-                modifier: {
-                    columns: [1, 2, 3, 4, 5, 6, 7]
-                }
-            });
-        });
-    });
-</script>
-    <script>
-    $(document).ready(function() {
         var input = document.querySelector('input[name="tags1"]'),
         tagify = new Tagify(input, {
         whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['id']; ?>]",<?php } ?>],
@@ -90,6 +77,14 @@
             order: [
                 [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
             ]
+            $('#exportar-btn').on('click', function() {
+            // Extiende la funcionalidad de DataTables para exportar
+            dataTable.buttons.exportData({
+                modifier: {
+                    columns: [1, 2, 3, 4, 5, 6, 7]
+                }
+            });
+        });
         });
     });
     </script>
