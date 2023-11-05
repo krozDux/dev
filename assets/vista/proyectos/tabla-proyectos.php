@@ -14,7 +14,7 @@ $query1 = mysqli_query($con, $sql1);
     </div>
 
 
-<div class="row g-6 g-xl-9 mt-4">
+<div class="row g-6 g-xl-9 mt-2">
                         
 <?php 
 while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
