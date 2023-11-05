@@ -46,11 +46,11 @@ $query2 = mysqli_query($con, $sql2);
         </div>
     </div>
 </div>
-<div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
+<div class="row g-6 g-xl-9 mt-1">
 
     <?php 
                         while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
-    <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
+    <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;" id="card_proyectos">
         <a href="/metronic8/demo14/../demo14/apps/projects/project.html" class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
                 <div class="card-title m-0">
