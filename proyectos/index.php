@@ -32,7 +32,7 @@
             buttons: [{
 						text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>'+
 							'Vista 1',
-						className: 'btn btn-primary vista-proyecto1',
+						className: 'btn btn-primary',
                         action: function (e, dt, node, config) {
                             document.getElementById('card_proyectos').setAttribute('hidden', 'false');
 							document.getElementById('kt_table_users').setAttribute('hidden', 'true');
@@ -42,7 +42,7 @@
                     {
 						text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>'+
 							'Vista 2',
-						className: 'btn btn-primary vista-proyecto2',
+						className: 'btn btn-primary',
                         action: function (e, dt, node, config) {
 							document.getElementById('kt_table_users').setAttribute('hidden', 'false');
                             document.getElementById('kt_table_header').setAttribute('hidden', 'false');
@@ -123,11 +123,6 @@
     <script>
     $('.add-proyecto').on('click', function() {
         $('#kt_modal_new_target').modal('show');
-    });
-    </script>
-    <script>
-    $('.vista-proyecto1').on('click', function() {
-        document.getElementById('kt_table_users').setAttribute('hidden', 'true');
     });
     </script>
     <script>
