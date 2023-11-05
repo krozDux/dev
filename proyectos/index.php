@@ -21,7 +21,7 @@
 
 
     <script>
-        $(document).ready(function() {
+      
         var input = document.querySelector('input[name="tags1"]');
         var tagify = new Tagify(input, {
             whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['id']; ?>]",<?php } ?>],
@@ -33,7 +33,7 @@
                 closeOnSelect: true
             }
         });
-    });
+
     </script>
     <script>
     $(document).ready(function() {
