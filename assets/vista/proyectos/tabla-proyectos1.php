@@ -12,7 +12,7 @@ $query2 = mysqli_query($con, $sql2);
 ?>
 <div class="content flex-column-fluid" id="kt_content">
                         <div class="card">
-                            <div class="card-body py-4">
+                            <div class="card-body py-4 pb-0">
 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users" hidden>
 											<thead>
 												<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
