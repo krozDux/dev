@@ -36,18 +36,17 @@
                     action: function(e, dt, node, config) {
                         var div1 = document.getElementById('card_proyectos');
                         var div2 = document.getElementById('kt_table_users');
-                        var div12 = document.getElementById('h_estado');
-                        var div13 = document.getElementById('h_nombre');
-                        var div14 = document.getElementById('h_fechaInicio');
-                        var div15 = document.getElementById('h_fechaFin');
-                        var div16 = document.getElementById('h_descripcion');
+                        var div21 = document.getElementById('kt_table_header');
+                        var div22 = document.getElementById('h_estado');
+                        var div23 = document.getElementById('h_nombre');
+                        var div24 = document.getElementById('h_fechaInicio');
+                        var div25 = document.getElementById('h_fechaFin');
+                        var div26 = document.getElementById('h_descripcion');
                         if (div1.hasAttribute('hidden')) {
                             div1.removeAttribute('hidden');
-                            div12.removeAttribute('hidden');
                             div2.setAttribute('hidden', 'true');
                         } else {
                             div1.setAttribute('hidden', 'true');
-                            div12.setAttribute('hidden', 'true');
                             div2.removeAttribute('hidden');
                         }
                     }
