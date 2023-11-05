@@ -22,13 +22,13 @@ if (!empty($_POST['btnreg'])) {
                         $descripcion = "-";
                     }
                     $tags1 = $_POST['tags1'];
-                    $fechaCreacion = date('Y-m-d H:i:s');
+                    $fechaAdd = date('Y-m-d H:i:s');
                     // Creación proyecto
-                    $consulta5 = "INSERT `proyectos` (`nombre`,`fechaInicio`,`descripcion`,`fechaCreacion`) VALUES ('$nombre','$fechaInicio','$descripcion','$fechaCreacion')";
+                    $consulta5 = "INSERT `proyectos` (`nombre`,`fechaInicio`,`fechaFin`,`descripcion`,`fechaCreacion`) VALUES ('$nombre','$fechaInicio','$fechaFin','$descripcion','$fechaAdd')";
                     $resultado5 = mysqli_query($con, $consulta5);
                     $idProyecto = mysqli_insert_id($con);
                     // Jefe del grupo
-                    $consulta6 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`,`idProyecto`) VALUES ('2','1','$fechaCreacion','$encargado','$idProyecto')";
+                    $consulta6 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`,`idProyecto`) VALUES ('2','1','$fechaAdd','$encargado','$idProyecto')";
                     $resultado6 = mysqli_query($con, $consulta6);
 
                     // Miembros
@@ -45,7 +45,7 @@ if (!empty($_POST['btnreg'])) {
                                 $value = $matches[1];
                                 
                                 // Inserta el valor en la tabla MySQL
-                                $consulta7 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`) VALUES ('1','1','$fechaCreacion','$value')";
+                                $consulta7 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`) VALUES ('1','1','$fechaAdd','$value')";
                                 $resultado7 = mysqli_query($con, $consulta7);
                                 if (!$resultado7) {
                                     echo "Error al insertar el valor '$value'. Error: " . mysqli_error($con);
