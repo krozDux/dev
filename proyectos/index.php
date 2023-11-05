@@ -17,7 +17,7 @@
     $sqlproy1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaFin < CURDATE() and usuarios.rol='proveedor';");
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
-
+var dataTable;
     <script>
     $(document).ready(function() {
         var input = document.querySelector('input[name="tags1"]'),
@@ -80,11 +80,7 @@
             ]
             
         });
-        
-    });
-            
-// Agrega el evento de clic al botón "Exportar"
-$('#exportar-btn').on('click', function() {
+        $('#exportar-btn').on('click', function() {
             // Extiende la funcionalidad de DataTables para exportar
             dataTable.buttons.exportData({
                 modifier: {
@@ -92,6 +88,8 @@ $('#exportar-btn').on('click', function() {
                 }
             });
         });
+    });
+// Agrega el evento de clic al botón "Exportar"
     </script>
 
     <script>
