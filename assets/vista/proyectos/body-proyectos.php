@@ -101,8 +101,10 @@
                     </div>
                     <?php
                     include('../config.php');
-                    $sql1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario");
+                    $sql1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario where usuarios.rol='proveedor'");
                     $query1 = mysqli_query($con, $sql1);
+                    $sql2 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario where usuarios.rol='cliente'");
+                    $query2 = mysqli_query($con, $sql2);
                     ?>
                     <div class="row g-9 mb-8">
                         <div class="col-md-6 fv-row">
@@ -118,17 +120,15 @@
                                 </option>
                                 <?php } } ?>
                             </select>
-                        </div>
-                        <div class="col-md-6 fv-row">
                             <label class="required fs-6 fw-bold mb-2">Encargado del proyecto</label>
                             <select class="form-select form-select-solid" data-placeholder="Seleccionar encargado"
                                 name="encargado" required>
                                 <option value="">Seleccionar usuario...</option>
                                 <?php 
-                                while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
-                                <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
-                                <option value="<?php echo $dataUsuario1['id']; ?>">
-                                    <?php echo $dataUsuario1['nombres']; ?> <?php echo $dataUsuario1['apellidos']; ?>
+                                while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
+                                <?php  if ($dataUsuario2['fechaFin'] != "" and $dataUsuario2['fechaInicio'] != "") { ?>
+                                <option value="<?php echo $dataUsuario2['id']; ?>">
+                                    <?php echo $dataUsuario2['nombres']; ?> <?php echo $dataUsuario2['apellidos']; ?>
                                 </option>
                                 <?php } } ?>
                             </select>
