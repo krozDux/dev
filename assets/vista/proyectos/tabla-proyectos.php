@@ -5,7 +5,7 @@ $query1 = mysqli_query($con, $sql1);
 ?>
 
 <div class="col-md-6 col-xl-4" style="border-radius: 12px;">
-<button type="button" class="btn btn-dark fw-bold add-proyecto" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id="kt_toolbar_primary_button">Create</button>
+<button type="button" class="btn btn-dark fw-bold add-proyecto" data-bs-toggle="modal" >Create</button>
     </div>
 
 
