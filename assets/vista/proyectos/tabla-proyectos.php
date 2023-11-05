@@ -3,21 +3,9 @@ include('../config.php');
 $sql1 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInfo.idUsuario = '$session_id'");
 $query1 = mysqli_query($con, $sql1);
 ?>
-
+<buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm add-proyecto"></buttton>
 <div class="row g-6 g-xl-9 pt-3">
-<buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"
-                    data-id1="<?php echo $dataUsuario1['id']; ?>" 
-                    data-email1="<?php echo $dataUsuario1['email']; ?>"
-                    data-nombres1="<?php echo $dataUsuario1['nombres']; ?>"
-                    data-apellidos1="<?php echo $dataUsuario1['apellidos']; ?>"
-                    data-direccion1="<?php echo $dataUsuario1['direccion']; ?>"
-                    data-rol1="<?php echo ucfirst($dataUsuario1['rol']); ?>"
-                    data-numero1="<?php echo $dataUsuario1['numero']; ?>"
-                    data-observacion1="<?php echo $dataUsuario1['observacion']; ?>"
-                    data-recomendacion1="<?php echo $dataUsuario1['recomendacion']; ?>"
-                    data-fechainicio1="<?php echo $dataUsuario1['fechaInicio']; ?>"
-                    data-fechafin1="<?php echo $dataUsuario1['fechaFin']; ?>"><span
-                        class="bi bi-eye-fill fs-7 opacity-50"></buttton>
+                        
 <?php 
 while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
     <div class="col-md-6 col-xl-4" style="border-radius: 12px;">
