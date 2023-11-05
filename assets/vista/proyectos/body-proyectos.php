@@ -154,7 +154,7 @@
                                 </option>
                                 <?php } } ?>
                             </select>
-                            <label class="required fs-6 fw-bold mb-2">Fecha limite</label>
+                            <label class="required fs-6 fw-bold mb-2">Fecha límite</label>
                             <div class="position-relative d-flex align-items-center">
                                 <span class="svg-icon svg-icon-2 position-absolute mx-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
