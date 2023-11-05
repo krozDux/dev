@@ -8,7 +8,7 @@
             data-kt-scroll-dependencies="#kt_header, #kt_aside_footer"
             data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu" data-kt-scroll-offset="{lg: '75px'}">
             <div class="menu menu-column menu-rounded fw-bold fs-6" id="#kt_aside_menu" data-kt-menu="true">
-                <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
+                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -26,7 +26,7 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
-                            <a class="menu-link" href="panel/index.php">
+                            <a class="menu-link active" href="panel/index.php">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
