@@ -31,7 +31,7 @@
             info: false, // Desactiva la información de entradas
             buttons: [{
                     text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
-                        'Vista 1',
+                        'Vistas',
                     className: 'btn btn-primary',
                     action: function(e, dt, node, config) {
                         var div1 = document.getElementById('card_proyectos');
@@ -45,23 +45,22 @@
                         if (div1.hasAttribute('hidden')) {
                             div1.removeAttribute('hidden');
                             div2.setAttribute('hidden', 'true');
+                            div21.setAttribute('hidden', 'true');
+                            div22.setAttribute('hidden', 'true');
+                            div23.setAttribute('hidden', 'true');
+                            div24.setAttribute('hidden', 'true');
+                            div25.setAttribute('hidden', 'true');
+                            div26.setAttribute('hidden', 'true');
                         } else {
                             div1.setAttribute('hidden', 'true');
                             div2.removeAttribute('hidden');
+                            div21.removeAttribute('hidden');
+                            div22.removeAttribute('hidden');
+                            div23.removeAttribute('hidden');
+                            div24.removeAttribute('hidden');
+                            div25.removeAttribute('hidden');
+                            div26.removeAttribute('hidden');
                         }
-                    }
-                },
-                {
-                    text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
-                        'Vista 2',
-                    className: 'btn btn-primary',
-                    action: function(e, dt, node, config) {
-                        document.getElementById('card_proyectos').setAttribute('hidden',
-                        'true');
-                        document.getElementById('kt_table_users').setAttribute('hidden',
-                            'false');
-                        document.getElementById('kt_table_header').setAttribute('hidden',
-                            'false');
                     }
                 },
                 {
