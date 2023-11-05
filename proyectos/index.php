@@ -30,12 +30,23 @@
             paging: false, // Desactiva la paginación
             info: false,  // Desactiva la información de entradas
             buttons: [{
-						text: '<span class="bi bi-eye-fill fs-6 opacity-50"></span>'+
-							'Vista',
+						text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>'+
+							'Vista 1',
 						className: 'btn btn-primary vista-proyecto1',
                         action: function (e, dt, node, config) {
+                            document.getElementById('card_proyectos').setAttribute('hidden', 'false');
 							document.getElementById('kt_table_users').setAttribute('hidden', 'true');
                             document.getElementById('kt_table_header').setAttribute('hidden', 'true');
+						}
+					},
+                    {
+						text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>'+
+							'Vista 2',
+						className: 'btn btn-primary vista-proyecto2',
+                        action: function (e, dt, node, config) {
+							document.getElementById('kt_table_users').setAttribute('hidden', 'false');
+                            document.getElementById('kt_table_header').setAttribute('hidden', 'false');
+                            document.getElementById('card_proyectos').setAttribute('hidden', 'true');
 						}
 					},
                 {
