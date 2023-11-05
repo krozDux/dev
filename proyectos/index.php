@@ -28,36 +28,51 @@
             "bScrollCollapse": true,
             searching: false,
             paging: false, // Desactiva la paginación
-            info: false,  // Desactiva la información de entradas
+            info: false, // Desactiva la información de entradas
             buttons: [{
-						text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>'+
-							'Vista 1',
-						className: 'btn btn-primary',
-                        action: function (e, dt, node, config) {
-							var div1 = document.getElementById('card_proyectos');
-                            var div15 = document.getElementById('kt_table_header');
-                            var div2 = document.getElementById('kt_table_users');
-                            if (div1.hasAttribute('hidden')) {
-            div1.removeAttribute('hidden');
-            div15.removeAttribute('hidden');
-            div2.setAttribute('hidden', 'true');
-        } else {
-            div1.setAttribute('hidden', 'true');
-            div15.setAttribute('hidden', 'true');
-            div2.removeAttribute('hidden');
-        }
-						}
-					},
-                    {
-						text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>'+
-							'Vista 2',
-						className: 'btn btn-primary',
-                        action: function (e, dt, node, config) {
-                            document.getElementById('card_proyectos').setAttribute('hidden', 'true');
-                            document.getElementById('kt_table_users').setAttribute('hidden', 'false');
-                            document.getElementById('kt_table_header').setAttribute('hidden', 'false');
-						}
-					},
+                    text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
+                        'Vista 1',
+                    className: 'btn btn-primary',
+                    action: function(e, dt, node, config) {
+                        var div1 = document.getElementById('card_proyectos');
+                        var div12 = document.getElementById('kt_table_header');
+                        var div13 = document.getElementById('h_nombre');
+                        var div14 = document.getElementById('h_fechaInicio');
+                        var div15 = document.getElementById('h_fechaFin');
+                        var div16 = document.getElementById('h_descripcion');
+                        var div2 = document.getElementById('h_estado');
+                        if (div1.hasAttribute('hidden')) {
+                            div1.removeAttribute('hidden');
+                            div12.removeAttribute('hidden');
+                            div13.removeAttribute('hidden');
+                            div14.removeAttribute('hidden');
+                            div15.removeAttribute('hidden');
+                            div16.removeAttribute('hidden');
+                            div2.setAttribute('hidden', 'true');
+                        } else {
+                            div1.setAttribute('hidden', 'true');
+                            div12.setAttribute('hidden', 'true');
+                            div13.setAttribute('hidden', 'true');
+                            div14.setAttribute('hidden', 'true');
+                            div15.setAttribute('hidden', 'true');
+                            div16.setAttribute('hidden', 'true');
+                            div2.removeAttribute('hidden');
+                        }
+                    }
+                },
+                {
+                    text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
+                        'Vista 2',
+                    className: 'btn btn-primary',
+                    action: function(e, dt, node, config) {
+                        document.getElementById('card_proyectos').setAttribute('hidden',
+                        'true');
+                        document.getElementById('kt_table_users').setAttribute('hidden',
+                            'false');
+                        document.getElementById('kt_table_header').setAttribute('hidden',
+                            'false');
+                    }
+                },
                 {
                     extend: 'excelHtml5',
                     text: '<span class="svg-icon svg-icon-2 opacity-50">' +
@@ -222,7 +237,7 @@
     <script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
     <script src="assets/js/custom/utilities/modals/new-address.js"></script>
     <script src="assets/js/custom/utilities/modals/users-search.js"></script>
-    
+
 </body>
 
 </html>
