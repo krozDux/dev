@@ -10,12 +10,12 @@ $query2 = mysqli_query($con, $sql2);
         <div class="card-body py-4 mb-0">
             <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users" hidden>
                 <thead id="kt_table_header" hidden>
-                    <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                        <th class="min-w-125px" id="h_nombre" hidden>Nombre</th>
-                        <th class="min-w-125px" id="h_fechaInicio" hidden>Fecha inicio</th>
-                        <th class="min-w-125px" id="h_fechaFin" hidden>Fecha Límite</th>
-                        <th class="min-w-125px" id="h_descripcion" hidden>Descripción</th>
-                        <th class="min-w-125px" id="h_estado" hidden>Estado</th>
+                    <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0" id="h_tr" hidden>
+                        <th class="min-w-125px">Nombre</th>
+                        <th class="min-w-125px">Fecha inicio</th>
+                        <th class="min-w-125px">Fecha Límite</th>
+                        <th class="min-w-125px">Descripción</th>
+                        <th class="min-w-125px">Estado</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600 fw-bold">

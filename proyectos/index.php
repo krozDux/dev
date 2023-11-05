@@ -36,30 +36,18 @@
                     action: function(e, dt, node, config) {
                         var div1 = document.getElementById('card_proyectos');
                         var div2 = document.getElementById('kt_table_users');
-                        var div21 = document.getElementById('kt_table_header');
-                        var div22 = document.getElementById('h_estado');
-                        var div23 = document.getElementById('h_nombre');
-                        var div24 = document.getElementById('h_fechaInicio');
-                        var div25 = document.getElementById('h_fechaFin');
-                        var div26 = document.getElementById('h_descripcion');
+                        var div3 = document.getElementById('kt_table_header');
+                        var div4 = document.getElementById('h_tr');
                         if (div1.hasAttribute('hidden')) {
                             div1.removeAttribute('hidden');
                             div2.setAttribute('hidden', 'true');
-                            div21.setAttribute('hidden', 'true');
-                            div22.setAttribute('hidden', 'true');
-                            div23.setAttribute('hidden', 'true');
-                            div24.setAttribute('hidden', 'true');
-                            div25.setAttribute('hidden', 'true');
-                            div26.setAttribute('hidden', 'true');
+                            div3.setAttribute('hidden', 'true');
+                            div4.setAttribute('hidden', 'true');
                         } else {
                             div1.setAttribute('hidden', 'true');
                             div2.removeAttribute('hidden');
-                            div21.removeAttribute('hidden');
-                            div22.removeAttribute('hidden');
-                            div23.removeAttribute('hidden');
-                            div24.removeAttribute('hidden');
-                            div25.removeAttribute('hidden');
-                            div26.removeAttribute('hidden');
+                            div3.removeAttribute('hidden');
+                            div4.removeAttribute('hidden');
                         }
                     }
                 },
