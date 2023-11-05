@@ -48,6 +48,9 @@ $query2 = mysqli_query($con, $sql2);
 												<?php } ?>
 											</tbody>
 										</table>
+                                        </div>
+                        </div>
+                    </div>
                                         <div class="row g-6 g-xl-9 mt-1">
                         
                         <?php 
@@ -116,6 +119,4 @@ $query2 = mysqli_query($con, $sql2);
                             </div>
                             <?php } ?>
                         </div>
-                        </div>
-                        </div>
-                    </div>
+                        
