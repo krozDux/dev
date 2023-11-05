@@ -3,9 +3,6 @@ include('../config.php');
 $sql1 = ("SELECT * FROM usuarios WHERE estado = 1 and rol='cliente'");
 $query1 = mysqli_query($con, $sql1);
 ?>
-<button id="exportar-btn" class="btn btn-primary">
-    Exportar
-</button>
 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
 											<thead>
 												<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
