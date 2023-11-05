@@ -36,6 +36,7 @@
             "sScrollX": "100%",
             "sScrollXInner": "110%",
             "bScrollCollapse": true,
+            searching: false,
             paging: false, // Desactiva la paginación
             info: false,  // Desactiva la información de entradas
             buttons: [{
