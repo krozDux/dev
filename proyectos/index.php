@@ -34,8 +34,15 @@
 							'Vista 1',
 						className: 'btn btn-primary',
                         action: function (e, dt, node, config) {
-							document.getElementById('kt_table_users').setAttribute('hidden', 'true');
-                            document.getElementById('kt_table_header').setAttribute('hidden', 'true');
+							var div1 = document.getElementById('card_proyectos');
+                            var div2 = document.getElementById('kt_table_users');
+                            if (div1.style.display === 'none') {
+                                div1.style.display = 'block';
+                                div2.style.display = 'none';
+                            } else {
+                                div1.style.display = 'none';
+                                div2.style.display = 'block';
+                            }
 						}
 					},
                     {
