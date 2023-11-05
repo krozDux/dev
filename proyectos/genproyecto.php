@@ -36,6 +36,8 @@
             "sScrollX": "100%",
             "sScrollXInner": "110%",
             "bScrollCollapse": true,
+            paging: false, // Desactiva la paginación
+            info: false,  // Desactiva la información de entradas
             buttons: [{
                     text: '<span class="svg-icon svg-icon-2 opacity-50">' +
                         '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">' +
