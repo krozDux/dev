@@ -4,10 +4,10 @@
 
 <?php
 include('../config.php');
-$sql1 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInfo.idUsuario = '$session_id'");
+$sql1 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto");
 $query1 = mysqli_query($con, $sql1);
 include('../config.php');
-$sql2 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInfo.idUsuario = '$session_id'");
+$sql2 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto");
 $query2 = mysqli_query($con, $sql2);
 ?>
 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users" hidden>
