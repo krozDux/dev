@@ -121,7 +121,11 @@
         $('#kt_modal_view_user').modal('show');
     });
     </script>
-
+    <script>
+    $('.add-proyecto').on('click', function() {
+        $('#kt_modal_new_target').modal('show');
+    });
+    </script>
     <script>
     $('.reg-contrato').on('click', function() {
         var id = $(this).data('id');
