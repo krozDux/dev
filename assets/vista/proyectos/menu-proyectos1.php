@@ -115,7 +115,7 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion show menu-active-bg">
                         <div class="menu-item">
-                            <a class="menu-link" href="proyectos/genproyecto.php">
+                            <a class="menu-link active" href="proyectos/genproyecto.php">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -123,7 +123,7 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link active" href="proyectos/index.php">
+                            <a class="menu-link" href="proyectos/index.php">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
