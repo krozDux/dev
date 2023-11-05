@@ -17,24 +17,6 @@
     $sqlproy1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaFin < CURDATE();");
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
-
-
-
-    <script>
-      
-        var input = document.querySelector('input[name="tags1"]');
-        var tagify = new Tagify(input, {
-            whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['id']; ?>]",<?php } ?>],
-            maxTags: 10,
-            dropdown: {
-                maxItems: 20,
-                classname: "tags-look",
-                enabled: 0,
-                closeOnSelect: true
-            }
-        });
-
-    </script>
     <script>
     $(document).ready(function() {
         $('#kt_table_users').DataTable({
@@ -87,7 +69,21 @@
         });
     });
     </script>
+<script>
+      
+      var input = document.querySelector('input[name="tags1"]');
+      var tagify = new Tagify(input, {
+          whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['id']; ?>]",<?php } ?>],
+          maxTags: 10,
+          dropdown: {
+              maxItems: 20,
+              classname: "tags-look",
+              enabled: 0,
+              closeOnSelect: true
+          }
+      });
 
+  </script>
     <script>
     $('.del-usuario').on('click', function() {
         var id = $(this).data('id');
