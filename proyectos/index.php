@@ -17,8 +17,8 @@
     $sqlproy1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaFin < CURDATE() and usuarios.rol='proveedor';");
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
-var dataTable;
     <script>
+        var dataTable;
     $(document).ready(function() {
         var input = document.querySelector('input[name="tags1"]'),
         tagify = new Tagify(input, {
