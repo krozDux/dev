@@ -35,12 +35,12 @@
                     className: 'btn btn-primary',
                     action: function(e, dt, node, config) {
                         var div1 = document.getElementById('card_proyectos');
-                        var div12 = document.getElementById('kt_table_header');
+                        var div2 = document.getElementById('kt_table_header');
+                        var div12 = document.getElementById('h_estado');
                         var div13 = document.getElementById('h_nombre');
                         var div14 = document.getElementById('h_fechaInicio');
                         var div15 = document.getElementById('h_fechaFin');
                         var div16 = document.getElementById('h_descripcion');
-                        var div2 = document.getElementById('h_estado');
                         if (div1.hasAttribute('hidden')) {
                             div1.removeAttribute('hidden');
                             div12.removeAttribute('hidden');
