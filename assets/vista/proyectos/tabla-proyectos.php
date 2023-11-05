@@ -3,7 +3,12 @@ include('../config.php');
 $sql1 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInfo.idUsuario = '$session_id'");
 $query1 = mysqli_query($con, $sql1);
 ?>
+
+<div class="col-md-6 col-xl-4" style="border-radius: 12px;">
 <a type="button" class="btn btn-dark fw-bold add-proyecto" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id="kt_toolbar_primary_button">Create</a>
+    </div>
+
+
 <div class="row g-6 g-xl-9 pt-3">
                         
 <?php 
