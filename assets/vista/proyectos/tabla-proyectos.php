@@ -18,7 +18,7 @@ $query1 = mysqli_query($con, $sql1);
                         
 <?php 
 while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
-    <div class="col-md-6 col-xl-4" style="border-radius: 12px;">
+    <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
         <a href="/metronic8/demo14/../demo14/apps/projects/project.html" class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
                 <div class="card-title m-0">
