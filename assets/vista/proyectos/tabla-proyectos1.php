@@ -51,6 +51,7 @@ $query2 = mysqli_query($con, $sql2);
 
     <?php 
                         while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
+                     <?php   while ($dataUsuario3 = mysqli_fetch_array($query3)) { ?>
     <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
         <a href="/metronic8/demo14/../demo14/apps/projects/project.html" class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
@@ -95,8 +96,6 @@ $query2 = mysqli_query($con, $sql2);
                                         $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
                                         $query3 = mysqli_query($con, $sql3);
                                         ?>
-                    <?php 
-                                        while ($dataUsuario3 = mysqli_fetch_array($query3)) { ?>
                     <?php 
                                         if ($dataUsuario3['imagen'] != "blank.png") { ?>
                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
