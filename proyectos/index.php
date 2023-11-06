@@ -18,6 +18,17 @@
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
     <script>
+    // Espera a que el documento esté completamente cargado
+    document.addEventListener("DOMContentLoaded", function() {
+    // Obtiene el elemento con el ID "kt_table_users"
+    var ktTableUsers = document.getElementById("kt_table_header");
+    var ktTableHead = document.getElementById("kt_table_header");
+    // Oculta el elemento estableciendo el atributo "hidden"
+    ktTableUsers.setAttribute("hidden", "true");
+    ktTableHead.setAttribute("hidden", "true");
+    });
+    </script>
+    <script>
     $(document).ready(function() {
 
         $('#kt_table_users').DataTable({
@@ -124,17 +135,7 @@
         $('#kt_modal_new_target').modal('show');
     });
     </script>
-    <script>
-
-    // Espera a que el documento esté completamente cargado
-document.addEventListener("DOMContentLoaded", function() {
-    // Obtiene el elemento con el ID "kt_table_users"
-    var ktTableUsers = document.getElementById("kt_table_users");
-
-    // Oculta el elemento estableciendo el atributo "hidden"
-    ktTableUsers.setAttribute("hidden", "true");
-});
-</script>
+    
     <script>
     $('.reg-contrato').on('click', function() {
         var id = $(this).data('id');
