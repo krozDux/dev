@@ -21,8 +21,8 @@
     // Espera a que el documento esté completamente cargado
     document.addEventListener("DOMContentLoaded", function() {
     // Obtiene el elemento con el ID "kt_table_users"
-    var ktTableUsers = document.getElementById("kt_table_users");
-    var ktTableHead = document.getElementById("kt_table_header");
+    var ktTableUsers = document.getElementById("kt_table_header");
+    var ktTableHead = document.getElementById("kt_table_users");
     // Oculta el elemento estableciendo el atributo "hidden"
     ktTableUsers.setAttribute("hidden", "true");
     ktTableHead.setAttribute("hidden", "true");
