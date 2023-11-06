@@ -40,6 +40,25 @@
             paging: false, // Desactiva la paginación
             info: false,  // Desactiva la información de entradas
             buttons: [{
+                    text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
+                        'Vistas',
+                    className: 'btn btn-primary',
+                    action: function(e, dt, node, config) {
+                        var div1 = document.getElementById('card_proyectos');
+                        var div2 = document.getElementById('kt_table_users');
+                        var div3 = document.getElementById('kt_table_header');
+                        if (div1.hasAttribute('hidden')) {
+                            div1.removeAttribute('hidden');
+                            div2.setAttribute('hidden', 'true');
+                            div3.setAttribute('hidden', 'true');
+                        } else {
+                            div1.setAttribute('hidden', 'true');
+                            div2.removeAttribute('hidden');
+                            div3.removeAttribute('hidden');
+                        }
+                    }
+                },
+                {
                     text: '<span class="svg-icon svg-icon-2 opacity-50">' +
                         '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">' +
                         '<path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>' +

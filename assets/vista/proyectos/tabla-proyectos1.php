@@ -10,7 +10,7 @@ $query2 = mysqli_query($con, $sql2);
     <div class="card mb-0">
         <div class="card-body py-4 mb-0">
             <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
-                <thead>
+                <thead id="kt_table_header">
                     <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                         <th class="min-w-125px">Nombre</th>
                         <th class="min-w-125px">Fecha inicio</th>
@@ -47,7 +47,7 @@ $query2 = mysqli_query($con, $sql2);
         </div>
     </div>
 </div>
-<div class="row g-6 g-xl-9 mt-1">
+<div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
 
     <?php 
                         while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
