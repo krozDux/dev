@@ -3,7 +3,7 @@ include('../config.php');
 $sql1 = ("SELECT * FROM proyectos");
 $query1 = mysqli_query($con, $sql1);
 include('../config.php');
-$sql2 = ("SELECT * FROM proyectos JOIN proyectosInfo");
+$sql2 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto");
 $query2 = mysqli_query($con, $sql2);
 ?>
 <div class="content mb-0" id="kt_content">
