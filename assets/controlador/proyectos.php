@@ -18,7 +18,7 @@ if (!empty($_POST['btnreg'])) {
                     $encargado = $_POST['encargado'];
                     $fechaInicio = $_POST['fechaInicio'];
                     $cliente = $_POST['cliente'];
-                    $fechaInicio = $_POST['fechaFin'];
+                    $fechaFin = $_POST['fechaFin'];
                     $descripcion = $_POST['descripcion'];
                     if ($descripcion == "") {
                         $descripcion = "-";
@@ -49,7 +49,7 @@ if (!empty($_POST['btnreg'])) {
                                 $value = $matches[1];
                                 
                                 // Inserta el valor en la tabla MySQL
-                                $consulta7 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`) VALUES ('1','1','$fechaAdd','$value')";
+                                $consulta7 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`,`idProyecto`) VALUES ('1','1','$fechaAdd','$value','$idProyecto')";
                                 $resultado7 = mysqli_query($con, $consulta7);
                                 if (!$resultado7) {
                                     echo "Error al insertar el valor '$value'. Error: " . mysqli_error($con);
