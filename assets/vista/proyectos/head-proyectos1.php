@@ -2,7 +2,7 @@
 
 <head>
     <base href="../">
-    <title>SistemaWEB | Clientes</title>
+    <title>SistemaWEB | Proyectos</title>
     <meta charset="utf-8" />
     <meta name="description" content="descripción" />
     <meta name="keywords" content="keywords" />
