@@ -1,6 +1,6 @@
 <?php
 include('../config.php');
-$sql1 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto");
+$sql1 = ("SELECT * FROM proyectos");
 $query1 = mysqli_query($con, $sql1);
 include('../config.php');
 $sql2 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto");
