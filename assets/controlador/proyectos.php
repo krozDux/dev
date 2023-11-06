@@ -17,6 +17,8 @@ if (!empty($_POST['btnreg'])) {
                     $nombre = $_POST['nombre'];
                     $encargado = $_POST['encargado'];
                     $fechaInicio = $_POST['fechaInicio'];
+                    $cliente = $_POST['cliente'];
+                    $fechaInicio = $_POST['fechaFin'];
                     $descripcion = $_POST['descripcion'];
                     if ($descripcion == "") {
                         $descripcion = "-";
@@ -28,9 +30,11 @@ if (!empty($_POST['btnreg'])) {
                     $resultado5 = mysqli_query($con, $consulta5);
                     $idProyecto = mysqli_insert_id($con);
                     // Jefe del grupo
-                    $consulta6 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`,`idProyecto`) VALUES ('2','1','$fechaAdd','$encargado','$idProyecto')";
+                    $consulta6 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`,`idProyecto`) VALUES ('3','1','$fechaAdd','$encargado','$idProyecto')";
                     $resultado6 = mysqli_query($con, $consulta6);
-
+                    // Cliente del grupo
+                    $consulta8 = "INSERT `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`,`idProyecto`) VALUES ('2','1','$fechaAdd','$cliente','$idProyecto')";
+                    $resultado8 = mysqli_query($con, $consulta8);
                     // Miembros
                     $jsonData = $_POST['tags1'];
                     $data = json_decode($jsonData);
