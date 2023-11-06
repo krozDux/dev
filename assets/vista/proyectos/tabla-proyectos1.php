@@ -3,7 +3,10 @@ include('../config.php');
 $sql1 = ("SELECT * FROM proyectos");
 $query1 = mysqli_query($con, $sql1);
 include('../config.php');
-$sql2 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto");
+$sql2 = ("SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectos.descripcion, proyectos.fechaCreacion, proyectos.estado, proyectosInfo.id, proyectosInfo.tipo, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idProyecto, GROUP_CONCAT(proyectosInfo.idUsuario) AS idUsuarios
+FROM proyectos
+JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto
+GROUP BY proyectos.id");
 $query2 = mysqli_query($con, $sql2);
 ?>
 <div class="content mb-0" id="kt_content">
