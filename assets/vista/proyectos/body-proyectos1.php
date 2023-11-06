@@ -54,7 +54,7 @@
                             <h1 class="d-flex text-dark fw-bolder my-1 fs-3">Proyectos</h1>
                         </div>
                     </div>
-                                <?php include_once 'tabla-proyectos1.php'?>
+                    <?php include_once 'tabla-proyectos1.php'?>
                     <div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
                         <?php include_once 'footer-proyectos1.php'?>
                     </div>
@@ -114,7 +114,7 @@
                                 </option>
                                 <?php } } ?>
                             </select>
-                            
+
                             <label class="required fs-6 fw-bold mb-2">Fecha de inicio</label>
                             <div class="position-relative d-flex align-items-center">
                                 <span class="svg-icon svg-icon-2 position-absolute mx-4">
@@ -136,7 +136,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 fv-row">
-                        <label class="required fs-6 fw-bold mb-2">Cliente del proyecto</label>
+                            <label class="required fs-6 fw-bold mb-2">Cliente del proyecto</label>
                             <select class="form-select form-select-solid" data-placeholder="Seleccionar cliente"
                                 name="cliente" required>
                                 <option value="">Seleccionar cliente</option>
