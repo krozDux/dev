@@ -57,7 +57,7 @@ if (!empty($_POST['btnreg'])) {
                             }
                         }
                     } 
-                    header("location: index.php");
+                    header("location: genproyecto.php");
                 } else{
                     echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
                         <div class="toast-header bg-danger">
