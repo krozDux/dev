@@ -44,7 +44,7 @@
                         } else {
                             div1.setAttribute('hidden', 'true');
                             div2.removeAttribute('hidden');
-                            div21.removeAttribute('hidden');
+                            div3.removeAttribute('hidden');
                         }
                     }
                 },
