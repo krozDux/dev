@@ -71,15 +71,15 @@ $query1 = mysqli_query($con, $sql1);
             <?php } ?>
 
             <?php if ($dataUsuario1['fechaInicio'] == "") { ?>
-            <td hidden> - </td>
+            <td > - </td>
             <?php } else { ?>
-            <td hidden><?php echo date('d/m/Y', strtotime($dataUsuario1['fechaInicio'])); ?></td>
+            <td ><?php echo date('d/m/Y', strtotime($dataUsuario1['fechaInicio'])); ?></td>
             <?php } ?>
 
             <?php if ($dataUsuario1['fechaFin'] == "") { ?>
-            <td hidden> - </td>
+            <td > - </td>
             <?php } else { ?>
-            <td hidden><?php echo date('d/m/Y', strtotime($dataUsuario1['fechaFin'])); ?></td>
+            <td ><?php echo date('d/m/Y', strtotime($dataUsuario1['fechaFin'])); ?></td>
             <?php } ?>
 
             <td><?php echo $dataUsuario1['observacion']; ?></td>
