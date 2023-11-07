@@ -93,22 +93,53 @@ if (!empty($_POST['btncrear'])) {
                             </div>
                         </div>';
                         } else{
-                            $hashedPassword = hash('sha256', $crearPassword);
-                            $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','$imagen','$crearRol','email','1')";
-                            $resultado = mysqli_query($con, $consulta);
-                            $id_usuario = mysqli_insert_id($con);
-                            $nuevo_nombre_imagen = $id_usuario . '.' . $extension;
-                            $ruta_imagen = '../assets/media/avatars/' . $nuevo_nombre_imagen;
-                            move_uploaded_file($temp, $ruta_imagen);
-                            $consulta33 = "UPDATE `usuarios` SET `imagen`='$nuevo_nombre_imagen' where id='$id_usuario'";
-                            $resultado2 = mysqli_query($con, $consulta33);
-                            header("location: index.php");
+                             if ($crearRol == 'proveedor' or $crearRol == 'cliente'){
+                                $hashedPassword = hash('sha256', $crearPassword);
+                                $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','$imagen','$crearRol','email','1')";
+                                $resultado = mysqli_query($con, $consulta);
+                                $id_usuario = mysqli_insert_id($con);
+                                $nuevo_nombre_imagen = $id_usuario . '.' . $extension;
+                                $ruta_imagen = '../assets/media/avatars/' . $nuevo_nombre_imagen;
+                                move_uploaded_file($temp, $ruta_imagen);
+                                $consulta33 = "UPDATE `usuarios` SET `imagen`='$nuevo_nombre_imagen' where id='$id_usuario'";
+                                $resultado2 = mysqli_query($con, $consulta33);
+                                $consulta5 = "INSERT `contratos` (`observacion`,`recomendacion`,`idUsuario`) VALUES ('-','-','$id_usuario')";
+                                $resultado5 = mysqli_query($con, $consulta5);
+                                header("location: index.php");
+                             } else{
+                                $hashedPassword = hash('sha256', $crearPassword);
+                                $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','$imagen','$crearRol','email','1')";
+                                $resultado = mysqli_query($con, $consulta);
+                                $id_usuario = mysqli_insert_id($con);
+                                $nuevo_nombre_imagen = $id_usuario . '.' . $extension;
+                                $ruta_imagen = '../assets/media/avatars/' . $nuevo_nombre_imagen;
+                                move_uploaded_file($temp, $ruta_imagen);
+                                $consulta33 = "UPDATE `usuarios` SET `imagen`='$nuevo_nombre_imagen' where id='$id_usuario'";
+                                $resultado2 = mysqli_query($con, $consulta33);
+                                $consulta5 = "INSERT `contratos` (`observacion`,`recomendacion`,`idUsuario`) VALUES ('-','-','$id_usuario')";
+                                $resultado5 = mysqli_query($con, $consulta5);
+                                header("location: index.php");
+                             }
                         }
                     } else{
-                        $hashedPassword = hash('sha256', $crearPassword);
-                        $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','blank.png','$crearRol','email','1')";
-                        $resultado = mysqli_query($con, $consulta);
-                        header("location: index.php");
+                        if ($crearRol == 'proveedor' or $crearRol == 'cliente'){
+                            $hashedPassword = hash('sha256', $crearPassword);
+                            $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','blank.png','$crearRol','email','1')";
+                            $resultado = mysqli_query($con, $consulta);
+                            $id_usuario = mysqli_insert_id($con);
+                            $consulta5 = "INSERT `contratos` (`observacion`,`recomendacion`,`idUsuario`) VALUES ('-','-','$id_usuario')";
+                            $resultado5 = mysqli_query($con, $consulta5);
+                            header("location: index.php");
+                        }else {
+                            $hashedPassword = hash('sha256', $crearPassword);
+                            $consulta = "INSERT usuarios (`email`,`pass`,`nombres`,`apellidos`,`numero`,`imagen`,`rol`,`metodoLogin`,`estado`) VALUES ('$crearEmail','$hashedPassword','$crearNombres','$crearApellidos','$crearNumero','blank.png','$crearRol','email','1')";
+                            $resultado = mysqli_query($con, $consulta);
+                            $id_usuario = mysqli_insert_id($con);
+                            $consulta5 = "INSERT `contratos` (`observacion`,`recomendacion`,`idUsuario`) VALUES ('-','-','$id_usuario')";
+                            $resultado5 = mysqli_query($con, $consulta5);
+                            header("location: index.php");
+                        }
+                        
                     }
                 }else{
                     echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
