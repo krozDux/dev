@@ -9,6 +9,7 @@ JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto
 GROUP BY proyectos.id");
 $query2 = mysqli_query($con, $sql2);
 ?>
+
 <div class="content mb-0" id="kt_content">
     <div class="card mb-0">
         <div class="card-body py-4 mb-0">
@@ -53,7 +54,12 @@ $query2 = mysqli_query($con, $sql2);
 <div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
 
     <?php 
-                        while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
+                        while ($dataUsuario2 = mysqli_fetch_array($query2)) { 
+                            $idProyecto = $dataUsuario2['id'];
+        include('../config.php');
+        $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
+        $query3 = mysqli_query($con, $sql3);
+        ?>
     <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
         <a href="/metronic8/demo14/../demo14/apps/projects/project.html" class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
@@ -74,11 +80,6 @@ $query2 = mysqli_query($con, $sql2);
                                     $fechaFinF = date('d/m/Y', strtotime($fechaFin));
                                     $idProyecto = $dataUsuario2['id'];
                                     ?>
-                                    <?php
-                                        include('../config.php');
-                                        $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
-                                        $query3 = mysqli_query($con, $sql3);
-                                        ?>
             <div class="card-body pt-1">
                 <p class="text-gray-500 fw-semibold fs-5 mt-1 mb-7">
                     CRM App application to HR efficiency </p>
