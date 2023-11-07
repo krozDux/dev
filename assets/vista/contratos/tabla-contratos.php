@@ -63,13 +63,6 @@ $query1 = mysqli_query($con, $sql1);
             <?php }  else { ?>
                 <td> <div class="badge badge-warning fw-bolder">Pendiente</div> </td>
             <?php } }?>
-
-            <?php if ($dataUsuario1['numero'] == "-") { ?>
-            <td><?php echo $dataUsuario1['numero']; ?></td>
-            <?php } else { ?>
-            <td><a href="https://wa.me/51<?php echo $dataUsuario1['numero']; ?>"><?php echo $dataUsuario1['numero']; ?></a> </td>
-            <?php } ?>
-
             <?php if ($dataUsuario1['fechaInicio'] == "") { ?>
             <td hidden> - </td>
             <?php } else { ?>
@@ -80,6 +73,11 @@ $query1 = mysqli_query($con, $sql1);
             <td hidden> - </td>
             <?php } else { ?>
             <td hidden><?php echo date('d/m/Y', strtotime($dataUsuario1['fechaFin'])); ?></td>
+            <?php } ?>
+            <?php if ($dataUsuario1['numero'] == "-") { ?>
+            <td><?php echo $dataUsuario1['numero']; ?></td>
+            <?php } else { ?>
+            <td><a href="https://wa.me/51<?php echo $dataUsuario1['numero']; ?>"><?php echo $dataUsuario1['numero']; ?></a> </td>
             <?php } ?>
 
             <td><?php echo $dataUsuario1['observacion']; ?></td>
