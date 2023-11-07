@@ -51,7 +51,11 @@ $query2 = mysqli_query($con, $sql2);
     </div>
 </div>
 <div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
-
+<?php
+                                        include('../config.php');
+                                        $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
+                                        $query3 = mysqli_query($con, $sql3);
+                                        ?>
     <?php 
                         while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
     <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
@@ -93,11 +97,7 @@ $query2 = mysqli_query($con, $sql2);
                         aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="symbol-group symbol-hover">
-                    <?php
-                                        include('../config.php');
-                                        $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
-                                        $query3 = mysqli_query($con, $sql3);
-                                        ?>
+                    
                     <?php 
                                         while ($dataUsuario3 = mysqli_fetch_array($query3)) { ?>
                     <?php 
