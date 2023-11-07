@@ -105,7 +105,7 @@
                     FROM usuarios 
                     INNER JOIN contratos ON usuarios.id = contratos.idUsuario 
                     WHERE usuarios.rol = 'proveedor' 
-                      AND contratos.fechaFin < CURDATE();");
+                      AND contratos.fechaFin > CURDATE();");
                     $query1 = mysqli_query($con, $sql1);
                     $sql2 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario where usuarios.rol='cliente'");
                     $query2 = mysqli_query($con, $sql2);
