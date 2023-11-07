@@ -54,7 +54,7 @@ $query2 = mysqli_query($con, $sql2);
 
     <?php 
     $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
-
+    var_dump($query2);                    
     while ($dataUsuario2 = mysqli_fetch_array($query2)) {
         $idProyecto = $dataUsuario2['id'];
         include('../config.php');
