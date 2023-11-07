@@ -76,7 +76,7 @@ $query2 = mysqli_query($con, $sql2);
                                     ?>
             <div class="card-body pt-1">
                 <p class="text-gray-500 fw-semibold fs-5 mt-1 mb-7">
-                    CRM App application to HR efficiency </p>
+                <?php echo $dataUsuario2['descripcion']; ?></p>
                 <div class="d-flex flex-wrap mb-5">
                     <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
                         <div class="fs-6 text-gray-800 fw-bold"><?php echo $fechaInicioF?></div>
