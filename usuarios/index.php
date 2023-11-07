@@ -3,7 +3,6 @@
 <html lang="es">
 	<?php include_once '../assets/controlador/sesion.php'?>
 	<?php include_once '../assets/vista/usuarios/head-usuarios.php'?>
-	<?php include '../assets/controlador/usuarios.php'?>
 	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
 		<?php include_once '../assets/vista/usuarios/body-usuarios.php'?>
 		<script>var hostUrl = "assets/";</script>
