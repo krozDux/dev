@@ -60,7 +60,6 @@ $query2 = mysqli_query($con, $sql2);
         include('../config.php');
         $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
         $query3 = mysqli_query($con, $sql3);
-        
         // Almacenar los datos de $query3 en el array
         $dataUsuario3Array[$idProyecto] = array();
         while ($dataUsuario3 = mysqli_fetch_array($query3)) {

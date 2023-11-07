@@ -47,8 +47,20 @@ $query2 = mysqli_query($con, $sql2);
     </div>
 </div>
 <div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
-    <?php 
-                        while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
+<?php 
+    $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
+                        
+    while ($dataUsuario2 = mysqli_fetch_array($query2)) {
+        $idProyecto = $dataUsuario2['id'];
+        include('../config.php');
+        $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
+        $query3 = mysqli_query($con, $sql3);
+        // Almacenar los datos de $query3 en el array
+        $dataUsuario3Array[$idProyecto] = array();
+        while ($dataUsuario3 = mysqli_fetch_array($query3)) {
+            $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
+        }
+    ?>
     <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
         <a href="/metronic8/demo14/../demo14/apps/projects/project.html" class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
@@ -88,32 +100,27 @@ $query2 = mysqli_query($con, $sql2);
                         aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="symbol-group symbol-hover">
-                    <?php
-                                        include('../config.php');
-                                        $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
-                                        $query3 = mysqli_query($con, $sql3);
-                                        ?>
-                    <?php 
-                                        while ($dataUsuario3 = mysqli_fetch_array($query3)) { ?>
-                    <?php 
-                                        if ($dataUsuario3['imagen'] != "blank.png") { ?>
-                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                        aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                        data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                        data-kt-initialized="1">
-                        <img alt="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                            src="assets/media/avatars/<?php echo $dataUsuario3['imagen']; ?>">
+                        <?php 
+                        foreach ($dataUsuario3Array[$idProyecto] as $dataUsuario3) { ?>
+                        <?php if ($dataUsuario3['imagen'] != "blank.png") { ?>
+                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                                aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                                data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                                data-kt-initialized="1">
+                                <img alt="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                                    src="assets/media/avatars/<?php echo $dataUsuario3['imagen']; ?>">
+                            </div>
+                        <?php } else { ?>
+                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                                aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                                data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                                data-kt-initialized="1">
+                                <span
+                                    class="symbol-label bg-dark text-inverse-primary fw-bold"><?php echo substr($dataUsuario3['nombres'], 0, 1); ?><?php echo substr($dataUsuario3['apellidos'], 0, 1); ?></span>
+                            </div>
+                        <?php } ?>
+                        <?php } ?>
                     </div>
-                    <?php } else {?>
-                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                        aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                        data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                        data-kt-initialized="1">
-                        <span
-                            class="symbol-label bg-dark text-inverse-primary fw-bold"><?php echo substr($dataUsuario3['nombres'], 0, 1); ?><?php echo substr($dataUsuario3['apellidos'], 0, 1); ?></span>
-                    </div>
-                    <?php } }?>
-                </div>
             </div>
         </a>
     </div>
