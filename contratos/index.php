@@ -42,7 +42,7 @@
                         '</span>Exportar</button>',
                     className: 'btn btn-primary ',
                     exportOptions: {
-                        columns: [1, 2, 3, 4, 6, 7, 5]
+                        columns: [1, 2, 3, 4, 5, 6, 7]
                     },
                     autoFilter: true,
                     sheetName: 'Reporte - Usuarios'
