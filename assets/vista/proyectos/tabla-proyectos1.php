@@ -119,7 +119,7 @@ $query2 = mysqli_query($con, $sql2);
                         <span
                             class="symbol-label bg-dark text-inverse-primary fw-bold"><?php echo substr($dataUsuario3['nombres'], 0, 1); ?><?php echo substr($dataUsuario3['apellidos'], 0, 1); ?></span>
                     </div>
-                    <?php } }?>
+                    <?php } } mysqli_data_seek($query3, 0);?>
                 </div>
             </div>
         </a>
