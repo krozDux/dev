@@ -132,10 +132,8 @@
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE PROYECTOS</span>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <a class="menu-link" href="proyectos/index.php" title="" data-bs-toggle="tooltip"
-                        data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right"
-                        data-bs-original-title="Registrar, editar y eliminar proyectos">
+                <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
+                    <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -150,7 +148,34 @@
                             </span>
                         </span>
                         <span class="menu-title">Proyectos</span>
-                    </a>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion show menu-active-bg">
+                        <div class="menu-item">
+                            <a class="menu-link" href="proyectos/genproyecto.php">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Crear proyecto</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link active" href="proyectos/index.php">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Mis proyectos</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="proyectos/reportegen.php">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Reporte general</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="menu-item">
                     <a class="menu-link" href="proyectos/recursos.php" title="" data-bs-toggle="tooltip"
