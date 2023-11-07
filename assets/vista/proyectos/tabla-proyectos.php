@@ -41,9 +41,9 @@ $query2 = mysqli_query($con, $sql2);
 
                         <?php 
 													if ($dataUsuario1['estado'] == "1") { ?>
-                        <td>Activo</td>
+                        <td>En progreso</td>
                         <?php } else { ?>
-                        <td>Inactivo</td>
+                        <td>Finalizado</td>
                         <?php } ?>
                     </tr>
                     <?php } ?>

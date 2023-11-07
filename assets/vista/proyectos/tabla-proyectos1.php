@@ -39,9 +39,9 @@ $query2 = mysqli_query($con, $sql2);
 
                         <?php 
 													if ($dataUsuario1['estado'] == "1") { ?>
-                        <td>Activo</td>
+                        <td>En progreso</td>
                         <?php } else { ?>
-                        <td>Inactivo</td>
+                        <td>Finalizado</td>
                         <?php } ?>
                     </tr>
                     <?php } ?>
@@ -72,7 +72,7 @@ $query2 = mysqli_query($con, $sql2);
                 <div class="card-header border-0 pt-9 pb-0">
                     <div class="card-title m-0">
                         <div class="fs-3 fw-bold text-gray-900">
-                            <?php echo $dataUsuario2['nombre']; ?>
+                            <?php echo strtoupper($dataUsuario2['nombre']); ?>
                         </div>
                     </div>
 
