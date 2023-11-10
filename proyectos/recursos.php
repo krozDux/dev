@@ -33,10 +33,10 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
 ?>
 <html lang="es">
 <head>
-    <?php include_once '../assets/vista/proyectos/head-proyectos.php'; ?>
+    <?php include_once '../assets/vista/proyectos/head-recursos.php'; ?>
 </head>
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-    <?php include_once '../assets/vista/proyectos/body-proyectos1.php'?>
+    <?php include_once '../assets/vista/proyectos/body-recursos.php'?>
     <script>
     var hostUrl = "assets/";
     </script>
