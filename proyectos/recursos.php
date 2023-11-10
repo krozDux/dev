@@ -71,7 +71,7 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
             paging: false, // Desactiva la paginación
             info: false,  // Desactiva la información de entradas
             buttons: [{
-                    text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
+                    text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2 mt-2"></span>' +
                         'Vistas',
                     className: 'btn btn-primary',
                     action: function(e, dt, node, config) {
@@ -96,7 +96,7 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
                         '<path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>' +
                         '</svg>' +
                         '</span>Registrar',
-                    className: 'btn btn-primary',
+                    className: 'btn btn-primary mt-2',
                     action: function(e, dt, node, config) {
                         $('#kt_modal_new_target').modal('show');
                     }
@@ -128,7 +128,7 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
             });
         });
     });
-// Agrega el evento de clic al botón "Exportar"
+
     </script>
 
     <script>
