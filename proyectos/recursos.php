@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <?php
-if ($_GET['idProyecto']) { ?>
-<?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
-<html lang="es">
-<?php include_once '../assets/controlador/sesion.php'?>
-<?php include_once '../assets/vista/proyectos/head-proyectos.php'?>
+// Asumiendo que la sesión ya ha sido iniciada en alguna parte de tu código
+session_start();
 
+// Comprueba si se ha proporcionado idProyecto a través de GET y si la sesión está iniciada con un rol válido
+if (isset($_GET['idProyecto']) && isset($_SESSION['session_rol']) && $_SESSION['session_rol'] != "invitado" && $_SESSION['session_rol'] != "cliente" && $_SESSION['session_rol'] != "proveedor") {
+    include('../config.php'); // Asegúrate de que esta ruta sea correcta para incluir tu archivo de configuración de la base de datos
+
+    // Asigna el idProyecto a una variable y asegúrate de limpiarla para evitar inyecciones SQL
+    $idProyecto = mysqli_real_escape_string($con, $_GET['idProyecto']);
+    $session_id = $_SESSION['id']; // o cualquier variable que contenga el ID de la sesión del usuario
+
+    // Prepara la consulta SQL
+    $sql = "SELECT * FROM proyectos 
+            JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto 
+            LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id 
+            WHERE proyectosInfo.idProyecto = ? AND proyectosInfo.estado='1' 
+            AND proyectosInfo.idUsuario = ?";
+    
+    // Prepara el statement para la consulta
+    if ($stmt = $con->prepare($sql)) {
+        // Vincula los parámetros y ejecuta
+        $stmt->bind_param("ii", $idProyecto, $session_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows == 0) {
+            // Si no hay registros, muestra una alerta y redirige
+            echo "<script>alert('No tienes ningún proyecto a tu cargo.'); window.location.href = '../panel/index.php';</script>";
+            exit; // Asegúrate de no ejecutar el resto del código si no hay registros
+        }
+        // Si hay registros, el script continúa normalmente
+        // El resto de tu código HTML/PHP va aquí dentro del bloque de PHP
+?>
+<html lang="es">
+<head>
+    <?php include_once '../assets/vista/proyectos/head-proyectos.php'; ?>
+</head>
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
     <?php include_once '../assets/vista/proyectos/body-proyectos1.php'?>
     <script>
@@ -237,13 +268,18 @@ if ($_GET['idProyecto']) { ?>
     <script src="assets/js/custom/utilities/modals/users-search.js"></script>
     
 </body>
-
 </html>
-<?php } else{
-header("location: ../panel/index.php");
-} ?>
-<?php
+<?php 
+        // No olvides cerrar el statement y la conexión
+        $stmt->close();
+        $con->close();
+    } else {
+        // Manejo de errores de preparación
+        echo "<script>alert('Error al preparar la consulta de la base de datos.'); window.location.href = '../panel/index.php';</script>";
+        exit;
+    }
 } else {
-    echo "<script>alert('No se ha recibido el ID del proyecto.'); window.location.href = '../panel/index.php';</script>";
+    // Si la variable GET 'idProyecto' no está establecida o el rol de la sesión no es válido, redirige al usuario
+    echo "<script>alert('No se ha recibido el ID del proyecto o no tienes permiso para ver esta página.'); window.location.href = '../panel/index.php';</script>";
 }
 ?>
