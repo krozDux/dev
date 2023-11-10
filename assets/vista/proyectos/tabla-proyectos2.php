@@ -12,7 +12,7 @@ proyectosInfo.tipo,
 proyectosInfo.fechaAdd, 
 proyectosInfo.fechaEstado, 
 proyectosInfo.idProyecto, 
-GROUP_CONCAT(DISTINCT CONCAT(usuarios.nombres, ' ', usuarios.apellidos)) AS nombresUsuarios
+GROUP_CONCAT(DISTINCT CONCAT(usuarios.nombres, ' ', usuarios.apellidos) SEPARATOR '\n') AS nombresUsuarios
 FROM proyectos
 JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto
 JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id
