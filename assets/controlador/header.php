@@ -35,7 +35,7 @@ $query1 = mysqli_query($con, $sql1);
         <div class="separator my-2"></div>
 
         <div class="menu-item px-5">
-            <a href="../../demo14/dist/apps/projects/list.html" class="menu-link px-5">
+            <a href="https://dev.pkroz.net/proyectos/index.php" class="menu-link px-5">
                 <span class="menu-text">Mis proyectos</span>
                 <?php 
 												while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
