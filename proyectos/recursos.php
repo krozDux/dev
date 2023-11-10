@@ -4,12 +4,12 @@
 session_start();
 
 // Comprueba si se ha proporcionado idProyecto a través de GET y si la sesión está iniciada con un rol válido
-if (isset($_GET['idProyecto']) && isset($_SESSION['session_rol']) && $_SESSION['session_rol'] != "invitado" && $_SESSION['session_rol'] != "cliente" && $_SESSION['session_rol'] != "proveedor") {
+if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol != "cliente" && $session_rol != "proveedor") {
     include('../config.php'); // Asegúrate de que esta ruta sea correcta para incluir tu archivo de configuración de la base de datos
 
     // Asigna el idProyecto a una variable y asegúrate de limpiarla para evitar inyecciones SQL
     $idProyecto = mysqli_real_escape_string($con, $_GET['idProyecto']);
-    $session_id = $_SESSION['id']; // o cualquier variable que contenga el ID de la sesión del usuario
+     // o cualquier variable que contenga el ID de la sesión del usuario
 
     // Prepara la consulta SQL
     $sql = "SELECT * FROM proyectos 
@@ -27,11 +27,11 @@ if (isset($_GET['idProyecto']) && isset($_SESSION['session_rol']) && $_SESSION['
 
         if ($result->num_rows == 0) {
             // Si no hay registros, muestra una alerta y redirige
-            echo "<script>alert('No tienes ningún proyecto a tu cargo.'); window.location.href = '../panel/index.php';</script>";
+            echo "<script>alert('No tienes ningún proyecto a tu cargo.');</script>";
             exit; // Asegúrate de no ejecutar el resto del código si no hay registros
         }
         // Si hay registros, el script continúa normalmente
-        // El resto de tu código HTML/PHP va aquí dentro del bloque de PHP
+        
 ?>
 <html lang="es">
 <head>
