@@ -280,6 +280,6 @@ if (isset($_GET['idProyecto']) && isset($_SESSION['session_rol']) && $_SESSION['
     }
 } else {
     // Si la variable GET 'idProyecto' no está establecida o el rol de la sesión no es válido, redirige al usuario
-    echo "<script>alert('No se ha recibido el ID del proyecto o no tienes permiso para ver esta página.'); window.location.href = '../panel/index.php';</script>";
+    echo "<script>alert('No se ha recibido el ID del proyecto o no tienes permiso para ver esta página.')</script>";
 }
 ?>
