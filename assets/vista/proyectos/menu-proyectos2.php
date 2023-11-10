@@ -160,7 +160,7 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link active" href="proyectos/index.php">
+                            <a class="menu-link" href="proyectos/index.php">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -168,7 +168,7 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" href="proyectos/reportegen.php">
+                            <a class="menu-link active" href="proyectos/reportegen.php">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
