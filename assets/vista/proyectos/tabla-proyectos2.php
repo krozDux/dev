@@ -28,13 +28,13 @@ $query2 = mysqli_query($con, $sql2);
                     <tr>
                         <td><?php echo strtoupper($dataUsuario1['nombre']);?></td>
                         <td>
-  <?php 
-    $nombresUsuarios = explode(',', strtoupper($dataUsuario1['nombresUsuarios']));
-    foreach ($nombresUsuarios as $nombre) {
-      echo "<span style='display: block;'>- $nombre</span>";
-    }
-  ?>
-</td>
+                            <?php 
+                                $nombresUsuarios = explode(',', strtoupper($dataUsuario1['nombresUsuarios']));
+                                foreach ($nombresUsuarios as $nombre) {
+                                echo "<span style='display: block;'> - $nombre</span>";
+                                }
+                            ?>
+                        </td>
                         <td><?php echo $dataUsuario1['fechaInicio']; ?></td>
                         <td><?php echo $dataUsuario1['fechaFin']; ?></td>
                         <?php 
