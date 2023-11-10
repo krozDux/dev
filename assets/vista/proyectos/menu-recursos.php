@@ -160,7 +160,7 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link active" href="proyectos/index.php">
+                            <a class="menu-link" href="proyectos/index.php">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -178,7 +178,7 @@
                     </div>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link" href="proyectos/recursos.php" title="" data-bs-toggle="tooltip"
+                    <a class="menu-link active" href="proyectos/recursos.php" title="" data-bs-toggle="tooltip"
                         data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right"
                         data-bs-original-title="Gestión de recursos">
                         <span class="menu-icon">
