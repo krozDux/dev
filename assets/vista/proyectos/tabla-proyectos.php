@@ -53,7 +53,7 @@ $query2 = mysqli_query($con, $sql2);
     </div>
 </div>
 <div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
-<?php 
+    <?php 
     $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
                         
     while ($dataUsuario2 = mysqli_fetch_array($query2)) {
@@ -77,7 +77,12 @@ $query2 = mysqli_query($con, $sql2);
                 </div>
 
                 <div class="card-toolbar">
-                    <span class="badge badge-light-primary fw-bold me-auto px-4 py-3">In Progress</span>
+                    <?php if ($dataUsuario2['estado'] == "1") { ?>
+                    <span class="badge badge-light-warning fw-bold me-auto px-4 py-3">En progreso</span>
+                    <?php } else { ?>
+                    <span class="badge badge-light-success fw-bold me-auto px-4 py-3">Finalizado</span>
+                    <?php } ?>
+
                 </div>
             </div>
             <?php 
@@ -106,27 +111,27 @@ $query2 = mysqli_query($con, $sql2);
                         aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <div class="symbol-group symbol-hover">
-                        <?php 
+                    <?php 
                         foreach ($dataUsuario3Array[$idProyecto] as $dataUsuario3) { ?>
-                        <?php if ($dataUsuario3['imagen'] != "blank.png") { ?>
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                                data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                                data-kt-initialized="1">
-                                <img alt="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                                    src="assets/media/avatars/<?php echo $dataUsuario3['imagen']; ?>">
-                            </div>
-                        <?php } else { ?>
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                                data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                                data-kt-initialized="1">
-                                <span
-                                    class="symbol-label bg-dark text-inverse-primary fw-bold"><?php echo substr($dataUsuario3['nombres'], 0, 1); ?><?php echo substr($dataUsuario3['apellidos'], 0, 1); ?></span>
-                            </div>
-                        <?php } ?>
-                        <?php } ?>
+                    <?php if ($dataUsuario3['imagen'] != "blank.png") { ?>
+                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                        aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                        data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                        data-kt-initialized="1">
+                        <img alt="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                            src="assets/media/avatars/<?php echo $dataUsuario3['imagen']; ?>">
                     </div>
+                    <?php } else { ?>
+                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                        aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                        data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                        data-kt-initialized="1">
+                        <span
+                            class="symbol-label bg-dark text-inverse-primary fw-bold"><?php echo substr($dataUsuario3['nombres'], 0, 1); ?><?php echo substr($dataUsuario3['apellidos'], 0, 1); ?></span>
+                    </div>
+                    <?php } ?>
+                    <?php } ?>
+                </div>
             </div>
         </a>
     </div>
