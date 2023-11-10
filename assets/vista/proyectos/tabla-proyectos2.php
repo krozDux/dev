@@ -1,8 +1,22 @@
 <?php
 include('../config.php');
-$sql1 = ("SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectos.descripcion, proyectos.fechaCreacion, proyectos.estado, proyectosInfo.tipo, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idProyecto, GROUP_CONCAT(proyectosInfo.idUsuario) AS idUsuarios
+$sql1 = ("SELECT 
+proyectos.id, 
+proyectos.nombre, 
+proyectos.fechaInicio, 
+proyectos.fechaFin, 
+proyectos.descripcion, 
+proyectos.fechaCreacion, 
+proyectos.estado, 
+proyectosInfo.tipo, 
+proyectosInfo.fechaAdd, 
+proyectosInfo.fechaEstado, 
+proyectosInfo.idProyecto, 
+GROUP_CONCAT(DISTINCT CONCAT(usuarios.nombres, ' ', usuarios.apellidos)) AS nombresUsuarios
 FROM proyectos
-JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto GROUP BY proyectos.id");
+JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto
+JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id
+GROUP BY proyectos.id;");
 $query1 = mysqli_query($con, $sql1);
 $sql2 = ("SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectos.descripcion, proyectos.fechaCreacion, proyectos.estado, proyectosInfo.tipo, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idProyecto, GROUP_CONCAT(proyectosInfo.idUsuario) AS idUsuarios
 FROM proyectos
@@ -16,6 +30,7 @@ $query2 = mysqli_query($con, $sql2);
                 <thead id="kt_table_header">
                     <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                         <th class="min-w-125px">Nombre</th>
+                        <th class="min-w-125px">Miembros</th>
                         <th class="min-w-125px">Fecha inicio</th>
                         <th class="min-w-125px">Fecha Límite</th>
                         <th class="min-w-125px">Descripción</th>
