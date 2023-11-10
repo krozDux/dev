@@ -2,7 +2,7 @@
 <?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
 <html lang="es">
 <?php include_once '../assets/controlador/sesion.php'?>
-<?php include_once '../assets/vista/proyectos/head-proyectos2.php'?>
+<?php include_once '../assets/vista/proyectos/head-proyectos.php'?>
 
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
     <?php include_once '../assets/vista/proyectos/body-proyectos2.php'?>

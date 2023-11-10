@@ -62,7 +62,7 @@
                         </div>
                     </div> -->
                     <div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
-                        <?php include_once 'footer-proyectos2.php'?>
+                        <?php include_once 'footer-proyectos.php'?>
                     </div>
                 </div>
             </div>

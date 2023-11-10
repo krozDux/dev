@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<?php
+if ($_GET['idProyecto']) { ?>
 <?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
 <html lang="es">
 <?php include_once '../assets/controlador/sesion.php'?>
@@ -240,3 +242,8 @@
 <?php } else{
 header("location: ../panel/index.php");
 } ?>
+<?php
+} else {
+    echo "<script>alert('No se ha recibido el ID del proyecto.'); window.location.href = '../panel/index.php';</script>";
+}
+?>
