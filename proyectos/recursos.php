@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include_once '../assets/controlador/sesion.php'?>
 <?php
 // Comprueba si se ha proporcionado idProyecto a través de GET y si la sesión está iniciada con un rol válido
 if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol != "cliente" && $session_rol != "proveedor") {
