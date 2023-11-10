@@ -75,7 +75,12 @@ $query2 = mysqli_query($con, $sql2);
                 </div>
 
                 <div class="card-toolbar">
-                    <span class="badge badge-light-primary fw-bold me-auto px-4 py-3">In Progress</span>
+                <?php if ($dataUsuario1['estado'] == "1") { ?>
+                    <span class="badge badge-light-primary fw-bold me-auto px-4 py-3">En progreso</span>
+                        <?php } else { ?>
+                            <span class="badge badge-light-warning fw-bold me-auto px-4 py-3">Finalizado</span>
+                        <?php } ?>
+                    
                 </div>
             </div>
             <?php 
