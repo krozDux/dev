@@ -72,7 +72,7 @@ $query2 = mysqli_query($con, $sql2);
         }
     ?>
     <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
-        <a href="/recursos.php?proyecto=<?php echo $dataUsuario2['id']; ?>" class="card border-hover-primary">
+        <a href="proyectos/recursos.php?proyecto=<?php echo $dataUsuario2['id']; ?>" class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
                 <div class="card-title m-0">
                     <div class="fs-3 fw-bold text-gray-900">
