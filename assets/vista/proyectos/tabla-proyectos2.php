@@ -78,7 +78,7 @@ $query2 = mysqli_query($con, $sql2);
                 <?php if ($dataUsuario2['estado'] == "1") { ?>
                     <span class="badge badge-light-primary fw-bold me-auto px-4 py-3">En progreso</span>
                         <?php } else { ?>
-                            <span class="badge badge-light-warning fw-bold me-auto px-4 py-3">Finalizado</span>
+                            <span class="badge badge-light-alert fw-bold me-auto px-4 py-3">Finalizado</span>
                         <?php } ?>
                     
                 </div>
