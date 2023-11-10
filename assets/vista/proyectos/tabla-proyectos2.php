@@ -1,22 +1,6 @@
 <?php
 include('../config.php');
-$sql1 = ("SELECT 
-proyectos.id, 
-proyectos.nombre, 
-proyectos.fechaInicio, 
-proyectos.fechaFin, 
-proyectos.descripcion, 
-proyectos.fechaCreacion, 
-proyectos.estado, 
-proyectosInfo.tipo, 
-proyectosInfo.fechaAdd, 
-proyectosInfo.fechaEstado, 
-proyectosInfo.idProyecto, 
-GROUP_CONCAT(DISTINCT CONCAT(usuarios.nombres, ' ', usuarios.apellidos) SEPARATOR '\n') AS nombresUsuarios
-FROM proyectos
-JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto
-JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id
-GROUP BY proyectos.id;");
+$sql1 = ("SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectos.descripcion, proyectos.fechaCreacion, proyectos.estado, proyectosInfo.tipo, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idProyecto, GROUP_CONCAT(DISTINCT CONCAT(usuarios.nombres, ' ', usuarios.apellidos)) AS nombresUsuarios FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id GROUP BY proyectos.id;");
 $query1 = mysqli_query($con, $sql1);
 $sql2 = ("SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectos.descripcion, proyectos.fechaCreacion, proyectos.estado, proyectosInfo.tipo, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idProyecto, GROUP_CONCAT(proyectosInfo.idUsuario) AS idUsuarios
 FROM proyectos
