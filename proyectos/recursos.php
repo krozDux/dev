@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <?php
-// Asumiendo que la sesión ya ha sido iniciada en alguna parte de tu código
-session_start();
-
 // Comprueba si se ha proporcionado idProyecto a través de GET y si la sesión está iniciada con un rol válido
 if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol != "cliente" && $session_rol != "proveedor") {
     include('../config.php'); // Asegúrate de que esta ruta sea correcta para incluir tu archivo de configuración de la base de datos
