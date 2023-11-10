@@ -150,7 +150,7 @@
                         <span class="menu-title">Proyectos</span>
                         <span class="menu-arrow"></span>
                     </span>
-                    <div class="menu-sub menu-sub-accordion show menu-active-bg">
+                    <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
                             <a class="menu-link" href="proyectos/genproyecto.php">
                                 <span class="menu-bullet">
