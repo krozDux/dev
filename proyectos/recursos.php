@@ -5,7 +5,7 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
     include('../config.php'); // Asegúrate de que esta ruta sea correcta para incluir tu archivo de configuración de la base de datos
 
     // Asigna el idProyecto a una variable y asegúrate de limpiarla para evitar inyecciones SQL
-    $idProyecto = mysqli_real_escape_string($con, $_GET['idProyecto']);
+    $idProyecto = $_GET['idProyecto'];
      // o cualquier variable que contenga el ID de la sesión del usuario
 
     // Prepara la consulta SQL
