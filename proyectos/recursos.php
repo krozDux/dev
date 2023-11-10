@@ -71,9 +71,9 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
             paging: false, // Desactiva la paginación
             info: false,  // Desactiva la información de entradas
             buttons: [{
-                    text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2 mt-2"></span>' +
+                    text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
                         'Vistas',
-                    className: 'btn btn-primary',
+                    className: 'btn btn-primary mt-2',
                     action: function(e, dt, node, config) {
                         var div1 = document.getElementById('card_proyectos');
                         var div2 = document.getElementById('kt_table_users');
