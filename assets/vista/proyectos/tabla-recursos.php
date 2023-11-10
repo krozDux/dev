@@ -18,7 +18,7 @@ $query2 = mysqli_query($con, $sql2);
                                     <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
                                         <!--begin::Image-->
                                         <div class="d-flex flex-center flex-shrink-0 bg-light rounded w-100px h-100px w-lg-150px h-lg-150px me-7 mb-4">
-                                            <img class="mw-50px mw-lg-75px" src="/metronic8/demo14/assets/media/svg/brand-logos/volicity-9.svg" alt="image">
+                                            <img class="mw-50px mw-lg-75px" src="/assets/media/svg/brand-logos/volicity-9.svg" alt="image">
                                         </div>
                                         <!--end::Image-->
                             
@@ -225,17 +225,17 @@ $query2 = mysqli_query($con, $sql2);
                                                         <!--end::User-->
                                                                                 <!--begin::User-->
                                                         <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="Michael Eberon" data-bs-original-title="Michael Eberon" data-kt-initialized="1">
-                                                                                                <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-11.jpg">
+                                                                                                <img alt="Pic" src="/assets/media/avatars/300-11.jpg">
                                                                                         </div>
                                                         <!--end::User-->
                                                                                 <!--begin::User-->
                                                         <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="Michelle Swanston" data-bs-original-title="Michelle Swanston" data-kt-initialized="1">
-                                                                                                <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-7.jpg">
+                                                                                                <img alt="Pic" src="/assets/media/avatars/300-7.jpg">
                                                                                         </div>
                                                         <!--end::User-->
                                                                                 <!--begin::User-->
                                                         <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="Francis Mitcham" data-bs-original-title="Francis Mitcham" data-kt-initialized="1">
-                                                                                                <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-20.jpg">
+                                                                                                <img alt="Pic" src="/assets/media/avatars/300-20.jpg">
                                                                                         </div>
                                                         <!--end::User-->
                                                                                 <!--begin::User-->
@@ -245,7 +245,7 @@ $query2 = mysqli_query($con, $sql2);
                                                         <!--end::User-->
                                                                                 <!--begin::User-->
                                                         <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="Melody Macy" data-bs-original-title="Melody Macy" data-kt-initialized="1">
-                                                                                                <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-2.jpg">
+                                                                                                <img alt="Pic" src="/assets/media/avatars/300-2.jpg">
                                                                                         </div>
                                                         <!--end::User-->
                                                                                 <!--begin::User-->
@@ -255,7 +255,7 @@ $query2 = mysqli_query($con, $sql2);
                                                         <!--end::User-->
                                                                                 <!--begin::User-->
                                                         <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="Barry Walter" data-bs-original-title="Barry Walter" data-kt-initialized="1">
-                                                                                                <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-12.jpg">
+                                                                                                <img alt="Pic" src="/assets/media/avatars/300-12.jpg">
                                                                                         </div>
                                                         <!--end::User-->
                                                     
@@ -279,43 +279,43 @@ $query2 = mysqli_query($con, $sql2);
                                     <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
                                                         <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6 active" href="/metronic8/demo14/../demo14/apps/projects/project.html">
+                                                <a class="nav-link text-active-primary py-5 me-6 active" href="/../demo14/apps/projects/project.html">
                                                     Overview                    </a>
                                             </li>
                                             <!--end::Nav item-->
                                                         <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6 " href="/metronic8/demo14/../demo14/apps/projects/targets.html">
+                                                <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/targets.html">
                                                     Targets                    </a>
                                             </li>
                                             <!--end::Nav item-->
                                                         <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6 " href="/metronic8/demo14/../demo14/apps/projects/budget.html">
+                                                <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/budget.html">
                                                     Budget                    </a>
                                             </li>
                                             <!--end::Nav item-->
                                                         <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6 " href="/metronic8/demo14/../demo14/apps/projects/users.html">
+                                                <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/users.html">
                                                     Users                    </a>
                                             </li>
                                             <!--end::Nav item-->
                                                         <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6 " href="/metronic8/demo14/../demo14/apps/projects/files.html">
+                                                <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/files.html">
                                                     Files                    </a>
                                             </li>
                                             <!--end::Nav item-->
                                                         <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6 " href="/metronic8/demo14/../demo14/apps/projects/activity.html">
+                                                <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/activity.html">
                                                     Activity                    </a>
                                             </li>
                                             <!--end::Nav item-->
                                                         <!--begin::Nav item-->
                                             <li class="nav-item">
-                                                <a class="nav-link text-active-primary py-5 me-6 " href="/metronic8/demo14/../demo14/apps/projects/settings.html">
+                                                <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/settings.html">
                                                     Settings                    </a>
                                             </li>
                                             <!--end::Nav item-->
@@ -1751,7 +1751,7 @@ $query2 = mysqli_query($con, $sql2);
                                         <div class="d-flex align-items-center mb-5">
                                             <!--begin::Icon-->
                                             <div class="symbol symbol-30px me-5">
-                                                <img alt="Icon" src="/metronic8/demo14/assets/media/svg/files/pdf.svg">
+                                                <img alt="Icon" src="/assets/media/svg/files/pdf.svg">
                                             </div>
                                             <!--end::Icon-->
                             
@@ -1871,7 +1871,7 @@ $query2 = mysqli_query($con, $sql2);
                                         <div class="d-flex align-items-center mb-5">
                                             <!--begin::Icon-->
                                             <div class="symbol symbol-30px me-5">
-                                                <img alt="Icon" src="/metronic8/demo14/assets/media/svg/files/doc.svg">
+                                                <img alt="Icon" src="/assets/media/svg/files/doc.svg">
                                             </div>
                                             <!--end::Icon-->
                             
@@ -1991,7 +1991,7 @@ $query2 = mysqli_query($con, $sql2);
                                         <div class="d-flex align-items-center mb-5">
                                             <!--begin::Icon-->
                                             <div class="symbol symbol-30px me-5">
-                                                <img alt="Icon" src="/metronic8/demo14/assets/media/svg/files/css.svg">
+                                                <img alt="Icon" src="/assets/media/svg/files/css.svg">
                                             </div>
                                             <!--end::Icon-->
                             
@@ -2111,7 +2111,7 @@ $query2 = mysqli_query($con, $sql2);
                                         <div class="d-flex align-items-center ">
                                             <!--begin::Icon-->
                                             <div class="symbol symbol-30px me-5">
-                                                <img alt="Icon" src="/metronic8/demo14/assets/media/svg/files/ai.svg">
+                                                <img alt="Icon" src="/assets/media/svg/files/ai.svg">
                                             </div>
                                             <!--end::Icon-->
                             
@@ -2288,7 +2288,7 @@ $query2 = mysqli_query($con, $sql2);
                                             <div class="me-5 position-relative">
                                                 <!--begin::Image-->
                                                 <div class="symbol symbol-35px symbol-circle">
-                                                                                <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-6.jpg">
+                                                                                <img alt="Pic" src="/assets/media/avatars/300-6.jpg">
                                                                         </div>
                                                 <!--end::Image-->
                             
@@ -2348,7 +2348,7 @@ $query2 = mysqli_query($con, $sql2);
                                             <div class="me-5 position-relative">
                                                 <!--begin::Image-->
                                                 <div class="symbol symbol-35px symbol-circle">
-                                                                                <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-1.jpg">
+                                                                                <img alt="Pic" src="/assets/media/avatars/300-1.jpg">
                                                                         </div>
                                                 <!--end::Image-->
                             
@@ -2376,7 +2376,7 @@ $query2 = mysqli_query($con, $sql2);
                                             <div class="me-5 position-relative">
                                                 <!--begin::Image-->
                                                 <div class="symbol symbol-35px symbol-circle">
-                                                                                <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-5.jpg">
+                                                                                <img alt="Pic" src="/assets/media/avatars/300-5.jpg">
                                                                         </div>
                                                 <!--end::Image-->
                             
@@ -2404,7 +2404,7 @@ $query2 = mysqli_query($con, $sql2);
                                             <div class="me-5 position-relative">
                                                 <!--begin::Image-->
                                                 <div class="symbol symbol-35px symbol-circle">
-                                                                                <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-25.jpg">
+                                                                                <img alt="Pic" src="/assets/media/avatars/300-25.jpg">
                                                                         </div>
                                                 <!--end::Image-->
                             
@@ -3220,7 +3220,7 @@ $query2 = mysqli_query($con, $sql2);
                                                                 <div class="me-5 position-relative">
                                                                     <!--begin::Avatar-->
                                                                     <div class="symbol symbol-35px symbol-circle">
-                                                                                                                        <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-6.jpg">
+                                                                                                                        <img alt="Pic" src="/assets/media/avatars/300-6.jpg">
                                                                                                                 </div>
                                                                     <!--end::Avatar-->
                             
@@ -3292,7 +3292,7 @@ $query2 = mysqli_query($con, $sql2);
                                                                 <div class="me-5 position-relative">
                                                                     <!--begin::Avatar-->
                                                                     <div class="symbol symbol-35px symbol-circle">
-                                                                                                                        <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-1.jpg">
+                                                                                                                        <img alt="Pic" src="/assets/media/avatars/300-1.jpg">
                                                                                                                 </div>
                                                                     <!--end::Avatar-->
                             
@@ -3326,7 +3326,7 @@ $query2 = mysqli_query($con, $sql2);
                                                                 <div class="me-5 position-relative">
                                                                     <!--begin::Avatar-->
                                                                     <div class="symbol symbol-35px symbol-circle">
-                                                                                                                        <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-5.jpg">
+                                                                                                                        <img alt="Pic" src="/assets/media/avatars/300-5.jpg">
                                                                                                                 </div>
                                                                     <!--end::Avatar-->
                             
@@ -3360,7 +3360,7 @@ $query2 = mysqli_query($con, $sql2);
                                                                 <div class="me-5 position-relative">
                                                                     <!--begin::Avatar-->
                                                                     <div class="symbol symbol-35px symbol-circle">
-                                                                                                                        <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-25.jpg">
+                                                                                                                        <img alt="Pic" src="/assets/media/avatars/300-25.jpg">
                                                                                                                 </div>
                                                                     <!--end::Avatar-->
                             
@@ -3432,7 +3432,7 @@ $query2 = mysqli_query($con, $sql2);
                                                                 <div class="me-5 position-relative">
                                                                     <!--begin::Avatar-->
                                                                     <div class="symbol symbol-35px symbol-circle">
-                                                                                                                        <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-9.jpg">
+                                                                                                                        <img alt="Pic" src="/assets/media/avatars/300-9.jpg">
                                                                                                                 </div>
                                                                     <!--end::Avatar-->
                             
@@ -3542,7 +3542,7 @@ $query2 = mysqli_query($con, $sql2);
                                                                 <div class="me-5 position-relative">
                                                                     <!--begin::Avatar-->
                                                                     <div class="symbol symbol-35px symbol-circle">
-                                                                                                                        <img alt="Pic" src="/metronic8/demo14/assets/media/avatars/300-23.jpg">
+                                                                                                                        <img alt="Pic" src="/assets/media/avatars/300-23.jpg">
                                                                                                                 </div>
                                                                     <!--end::Avatar-->
                             
