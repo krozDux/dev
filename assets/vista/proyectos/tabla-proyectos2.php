@@ -23,6 +23,20 @@ FROM proyectos
 JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto GROUP BY proyectos.id");
 $query2 = mysqli_query($con, $sql2);
 ?>
+<?php 
+    $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
+                        
+    while ($dataUsuario2 = mysqli_fetch_array($query2)) {
+        $idProyecto = $dataUsuario2['id'];
+        include('../config.php');
+        $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
+        $query3 = mysqli_query($con, $sql3);
+        // Almacenar los datos de $query3 en el array
+        $dataUsuario3Array[$idProyecto] = array();
+        while ($dataUsuario3 = mysqli_fetch_array($query3)) {
+            $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
+        }
+    ?>
 <div class="content mb-0" id="kt_content">
     <div class="card mb-0">
         <div class="card-body py-4 mb-0">
@@ -67,20 +81,7 @@ $query2 = mysqli_query($con, $sql2);
     </div>
 </div>
 <div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
-    <?php 
-    $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
-                        
-    while ($dataUsuario2 = mysqli_fetch_array($query2)) {
-        $idProyecto = $dataUsuario2['id'];
-        include('../config.php');
-        $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
-        $query3 = mysqli_query($con, $sql3);
-        // Almacenar los datos de $query3 en el array
-        $dataUsuario3Array[$idProyecto] = array();
-        while ($dataUsuario3 = mysqli_fetch_array($query3)) {
-            $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
-        }
-    ?>
+    
     <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
         <a href="/metronic8/demo14/../demo14/apps/projects/project.html" class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
