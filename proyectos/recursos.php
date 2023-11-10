@@ -24,7 +24,7 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
 
         if ($result->num_rows == 0) {
             // Si no hay registros, muestra una alerta y redirige
-            echo "<script>alert('No tienes ningún proyecto a tu cargo.');</script>";
+            echo "$idProyecto, $session_id";
             exit; // Asegúrate de no ejecutar el resto del código si no hay registros
         }
         // Si hay registros, el script continúa normalmente
