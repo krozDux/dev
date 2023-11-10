@@ -43,7 +43,13 @@ $query2 = mysqli_query($con, $sql2);
 												while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
                     <tr>
                         <td><?php echo strtoupper($dataUsuario1['nombre']);?></td>
-                        <td><?php echo strtoupper($dataUsuario1['nombresUsuarios']);?></td>
+                        <td><div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                        aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                        data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                        data-kt-initialized="1">
+                        <span
+                            class="symbol-label bg-dark text-inverse-primary fw-bold"><?php echo substr($dataUsuario3['nombres'], 0, 1); ?><?php echo substr($dataUsuario3['apellidos'], 0, 1); ?></span>
+                    </div></td>
                         <td><?php echo $dataUsuario1['fechaInicio']; ?></td>
                         <td><?php echo $dataUsuario1['fechaFin']; ?></td>
                         <?php 
