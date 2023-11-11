@@ -11,47 +11,6 @@ JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInf
 GROUP BY proyectos.id");
 $query2 = mysqli_query($con, $sql2);
 ?>
-<div class="content mb-0" id="kt_content">
-    <div class="card mb-0">
-        <div class="card-body py-4 mb-0">
-            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
-                <thead id="kt_table_header">
-                    <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                        <th class="min-w-125px">Nombre</th>
-                        <th class="min-w-125px">Fecha inicio</th>
-                        <th class="min-w-125px">Fecha Límite</th>
-                        <th class="min-w-125px">Descripción</th>
-                        <th class="min-w-125px">Estado</th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-600 fw-bold">
-                    <?php 
-												$i = 1;
-												while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
-                    <tr>
-                        <td><?php echo strtoupper($dataUsuario1['nombre']);?></td>
-                        <td><?php echo $dataUsuario1['fechaInicio']; ?></td>
-                        <td><?php echo $dataUsuario1['fechaFin']; ?></td>
-                        <?php 
-													if ($dataUsuario1['descripcion'] == "") { ?>
-                        <td>-</td>
-                        <?php } else { ?>
-                        <td><?php echo $dataUsuario1['descripcion']; ?></td>
-                        <?php } ?>
-
-                        <?php 
-													if ($dataUsuario1['estado'] == "1") { ?>
-                        <td>En progreso</td>
-                        <?php } else { ?>
-                        <td>Finalizado</td>
-                        <?php } ?>
-                    </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
 <div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
 
     <?php 
