@@ -8,7 +8,7 @@ $query1 = mysqli_query($con, $sql1);
 ?>
 
 <div class="content flex-column-fluid" id="kt_content">
-<?php 
+    <?php 
     $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
                         
     while ($dataUsuario1 = mysqli_fetch_array($query1)) {
@@ -32,25 +32,26 @@ $query1 = mysqli_query($con, $sql1);
                     <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
                         <div class="d-flex flex-column">
                             <div class="d-flex align-items-center mb-1">
-                                <a class="text-gray-800 text-hover-primary fs-2 fw-bold me-3"><?php echo strtoupper($dataUsuario1['nombre']);?></a>
+                                <a
+                                    class="text-gray-800 text-hover-primary fs-2 fw-bold me-3"><?php echo strtoupper($dataUsuario1['nombre']);?></a>
                                 <?php 
 									if ($dataUsuario1['estado'] == "1") { ?>
-                                    <span class="badge badge-light-warning me-auto">En progreso</span>
-                                    <?php } else { ?>
-                                    <span class="badge badge-light-success me-auto">Finalizado</span>
+                                <span class="badge badge-light-warning me-auto">En progreso</span>
+                                <?php } else { ?>
+                                <span class="badge badge-light-success me-auto">Finalizado</span>
                                 <?php } ?>
-                                
-                               
+
+
                             </div>
 
                             <div class="d-flex flex-wrap fw-semibold mb-4 fs-5 text-gray-500">
-                            <?php 
+                                <?php 
 									if ($dataUsuario1['descripcion'] != "") { ?>
-                                    <?php echo $dataUsuario1['descripcion']; ?>
-                                    <?php } else { ?>
-                                    -
+                                <?php echo $dataUsuario1['descripcion']; ?>
+                                <?php } else { ?>
+                                -
                                 <?php } ?>
-                            
+
                             </div>
                         </div>
 
@@ -61,7 +62,7 @@ $query1 = mysqli_query($con, $sql1);
                             <a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal"
                                 data-bs-target="#kt_modal_new_target">Add Target</a>
 
-                          
+
                             <!--end::Menu-->
                         </div>
                         <!--end::Actions-->
@@ -72,7 +73,7 @@ $query1 = mysqli_query($con, $sql1);
                     <div class="d-flex flex-wrap justify-content-start">
                         <!--begin::Stats-->
                         <div class="d-flex flex-wrap">
-                        <?php 
+                            <?php 
                         $fechaInicio = $dataUsuario1['fechaInicio'];
                         $fechaInicioF = date('d/m/Y', strtotime($fechaInicio));
                         $fechaFin = $dataUsuario1['fechaFin'];
@@ -116,25 +117,25 @@ $query1 = mysqli_query($con, $sql1);
                                 <div class="fw-semibold fs-6 text-gray-500">Documentos adjuntos</div>
                             </div>
 
-                           
+
                         </div>
 
                         <div class="symbol-group symbol-hover mb-3">
-                       <?php foreach ($dataUsuario3Array[$dataUsuario1['id']] as $dataUsuario3) {
-        if ($dataUsuario3['imagen'] != "blank.png") {
-            echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
-                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
-                  </div>';
-        } else {
-            $iniciales = substr($dataUsuario3['nombres'], 0, 1) . substr($dataUsuario3['apellidos'], 0, 1);
-            echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
-                    <span class="symbol-label bg-dark text-inverse-primary fw-bold">' . $iniciales . '</span>
-                  </div>';
-        }
-    }
-    ?>
+                            <?php foreach ($dataUsuario3Array[$dataUsuario1['id']] as $dataUsuario3) {
+                                if ($dataUsuario3['imagen'] != "blank.png") {
+                                    echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                                            title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                                            <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                                        </div>';
+                                } else {
+                                    $iniciales = substr($dataUsuario3['nombres'], 0, 1) . substr($dataUsuario3['apellidos'], 0, 1);
+                                    echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                                            title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                                            <span class="symbol-label bg-dark text-inverse-primary fw-bold">' . $iniciales . '</span>
+                                        </div>';
+                                }
+                            }
+                            ?>
                             <!--end::All users-->
                         </div>
                         <!--end::Users-->
