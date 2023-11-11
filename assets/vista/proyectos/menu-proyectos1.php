@@ -132,7 +132,7 @@
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1 mt-0">GESTIÓN DE PROYECTOS</span>
                     </div>
                 </div>
-                <div data-kt-menu-trigger="click" class="menu-item here menu-accordion">
+                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
