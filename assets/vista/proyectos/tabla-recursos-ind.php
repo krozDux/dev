@@ -11,7 +11,7 @@ JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInf
 GROUP BY proyectos.id");
 $query2 = mysqli_query($con, $sql2);
 ?>
-<div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
+<div class="row g-6 g-xl-9" id="card_proyectos">
 
     <?php 
     $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
