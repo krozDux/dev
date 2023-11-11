@@ -10,7 +10,10 @@ $query1 = mysqli_query($con, $sql1);
 <div class="content flex-column-fluid" id="kt_content">
     <?php 
 	$i = 1;
-	while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
+	while ($dataUsuario1 = mysqli_fetch_array($query1)) { 
+        $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
+        $query3 = mysqli_query($con, $sql3);
+        ?>
     <div class="card mb-6 mb-xl-9">
         <div class="card-body pt-9 pb-0">
             <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
