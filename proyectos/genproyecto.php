@@ -42,7 +42,7 @@
             buttons: [{
                     text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
                         'Vistas',
-                    className: 'btn btn-primary',
+                    className: 'btn btn-primary mt-2',
                     action: function(e, dt, node, config) {
                         var div1 = document.getElementById('card_proyectos');
                         var div2 = document.getElementById('kt_table_users');
@@ -65,7 +65,7 @@
                         '<path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>' +
                         '</svg>' +
                         '</span>Registrar',
-                    className: 'btn btn-primary',
+                    className: 'btn btn-primary mt-2',
                     action: function(e, dt, node, config) {
                         $('#kt_modal_new_target').modal('show');
                     }
