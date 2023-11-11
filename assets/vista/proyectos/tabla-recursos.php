@@ -22,7 +22,7 @@ $query1 = mysqli_query($con, $sql1);
                     <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
                         <div class="d-flex flex-column">
                             <div class="d-flex align-items-center mb-1">
-                                <a href="#" class="text-gray-800 text-hover-primary fs-2 fw-bold me-3"><?php echo strtoupper($dataUsuario1['nombre']);?></a>
+                                <a class="text-gray-800 text-hover-primary fs-2 fw-bold me-3"><?php echo strtoupper($dataUsuario1['nombre']);?></a>
                                 <?php 
 									if ($dataUsuario1['estado'] == "1") { ?>
                                     <span class="badge badge-light-warning me-auto">En progreso</span>
@@ -51,23 +51,7 @@ $query1 = mysqli_query($con, $sql1);
                             <a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal"
                                 data-bs-target="#kt_modal_new_target">Add Target</a>
 
-                            <div class="me-0">
-                                <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                    <i class="ki-solid ki-dots-horizontal fs-2x"></i> </button>
-
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3"
-                                    data-kt-menu="true">
-                                    <div class="menu-item px-3">
-                                        <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">
-                                            Payments
-                                        </div>
-                                    </div>
-
-                                    <!--end::Menu item-->
-                                </div>
-                                <!--end::Menu 3-->
-                            </div>
+                          
                             <!--end::Menu-->
                         </div>
                         <!--end::Actions-->
@@ -118,17 +102,11 @@ $query1 = mysqli_query($con, $sql1);
                                     <div class="fs-4 fw-bold counted" data-kt-countup="true" data-kt-countup-value="75"
                                         data-kt-initialized="1">75</div>
                                 </div>
-                                <!--end::Number-->
 
-                                <!--begin::Label-->
-                                <div class="fw-semibold fs-6 text-gray-500">Open Tasks</div>
-                                <!--end::Label-->
+                                <div class="fw-semibold fs-6 text-gray-500">Documentos adjuntos</div>
                             </div>
-                            <!--end::Stat-->
 
-                            <!--begin::Stat-->
                             <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                <!--begin::Number-->
                                 <div class="d-flex align-items-center">
                                     <i class="ki-duotone ki-arrow-up fs-3 text-success me-2"><span
                                             class="path1"></span><span class="path2"></span></i>
@@ -136,15 +114,10 @@ $query1 = mysqli_query($con, $sql1);
                                         data-kt-countup-value="15000" data-kt-countup-prefix="$"
                                         data-kt-initialized="1">$15,000</div>
                                 </div>
-                                <!--end::Number-->
 
-                                <!--begin::Label-->
                                 <div class="fw-semibold fs-6 text-gray-500">Budget Spent</div>
-                                <!--end::Label-->
                             </div>
-                            <!--end::Stat-->
                         </div>
-                        <!--end::Stats-->
 
                         <!--begin::Users-->
                         <div class="symbol-group symbol-hover mb-3">
