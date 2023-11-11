@@ -24,10 +24,6 @@ $query1 = mysqli_query($con, $sql1);
     <div class="card mb-6 mb-xl-9">
         <div class="card-body pt-9 pb-0">
             <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
-                <div
-                    class="d-flex flex-center flex-shrink-0 bg-light rounded w-100px h-100px w-lg-150px h-lg-150px me-7 mb-4">
-                    <img class="mw-50px mw-lg-75px" src="/assets/media/svg/brand-logos/volicity-9.svg" alt="image">
-                </div>
                 <div class="flex-grow-1">
                     <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
                         <div class="d-flex flex-column">
@@ -56,18 +52,10 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
 
                         <div class="d-flex mb-4">
-                            <a href="#" class="btn btn-sm btn-bg-light btn-active-color-primary me-3"
-                                data-bs-toggle="modal" data-bs-target="#kt_modal_users_search">Add User</a>
-
                             <a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal"
-                                data-bs-target="#kt_modal_new_target">Add Target</a>
-
-
-                            <!--end::Menu-->
+                                data-bs-target="#kt_modal_new_target">Agregar miembro</a>
                         </div>
-                        <!--end::Actions-->
                     </div>
-                    <!--end::Head-->
 
                     <!--begin::Info-->
                     <div class="d-flex flex-wrap justify-content-start">
