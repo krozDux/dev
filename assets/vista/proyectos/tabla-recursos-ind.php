@@ -11,7 +11,7 @@ JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInf
 GROUP BY proyectos.id");
 $query2 = mysqli_query($con, $sql2);
 ?>
-<div class="row g-6 g-xl-9" id="card_proyectos">
+
 
     <?php 
     $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
@@ -28,8 +28,8 @@ $query2 = mysqli_query($con, $sql2);
             $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
         }
     ?>
-
-    <div class="col-md-6 col-xl-4 mt-3" style="border-radius: 12px;">
+<div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
+    <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
         <a href="proyectos/recursos.php?idProyecto=<?php echo $dataUsuario2['id']; ?>"
             class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
@@ -97,9 +97,11 @@ $query2 = mysqli_query($con, $sql2);
             </div>
         </a>
     </div>
+    </div>
     <?php }?>
     <?php 
     if (!$hasData) {?>
+    <div class="row g-6 g-xl-9" id="card_proyectos">
     <div class="content mb-0" id="kt_content">
         <div class="card mb-0">
             <div class="card-body py-4 mb-0">
@@ -107,5 +109,5 @@ $query2 = mysqli_query($con, $sql2);
             </div>
         </div>
     </div>
+    </div>
     <?php }?>
-</div>
