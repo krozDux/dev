@@ -8,12 +8,19 @@ $query1 = mysqli_query($con, $sql1);
 ?>
 
 <div class="content flex-column-fluid" id="kt_content">
-    <?php 
-	$i = 1;
-	while ($dataUsuario1 = mysqli_fetch_array($query1)) { 
+<?php 
+    $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
+                        
+    while ($dataUsuario1 = mysqli_fetch_array($query1)) {
+        include('../config.php');
         $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
         $query3 = mysqli_query($con, $sql3);
-        ?>
+        // Almacenar los datos de $query3 en el array
+        $dataUsuario3Array[$idProyecto] = array();
+        while ($dataUsuario3 = mysqli_fetch_array($query3)) {
+            $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
+        }
+    ?>
     <div class="card mb-6 mb-xl-9">
         <div class="card-body pt-9 pb-0">
             <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
