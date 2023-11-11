@@ -112,27 +112,42 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="symbol-group symbol-hover mb-3">
                             <!--begin::User-->
                             <?php
-                            foreach ($dataUsuario3Array[$dataUsuario1['id']] as $dataUsuario3) {
-        if ($dataUsuario3['imagen'] != "blank.png") {
-            echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
-                    <img src="ruta/a/tu/carpeta/de/imagenes/' . $dataUsuario3['imagen'] . '" alt="user-image">
-                  </div>';
-        } else {
-            $iniciales = substr($dataUsuario3['nombres'], 0, 1) . substr($dataUsuario3['apellidos'], 0, 1);
-            echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
-                    <span class="symbol-label bg-dark text-inverse-primary fw-bold">' . $iniciales . '</span>
-                  </div>';
-        }?>
+                             $totalUsuarios = count($dataUsuario3Array[$dataUsuario1['id']]);
+                             $usuariosMostrados = 0;
+                         
+                             foreach ($dataUsuario3Array[$dataUsuario1['id']] as $dataUsuario3) {
+                                 // Limitar la cantidad de usuarios a mostrar a 5
+                                 if ($usuariosMostrados < 5) {
+                                     if ($dataUsuario3['imagen'] != "blank.png") {
+                                         echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                                                 title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                                                 <img src="ruta/a/tu/carpeta/de/imagenes/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                                               </div>';
+                                     } else {
+                                         $iniciales = substr($dataUsuario3['nombres'], 0, 1) . substr($dataUsuario3['apellidos'], 0, 1);
+                                         echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                                                 title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                                                 <span class="symbol-label bg-dark text-inverse-primary fw-bold">' . $iniciales . '</span>
+                                               </div>';
+                                     }
+                                     $usuariosMostrados++;
+                                 }
+                             }
+                         
+                             // Si hay más de 5 usuarios, mostrar el círculo adicional
+                             if ($totalUsuarios > 5) {
+                                 $usuariosExcedentes = $totalUsuarios - 5; // Calcular la cantidad de usuarios no mostrados
+                                 echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                                         title="+' . $usuariosExcedentes . ' more">
+                                         <span class="symbol-label bg-dark text-inverse-dark fw-bold">+' . $usuariosExcedentes . '</span>
+                                       </div>';
+                             }
+                         
+                             echo '</div>';
+        ?>
                             <!--end::User-->
-                            <!--begin::All users-->
-                            <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal"
-                                data-bs-target="#kt_modal_view_users">
-                                <span class="symbol-label bg-dark text-inverse-dark fs-8 fw-bold"
-                                    data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                    data-bs-original-title="View more users" data-kt-initialized="1">+42</span>
-                            </a>
+                            
+                            
                             <!--end::All users-->
                         </div>
                         <!--end::Users-->
