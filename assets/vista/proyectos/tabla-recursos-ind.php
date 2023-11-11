@@ -29,7 +29,7 @@ $query2 = mysqli_query($con, $sql2);
         }
     ?>
 
-    <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
+    <div class="col-md-6 col-xl-4 mt-3" style="border-radius: 12px;">
         <a href="proyectos/recursos.php?idProyecto=<?php echo $dataUsuario2['id']; ?>"
             class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
