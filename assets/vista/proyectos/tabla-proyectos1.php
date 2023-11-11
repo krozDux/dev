@@ -1,12 +1,10 @@
 <?php
 include('../config.php');
-$sql1 = ("SELECT * FROM proyectos");
+$sql1 = ("SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectos.descripcion, proyectos.fechaCreacion, proyectos.estado, proyectosInfo.tipo, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idProyecto, GROUP_CONCAT(DISTINCT CONCAT(usuarios.nombres, ' ', usuarios.apellidos)) AS nombresUsuarios FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id GROUP BY proyectos.id;");
 $query1 = mysqli_query($con, $sql1);
-include('../config.php');
 $sql2 = ("SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectos.descripcion, proyectos.fechaCreacion, proyectos.estado, proyectosInfo.tipo, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idProyecto, GROUP_CONCAT(proyectosInfo.idUsuario) AS idUsuarios
 FROM proyectos
-JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto
-GROUP BY proyectos.id;");
+JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto GROUP BY proyectos.id");
 $query2 = mysqli_query($con, $sql2);
 ?>
 <div class="content mb-0" id="kt_content">
@@ -16,6 +14,7 @@ $query2 = mysqli_query($con, $sql2);
                 <thead id="kt_table_header">
                     <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                         <th class="min-w-125px">Nombre</th>
+                        <th class="min-w-125px">Miembros</th>
                         <th class="min-w-125px">Fecha inicio</th>
                         <th class="min-w-125px">Fecha Límite</th>
                         <th class="min-w-125px">Descripción</th>
@@ -28,6 +27,14 @@ $query2 = mysqli_query($con, $sql2);
 												while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
                     <tr>
                         <td><?php echo strtoupper($dataUsuario1['nombre']);?></td>
+                        <td>
+                            <?php 
+                                $nombresUsuarios = explode(',', strtoupper($dataUsuario1['nombresUsuarios']));
+                                foreach ($nombresUsuarios as $nombre) {
+                                echo "<span style='display: block;'> - $nombre</span>";
+                                }
+                            ?>
+                        </td>
                         <td><?php echo $dataUsuario1['fechaInicio']; ?></td>
                         <td><?php echo $dataUsuario1['fechaFin']; ?></td>
                         <?php 
