@@ -28,7 +28,7 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
 
         if ($result->num_rows == 0) {
             echo "$idProyecto, $session_id";
-            exit;
+           
         }
 ?>
 <html lang="es">
