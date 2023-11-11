@@ -16,8 +16,8 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
             WHERE proyectosInfo.idProyecto = ? AND proyectosInfo.estado='1' 
             AND proyectosInfo.idUsuario = ?";
     
-    // Prepara el statement para la consulta
-    if ($stmt = $con->prepare($sql)) {
+    if ($session_rol != "admin") {
+        if ($stmt = $con->prepare($sql)) {
         // Vincula los parámetros y ejecuta
         $stmt->bind_param("ii", $idProyecto, $session_id);
         $stmt->execute();
@@ -180,4 +180,4 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
     
 </body>
 </html>
-<?php }?>
+<?php }}?>
