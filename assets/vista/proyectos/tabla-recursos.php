@@ -110,41 +110,31 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
 
                         <div class="symbol-group symbol-hover mb-3">
-    <!--begin::User-->
-    <?php
-    $contador = 0; // Iniciar el contador
-    foreach ($dataUsuario3Array[$dataUsuario1['id']] as $dataUsuario3) {
-        // Solo mostrar hasta 5 usuarios
-        if ($contador < 5) {
-            if ($dataUsuario3['imagen'] != "blank.png") {
-                echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                        title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
-                        <img src="ruta/a/tu/carpeta/de/imagenes/' . $dataUsuario3['imagen'] . '" alt="user-image">
-                      </div>';
-            } else {
-                $iniciales = substr($dataUsuario3['nombres'], 0, 1) . substr($dataUsuario3['apellidos'], 0, 1);
-                echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                        title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
-                        <span class="symbol-label bg-dark text-inverse-primary fw-bold">' . $iniciales . '</span>
-                      </div>';
-            }
-            $contador++; // Incrementar el contador
-        } else {
-            break; // Salir del bucle si ya se han mostrado 5 usuarios
-        }
-    }
-    
-    // Comprobar si hay más de 5 registros y mostrar el círculo adicional
-    if (count($dataUsuario3Array[$dataUsuario1['id']]) > 5) {
-        $usuariosExcedentes = count($dataUsuario3Array[$dataUsuario1['id']]) - 5;
-        echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                title="+' . $usuariosExcedentes . ' more">
-                <span class="symbol-label bg-dark text-inverse-dark fw-bold">+' . $usuariosExcedentes . '</span>
-              </div>';
-    }
-    ?>
-    <!--end::All users-->
-</div>
+                            <!--begin::User-->
+                            <?php
+                            foreach ($dataUsuario3Array[$dataUsuario1['id']] as $dataUsuario3) {
+                            if ($dataUsuario3['imagen'] != "blank.png") {
+                                echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                                        title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                                        <img src="ruta/a/tu/carpeta/de/imagenes/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                                    </div>';
+                            } else {
+                                $iniciales = substr($dataUsuario3['nombres'], 0, 1) . substr($dataUsuario3['apellidos'], 0, 1);
+                                echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                                        title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                                        <span class="symbol-label bg-dark text-inverse-primary fw-bold">' . $iniciales . '</span>
+                                    </div>';
+                            }}?>
+                            <!--end::User-->
+                            <!--begin::All users-->
+                            <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal"
+                                data-bs-target="#kt_modal_view_users">
+                                <span class="symbol-label bg-dark text-inverse-dark fs-8 fw-bold"
+                                    data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                    data-bs-original-title="View more users" data-kt-initialized="1">+42</span>
+                            </a>
+                            <!--end::All users-->
+                        </div>
                         <!--end::Users-->
                     </div>
                     <!--end::Info-->
