@@ -19,6 +19,7 @@ $query2 = mysqli_query($con, $sql2);
                         <th class="min-w-125px">Fecha Límite</th>
                         <th class="min-w-125px">Descripción</th>
                         <th class="min-w-125px">Estado</th>
+                        <th class="min-w-125px">Opciones</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600 fw-bold">
@@ -50,6 +51,11 @@ $query2 = mysqli_query($con, $sql2);
                         <?php } else { ?>
                         <td>Finalizado</td>
                         <?php } ?>
+                        <td>
+                            <button type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm" onclick="'proyectos/recursos.php?idProyecto='<?php echo $dataUsuario1['id']; ?>">
+                                <span class="bi bi-eye-fill fs-7 opacity-50"></span>
+                            </button>
+                        </td>
                     </tr>
                     <?php } ?>
                 </tbody>
