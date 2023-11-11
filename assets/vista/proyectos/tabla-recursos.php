@@ -97,7 +97,7 @@ $query1 = mysqli_query($con, $sql1);
                             <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                 <!--begin::Number-->
                                 <div class="d-flex align-items-center">
-                                    <i class="ki-duotone ki-arrow-down fs-3 text-danger me-2"><span
+                                    <i class="ki-duotone ki-arrow-down fs-3 text-danger"><span
                                             class="path1"></span><span class="path2"></span></i>
                                     <div class="fs-4 fw-bold counted" data-kt-countup="true" data-kt-countup-value="75"
                                         data-kt-initialized="1">75</div>
@@ -106,72 +106,42 @@ $query1 = mysqli_query($con, $sql1);
                                 <div class="fw-semibold fs-6 text-gray-500">Documentos adjuntos</div>
                             </div>
 
-                            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                <div class="d-flex align-items-center">
-                                    <i class="ki-duotone ki-arrow-up fs-3 text-success me-2"><span
-                                            class="path1"></span><span class="path2"></span></i>
-                                    <div class="fs-4 fw-bold counted" data-kt-countup="true"
-                                        data-kt-countup-value="15000" data-kt-countup-prefix="$"
-                                        data-kt-initialized="1">$15,000</div>
-                                </div>
-
-                                <div class="fw-semibold fs-6 text-gray-500">Budget Spent</div>
-                            </div>
+                           
                         </div>
 
-                        <!--begin::Users-->
+                        <?php 
+                        $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
+                        while ($dataUsuario2 = mysqli_fetch_array($query2)) {
+                            $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
+                            $query3 = mysqli_query($con, $sql3);
+                            // Almacenar los datos de $query3 en el array
+                            $dataUsuario3Array[$idProyecto] = array();
+                            while ($dataUsuario3 = mysqli_fetch_array($query3)) {
+                                $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
+                            }
+                        ?>
                         <div class="symbol-group symbol-hover mb-3">
-                            <!--begin::User-->
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                data-bs-original-title="Alan Warden" data-kt-initialized="1">
-                                <span class="symbol-label bg-warning text-inverse-warning fw-bold">A</span>
-                            </div>
-                            <!--end::User-->
-                            <!--begin::User-->
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                aria-label="Michael Eberon" data-bs-original-title="Michael Eberon"
-                                data-kt-initialized="1">
-                                <img alt="Pic" src="/assets/media/avatars/300-11.jpg">
-                            </div>
-                            <!--end::User-->
-                            <!--begin::User-->
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                aria-label="Michelle Swanston" data-bs-original-title="Michelle Swanston"
-                                data-kt-initialized="1">
-                                <img alt="Pic" src="/assets/media/avatars/300-7.jpg">
-                            </div>
-                            <!--end::User-->
-                            <!--begin::User-->
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                aria-label="Francis Mitcham" data-bs-original-title="Francis Mitcham"
-                                data-kt-initialized="1">
-                                <img alt="Pic" src="/assets/media/avatars/300-20.jpg">
-                            </div>
-                            <!--end::User-->
-                            <!--begin::User-->
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                data-bs-original-title="Susan Redwood" data-kt-initialized="1">
-                                <span class="symbol-label bg-primary text-inverse-primary fw-bold">S</span>
-                            </div>
-                            <!--end::User-->
-                            <!--begin::User-->
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                aria-label="Melody Macy" data-bs-original-title="Melody Macy" data-kt-initialized="1">
-                                <img alt="Pic" src="/assets/media/avatars/300-2.jpg">
-                            </div>
-                            <!--end::User-->
-                            <!--begin::User-->
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                data-bs-original-title="Perry Matthew" data-kt-initialized="1">
-                                <span class="symbol-label bg-info text-inverse-info fw-bold">P</span>
-                            </div>
-                            <!--end::User-->
-                            <!--begin::User-->
-                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                aria-label="Barry Walter" data-bs-original-title="Barry Walter" data-kt-initialized="1">
-                                <img alt="Pic" src="/assets/media/avatars/300-12.jpg">
-                            </div>
-                            <!--end::User-->
+                        <?php 
+                        foreach ($dataUsuario3Array[$idProyecto] as $dataUsuario3) { ?>
+                    <?php if ($dataUsuario3['imagen'] != "blank.png") { ?>
+                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                        aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                        data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                        data-kt-initialized="1">
+                        <img alt="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                            src="assets/media/avatars/<?php echo $dataUsuario3['imagen']; ?>">
+                    </div>
+                    <?php } else { ?>
+                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                        aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                        data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
+                        data-kt-initialized="1">
+                        <span
+                            class="symbol-label bg-dark text-inverse-primary fw-bold"><?php echo substr($dataUsuario3['nombres'], 0, 1); ?><?php echo substr($dataUsuario3['apellidos'], 0, 1); ?></span>
+                    </div>
+                    <?php } ?>
+                    <?php } ?>
+                            <?php } ?>
 
                             <!--begin::All users-->
                             <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal"
