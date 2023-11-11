@@ -10,16 +10,7 @@ $query1 = mysqli_query($con, $sql1);
 <div class="content flex-column-fluid" id="kt_content">
     <?php 
 	$i = 1;
-	while ($dataUsuario1 = mysqli_fetch_array($query1)) {  
-        $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
-        $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
-        $query3 = mysqli_query($con, $sql3);
-        // Almacenar los datos de $query3 en el array
-        $dataUsuario3Array[$idProyecto] = array();
-        while ($dataUsuario3 = mysqli_fetch_array($query3)) {
-            $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
-        }?>
-    
+	while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
     <div class="card mb-6 mb-xl-9">
         <div class="card-body pt-9 pb-0">
             <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
@@ -119,27 +110,22 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
 
                         <div class="symbol-group symbol-hover mb-3">
-                        <?php 
-                        foreach ($dataUsuario3Array[$idProyecto] as $dataUsuario3) { ?>
-                    <?php if ($dataUsuario3['imagen'] != "blank.png") { ?>
-                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                        aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                        data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                        data-kt-initialized="1">
-                        <img alt="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                            src="assets/media/avatars/<?php echo $dataUsuario3['imagen']; ?>">
-                    </div>
-                    <?php } else { ?>
-                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                        aria-label="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                        data-bs-original-title="<?php echo $dataUsuario3['nombres']; ?> <?php echo $dataUsuario3['apellidos']; ?>"
-                        data-kt-initialized="1">
-                        <span
-                            class="symbol-label bg-dark text-inverse-primary fw-bold"><?php echo substr($dataUsuario3['nombres'], 0, 1); ?><?php echo substr($dataUsuario3['apellidos'], 0, 1); ?></span>
-                    </div>
-                    <?php } ?>
-                    <?php } ?>
-
+                            <!--begin::User-->
+                            <?php
+                            foreach ($dataUsuario3Array[$dataUsuario1['id']] as $dataUsuario3) {
+        if ($dataUsuario3['imagen'] != "blank.png") {
+            echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="ruta/a/tu/carpeta/de/imagenes/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+        } else {
+            $iniciales = substr($dataUsuario3['nombres'], 0, 1) . substr($dataUsuario3['apellidos'], 0, 1);
+            echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <span class="symbol-label bg-dark text-inverse-primary fw-bold">' . $iniciales . '</span>
+                  </div>';
+        }?>
+                            <!--end::User-->
                             <!--begin::All users-->
                             <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal"
                                 data-bs-target="#kt_modal_view_users">
