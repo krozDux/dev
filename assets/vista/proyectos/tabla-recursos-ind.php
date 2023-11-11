@@ -18,6 +18,7 @@ $query2 = mysqli_query($con, $sql2);
                         
     while ($dataUsuario2 = mysqli_fetch_array($query2)) {
         $idProyecto = $dataUsuario2['id'];
+        $hasData = true;
         include('../config.php');
         $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
         $query3 = mysqli_query($con, $sql3);
@@ -29,7 +30,8 @@ $query2 = mysqli_query($con, $sql2);
     ?>
 
     <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
-        <a href="proyectos/recursos.php?idProyecto=<?php echo $dataUsuario2['id']; ?>" class="card border-hover-primary">
+        <a href="proyectos/recursos.php?idProyecto=<?php echo $dataUsuario2['id']; ?>"
+            class="card border-hover-primary">
             <div class="card-header border-0 pt-9 pb-0">
                 <div class="card-title m-0">
                     <div class="fs-3 fw-bold text-gray-900">
@@ -95,5 +97,14 @@ $query2 = mysqli_query($con, $sql2);
             </div>
         </a>
     </div>
-    <?php } ?>
+    <?php 
+    if (!$hasData) {?>
+    <div class="content mb-0" id="kt_content">
+        <div class="card mb-0">
+            <div class="card-body py-4 mb-0">
+                ga
+            </div>
+        </div>
+    </div>
+    <?php }} ?>
 </div>

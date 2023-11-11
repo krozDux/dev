@@ -27,9 +27,7 @@ if (isset($_GET['idProyecto'])) {
         exit;
     }
 
-    // Prepara el statement para la consulta
     if ($stmt = $con->prepare($sql)) {
-        // Vincula los parámetros y ejecuta, ten en cuenta que para admin no necesitamos vincular $session_id
         if ($session_rol == "admin") {
             $stmt->bind_param("i", $idProyecto);
         } else {
@@ -43,8 +41,6 @@ if (isset($_GET['idProyecto'])) {
             echo "No se encontraron resultados para el ID del proyecto: $idProyecto.";
             exit;
         }
-
-        // A partir de aquí, el código continúa como en tu versión original, procesando $result
 ?>
 <html lang="es">
 <head>
@@ -67,7 +63,6 @@ if (isset($_GET['idProyecto'])) {
     <script src="assets/js/widgets.bundle.js"></script>
     <script src="assets/js/custom/widgets.js"></script>
     <script src="assets/js/custom/apps/chat/chat.js"></script>
-    <!-- <script src="assets/js/custom/utilities/modals/new-target.js"></script> -->
     <script src="assets/js/custom/utilities/modals/create-project/type.js"></script>
     <script src="assets/js/custom/utilities/modals/create-project/budget.js"></script>
     <script src="assets/js/custom/utilities/modals/create-project/settings.js"></script>
