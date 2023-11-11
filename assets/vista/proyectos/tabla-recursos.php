@@ -126,7 +126,8 @@ $query1 = mysqli_query($con, $sql1);
                                             title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
                                             <span class="symbol-label bg-dark text-inverse-primary fw-bold">' . $iniciales . '</span>
                                         </div>';
-                                }?>
+                                }
+                            }?>
                             
                             <!--end::All users-->
                         </div>
