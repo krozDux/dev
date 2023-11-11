@@ -79,10 +79,10 @@ $query1 = mysqli_query($con, $sql1);
                         <!--begin::Stats-->
                         <div class="d-flex flex-wrap">
                         <?php 
-                        $fechaInicio = $dataUsuario2['fechaInicio'];
-                        $fechaInicioF = date('d/m/Y', strtotime($fechaInicio));
-                        $fechaFin = $dataUsuario2['fechaFin'];
-                        $fechaFinF = date('d/m/Y', strtotime($fechaFin));
+                        $fechaInicio = $dataUsuario1['fechaInicio'];
+                        $fechaInicioF = $formatter->format(new DateTime($fechaInicio));
+                        $fechaFin = $dataUsuario1['fechaFin'];
+                        $fechaFinF = $formatter->format(new DateTime($fechaFin));
                         ?>
                             <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                 <!--begin::Number-->
