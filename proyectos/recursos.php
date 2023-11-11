@@ -123,7 +123,7 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
 </body>
 </html>
         <?php } if ($result1->num_rows == 0) {?>
-            <?php   echo "<script>alert('sin datos.'); window.location.href = '../panel/index.php';</script>";?>
+            <?php echo "waa";?>
        <?php  }
 ?>
 <html lang="es">
