@@ -124,7 +124,7 @@ $query1 = mysqli_query($con, $sql1);
         if ($dataUsuario3['imagen'] != "blank.png") {
             echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
                     title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
-                    <img src="ruta/a/tu/carpeta/de/imagenes/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
                   </div>';
         } else {
             $iniciales = substr($dataUsuario3['nombres'], 0, 1) . substr($dataUsuario3['apellidos'], 0, 1);
