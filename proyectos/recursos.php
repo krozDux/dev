@@ -15,9 +15,12 @@ if (isset($_GET['idProyecto']) && $session_rol != "invitado" &&  $session_rol !=
             LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id 
             WHERE proyectosInfo.idProyecto = ? AND proyectosInfo.estado='1' 
             AND proyectosInfo.idUsuario = ?";
-    
+    $sqlad = "SELECT * FROM proyectos 
+    JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto 
+    LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id 
+    WHERE proyectosInfo.idProyecto = ? AND proyectosInfo.estado='1'";
     // Prepara el statement para la consulta
-    if ($stmt = $con->prepare($sql)) {
+    if ($session_rol != "invitado") {
         // Vincula los parámetros y ejecuta
         $stmt->bind_param("ii", $idProyecto, $session_id);
         $stmt->execute();
