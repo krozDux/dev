@@ -97,6 +97,7 @@ $query2 = mysqli_query($con, $sql2);
             </div>
         </a>
     </div>
+    <?php }?>
     <?php 
     if (!$hasData) {?>
     <div class="content mb-0" id="kt_content">
@@ -106,5 +107,5 @@ $query2 = mysqli_query($con, $sql2);
             </div>
         </div>
     </div>
-    <?php }} ?>
+    <?php }?>
 </div>
