@@ -126,6 +126,86 @@ $query1 = mysqli_query($con, $sql1);
                     title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
                     <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
                   </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
+                  echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                    title="' . $dataUsuario3['nombres'] . ' ' . $dataUsuario3['apellidos'] . '">
+                    <img src="assets/media/avatars/' . $dataUsuario3['imagen'] . '" alt="user-image">
+                  </div>';
         } else {
             $iniciales = substr($dataUsuario3['nombres'], 0, 1) . substr($dataUsuario3['apellidos'], 0, 1);
             echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
