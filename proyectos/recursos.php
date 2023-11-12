@@ -77,18 +77,28 @@ if (isset($_GET['idProyecto'])) {
     });
     </script>
 
-    <script>
+<script>
+        var dataTable;
     $(document).ready(function() {
-
-        $('#kt_table_users').DataTable({
-
+        var input = document.querySelector('input[name="tags1"]'),
+        tagify = new Tagify(input, {
+        whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['id']; ?>]",<?php } ?>],
+        maxTags: 10,
+        dropdown: {
+            maxItems: 20,           // <- mixumum allowed rendered suggestions
+            classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
+            enabled: 0,             // <- show suggestions on focus
+            closeOnSelect: true    // <- do not hide the suggestions dropdown once an item has been selected
+        }
+        });
+        var dataTable = $('#kt_table_users').DataTable({
             dom: 'fBrtip',
             "sScrollX": "100%",
             "sScrollXInner": "110%",
             "bScrollCollapse": true,
             searching: false,
             paging: false, // Desactiva la paginación
-            info: false, // Desactiva la información de entradas
+            info: false,  // Desactiva la información de entradas
             buttons: [{
                     text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
                         'Vistas',
@@ -109,18 +119,16 @@ if (isset($_GET['idProyecto'])) {
                     }
                 },
                 {
-                    extend: 'excelHtml5',
                     text: '<span class="svg-icon svg-icon-2 opacity-50">' +
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">' +
-                        '  <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>' +
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">' +
+                        '<path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>' +
+                        '<path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>' +
                         '</svg>' +
-                        '</span>Exportar</button>',
+                        '</span>Registrar',
                     className: 'btn btn-primary mt-2',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4]
-                    },
-                    autoFilter: true,
-                    sheetName: 'Reporte - Proyectos'
+                    action: function(e, dt, node, config) {
+                        $('#kt_modal_new_target').modal('show');
+                    }
                 },
             ],
             language: {
@@ -135,8 +143,21 @@ if (isset($_GET['idProyecto'])) {
                 infoFiltered: '(filtrado de _MAX_ registros en total)',
                 zeroRecords: 'No se encontraron registros coincidentes',
             },
+            order: [
+                [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
+            ]
+            
+        });
+        $('#exportar-btn').on('click', function() {
+            // Extiende la funcionalidad de DataTables para exportar
+            dataTable.buttons.exportData({
+                modifier: {
+                    columns: [1, 2, 3, 4, 5, 6, 7]
+                }
+            });
         });
     });
+// Agrega el evento de clic al botón "Exportar"
     </script>
 </body>
 </html>
@@ -178,17 +199,27 @@ if (isset($_GET['idProyecto'])) {
         <script src="assets/js/scripts.bundle.js"></script>
         <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
         <script>
+        var dataTable;
     $(document).ready(function() {
-
-        $('#kt_table_users').DataTable({
-
+        var input = document.querySelector('input[name="tags1"]'),
+        tagify = new Tagify(input, {
+        whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['id']; ?>]",<?php } ?>],
+        maxTags: 10,
+        dropdown: {
+            maxItems: 20,           // <- mixumum allowed rendered suggestions
+            classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
+            enabled: 0,             // <- show suggestions on focus
+            closeOnSelect: true    // <- do not hide the suggestions dropdown once an item has been selected
+        }
+        });
+        var dataTable = $('#kt_table_users').DataTable({
             dom: 'fBrtip',
             "sScrollX": "100%",
             "sScrollXInner": "110%",
             "bScrollCollapse": true,
             searching: false,
             paging: false, // Desactiva la paginación
-            info: false, // Desactiva la información de entradas
+            info: false,  // Desactiva la información de entradas
             buttons: [{
                     text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
                         'Vistas',
@@ -209,18 +240,16 @@ if (isset($_GET['idProyecto'])) {
                     }
                 },
                 {
-                    extend: 'excelHtml5',
                     text: '<span class="svg-icon svg-icon-2 opacity-50">' +
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">' +
-                        '  <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>' +
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">' +
+                        '<path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>' +
+                        '<path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>' +
                         '</svg>' +
-                        '</span>Exportar</button>',
+                        '</span>Registrar',
                     className: 'btn btn-primary mt-2',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4]
-                    },
-                    autoFilter: true,
-                    sheetName: 'Reporte - Proyectos'
+                    action: function(e, dt, node, config) {
+                        $('#kt_modal_new_target').modal('show');
+                    }
                 },
             ],
             language: {
@@ -235,8 +264,21 @@ if (isset($_GET['idProyecto'])) {
                 infoFiltered: '(filtrado de _MAX_ registros en total)',
                 zeroRecords: 'No se encontraron registros coincidentes',
             },
+            order: [
+                [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
+            ]
+            
+        });
+        $('#exportar-btn').on('click', function() {
+            // Extiende la funcionalidad de DataTables para exportar
+            dataTable.buttons.exportData({
+                modifier: {
+                    columns: [1, 2, 3, 4, 5, 6, 7]
+                }
+            });
         });
     });
+// Agrega el evento de clic al botón "Exportar"
     </script>
     </body>
     </html>
