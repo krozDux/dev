@@ -2410,7 +2410,7 @@ $query1 = mysqli_query($con, $sql1);
         <!--end::Col-->
 
         <!--begin::Col-->
-        <div class="col-lg-12">
+        <div class="col-lg-6">
 
             <!--begin::Tasks-->
             <div class="col-lg-12">
