@@ -672,37 +672,36 @@ $query1 = mysqli_query($con, $sql1);
                         // Verifica que la consulta haya retornado un resultado
                         if($query1 && mysqli_num_rows($query1) > 0) {
                             $result = mysqli_fetch_assoc($query1);
-                            // Ahora puedes acceder a $result['cantidad_dias'] para obtener la cantidad de días
+                            $fechaInicio = new DateTime($result['fechaInicio']);
+                            $fechaFin = new DateTime($result['fechaFin']);
+                            // Incrementar un día porque la fecha final es inclusiva
+                            $fechaFin->modify('+1 day'); 
                             echo "<div class='fs-6 text-gray-500'>El proyecto abarca " . $result['cantidad_dias'] . " días.</div>";
-                        } else {
-                            echo "<div class='fs-6 text-gray-500'>Información no disponible.</div>";
-                        }
                         ?>
                     </div>
                     
                 </div>
 
                 <div class="card-body p-9 pt-4">
-                    <ul class="nav nav-pills d-flex flex-nowrap hover-scroll-x py-2" role="tablist">
-
-                        <li class="nav-item me-1" role="presentation">
-                            <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary "
-                                data-bs-toggle="tab" href="#kt_schedule_day_0" aria-selected="false" tabindex="-1"
-                                role="tab">
-
-                                <span class="fs-6 fw-bold">22</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item me-1" role="presentation">
-                            <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary active"
-                                data-bs-toggle="tab" href="#kt_schedule_day_1" aria-selected="true" role="tab">
-
-                                <span class="fs-6 fw-bold">23</span>
-                            </a>
-                        </li>
-
-                    </ul>
+                <ul class="nav nav-pills d-flex flex-nowrap hover-scroll-x py-2" role="tablist">
+                    <?php
+                    for($date = $fechaInicio; $date < $fechaFin; $date->modify('+1 day')) {
+                        $day = $date->format('d');
+                        $activeClass = $date == $fechaInicio ? 'active' : '';
+                        echo "<li class='nav-item me-1' role='presentation'>
+                                <a class='nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary $activeClass'
+                                    data-bs-toggle='tab' href='#kt_schedule_day_" . $date->format('j') . "' aria-selected='false' tabindex='-1' role='tab'>
+                                    <span class='fs-6 fw-bold'>$day</span>
+                                </a>
+                            </li>";
+                    }
+                    ?>
+                </ul>
+                <?php
+                } else {
+                    echo "<div class='fs-6 text-gray-500'>Información no disponible.</div>";
+                }
+                ?>
 
                     <div class="tab-content">
                         <div id="kt_schedule_day_0" class="tab-pane fade show " role="tabpanel">
