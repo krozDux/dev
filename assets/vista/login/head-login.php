@@ -4,8 +4,8 @@
     <base href="../">
     <title>SistemaWEB | Iniciar Sesión</title>
     <meta charset="utf-8" />
-    <meta name="description" content="descripción" />
-    <meta name="keywords" content="keywords" />
+    <meta name="description" content="SistemaWEB | Iniciar Sesión" />
+    <meta name="keywords" content="iniciar sesión, sesión, iniciar, login" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:locale" content="es_PE" />
     <meta property="og:title" content="SistemaWEB | Iniciar Sesión" />
