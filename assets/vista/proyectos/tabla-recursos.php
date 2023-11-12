@@ -2432,11 +2432,9 @@ $query1 = mysqli_query($con, $sql1);
                 </div>
                 <!--end::Card header-->
 
-                <!--begin::Card body-->
-                <div class="card-body d-flex flex-column mb-9 p-9 pt-3">
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center position-relative mb-7">
-                        <div class="d-flex flex-stack position-relative mt-8">
+                <div id="kt_schedule_day_1" class="tab-pane fade show active" role="tabpanel">
+                            <!--begin::Time-->
+                            <div class="d-flex flex-stack position-relative mt-8">
                                 <!--begin::Bar-->
                                 <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
                                 <!--end::Bar-->
@@ -2469,635 +2467,78 @@ $query1 = mysqli_query($con, $sql1);
                                 <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
                                 <!--end::Action-->
                             </div>
+                            <!--end::Time-->
+                            <!--begin::Time-->
+                            <div class="d-flex flex-stack position-relative mt-8">
+                                <!--begin::Bar-->
+                                <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
+                                <!--end::Bar-->
 
-                    </div>
-                    <div class="d-flex align-items-center position-relative mb-7">
-                        <!--begin::Label-->
-                        <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-4px"></div>
-                        <!--end::Label-->
+                                <!--begin::Info-->
+                                <div class="fw-semibold ms-5 text-gray-600">
+                                    <!--begin::Time-->
+                                    <div class="fs-5">
+                                        16:30 - 17:30
 
-                        <!--begin::Checkbox-->
-                        <div class="form-check form-check-custom form-check-solid ms-6 me-4">
-                            <input class="form-check-input" type="checkbox" value="">
-                        </div>
-                        <!--end::Checkbox-->
-
-                        <!--begin::Details-->
-                        <div class="fw-semibold">
-                            <a href="#" class="fs-6 fw-bold text-gray-900 text-hover-primary">Schedule a meeting with
-                                FireBear CTO John</a>
-
-                            <!--begin::Info-->
-                            <div class="text-gray-500">
-                                Due in 3 days <a href="#">Rober Doe</a>
-                            </div>
-                            <!--end::Info-->
-                        </div>
-                        <!--end::Details-->
-
-                        <!--begin::Menu-->
-                        <button type="button"
-                            class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto"
-                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-
-                            <i class="ki-duotone ki-element-plus fs-3"><span class="path1"></span><span
-                                    class="path2"></span><span class="path3"></span><span class="path4"></span><span
-                                    class="path5"></span></i> </button>
-
-
-
-                        <!--begin::Menu 1-->
-                        <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true"
-                            id="kt_menu_654ebb3d27952">
-                            <!--begin::Header-->
-                            <div class="px-7 py-5">
-                                <div class="fs-5 text-gray-900 fw-bold">Filter Options</div>
-                            </div>
-                            <!--end::Header-->
-
-                            <!--begin::Menu separator-->
-                            <div class="separator border-gray-200"></div>
-                            <!--end::Menu separator-->
-
-
-                            <!--begin::Form-->
-                            <div class="px-7 py-5">
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Status:</label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Input-->
-                                    <div>
-                                        <select class="form-select form-select-solid select2-hidden-accessible"
-                                            multiple="" data-kt-select2="true" data-close-on-select="false"
-                                            data-placeholder="Select option"
-                                            data-dropdown-parent="#kt_menu_654ebb3d27952" data-allow-clear="true"
-                                            data-select2-id="select2-data-25-0a0e" tabindex="-1" aria-hidden="true"
-                                            data-kt-initialized="1">
-                                            <option></option>
-                                            <option value="1">Approved</option>
-                                            <option value="2">Pending</option>
-                                            <option value="2">In Process</option>
-                                            <option value="2">Rejected</option>
-                                        </select><span class="select2 select2-container select2-container--bootstrap5"
-                                            dir="ltr" data-select2-id="select2-data-26-v6ub" style="width: 100%;"><span
-                                                class="selection"><span
-                                                    class="select2-selection select2-selection--multiple form-select form-select-solid"
-                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
-                                                    tabindex="-1" aria-disabled="false">
-                                                    <ul class="select2-selection__rendered" id="select2-k49o-container">
-                                                    </ul><span class="select2-search select2-search--inline"><textarea
-                                                            class="select2-search__field" type="search" tabindex="0"
-                                                            autocorrect="off" autocapitalize="none" spellcheck="false"
-                                                            role="searchbox" aria-autocomplete="list" autocomplete="off"
-                                                            aria-label="Search"
-                                                            aria-describedby="select2-k49o-container"
-                                                            placeholder="Select option"
-                                                            style="width: 100%;"></textarea></span>
-                                                </span></span><span class="dropdown-wrapper"
-                                                aria-hidden="true"></span></span>
+                                        <span class="fs-7 text-gray-500 text-uppercase">
+                                            pm </span>
                                     </div>
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
+                                    <!--end::Time-->
 
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Member Type:</label>
-                                    <!--end::Label-->
+                                    <!--begin::Title-->
+                                    <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">
+                                        Project Review &amp; Testing </a>
+                                    <!--end::Title-->
 
-                                    <!--begin::Options-->
-                                    <div class="d-flex">
-                                        <!--begin::Options-->
-                                        <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                            <input class="form-check-input" type="checkbox" value="1">
-                                            <span class="form-check-label">
-                                                Author
-                                            </span>
-                                        </label>
-                                        <!--end::Options-->
-
-                                        <!--begin::Options-->
-                                        <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="2" checked="checked">
-                                            <span class="form-check-label">
-                                                Customer
-                                            </span>
-                                        </label>
-                                        <!--end::Options-->
+                                    <!--begin::User-->
+                                    <div class="text-gray-500">
+                                        Lead by <a href="#">Bob Harris</a>
                                     </div>
-                                    <!--end::Options-->
+                                    <!--end::User-->
                                 </div>
-                                <!--end::Input group-->
+                                <!--end::Info-->
 
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Notifications:</label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Switch-->
-                                    <div
-                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="" name="notifications"
-                                            checked="">
-                                        <label class="form-check-label">
-                                            Enabled
-                                        </label>
-                                    </div>
-                                    <!--end::Switch-->
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Actions-->
-                                <div class="d-flex justify-content-end">
-                                    <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2"
-                                        data-kt-menu-dismiss="true">Reset</button>
-
-                                    <button type="submit" class="btn btn-sm btn-primary"
-                                        data-kt-menu-dismiss="true">Apply</button>
-                                </div>
-                                <!--end::Actions-->
+                                <!--begin::Action-->
+                                <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+                                <!--end::Action-->
                             </div>
-                            <!--end::Form-->
-                        </div>
-                        <!--end::Menu 1-->
-                        <!--end::Menu-->
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center position-relative mb-7">
-                        <!--begin::Label-->
-                        <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-4px"></div>
-                        <!--end::Label-->
+                            <!--end::Time-->
+                            <!--begin::Time-->
+                            <div class="d-flex flex-stack position-relative mt-8">
+                                <!--begin::Bar-->
+                                <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
+                                <!--end::Bar-->
 
-                        <!--begin::Checkbox-->
-                        <div class="form-check form-check-custom form-check-solid ms-6 me-4">
-                            <input class="form-check-input" type="checkbox" value="">
-                        </div>
-                        <!--end::Checkbox-->
+                                <!--begin::Info-->
+                                <div class="fw-semibold ms-5 text-gray-600">
+                                    <!--begin::Time-->
+                                    <div class="fs-5">
+                                        14:30 - 15:30
 
-                        <!--begin::Details-->
-                        <div class="fw-semibold">
-                            <a href="#" class="fs-6 fw-bold text-gray-900 text-hover-primary">9 Degree Porject
-                                Estimation</a>
-
-                            <!--begin::Info-->
-                            <div class="text-gray-500">
-                                Due in 1 week <a href="#">Neil Owen</a>
-                            </div>
-                            <!--end::Info-->
-                        </div>
-                        <!--end::Details-->
-
-                        <!--begin::Menu-->
-                        <button type="button"
-                            class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto"
-                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-
-                            <i class="ki-duotone ki-element-plus fs-3"><span class="path1"></span><span
-                                    class="path2"></span><span class="path3"></span><span class="path4"></span><span
-                                    class="path5"></span></i> </button>
-
-
-
-                        <!--begin::Menu 1-->
-                        <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true"
-                            id="kt_menu_654ebb3d2795f">
-                            <!--begin::Header-->
-                            <div class="px-7 py-5">
-                                <div class="fs-5 text-gray-900 fw-bold">Filter Options</div>
-                            </div>
-                            <!--end::Header-->
-
-                            <!--begin::Menu separator-->
-                            <div class="separator border-gray-200"></div>
-                            <!--end::Menu separator-->
-
-
-                            <!--begin::Form-->
-                            <div class="px-7 py-5">
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Status:</label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Input-->
-                                    <div>
-                                        <select class="form-select form-select-solid select2-hidden-accessible"
-                                            multiple="" data-kt-select2="true" data-close-on-select="false"
-                                            data-placeholder="Select option"
-                                            data-dropdown-parent="#kt_menu_654ebb3d2795f" data-allow-clear="true"
-                                            data-select2-id="select2-data-27-kehr" tabindex="-1" aria-hidden="true"
-                                            data-kt-initialized="1">
-                                            <option></option>
-                                            <option value="1">Approved</option>
-                                            <option value="2">Pending</option>
-                                            <option value="2">In Process</option>
-                                            <option value="2">Rejected</option>
-                                        </select><span class="select2 select2-container select2-container--bootstrap5"
-                                            dir="ltr" data-select2-id="select2-data-28-r63e" style="width: 100%;"><span
-                                                class="selection"><span
-                                                    class="select2-selection select2-selection--multiple form-select form-select-solid"
-                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
-                                                    tabindex="-1" aria-disabled="false">
-                                                    <ul class="select2-selection__rendered" id="select2-wvp4-container">
-                                                    </ul><span class="select2-search select2-search--inline"><textarea
-                                                            class="select2-search__field" type="search" tabindex="0"
-                                                            autocorrect="off" autocapitalize="none" spellcheck="false"
-                                                            role="searchbox" aria-autocomplete="list" autocomplete="off"
-                                                            aria-label="Search"
-                                                            aria-describedby="select2-wvp4-container"
-                                                            placeholder="Select option"
-                                                            style="width: 100%;"></textarea></span>
-                                                </span></span><span class="dropdown-wrapper"
-                                                aria-hidden="true"></span></span>
+                                        <span class="fs-7 text-gray-500 text-uppercase">
+                                            pm </span>
                                     </div>
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
+                                    <!--end::Time-->
 
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Member Type:</label>
-                                    <!--end::Label-->
+                                    <!--begin::Title-->
+                                    <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">
+                                        Marketing Campaign Discussion </a>
+                                    <!--end::Title-->
 
-                                    <!--begin::Options-->
-                                    <div class="d-flex">
-                                        <!--begin::Options-->
-                                        <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                            <input class="form-check-input" type="checkbox" value="1">
-                                            <span class="form-check-label">
-                                                Author
-                                            </span>
-                                        </label>
-                                        <!--end::Options-->
-
-                                        <!--begin::Options-->
-                                        <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="2" checked="checked">
-                                            <span class="form-check-label">
-                                                Customer
-                                            </span>
-                                        </label>
-                                        <!--end::Options-->
+                                    <!--begin::User-->
+                                    <div class="text-gray-500">
+                                        Lead by <a href="#">Naomi Hayabusa</a>
                                     </div>
-                                    <!--end::Options-->
+                                    <!--end::User-->
                                 </div>
-                                <!--end::Input group-->
+                                <!--end::Info-->
 
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Notifications:</label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Switch-->
-                                    <div
-                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="" name="notifications"
-                                            checked="">
-                                        <label class="form-check-label">
-                                            Enabled
-                                        </label>
-                                    </div>
-                                    <!--end::Switch-->
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Actions-->
-                                <div class="d-flex justify-content-end">
-                                    <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2"
-                                        data-kt-menu-dismiss="true">Reset</button>
-
-                                    <button type="submit" class="btn btn-sm btn-primary"
-                                        data-kt-menu-dismiss="true">Apply</button>
-                                </div>
-                                <!--end::Actions-->
+                                <!--begin::Action-->
+                                <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+                                <!--end::Action-->
                             </div>
-                            <!--end::Form-->
+                            <!--end::Time-->
                         </div>
-                        <!--end::Menu 1-->
-                        <!--end::Menu-->
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center position-relative mb-7">
-                        <!--begin::Label-->
-                        <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-4px"></div>
-                        <!--end::Label-->
-
-                        <!--begin::Checkbox-->
-                        <div class="form-check form-check-custom form-check-solid ms-6 me-4">
-                            <input class="form-check-input" type="checkbox" value="">
-                        </div>
-                        <!--end::Checkbox-->
-
-                        <!--begin::Details-->
-                        <div class="fw-semibold">
-                            <a href="#" class="fs-6 fw-bold text-gray-900 text-hover-primary">Dashgboard UI &amp; UX for
-                                Leafr CRM</a>
-
-                            <!--begin::Info-->
-                            <div class="text-gray-500">
-                                Due in 1 week <a href="#">Olivia Wild</a>
-                            </div>
-                            <!--end::Info-->
-                        </div>
-                        <!--end::Details-->
-
-                        <!--begin::Menu-->
-                        <button type="button"
-                            class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto"
-                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-
-                            <i class="ki-duotone ki-element-plus fs-3"><span class="path1"></span><span
-                                    class="path2"></span><span class="path3"></span><span class="path4"></span><span
-                                    class="path5"></span></i> </button>
-
-
-
-                        <!--begin::Menu 1-->
-                        <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true"
-                            id="kt_menu_654ebb3d2796c">
-                            <!--begin::Header-->
-                            <div class="px-7 py-5">
-                                <div class="fs-5 text-gray-900 fw-bold">Filter Options</div>
-                            </div>
-                            <!--end::Header-->
-
-                            <!--begin::Menu separator-->
-                            <div class="separator border-gray-200"></div>
-                            <!--end::Menu separator-->
-
-
-                            <!--begin::Form-->
-                            <div class="px-7 py-5">
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Status:</label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Input-->
-                                    <div>
-                                        <select class="form-select form-select-solid select2-hidden-accessible"
-                                            multiple="" data-kt-select2="true" data-close-on-select="false"
-                                            data-placeholder="Select option"
-                                            data-dropdown-parent="#kt_menu_654ebb3d2796c" data-allow-clear="true"
-                                            data-select2-id="select2-data-29-av33" tabindex="-1" aria-hidden="true"
-                                            data-kt-initialized="1">
-                                            <option></option>
-                                            <option value="1">Approved</option>
-                                            <option value="2">Pending</option>
-                                            <option value="2">In Process</option>
-                                            <option value="2">Rejected</option>
-                                        </select><span class="select2 select2-container select2-container--bootstrap5"
-                                            dir="ltr" data-select2-id="select2-data-30-c0fj" style="width: 100%;"><span
-                                                class="selection"><span
-                                                    class="select2-selection select2-selection--multiple form-select form-select-solid"
-                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
-                                                    tabindex="-1" aria-disabled="false">
-                                                    <ul class="select2-selection__rendered" id="select2-sfd6-container">
-                                                    </ul><span class="select2-search select2-search--inline"><textarea
-                                                            class="select2-search__field" type="search" tabindex="0"
-                                                            autocorrect="off" autocapitalize="none" spellcheck="false"
-                                                            role="searchbox" aria-autocomplete="list" autocomplete="off"
-                                                            aria-label="Search"
-                                                            aria-describedby="select2-sfd6-container"
-                                                            placeholder="Select option"
-                                                            style="width: 100%;"></textarea></span>
-                                                </span></span><span class="dropdown-wrapper"
-                                                aria-hidden="true"></span></span>
-                                    </div>
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Member Type:</label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Options-->
-                                    <div class="d-flex">
-                                        <!--begin::Options-->
-                                        <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                            <input class="form-check-input" type="checkbox" value="1">
-                                            <span class="form-check-label">
-                                                Author
-                                            </span>
-                                        </label>
-                                        <!--end::Options-->
-
-                                        <!--begin::Options-->
-                                        <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="2" checked="checked">
-                                            <span class="form-check-label">
-                                                Customer
-                                            </span>
-                                        </label>
-                                        <!--end::Options-->
-                                    </div>
-                                    <!--end::Options-->
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Notifications:</label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Switch-->
-                                    <div
-                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="" name="notifications"
-                                            checked="">
-                                        <label class="form-check-label">
-                                            Enabled
-                                        </label>
-                                    </div>
-                                    <!--end::Switch-->
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Actions-->
-                                <div class="d-flex justify-content-end">
-                                    <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2"
-                                        data-kt-menu-dismiss="true">Reset</button>
-
-                                    <button type="submit" class="btn btn-sm btn-primary"
-                                        data-kt-menu-dismiss="true">Apply</button>
-                                </div>
-                                <!--end::Actions-->
-                            </div>
-                            <!--end::Form-->
-                        </div>
-                        <!--end::Menu 1-->
-                        <!--end::Menu-->
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center position-relative ">
-                        <!--begin::Label-->
-                        <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-4px"></div>
-                        <!--end::Label-->
-
-                        <!--begin::Checkbox-->
-                        <div class="form-check form-check-custom form-check-solid ms-6 me-4">
-                            <input class="form-check-input" type="checkbox" value="">
-                        </div>
-                        <!--end::Checkbox-->
-
-                        <!--begin::Details-->
-                        <div class="fw-semibold">
-                            <a href="#" class="fs-6 fw-bold text-gray-900 text-hover-primary">Mivy App R&amp;D, Meeting
-                                with clients</a>
-
-                            <!--begin::Info-->
-                            <div class="text-gray-500">
-                                Due in 2 weeks <a href="#">Sean Bean</a>
-                            </div>
-                            <!--end::Info-->
-                        </div>
-                        <!--end::Details-->
-
-                        <!--begin::Menu-->
-                        <button type="button"
-                            class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto"
-                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-
-                            <i class="ki-duotone ki-element-plus fs-3"><span class="path1"></span><span
-                                    class="path2"></span><span class="path3"></span><span class="path4"></span><span
-                                    class="path5"></span></i> </button>
-
-
-
-                        <!--begin::Menu 1-->
-                        <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true"
-                            id="kt_menu_654ebb3d2797a">
-                            <!--begin::Header-->
-                            <div class="px-7 py-5">
-                                <div class="fs-5 text-gray-900 fw-bold">Filter Options</div>
-                            </div>
-                            <!--end::Header-->
-
-                            <!--begin::Menu separator-->
-                            <div class="separator border-gray-200"></div>
-                            <!--end::Menu separator-->
-
-
-                            <!--begin::Form-->
-                            <div class="px-7 py-5">
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Status:</label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Input-->
-                                    <div>
-                                        <select class="form-select form-select-solid select2-hidden-accessible"
-                                            multiple="" data-kt-select2="true" data-close-on-select="false"
-                                            data-placeholder="Select option"
-                                            data-dropdown-parent="#kt_menu_654ebb3d2797a" data-allow-clear="true"
-                                            data-select2-id="select2-data-31-lqi8" tabindex="-1" aria-hidden="true"
-                                            data-kt-initialized="1">
-                                            <option></option>
-                                            <option value="1">Approved</option>
-                                            <option value="2">Pending</option>
-                                            <option value="2">In Process</option>
-                                            <option value="2">Rejected</option>
-                                        </select><span class="select2 select2-container select2-container--bootstrap5"
-                                            dir="ltr" data-select2-id="select2-data-32-ggce" style="width: 100%;"><span
-                                                class="selection"><span
-                                                    class="select2-selection select2-selection--multiple form-select form-select-solid"
-                                                    role="combobox" aria-haspopup="true" aria-expanded="false"
-                                                    tabindex="-1" aria-disabled="false">
-                                                    <ul class="select2-selection__rendered" id="select2-nj1w-container">
-                                                    </ul><span class="select2-search select2-search--inline"><textarea
-                                                            class="select2-search__field" type="search" tabindex="0"
-                                                            autocorrect="off" autocapitalize="none" spellcheck="false"
-                                                            role="searchbox" aria-autocomplete="list" autocomplete="off"
-                                                            aria-label="Search"
-                                                            aria-describedby="select2-nj1w-container"
-                                                            placeholder="Select option"
-                                                            style="width: 100%;"></textarea></span>
-                                                </span></span><span class="dropdown-wrapper"
-                                                aria-hidden="true"></span></span>
-                                    </div>
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Member Type:</label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Options-->
-                                    <div class="d-flex">
-                                        <!--begin::Options-->
-                                        <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                            <input class="form-check-input" type="checkbox" value="1">
-                                            <span class="form-check-label">
-                                                Author
-                                            </span>
-                                        </label>
-                                        <!--end::Options-->
-
-                                        <!--begin::Options-->
-                                        <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="2" checked="checked">
-                                            <span class="form-check-label">
-                                                Customer
-                                            </span>
-                                        </label>
-                                        <!--end::Options-->
-                                    </div>
-                                    <!--end::Options-->
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Notifications:</label>
-                                    <!--end::Label-->
-
-                                    <!--begin::Switch-->
-                                    <div
-                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="" name="notifications"
-                                            checked="">
-                                        <label class="form-check-label">
-                                            Enabled
-                                        </label>
-                                    </div>
-                                    <!--end::Switch-->
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Actions-->
-                                <div class="d-flex justify-content-end">
-                                    <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2"
-                                        data-kt-menu-dismiss="true">Reset</button>
-
-                                    <button type="submit" class="btn btn-sm btn-primary"
-                                        data-kt-menu-dismiss="true">Apply</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
