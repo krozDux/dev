@@ -19,3 +19,15 @@ RewriteRule ^ /%1 [R=302,L,NE]
 
 # Si accedes a /index, se redirige a /
 RewriteRule ^index$ / [R=302,L]
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    # Imágenes
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    # Añade aquí otros tipos de imagen si es necesario
+</IfModule>
