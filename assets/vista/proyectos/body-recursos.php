@@ -100,6 +100,13 @@
                 </div>
             </div>
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                <?php
+                    include('../config.php');
+                    $sql13 = "SELECT * FROM proyectos WHERE id='$idProyecto'";
+                    $query13 = mysqli_query($con, $sql13);
+                    $result13 = mysqli_fetch_assoc($query13);
+                    $fechaFinProyecto = $result13['fechaFin'];
+                ?>
                 <form class="form" method="POST" enctype="multipart/form-data">
                     <div class="mb-3 text-center">
                         <h1 class="mb-3">CREAR TAREAS PARA EL PROYECTO</h1>
@@ -133,8 +140,7 @@
                                             fill="currentColor" />
                                     </svg>
                                 </span>
-                                <input type="date" class="form-control form-control-solid ps-12"
-                                    placeholder="Seleccionar fecha" name="fechaFin" required />
+                                <input type="date" class="form-control form-control-solid ps-12" placeholder="Seleccionar fecha" name="fechaFin" max="<?php echo $fechaFinProyecto; ?>" required />
                             </div>
                         </div>
                     </div>
