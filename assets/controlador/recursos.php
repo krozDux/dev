@@ -7,7 +7,6 @@ if (!empty($_POST['btnreg'])) {
     if (!empty($_POST['idProyecto'])) {
         if (!empty($_POST['nombreTarea'])) {
             if (!empty($_POST['fechaFin'])) {
-                if (new DateTime($fechaFin) >= new DateTime($fechaFinProyecto)){
                     $idProyecto = $_POST['idProyecto'];
                     $nombreTarea = $_POST['nombreTarea'];
                     $fechaFin = $_POST['fechaFin'];
@@ -39,18 +38,6 @@ if (!empty($_POST['btnreg'])) {
                             }
                         } 
                     header("location: recursos.php?idProyecto=$idProyecto");
-                } else{
-                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
-                    <div class="toast-header bg-danger">
-                        <strong class="me-auto text-white">Alerta</strong>
-                        <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body text-white">
-                        La fecha limite de la tarea no puede ser anterior a la fecha de finalización del proyecto.
-                    </div>
-                </div>';
-                }
-                
             } else {
                 echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
                         <div class="toast-header bg-danger">
