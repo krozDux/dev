@@ -663,46 +663,28 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="card-header mt-6">
                     <!--begin::Card title-->
                     <div class="card-title flex-column">
-                        <h3 class="fw-bold mb-1">What's on the road?</h3>
-
-                        <div class="fs-6 text-gray-500">Total 482 participants</div>
+                        <h3 class="fw-bold mb-1">Calendario de tareas</h3>
+                        <?php
+                        include('../config.php');
+                        $sql1 = "SELECT id, nombre, fechaInicio, fechaFin, DATEDIFF(fechaFin, fechaInicio) AS cantidad_dias FROM proyectos WHERE id = '$idProyecto'";
+                        $query1 = mysqli_query($con, $sql1);
+                        
+                        // Verifica que la consulta haya retornado un resultado
+                        if($query1 && mysqli_num_rows($query1) > 0) {
+                            $result = mysqli_fetch_assoc($query1);
+                            // Ahora puedes acceder a $result['cantidad_dias'] para obtener la cantidad de días
+                            echo "<div class='fs-6 text-gray-500'>El proyecto consta de " . $result['cantidad_dias'] . " días.</div>";
+                        } else {
+                            echo "<div class='fs-6 text-gray-500'>Información no disponible.</div>";
+                        }
+                        ?>
                     </div>
-                    <!--end::Card title-->
-
-                    <!--begin::Card toolbar-->
-                    <div class="card-toolbar">
-                        <!--begin::Select-->
-                        <select name="status" data-control="select2" data-hide-search="true"
-                            class="form-select form-select-solid form-select-sm fw-bold w-100px select2-hidden-accessible"
-                            data-select2-id="select2-data-12-2kbu" tabindex="-1" aria-hidden="true"
-                            data-kt-initialized="1">
-                            <option value="1" selected="" data-select2-id="select2-data-14-deve">Options</option>
-                            <option value="2">Option 1</option>
-                            <option value="3">Option 2</option>
-                            <option value="4">Option 3</option>
-                        </select><span class="select2 select2-container select2-container--bootstrap5" dir="ltr"
-                            data-select2-id="select2-data-13-flj0" style="width: 100%;"><span class="selection"><span
-                                    class="select2-selection select2-selection--single form-select form-select-solid form-select-sm fw-bold w-100px"
-                                    role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0"
-                                    aria-disabled="false" aria-labelledby="select2-status-ih-container"
-                                    aria-controls="select2-status-ih-container"><span
-                                        class="select2-selection__rendered" id="select2-status-ih-container"
-                                        role="textbox" aria-readonly="true" title="Options">Options</span><span
-                                        class="select2-selection__arrow" role="presentation"><b
-                                            role="presentation"></b></span></span></span><span class="dropdown-wrapper"
-                                aria-hidden="true"></span></span>
-                        <!--end::Select-->
-                    </div>
-                    <!--end::Card toolbar-->
+                    
                 </div>
-                <!--end::Card header-->
 
-                <!--begin::Card body-->
                 <div class="card-body p-9 pt-4">
-                    <!--begin::Dates-->
                     <ul class="nav nav-pills d-flex flex-nowrap hover-scroll-x py-2" role="tablist">
 
-                        <!--begin::Date-->
                         <li class="nav-item me-1" role="presentation">
                             <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary "
                                 data-bs-toggle="tab" href="#kt_schedule_day_0" aria-selected="false" tabindex="-1"
@@ -712,9 +694,7 @@ $query1 = mysqli_query($con, $sql1);
                                 <span class="fs-6 fw-bold">22</span>
                             </a>
                         </li>
-                        <!--end::Date-->
 
-                        <!--begin::Date-->
                         <li class="nav-item me-1" role="presentation">
                             <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary active"
                                 data-bs-toggle="tab" href="#kt_schedule_day_1" aria-selected="true" role="tab">
@@ -723,9 +703,7 @@ $query1 = mysqli_query($con, $sql1);
                                 <span class="fs-6 fw-bold">23</span>
                             </a>
                         </li>
-                        <!--end::Date-->
 
-                        <!--begin::Date-->
                         <li class="nav-item me-1" role="presentation">
                             <a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary "
                                 data-bs-toggle="tab" href="#kt_schedule_day_2" aria-selected="false" tabindex="-1"
