@@ -90,7 +90,7 @@
         <div class="modal-content">
             <div class="modal-header" id="kt_modal_add_user_header">
                 <h2 class="fw-bolder">Renovar contrato</h2>
-                <div class="btn btn-icon btn-sm btn-active-icon-primary modal-close" data-kt-users-modal-action="close">
+                <div class="btn btn-icon btn-sm btn-active-icon-primary modal-close" data-bs-dismiss="modal">
                     <span class="svg-icon svg-icon-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                     <div class="text-center pt-6">
-                        <button class="btn btn-light me-3 modal-close">Cancelar</button>
+                    <button class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-success" name="btnnew" value="newU">
                             <span class="indicator-label">Guardar</span>
                         </button>
