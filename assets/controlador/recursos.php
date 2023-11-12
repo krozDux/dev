@@ -40,7 +40,7 @@ if (!empty($_POST['btnreg'])) {
                         } 
                     header("location: recursos.php?idProyecto=$idProyecto");
                 } else{
-                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
                     <div class="toast-header bg-danger">
                         <strong class="me-auto text-white">Alerta</strong>
                         <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
