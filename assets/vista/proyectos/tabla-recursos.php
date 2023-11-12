@@ -668,7 +668,9 @@ $query1 = mysqli_query($con, $sql1);
                         include('../config.php');
                         $sql1 = "SELECT id, nombre, fechaInicio, fechaFin, DATEDIFF(fechaFin, fechaInicio) AS cantidad_dias FROM proyectos WHERE id = '$idProyecto'";
                         $query1 = mysqli_query($con, $sql1);
-                        
+                        $sqlTareas = "SELECT * FROM proyectosTareas WHERE idProyecto = '$idProyecto'";
+                        $queryTareas = mysqli_query($con, $sqlTareas);
+                        $tareas = mysqli_fetch_all($queryTareas, MYSQLI_ASSOC);
                         // Verifica que la consulta haya retornado un resultado
                         if($query1 && mysqli_num_rows($query1) > 0) {
                             $result = mysqli_fetch_assoc($query1);
@@ -708,61 +710,31 @@ $query1 = mysqli_query($con, $sql1);
                     ?>
 
                     <div class="tab-content">
-                        <div id="kt_schedule_day_0" class="tab-pane fade show " role="tabpanel">
-                            <div class="d-flex flex-stack position-relative mt-8">
-                                <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                <div class="fw-semibold ms-5 text-gray-600">
-                                    <div class="fs-5">
-                                        9:00 - 10:00
-                                        <span class="fs-7 text-gray-500 text-uppercase">
-                                            am </span>
+                        <?php foreach ($tareas as $tarea): ?>
+                            <?php 
+                            // Convertimos la fechaFin a un objeto DateTime
+                            $fechaFin = new DateTime($tarea['fechaFin']);
+                            // Extraemos el día del objeto DateTime
+                            $dia = $fechaFin->format('j'); // 'j' dará el día sin ceros iniciales
+                            ?>
+                            <div id="kt_schedule_day_<?php echo $dia; ?>" class="tab-pane fade <?php echo $dia == $fechaInicio->format('j') ? 'show active' : ''; ?>" role="tabpanel">
+                                <div class="d-flex flex-stack position-relative mt-8">
+                                    <!-- Tu contenido para cada tarea aquí -->
+                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
+                                    <div class="fw-semibold ms-5 text-gray-600">
+                                        <!-- Descripción de la tarea -->
+                                        <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">
+                                            <?php echo $tarea['nombre']; ?>
+                                        </a>
+                                        <!-- Más información de la tarea -->
+                                        <div class="text-gray-500">
+                                            Lead by <a href="#"><?php echo $tarea['lider']; ?></a> <!-- Ajustar según sea necesario -->
+                                        </div>
                                     </div>
-                                    <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">
-                                        Dashboard UI/UX Design Review </a>
-                                    <div class="text-gray-500">
-                                        Lead by <a href="#">Terry Robins</a>
-                                    </div>
+                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
                                 </div>
-                                <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
                             </div>
-                           
-                        </div>
-                        <div id="kt_schedule_day_1" class="tab-pane fade show active" role="tabpanel">
-                            <!--begin::Time-->
-                            <div class="d-flex flex-stack position-relative mt-8">
-                                <!--begin::Bar-->
-                                <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                <!--end::Bar-->
-
-                                <!--begin::Info-->
-                                <div class="fw-semibold ms-5 text-gray-600">
-                                    <!--begin::Time-->
-                                    <div class="fs-5">
-                                        14:30 - 15:30
-
-                                        <span class="fs-7 text-gray-500 text-uppercase">
-                                            pm </span>
-                                    </div>
-                                    <!--end::Time-->
-
-                                    <!--begin::Title-->
-                                    <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">
-                                        Committee Review Approvals </a>
-                                    <!--end::Title-->
-
-                                    <!--begin::User-->
-                                    <div class="text-gray-500">
-                                        Lead by <a href="#">Michael Walters</a>
-                                    </div>
-                                    <!--end::User-->
-                                </div>
-                                <!--end::Info-->
-
-                                <!--begin::Action-->
-                                <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                <!--end::Action-->
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
