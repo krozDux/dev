@@ -1,3 +1,4 @@
+RewriteEngine On
 
 # Redirige el acceso a la raíz a /login/
 RewriteRule ^$ /login/ [L,R=301]
@@ -5,11 +6,16 @@ RewriteRule ^$ /login/ [L,R=301]
 # Redirige index.php a /login/
 RewriteRule ^index\.php$ /login/ [L,R=301]
 
-# Eliminar la extensión .php
-# Internamente reescribe las solicitudes sin la extensión .php a los archivos .php correspondientes
+# Redirige /index a la raíz de la carpeta
+RewriteRule ^(.*)/index$ /$1/ [L,R=301]
+
+# Eliminar la extensión .php para archivos existentes
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^.]+)$ $1.php [L]
 
 # Redirigir externamente las solicitudes .php a URL sin extensión
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?/] [NC]
 RewriteRule ^ /%1 [R=302,L,NE]
+
+# Si accedes a /index, se redirige a /
+RewriteRule ^index$ / [R=302,L]
