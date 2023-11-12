@@ -2223,6 +2223,66 @@ $query1 = mysqli_query($con, $sql1);
                                         class="path2"></span><span class="path3"></span><span class="path4"></span><span
                                         class="path5"></span></i> </button>
                         </div>
+                        <div class="d-flex align-items-center mb-5">
+                            <div class="symbol symbol-30px me-5">
+                                <img alt="Icon" src="/assets/media/svg/files/ai.svg">
+                            </div>
+                            <div class="fw-semibold">
+                                <a class="fs-6 fw-bold text-gray-900 text-hover-primary" href="#">Create Project
+                                    Wireframes</a>
+
+                                <div class="text-gray-500">
+                                    Due in 3 days <a href="#">Roth Bloom</a>
+                                </div>
+                            </div>
+                            <button type="button"
+                                class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto"
+                                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+
+                                <i class="ki-duotone ki-element-plus fs-3"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span class="path4"></span><span
+                                        class="path5"></span></i> </button>
+                        </div>
+                        <div class="d-flex align-items-center mb-5">
+                            <div class="symbol symbol-30px me-5">
+                                <img alt="Icon" src="/assets/media/svg/files/ai.svg">
+                            </div>
+                            <div class="fw-semibold">
+                                <a class="fs-6 fw-bold text-gray-900 text-hover-primary" href="#">Create Project
+                                    Wireframes</a>
+
+                                <div class="text-gray-500">
+                                    Due in 3 days <a href="#">Roth Bloom</a>
+                                </div>
+                            </div>
+                            <button type="button"
+                                class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto"
+                                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+
+                                <i class="ki-duotone ki-element-plus fs-3"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span class="path4"></span><span
+                                        class="path5"></span></i> </button>
+                        </div>
+                        <div class="d-flex align-items-center mb-5">
+                            <div class="symbol symbol-30px me-5">
+                                <img alt="Icon" src="/assets/media/svg/files/ai.svg">
+                            </div>
+                            <div class="fw-semibold">
+                                <a class="fs-6 fw-bold text-gray-900 text-hover-primary" href="#">Create Project
+                                    Wireframes</a>
+
+                                <div class="text-gray-500">
+                                    Due in 3 days <a href="#">Roth Bloom</a>
+                                </div>
+                            </div>
+                            <button type="button"
+                                class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto"
+                                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+
+                                <i class="ki-duotone ki-element-plus fs-3"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span class="path4"></span><span
+                                        class="path5"></span></i> </button>
+                        </div>
                     </div>
                    
                 </div>
