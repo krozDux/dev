@@ -690,7 +690,7 @@ $query1 = mysqli_query($con, $sql1);
                         $dayOfWeek = substr($date->format('D'), 0, 2); // Day of the week abbreviated
                         $activeClass = $date == $fechaInicio ? 'active' : '';
                         echo "<li class='nav-item me-1' role='presentation'>
-                                <a class='nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary $activeClass'
+                                <a class='nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary'
                                     data-bs-toggle='tab' href='#kt_schedule_day_" . $date->format('j') . "' aria-selected='false' tabindex='-1' role='tab'>
                                     <span class='opacity-50 fs-7 fw-semibold'>$dayOfWeek</span>
                                     <span class='fs-6 fw-bold'>$day</span>
