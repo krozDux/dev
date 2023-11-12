@@ -56,9 +56,7 @@ $query1 = mysqli_query($con, $sql1);
                     </div>
                     </div>
 
-                    <!--begin::Info-->
                     <div class="d-flex flex-wrap justify-content-start">
-                        <!--begin::Stats-->
                         <div class="d-flex flex-wrap">
                             <?php 
                         $fechaInicio = $dataUsuario1['fechaInicio'];
@@ -67,33 +65,22 @@ $query1 = mysqli_query($con, $sql1);
                         $fechaFinF = date('d/m/Y', strtotime($fechaFin));
                         ?>
                             <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                <!--begin::Number-->
                                 <div class="d-flex align-items-center">
                                     <div class="fs-4 fw-bold"><?php echo $fechaInicioF?></div>
                                 </div>
-                                <!--end::Number-->
 
-                                <!--begin::Label-->
                                 <div class="fw-semibold fs-6 text-gray-500">Fecha inicio</div>
-                                <!--end::Label-->
                             </div>
 
                             <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                <!--begin::Number-->
                                 <div class="d-flex align-items-center">
                                     <div class="fs-4 fw-bold"><?php echo $fechaFinF?></div>
                                 </div>
-                                <!--end::Number-->
 
-                                <!--begin::Label-->
                                 <div class="fw-semibold fs-6 text-gray-500">Fecha límite</div>
-                                <!--end::Label-->
                             </div>
-                            <!--end::Stat-->
 
-                            <!--begin::Stat-->
                             <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-                                <!--begin::Number-->
                                 <div class="d-flex align-items-center">
                                     <i class="ki-duotone ki-arrow-down fs-3 text-danger"><span
                                             class="path1"></span><span class="path2"></span></i>
@@ -123,69 +110,42 @@ $query1 = mysqli_query($con, $sql1);
                                 }
                             }
                             ?>
-                            <!--end::All users-->
                         </div>
-                        <!--end::Users-->
                     </div>
-                    <!--end::Info-->
                 </div>
-                <!--end::Wrapper-->
             </div>
-            <!--end::Details-->
 
             <div class="separator"></div>
 
-            <!--begin::Nav-->
             <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
-                <!--begin::Nav item-->
                 <li class="nav-item">
                     <a class="nav-link text-active-primary py-5 me-6 active"
-                        href="/../demo14/apps/projects/project.html">
-                        Overview </a>
+                        href="/../proyectos/recursos?idProyecto='<?php echo $idProyecto ?>'">
+                        Información </a>
                 </li>
-                <!--end::Nav item-->
-                <!--begin::Nav item-->
                 <li class="nav-item">
                     <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/targets.html">
-                        Targets </a>
+                        Tareas </a>
                 </li>
-                <!--end::Nav item-->
-                <!--begin::Nav item-->
-                <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/budget.html">
-                        Budget </a>
-                </li>
-                <!--end::Nav item-->
-                <!--begin::Nav item-->
                 <li class="nav-item">
                     <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/users.html">
-                        Users </a>
+                        Miembros </a>
                 </li>
-                <!--end::Nav item-->
-                <!--begin::Nav item-->
                 <li class="nav-item">
                     <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/files.html">
-                        Files </a>
+                        Archivos </a>
                 </li>
-                <!--end::Nav item-->
-                <!--begin::Nav item-->
                 <li class="nav-item">
                     <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/activity.html">
-                        Activity </a>
+                        Actividad </a>
                 </li>
-                <!--end::Nav item-->
-                <!--begin::Nav item-->
                 <li class="nav-item">
                     <a class="nav-link text-active-primary py-5 me-6 " href="/../demo14/apps/projects/settings.html">
-                        Settings </a>
+                        Configuración </a>
                 </li>
-                <!--end::Nav item-->
             </ul>
-            <!--end::Nav-->
         </div>
     </div>
-    <!--end::Navbar-->
-    <!--begin::Row-->
     <div class="row gx-6 gx-xl-9">
         <!--begin::Col-->
         <div class="col-lg-6">
