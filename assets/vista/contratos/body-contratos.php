@@ -79,7 +79,7 @@ $query14 = mysqli_query($con, $sql14);
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <div class="modal-content">
             <div class="modal-header" id="kt_modal_add_user_header">
-                <h2 class="fw-bolder">Registrar contrato</h2>
+                <h2 class="fw-bolder">Renovar contrato</h2>
                 <div class="btn btn-icon btn-sm btn-active-icon-primary modal-close" data-kt-users-modal-action="close">
                     <span class="svg-icon svg-icon-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -273,130 +273,7 @@ $query14 = mysqli_query($con, $sql14);
     </div>
 </div>
 
-<div class="modal fade" id="kt_modal_remove_user" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered mw-650px">
-        <div class="modal-content">
-            <div class="modal-header" id="kt_modal_add_user_header">
-                <h2 class="fw-bolder">Eliminar usuario</h2>
-                <div class="btn btn-icon btn-sm btn-active-icon-primary modal-close" data-kt-users-modal-action="close">
-                    <span class="svg-icon svg-icon-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
-                                transform="rotate(-45 6 17.3137)" fill="currentColor" />
-                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
-                                fill="currentColor" />
-                        </svg>
-                    </span>
-                </div>
-            </div>
-            <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-                <form id="kt_modal_remove_user_form p-0" class="form" method="POST" enctype="multipart/form-data">
-                    <div class="fv-row mb-7">
-                        <label class="fw-bold fs-6 mb-2">Nombres y apellidos</label>
-                        <input type="text" name="id" class="form-control form-control-solid mb-3 mb-lg-0" id="delId"
-                            hidden />
-                        <input type="text" name="nombrescompletos" class="form-control form-control-solid mb-3 mb-lg-0"
-                            id="delNombres" disabled />
-                    </div>
-                    <div class="fv-row mb-7">
-                        <label class="fw-bold fs-6 mb-2">Rol</label>
-                        <input type="text" name="rol" class="form-control form-control-solid mb-3 mb-lg-0" id="delRol"
-                            disabled />
-                    </div>
-                    <p>Seguro quieres eliminar esta cuenta? </p>
-                    <div class="text-center pt-15">
-                        <button class="btn btn-light me-3 modal-close">Cancelar</button>
-                        <button type="submit" class="btn btn-success" name="btneliminar" value="eliminar">
-                            <span class="indicator-label">Aceptar</span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered mw-650px">
-        <div class="modal-content">
-            <div class="modal-header" id="kt_modal_add_user_header">
-                <h2 class="fw-bolder">Registrar Usuario</h2>
-                <div class="btn btn-icon btn-sm btn-active-icon-primary modal-close" data-kt-users-modal-action="close">
-                    <span class="svg-icon svg-icon-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
-                                transform="rotate(-45 6 17.3137)" fill="currentColor" />
-                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
-                                fill="currentColor" />
-                        </svg>
-                    </span>
-                </div>
-            </div>
-            <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-                <form class="form" method="POST" enctype="multipart/form-data">
-                    <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll"
-                        data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}"
-                        data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header"
-                        data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
-                        <div class="fv-row mb-4">
-                            <label class="d-block fw-bold fs-6 mb-5">Avatar</label>
-                            <div class="image-input image-input-outline" data-kt-image-input="true"
-                                style="background-image: url('assets/media/avatars/blank.png')">
-                                <div class="image-input-wrapper w-125px h-125px" id="regImagen"
-                                    style="background-image: url(assets/media/avatars/blank.png);"></div>
-                                <label
-                                    class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                    data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Cambiar imagen">
-                                    <i class="bi bi-pencil-fill fs-7"></i>
-                                    <input type="file" name="imagen" accept=".png, .jpg, .jpeg" />
-                                    <input type="hidden" name="avatar_remove" />
-                                </label>
-                            </div>
-                            <div class="form-text">Archivos permitidos: png, jpg, jpeg.</div>
-                        </div>
-                        <div class="row fv-row mb-4">
-                            <div class="col-xl-6">
-                                <label class="required form-label fw-bold mb-2 fs-6">Nombres</label>
-                                <input type="text" name="crearNombres"
-                                    class="form-control form-control-solid mb-3 mb-lg-0" id="crearNombres" required />
-                            </div>
-                            <div class="col-xl-6">
-                                <label class="required form-label fw-bold mb-2 fs-6">Apellidos</label>
-                                <input type="text" name="crearApellidos"
-                                    class="form-control form-control-solid mb-3 mb-lg-0" id="crearApellidos" required />
-                            </div>
-                            <div class="col-xl-6">
-                                <label class="required form-label fw-bold mb-2 fs-6">Número</label>
-                                <input type="text" name="crearNumero"
-                                    class="form-control form-control-solid mb-3 mb-lg-0" id="crearNumero" required />
-                            </div>
-                            <div class="col-xl-6">
-                                <label class="required form-label fw-bold mb-2 fs-6">Dirección</label>
-                                <input type="text" name="crearDireccion"
-                                    class="form-control form-control-solid mb-3 mb-lg-0" id="crearDireccion" required />
-                            </div>
-                        </div>
-                        <div class="fv-row mb-4">
-                            <label class="required fw-bold fs-6 mb-2">Email</label>
-                            <input type="email" name="crearEmail" class="form-control form-control-solid mb-3 mb-lg-0"
-                                id="crearEmail" required />
-                            <input type="text" name="crearPassword" value="User1234."
-                                class="form-control form-control-solid mb-3 mb-lg-0" id="crearPassword" hidden />
-                        </div>
-                    </div>
-                    <div class="text-center pt-6">
-
-
-                        <button class="btn btn-light me-3 modal-close">Cancelar</button>
-                        <button type="submit" class="btn btn-success" name="btncrear" value="crearU">
-                            <span class="indicator-label">Guardar</span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 <?php } else{
 header("location: ../panel/index.php");
 } ?>

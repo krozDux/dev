@@ -59,6 +59,17 @@ if (isset($_GET['idProyecto'])) {
         $('kt_modal_new_target').modal('hide');
     });
     </script>
+    <script>
+    $('.modal-close').on('click', function() {
+        $('kt_modal_new_target').modal('hide');
+    });
+    </script>
+
+<script>
+    $('.modal-trabajo').on('click', function() {
+        $('kt_modal_new_user').modal('hide');
+    });
+    </script>
 
     <script src="assets/js/widgets.bundle.js"></script>
     <script src="assets/js/custom/widgets.js"></script>
