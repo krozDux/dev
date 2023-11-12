@@ -126,19 +126,6 @@
                     ?>
                     <div class="row g-9 mb-8">
                         <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-bold mb-2">Encargado del proyecto</label>
-                            <select class="form-select form-select-solid" data-placeholder="Seleccionar encargado"
-                                name="encargado" required>
-                                <option value="">Seleccionar encargado</option>
-                                <?php 
-                                while ($dataUsuario1 = mysqli_fetch_array($query1)) { ?>
-                                <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
-                                <option value="<?php echo $dataUsuario1['id']; ?>">
-                                    <?php echo $dataUsuario1['nombres']; ?> <?php echo $dataUsuario1['apellidos']; ?>
-                                </option>
-                                <?php } } ?>
-                            </select>
-
                             <label class="required fs-6 fw-bold mb-2">Fecha de inicio</label>
                             <div class="position-relative d-flex align-items-center">
                                 <span class="svg-icon svg-icon-2 position-absolute mx-4">
@@ -160,18 +147,6 @@
                             </div>
                         </div>
                         <div class="col-md-6 fv-row">
-                            <label class="required fs-6 fw-bold mb-2">Cliente del proyecto</label>
-                            <select class="form-select form-select-solid" data-placeholder="Seleccionar cliente"
-                                name="cliente" required>
-                                <option value="">Seleccionar cliente</option>
-                                <?php 
-                                while ($dataUsuario2 = mysqli_fetch_array($query2)) { ?>
-                                <?php  if ($dataUsuario2['fechaFin'] != "" and $dataUsuario2['fechaInicio'] != "") { ?>
-                                <option value="<?php echo $dataUsuario2['id']; ?>">
-                                    <?php echo $dataUsuario2['nombres']; ?> <?php echo $dataUsuario2['apellidos']; ?>
-                                </option>
-                                <?php } } ?>
-                            </select>
                             <label class="required fs-6 fw-bold mb-2">Fecha límite</label>
                             <div class="position-relative d-flex align-items-center">
                                 <span class="svg-icon svg-icon-2 position-absolute mx-4">
