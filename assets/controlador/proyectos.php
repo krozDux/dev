@@ -59,7 +59,7 @@ if (!empty($_POST['btnreg'])) {
                     } 
                     header("location: genproyecto.php");
                 } else{
-                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                    echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
                         <div class="toast-header bg-danger">
                             <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
                             <strong class="me-auto text-white">Alerta</strong>
@@ -71,7 +71,7 @@ if (!empty($_POST['btnreg'])) {
                     </div>';
                 }
             } else {
-                echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
                         <div class="toast-header bg-danger">
                             <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
                             <strong class="me-auto text-white">Alerta</strong>
@@ -83,7 +83,7 @@ if (!empty($_POST['btnreg'])) {
                     </div>';
             }
         } else {
-            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
                         <div class="toast-header bg-danger">
                             <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
                             <strong class="me-auto text-white">Alerta</strong>
@@ -104,7 +104,7 @@ if (!empty($_POST['btnnew'])) {
             $resultado5 = mysqli_query($con, $consulta5);
             header("location: index.php");
         } else {
-            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+            echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
                         <div class="toast-header bg-danger">
                             <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
                             <strong class="me-auto text-white">Alerta</strong>
