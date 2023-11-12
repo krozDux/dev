@@ -101,18 +101,19 @@
             </div>
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
                 <form class="form" method="POST" enctype="multipart/form-data">
-                    <div class="mb-13 text-center">
-                        <h1 class="mb-3">CREAR NUEVO PROYECTO</h1>
+                    <div class="mb-3 text-center">
+                        <h1 class="mb-3">CREAR TAREAS PARA EL PROYECTO</h1>
+                        <input type="text" name="idProyecto" value="<?php echo $idProyecto; ?>" hidden/>
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">Nombre del proyecto</span>
+                            <span class="required">Descripción de la tarea</span>
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                title="Specify a target name for future usage and reference"></i>
+                                title="Ingresar una descripción breve de la tarea a realizar"></i>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Nombre" name="nombre"
+                        <input type="text" class="form-control form-control-solid" placeholder="Nombre" name="nombreTarea"
                             required />
-                        <input type="text" name="nombre" value="<?php echo $idProyecto; ?>" hidden/>
+                        
                     </div>
                     <div class="row g-9 mb-8">
                         <div class="col-md-6 fv-row">
@@ -139,9 +140,9 @@
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">Miembros</span>
+                            <span class="required">Miembros encargados</span>
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                title="Specify a target priorty"></i>
+                                title="Seleccionar encargados de la tarea"></i>
                         </label>
                         <input class="form-control form-control-solid" name="tags1" />
                     </div>
