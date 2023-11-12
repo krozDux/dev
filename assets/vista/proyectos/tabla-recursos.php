@@ -264,7 +264,27 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
                         <!--end::Labels-->
                     </div>
-                   
+                    <!--end::Wrapper-->
+
+
+                    <!--begin::Notice-->
+                    <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed  p-6">
+
+                        <!--begin::Wrapper-->
+                        <div class="d-flex flex-stack flex-grow-1 ">
+                            <!--begin::Content-->
+                            <div class=" fw-semibold">
+
+                                <div class="fs-6 text-gray-700 "><a href="#" class="fw-bold me-1">Invite New .NET
+                                        Collaborators</a> to create great outstanding business to business .jsp modutr
+                                    class scripts</div>
+                            </div>
+                            <!--end::Content-->
+
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    <!--end::Notice-->
                 </div>
                 <!--end::Card body-->
             </div>
@@ -2562,18 +2582,19 @@ $query1 = mysqli_query($con, $sql1);
                         <!--end::File-->
 
                     </div>
-                    <!--end::Files-->
-
-
-                    <!--begin::Notice-->
-                    <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed  p-6">
-                        <i class="ki-duotone ki-svg/files/upload.svg fs-2tx text-primary me-4"></i>
-                    </div>
+                   
                 </div>
+                <!--end::Card body -->
             </div>
+            <!--end::Card-->
         </div>
+        <!--end::Col-->
+
+        <!--begin::Col-->
         <div class="col-lg-6">
+            <!--begin::Card-->
             <div class="card  card-flush h-lg-100">
+                <!--begin::Card header-->
                 <div class="card-header mt-6">
                     <!--begin::Card title-->
                     <div class="card-title flex-column">
