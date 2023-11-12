@@ -208,12 +208,12 @@ if (isset($_GET['idProyecto'])) {
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
         <script>
+        var dataTable;
     $(document).ready(function() {
         var input = document.querySelector('input[name="tags1"]'),
         tagify = new Tagify(input, {
         whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['id']; ?>]",<?php } ?>],
         maxTags: 10,
-        enforceWhitelist: true,
         dropdown: {
             maxItems: 20,           // <- mixumum allowed rendered suggestions
             classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
@@ -221,7 +221,71 @@ if (isset($_GET['idProyecto'])) {
             closeOnSelect: true    // <- do not hide the suggestions dropdown once an item has been selected
         }
         });
-        
+        var dataTable = $('#kt_table_users').DataTable({
+            dom: 'fBrtip',
+            "sScrollX": "100%",
+            "sScrollXInner": "110%",
+            "bScrollCollapse": true,
+            searching: false,
+            paging: false, // Desactiva la paginación
+            info: false,  // Desactiva la información de entradas
+            buttons: [{
+                    text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
+                        'Vistas',
+                    className: 'btn btn-primary mt-2',
+                    action: function(e, dt, node, config) {
+                        var div1 = document.getElementById('card_proyectos');
+                        var div2 = document.getElementById('kt_table_users');
+                        var div3 = document.getElementById('kt_table_header');
+                        if (div1.hasAttribute('hidden')) {
+                            div1.removeAttribute('hidden');
+                            div2.setAttribute('hidden', 'true');
+                            div3.setAttribute('hidden', 'true');
+                        } else {
+                            div1.setAttribute('hidden', 'true');
+                            div2.removeAttribute('hidden');
+                            div3.removeAttribute('hidden');
+                        }
+                    }
+                },
+                {
+                    text: '<span class="svg-icon svg-icon-2 opacity-50">' +
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">' +
+                        '<path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>' +
+                        '<path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>' +
+                        '</svg>' +
+                        '</span>Registrar',
+                    className: 'btn btn-primary mt-2',
+                    action: function(e, dt, node, config) {
+                        $('#kt_modal_new_target').modal('show');
+                    }
+                },
+            ],
+            language: {
+                search: 'Buscar: ',
+                emptyTable: "No hay datos disponibles en la tabla",
+                paginate: {
+                    next: "Siguiente",
+                    previous: "Anterior",
+                },
+                info: "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+                infoEmpty: "Mostrando 0 a 0 de 0 entradas",
+                infoFiltered: '(filtrado de _MAX_ registros en total)',
+                zeroRecords: 'No se encontraron registros coincidentes',
+            },
+            order: [
+                [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
+            ]
+            
+        });
+        $('#exportar-btn').on('click', function() {
+            // Extiende la funcionalidad de DataTables para exportar
+            dataTable.buttons.exportData({
+                modifier: {
+                    columns: [1, 2, 3, 4, 5, 6, 7]
+                }
+            });
+        });
     });
 // Agrega el evento de clic al botón "Exportar"
     </script>
