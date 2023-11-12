@@ -668,9 +668,6 @@ $query1 = mysqli_query($con, $sql1);
                         include('../config.php');
                         $sql1 = "SELECT id, nombre, fechaInicio, fechaFin, DATEDIFF(fechaFin, fechaInicio) AS cantidad_dias FROM proyectos WHERE id = '$idProyecto'";
                         $query1 = mysqli_query($con, $sql1);
-                        $sqlTareas = "SELECT * FROM proyectosTareas WHERE idProyecto = '$idProyecto'";
-                        $queryTareas = mysqli_query($con, $sqlTareas);
-                        $tareas = mysqli_fetch_all($queryTareas, MYSQLI_ASSOC);
                         // Verifica que la consulta haya retornado un resultado
                         if($query1 && mysqli_num_rows($query1) > 0) {
                             $result = mysqli_fetch_assoc($query1);
@@ -709,7 +706,11 @@ $query1 = mysqli_query($con, $sql1);
                     }
                     ?>
                     <div class="tab-content">
-                        <?php foreach ($tareas as $tarea): ?>
+                        <?php 
+                        $sqlTareas = "SELECT * FROM proyectosTareas WHERE idProyecto = '$idProyecto'";
+                        $queryTareas = mysqli_query($con, $sqlTareas);
+                        $tareas = mysqli_fetch_all($queryTareas, MYSQLI_ASSOC);
+                        foreach ($tareas as $tarea): ?>
                             <?php 
                             // Convertimos la fechaFin a un objeto DateTime
                             $fechaFin = new DateTime($tarea['fechaFin']);

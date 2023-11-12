@@ -106,6 +106,7 @@
                     $query13 = mysqli_query($con, $sql13);
                     $result13 = mysqli_fetch_assoc($query13);
                     $fechaFinProyecto = $result13['fechaFin'];
+                    $fechaInicioProyecto = $result13['fechaInicio'];
                 ?>
                 <form class="form" method="POST" enctype="multipart/form-data">
                     <div class="mb-3 text-center">
@@ -140,7 +141,7 @@
                                             fill="currentColor" />
                                     </svg>
                                 </span>
-                                <input type="date" class="form-control form-control-solid ps-12" placeholder="Seleccionar fecha" name="fechaFin" max="<?php echo $fechaFinProyecto; ?>" required />
+                                <input type="date" class="form-control form-control-solid ps-12" placeholder="Seleccionar fecha" name="fechaFin" min="<?php echo $fechaInicioProyecto; ?>" max="<?php echo $fechaFinProyecto; ?>" required />
                             </div>
                         </div>
                     </div>
