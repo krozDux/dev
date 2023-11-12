@@ -2431,9 +2431,9 @@ $query1 = mysqli_query($con, $sql1);
                     <!--end::Card toolbar-->
                 </div>
                 <!--end::Card header-->
-
+                <div class="card-title flex-column">
                             <!--begin::Time-->
-                            <div class="card-title flex-column">
+                            <div class="d-flex flex-stack position-relative mt-8">
                                 <!--begin::Bar-->
                                 <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
                                 <!--end::Bar-->
@@ -2537,7 +2537,7 @@ $query1 = mysqli_query($con, $sql1);
                                 <!--end::Action-->
                             </div>
                             <!--end::Time-->
-                       
+                            </div>         
             </div>
         </div>
     </div>
