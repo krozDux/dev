@@ -50,7 +50,10 @@ $query1 = mysqli_query($con, $sql1);
 
                             </div>
                         </div>
-
+                        <div class="d-flex mb-4">
+                            <a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal"
+                                data-bs-target="#kt_modal_new_target">Agregar miembro</a>
+                        </div>
                         <div class="d-flex mb-4">
                             <a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal"
                                 data-bs-target="#kt_modal_new_target">Agregar miembro</a>
