@@ -1,5 +1,5 @@
 <?php  if ($session_rol != "invitado") {?>
-<?php include '../assets/controlador/proyectos.php'?>
+<?php include '../assets/controlador/recursos.php'?>
 <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
