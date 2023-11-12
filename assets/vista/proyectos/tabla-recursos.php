@@ -2223,27 +2223,6 @@ $query1 = mysqli_query($con, $sql1);
                                         class="path2"></span><span class="path3"></span><span class="path4"></span><span
                                         class="path5"></span></i> </button>
                         </div>
-                        <div class="d-flex align-items-center mb-5">
-                            <div class="symbol symbol-30px me-5">
-                                <img alt="Icon" src="/assets/media/svg/files/ai.svg">
-                            </div>
-                            <div class="fw-semibold">
-                                <a class="fs-6 fw-bold text-gray-900 text-hover-primary" href="#">Create Project
-                                    Wireframes</a>
-
-                                <div class="text-gray-500">
-                                    Due in 3 days <a href="#">Roth Bloom</a>
-                                </div>
-                            </div>
-                            <button type="button"
-                                class="btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary ms-auto"
-                                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-
-                                <i class="ki-duotone ki-element-plus fs-3"><span class="path1"></span><span
-                                        class="path2"></span><span class="path3"></span><span class="path4"></span><span
-                                        class="path5"></span></i> </button>
-                        </div>
-                       
                     </div>
                    
                 </div>
@@ -2461,23 +2440,27 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-4px"></div>
                         <!--end::Label-->
 
-                        <!--begin::Checkbox-->
-                        <div class="form-check form-check-custom form-check-solid ms-6 me-4">
-                            <input class="form-check-input" type="checkbox" value="">
-                        </div>
-                        <!--end::Checkbox-->
+                        <div class="fw-semibold ms-5 text-gray-600">
+                                    <!--begin::Time-->
+                                    <div class="fs-5">
+                                        14:30 - 15:30
 
-                        <!--begin::Details-->
-                        <div class="fw-semibold">
-                            <a href="#" class="fs-6 fw-bold text-gray-900 text-hover-primary">Create FureStibe branding
-                                logo</a>
+                                        <span class="fs-7 text-gray-500 text-uppercase">
+                                            pm </span>
+                                    </div>
+                                    <!--end::Time-->
 
-                            <!--begin::Info-->
-                            <div class="text-gray-500">
-                                Due in 1 day <a href="#">Karina Clark</a>
-                            </div>
-                            <!--end::Info-->
-                        </div>
+                                    <!--begin::Title-->
+                                    <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">
+                                        Committee Review Approvals </a>
+                                    <!--end::Title-->
+
+                                    <!--begin::User-->
+                                    <div class="text-gray-500">
+                                        Lead by <a href="#">Michael Walters</a>
+                                    </div>
+                                    <!--end::User-->
+                                </div>
                         <!--end::Details-->
 
                         <!--begin::Menu-->
