@@ -51,8 +51,8 @@ $query1 = mysqli_query($con, $sql1);
                             </div>
                         </div>
                         <div class="d-flex mb-4">
-                        <a href="#" class="btn btn-sm btn-bg-light btn-active-color-primary me-3 modal-trabajo">Add User</a>
-                        <a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_new_target">Add Target</a>
+                        <a class="btn btn-sm btn-bg-light btn-active-color-primary me-3 modal-trabajo">Add User</a>
+                        <a class="btn btn-sm btn-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_new_target">Add Target</a>
                     </div>
                     </div>
 
