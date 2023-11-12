@@ -709,32 +709,39 @@ $query1 = mysqli_query($con, $sql1);
                     }
                     ?>
                     <div class="tab-content">
-                        <?php foreach ($tareas as $tarea): ?>
-                            <?php 
-                            // Convertimos la fechaFin a un objeto DateTime
-                            $fechaFin = new DateTime($tarea['fechaFin']);
-                            // Extraemos el día del objeto DateTime
-                            $dia = $fechaFin->format('j'); // 'j' dará el día sin ceros iniciales
-                            ?>
-                            <div id="kt_schedule_day_<?php echo $dia; ?>" class="tab-pane fade show" role="tabpanel">
-                                <div class="d-flex flex-stack position-relative mt-8">
-                                    <!-- Tu contenido para cada tarea aquí -->
-                                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                    <div class="fw-semibold ms-5 text-gray-600">
-                                        <!-- Descripción de la tarea -->
-                                        <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">
-                                            <?php echo $tarea['nombre']; ?>
-                                        </a>
-                                        <!-- Más información de la tarea -->
-                                        <div class="text-gray-500">
-                                            Lead by <a href="#"><?php echo $tarea['lider']; ?></a> <!-- Ajustar según sea necesario -->
-                                        </div>
-                                    </div>
-                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
+                        <?php for ($date = $fechaInicio; $date < $fechaFin; $date->modify('+1 day')) {
+    // Formatea la fecha para la comparación en SQL
+    $fechaFormatoSql = $date->format('Y-m-d');
+
+    // Prepara la consulta para obtener las tareas para la fecha actual del bucle
+    $sqlTareasDia = "SELECT * FROM proyectosTareas WHERE idProyecto = '$idProyecto' AND DATE(fechaFin) = '$fechaFormatoSql'";
+    $queryTareasDia = mysqli_query($con, $sqlTareasDia);
+    $tareasDia = mysqli_fetch_all($queryTareasDia, MYSQLI_ASSOC);
+
+    // Extrae el día de la fecha para usarlo en el id del div
+    $dia = $date->format('j');
+
+    // Muestra el contenedor de la pestaña para el día actual
+    echo "<div id='kt_schedule_day_$dia' class='tab-pane fade show' role='tabpanel'>";
+
+    // Verifica si hay tareas para este día
+    if ($tareasDia) {
+        foreach ($tareasDia as $tarea) {
+            // Aquí imprimes la información de cada tarea
+            echo "<div class='d-flex flex-stack position-relative mt-8'>"; // Contenedor de la tarea
+            // ... Resto del contenido de la tarea ...
+            echo "</div>"; // Fin del contenedor de la tarea
+        }
+    } else {
+        // No hay tareas para este día
+        echo "<p>No hay tareas programadas para este día.</p>";
+    }
+
+    echo "</div>"; // Fin del contenedor de la pestaña del día
+}
+// Cierra el contenido de las pestañas
+echo '</div>';
+?>
                 </div>
             </div>
         </div>
