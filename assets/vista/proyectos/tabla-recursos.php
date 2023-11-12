@@ -2433,7 +2433,7 @@ $query1 = mysqli_query($con, $sql1);
                 <!--end::Card header-->
 
                             <!--begin::Time-->
-                            <div class="d-flex flex-stack position-relative mt-8">
+                            <div class="card-title flex-column">
                                 <!--begin::Bar-->
                                 <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
                                 <!--end::Bar-->
