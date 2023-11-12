@@ -2432,7 +2432,6 @@ $query1 = mysqli_query($con, $sql1);
                 </div>
                 <!--end::Card header-->
 
-                <div id="kt_schedule_day_1" class="tab-pane fade show active" role="tabpanel">
                             <!--begin::Time-->
                             <div class="d-flex flex-stack position-relative mt-8">
                                 <!--begin::Bar-->
@@ -2538,7 +2537,7 @@ $query1 = mysqli_query($con, $sql1);
                                 <!--end::Action-->
                             </div>
                             <!--end::Time-->
-                        </div>
+                       
             </div>
         </div>
     </div>
