@@ -26,7 +26,7 @@ if (!empty($_POST['btnreg'])) {
                                 $value = $matches[1];
                                 
                                 // Inserta el valor en la tabla MySQL
-                                $consulta7 = "INSERT `tareasInfo` (`idUsuario`,`idTareas`) VALUES ('$value','$idTarea')";
+                                $consulta7 = "INSERT `tareasInfo` (`idUsuario`,`idTarea`) VALUES ('$value','$idTarea')";
                                 $resultado7 = mysqli_query($con, $consulta7);
                                 if (!$resultado7) {
                                     echo "Error al insertar el valor '$value'. Error: " . mysqli_error($con);
