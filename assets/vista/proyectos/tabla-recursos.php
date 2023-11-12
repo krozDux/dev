@@ -708,7 +708,6 @@ $query1 = mysqli_query($con, $sql1);
                         echo "<div class='fs-6 text-gray-500'>Información no disponible.</div>";
                     }
                     ?>
-
                     <div class="tab-content">
                         <?php foreach ($tareas as $tarea): ?>
                             <?php 
@@ -717,7 +716,7 @@ $query1 = mysqli_query($con, $sql1);
                             // Extraemos el día del objeto DateTime
                             $dia = $fechaFin->format('j'); // 'j' dará el día sin ceros iniciales
                             ?>
-                            <div id="kt_schedule_day_<?php echo $dia; ?>" class="tab-pane fade <?php echo $dia == $fechaInicio->format('j') ? 'show active' : ''; ?>" role="tabpanel">
+                            <div id="kt_schedule_day_<?php echo $dia; ?>" class="tab-pane fade show" role="tabpanel">
                                 <div class="d-flex flex-stack position-relative mt-8">
                                     <!-- Tu contenido para cada tarea aquí -->
                                     <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
