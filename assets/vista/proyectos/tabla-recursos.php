@@ -153,7 +153,7 @@ $query1 = mysqli_query($con, $sql1);
             <div class="card card-flush h-lg-100">
                 <div class="card-header mt-6">
                     <div class="card-title flex-column">
-                        <h3 class="fw-bold mb-1">Resumen de Actividades</h3>
+                        <h3 class="fw-bold mb-1">RESUMEN DE ACTIVIDADES</h3>
                         <?php
                         include('../config.php');
 
@@ -250,7 +250,7 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="card-header mt-6">
                     <!--begin::Card title-->
                     <div class="card-title flex-column">
-                        <h3 class="fw-bold mb-1">Calendario de tareas</h3>
+                        <h3 class="fw-bold mb-1">CALENDARIO DE TAREAS</h3>
                         <?php
                         include('../config.php');
                         $sql1 = "SELECT id, nombre, fechaInicio, fechaFin, DATEDIFF(fechaFin, fechaInicio) AS cantidad_dias FROM proyectos WHERE id = '$idProyecto'";
