@@ -624,7 +624,7 @@ $query1 = mysqli_query($con, $sql1);
                     <!--begin::Card title-->
                     <div class="card-title flex-column">
                         <h3 class="fw-bold mb-1">Calendario de tareas</h3>
-                        <div class='fs-6 text-gray-500'>El proyecto abarca 0 días.</div>";
+                        <div class='fs-6 text-gray-500'>El proyecto abarca 0 días.</div>
                     </div>
                     
                 </div>
@@ -633,9 +633,9 @@ $query1 = mysqli_query($con, $sql1);
                     <ul class="nav nav-pills d-flex flex-nowrap hover-scroll-x py-2" role="tablist">
                         <li class='nav-item me-1' role='presentation'>
                                     <a class='nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary'
-                                        data-bs-toggle='tab' href='#kt_schedule_day_" . $date->format('j') . "' aria-selected='false' tabindex='-1' role='tab'>
-                                        <span class='opacity-50 fs-7 fw-semibold'>$dayOfWeek</span>
-                                        <span class='fs-6 fw-bold'>$day</span>
+                                        data-bs-toggle='tab' aria-selected='false' tabindex='-1' role='tab'>
+                                        <span class='opacity-50 fs-7 fw-semibold'>Lun</span>
+                                        <span class='fs-6 fw-bold'>1</span>
                                     </a>
                                 </li>
                     </ul>
@@ -645,31 +645,21 @@ $query1 = mysqli_query($con, $sql1);
                         $sqlTareas = "SELECT * FROM proyectosTareas WHERE idProyecto = '$idProyecto'";
                         $queryTareas = mysqli_query($con, $sqlTareas);
                         $tareas = mysqli_fetch_all($queryTareas, MYSQLI_ASSOC);
-                        foreach ($tareas as $tarea): ?>
-                            <?php 
-                            // Convertimos la fechaFin a un objeto DateTime
-                            $fechaFin = new DateTime($tarea['fechaFin']);
-                            // Extraemos el día del objeto DateTime
-                            $dia = $fechaFin->format('j'); // 'j' dará el día sin ceros iniciales
-                            ?>
-                            <div id="kt_schedule_day_<?php echo $dia; ?>" class="tab-pane fade show" role="tabpanel">
+                        ?>
+                            <div id="kt_schedule_day_0" class="tab-pane fade show" role="tabpanel">
                                 <div class="d-flex flex-stack position-relative mt-8">
                                     <!-- Tu contenido para cada tarea aquí -->
                                     <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
                                     <div class="fw-semibold ms-5 text-gray-600">
                                         <!-- Descripción de la tarea -->
                                         <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">
-                                            <?php echo $tarea['nombre']; ?>
+                                            NOMBRE
                                         </a>
-                                        <!-- Más información de la tarea -->
-                                        <div class="text-gray-500">
-                                            Lead by <a href="#"><?php echo $tarea['lider']; ?></a> <!-- Ajustar según sea necesario -->
-                                        </div>
                                     </div>
                                     <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
+                       
                     </div>
                 </div>
             </div>
