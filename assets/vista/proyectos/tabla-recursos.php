@@ -198,7 +198,7 @@ $query1 = mysqli_query($con, $sql1);
                             }
                         }
                         ?>
-                        <div class="fs-6 fw-semibold text-gray-500">El proyecto tiene <?php echo $totalreg; ?> actividaes.</div>
+                        <div class="fs-6 fw-semibold text-gray-500">El proyecto tiene <?php echo $totalreg; ?> actividades.</div>
                     </div>
                 </div>
 
@@ -234,7 +234,7 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="d-flex flex-stack flex-grow-1 ">
                             <div class=" fw-semibold">
 
-                                <div class="fs-6 text-gray-700 ">El recuento de actividades se clasifica en tres, en progreso, completados y a destiempo.</div>
+                                <div class="fs-6 text-gray-700 ">El recuento de las actividades consideradas como "destiempo" se basan en si haz subido o no un documento despues de la fecha límite de la tarea.</div>
                             </div>
                         </div>
                     </div>
