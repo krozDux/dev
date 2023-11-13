@@ -234,7 +234,7 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="d-flex flex-stack flex-grow-1 ">
                             <div class=" fw-semibold">
 
-                                <div class="fs-6 text-gray-700 ">El recuento de las actividades consideradas como "destiempo" se basan en si haz subido o no un documento despues de la fecha límite de la tarea.</div>
+                                <div class="fs-6 text-gray-700 ">Se considera "destiempo" si la tarea no esta o no fue completada antes de la fecha límite indicada por el encargado.</div>
                             </div>
                         </div>
                     </div>
