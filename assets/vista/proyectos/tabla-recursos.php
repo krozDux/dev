@@ -646,7 +646,7 @@ $query1 = mysqli_query($con, $sql1);
 
                 </div>
 
-                <div class="card-body p-9 pt-4">
+                <div class="card-body p-9 pt-0">
                     <ul class="nav nav-pills d-flex flex-nowrap hover-scroll-x py-2" role="tablist">
                         <?php
                 setlocale(LC_TIME, 'es_ES.UTF-8', 'Spanish_Spain.1252');
