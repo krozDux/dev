@@ -154,7 +154,13 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="card-header mt-6">
                     <div class="card-title flex-column">
                         <h3 class="fw-bold mb-1">Resumen de Actividades</h3>
-
+                        <?php
+                        include('../config.php');
+                        $sql14 = "SELECT GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios, proyectosTareas.id,proyectosTareas.nombre,proyectosTareas.estado,proyectosTareas.fechaFin,tareasInfo.idTarea, proyectosTareas.idProyecto FROM tareasInfo 
+                        JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id where proyectosTareas.idProyecto = '$idProyecto'
+                        GROUP BY proyectosTareas.id;";
+                        $query14 = mysqli_query($con, $sql14);
+                        ?>
                         <div class="fs-6 fw-semibold text-gray-500">CANTIDAD DE ACTIVIDADES</div>
                     </div>
                 </div>
@@ -203,20 +209,12 @@ $query1 = mysqli_query($con, $sql1);
 
                                 <div class="fs-6 text-gray-700 ">El recuento de actividades se clasifica en tres, en progreso, completados y a destiempo.</div>
                             </div>
-                            <!--end::Content-->
-
                         </div>
-                        <!--end::Wrapper-->
                     </div>
-                    <!--end::Notice-->
                 </div>
-                <!--end::Card body-->
             </div>
-            <!--end::Summary-->
         </div>
-        <!--end::Col-->
 
-        <!--begin::Col-->
 
         <div class="col-lg-6">
             <!--begin::Card-->
