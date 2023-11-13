@@ -149,7 +149,7 @@ $query1 = mysqli_query($con, $sql1);
         </div>
     </div>
     <div class="row gx-6 gx-xl-9">
-        <div class="col-lg-6">
+        <div class="col-lg-6 mb-6">
             <div class="card card-flush h-lg-100">
                 <div class="card-header mt-6">
                     <div class="card-title flex-column">
@@ -208,7 +208,7 @@ $query1 = mysqli_query($con, $sql1);
 
                         <div class="d-flex flex-column justify-content-center flex-row-fluid pe-11 mb-5">
                             <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
-                                <div class="bullet bg-primary me-3"></div>
+                                <div class="bullet bg-warning me-3"></div>
                                 <div class="text-gray-500">En progreso</div>
                                 <div class="ms-auto fw-bold text-gray-700"><?php echo $progreso; ?></div>
                             </div>
@@ -243,7 +243,7 @@ $query1 = mysqli_query($con, $sql1);
         </div>
 
 
-        <div class="col-lg-6">
+        <div class="col-lg-6 mb-6">
             <!--begin::Card-->
             <div class="card card-flush h-lg-100">
                 <!--begin::Card header-->
@@ -353,7 +353,7 @@ $query1 = mysqli_query($con, $sql1);
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-6 mb-6">
 
             <!--begin::Card-->
             <div class="card card-flush h-lg-100">
@@ -660,7 +660,7 @@ $query1 = mysqli_query($con, $sql1);
         <!--end::Col-->
 
         <!--begin::Col-->
-        <div class="col-lg-6">
+        <div class="col-lg-6 mb-6">
             <!--begin::Card-->
             <div class="card  card-flush h-lg-100">
                 <!--begin::Card header-->
@@ -837,7 +837,7 @@ $query1 = mysqli_query($con, $sql1);
         <!--end::Col-->
 
         <!--begin::Col-->
-        <div class="col-lg-6">
+        <div class="col-lg-6 mb-6">
 
             <!--begin::Tasks-->
             <div class="col-lg-12">
