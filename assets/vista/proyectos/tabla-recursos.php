@@ -357,14 +357,14 @@ $query1 = mysqli_query($con, $sql1);
         </div>
         <div class="col-lg-6 mb-6">
             <!--begin:Card-->
-            <div class="card  card-flush h-lg-60">
+            <div class="card card-flush h-lg-100">
                 <!--begin::Card header-->
                 <div class="card-header mt-6">
                     <!--begin::Card title-->
                     <div class="card-title flex-column">
-                        <h3 class="fw-bold mb-1">Contribuidores</h3>
+                        <h3 class="fw-bold mb-1">CONTRIBUIDORES</h3>
 
-                        <div class="fs-6 text-gray-500">el proyecto consta de CONTRIBUIDORES miembros en total</div>
+                        <div class="fs-6 text-gray-500">El proyecto consta de CONTRIBUIDORES miembros en total</div>
                     </div>
                     <div class="card-toolbar">
                         <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View All</a>
@@ -393,7 +393,7 @@ $query1 = mysqli_query($con, $sql1);
             </div>
         </div>
         <div class="col-lg-6 mb-6">
-            <div class="card card-flush h-lg-60">
+            <div class="card card-flush h-lg-100">
                 <div class="card-header mt-6">
                     <!--begin::Card title-->
                     <div class="card-title flex-column">
