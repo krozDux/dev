@@ -204,17 +204,7 @@ $query1 = mysqli_query($con, $sql1);
 
                 <div class="card-body p-9 pt-5">
                     <div class="d-flex flex-wrap">
-                        <div class="position-relative d-flex flex-center h-175px w-175px me-15 mb-7">
-                            <div
-                                class="position-absolute translate-middle start-50 top-50 d-flex flex-column flex-center">
-                                <span class="fs-2qx fw-bold"><?php echo $totalreg; ?></span>
-                                <span class="fs-6 fw-semibold text-gray-500">Total Tasks</span>
-                            </div>
-
-                            <canvas id="project_overview_chart"
-                                style="display: block; box-sizing: border-box; height: 175px; width: 175px;" width="175"
-                                height="175"></canvas>
-                        </div>
+                        
 
                         <div class="d-flex flex-column justify-content-center flex-row-fluid pe-11 mb-5">
                             <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
