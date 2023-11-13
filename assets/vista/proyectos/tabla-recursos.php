@@ -636,8 +636,6 @@ $query1 = mysqli_query($con, $sql1);
                             // Incrementar un día porque la fecha final es inclusiva
                             $fechaFin->modify('+1 day'); 
                             echo "<div class='fs-6 text-gray-500'>El proyecto abarca " . $result['cantidad_dias'] . " días.</div>";
-                        } else {
-                            echo "<div class='fs-6 text-gray-500'>El proyecto no posee tareas.</div>";
                         }
                         ?>
                     </div>
@@ -649,7 +647,7 @@ $query1 = mysqli_query($con, $sql1);
                         
                         <li class='nav-item me-1' role='presentation'>
                                     <a class='nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary'
-                                        data-bs-toggle='tab' href='#kt_schedule_day_0' aria-selected='false' tabindex='-1' role='tab'>
+                                        data-bs-toggle='tab' aria-selected='false' tabindex='-1' role='tab'>
                                         <span class='opacity-50 fs-7 fw-semibold'>Lun</span>
                                         <span class='fs-6 fw-bold'>1</span>
                                     </a>
