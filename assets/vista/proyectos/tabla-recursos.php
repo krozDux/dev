@@ -683,37 +683,44 @@ $query1 = mysqli_query($con, $sql1);
                     }
                     ?>
                     <div class="tab-content">
-                        <?php 
-                        $sqlTareas = "SELECT * FROM proyectosTareas WHERE idProyecto = '$idProyecto'";
-                        $queryTareas = mysqli_query($con, $sqlTareas);
-                        $tareas = mysqli_fetch_all($queryTareas, MYSQLI_ASSOC);
-                        foreach ($tareas as $tarea): ?>
-                        <?php 
-                            // Convertimos la fechaFin a un objeto DateTime
-                            $fechaFin = new DateTime($tarea['fechaFin']);
-                            // Extraemos el día del objeto DateTime
-                            $dia = $fechaFin->format('j'); // 'j' dará el día sin ceros iniciales
-                            ?>
-                        <div id="kt_schedule_day_<?php echo $dia; ?>" class="tab-pane fade show" role="tabpanel">
-                            <div class="d-flex flex-stack position-relative mt-8">
-                                <!-- Tu contenido para cada tarea aquí -->
-                                <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
-                                <div class="fw-semibold ms-5 text-gray-600">
-                                    <!-- Descripción de la tarea -->
-                                    <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">
-                                        <?php echo $tarea['nombre']; ?>
-                                    </a>
-                                    <!-- Más información de la tarea -->
-                                    <div class="text-gray-500">
-                                        Lead by <a href="#"><?php echo $tarea['lider']; ?></a>
-                                        <!-- Ajustar según sea necesario -->
-                                    </div>
-                                </div>
-                                <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                            </div>
+    <?php
+    $sqlTareas = "SELECT * FROM proyectosTareas WHERE idProyecto = '$idProyecto' ORDER BY fechaFin ASC";
+    $queryTareas = mysqli_query($con, $sqlTareas);
+    $tareas = mysqli_fetch_all($queryTareas, MYSQLI_ASSOC);
+
+    // Inicializa un array para agrupar las tareas por fecha
+    $tareasPorFecha = [];
+    foreach ($tareas as $tarea) {
+        $fechaFin = new DateTime($tarea['fechaFin']);
+        $fechaClave = $fechaFin->format('Y-m-d');
+        $tareasPorFecha[$fechaClave][] = $tarea; // Agrega la tarea al array de su fecha correspondiente
+    }
+
+    foreach ($tareasPorFecha as $fecha => $tareasDeEseDia) {
+        $fechaObj = new DateTime($fecha);
+        $dia = $fechaObj->format('j'); // 'j' dará el día sin ceros iniciales
+        ?>
+        <div id="kt_schedule_day_<?php echo $dia; ?>" class="tab-pane fade" role="tabpanel">
+            <?php foreach ($tareasDeEseDia as $tarea): ?>
+                <div class="d-flex flex-stack position-relative mt-8">
+                    <!-- Tu contenido para cada tarea aquí -->
+                    <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
+                    <div class="fw-semibold ms-5 text-gray-600">
+                        <!-- Descripción de la tarea -->
+                        <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">
+                            <?php echo $tarea['nombre']; ?>
+                        </a>
+                        <!-- Más información de la tarea -->
+                        <div class="text-gray-500">
+                            Lead by <a href="#"><?php echo $tarea['lider']; ?></a>
                         </div>
-                        <?php endforeach; ?>
                     </div>
+                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php } ?>
+</div>
                 </div>
             </div>
         </div>
