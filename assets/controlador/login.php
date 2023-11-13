@@ -37,7 +37,7 @@ if (!empty($_POST['btningresar'])) {
             } else {
                 session_start();
                 $_SESSION['email'] = $email;
-                header("location:../panel/index.php");
+                header("location:../panel/index");
             }
         } else {
             echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
