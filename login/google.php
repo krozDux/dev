@@ -40,12 +40,12 @@ $resultado_email = mysqli_query($con, $consulta_email);
     $resultado = mysqli_query($con, $consulta);
     session_start();
     $_SESSION['email'] = $email;
-    header("location:../panel/index.php");
+    header("location:../panel/index");
                         }
                           else {
                             session_start();
             $_SESSION['email'] = $email;
-            header("location:../panel/index.php");
+            header("location:../panel/index");
                         }
 ?>
 
