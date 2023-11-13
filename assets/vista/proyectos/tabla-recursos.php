@@ -156,10 +156,47 @@ $query1 = mysqli_query($con, $sql1);
                         <h3 class="fw-bold mb-1">Resumen de Actividades</h3>
                         <?php
                         include('../config.php');
-                        $sql14 = "SELECT GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios, proyectosTareas.id,proyectosTareas.nombre,proyectosTareas.estado,proyectosTareas.fechaFin,tareasInfo.idTarea, proyectosTareas.idProyecto FROM tareasInfo 
-                        JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id where proyectosTareas.idProyecto = '$idProyecto'
-                        GROUP BY proyectosTareas.id;";
+
+                        // Variables para contar los diferentes estados
+                        $progreso = 0;
+                        $finalizados = 0;
+                        $retraso = 0;
+                        $totalreg = 0;
+
+                        // Fecha actual
+                        $fechaActual = new DateTime();
+
+                        $sql14 = "SELECT GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios, 
+                                        proyectosTareas.id,
+                                        proyectosTareas.nombre,
+                                        proyectosTareas.estado,
+                                        proyectosTareas.fechaFin,
+                                        tareasInfo.idTarea, 
+                                        proyectosTareas.idProyecto 
+                                FROM tareasInfo 
+                                JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id 
+                                WHERE proyectosTareas.idProyecto = '$idProyecto'
+                                GROUP BY proyectosTareas.id;";
+
                         $query14 = mysqli_query($con, $sql14);
+
+                        if ($query14) {
+                            $totalreg = mysqli_num_rows($query14); // Contamos el total de registros
+
+                            while ($tarea = mysqli_fetch_assoc($query14)) {
+                                // Incrementamos según el estado
+                                if ($tarea['estado'] == '1') {
+                                    $progreso++;
+                                    // Comparamos la fecha de finalización con la fecha actual para ver si está retrasada
+                                    $fechaFin = new DateTime($tarea['fechaFin']);
+                                    if ($fechaFin < $fechaActual) {
+                                        $retraso++;
+                                    }
+                                } elseif ($tarea['estado'] == '2') {
+                                    $finalizados++;
+                                }
+                            }
+                        }
                         ?>
                         <div class="fs-6 fw-semibold text-gray-500">CANTIDAD DE ACTIVIDADES</div>
                     </div>
@@ -170,7 +207,7 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="position-relative d-flex flex-center h-175px w-175px me-15 mb-7">
                             <div
                                 class="position-absolute translate-middle start-50 top-50 d-flex flex-column flex-center">
-                                <span class="fs-2qx fw-bold">237</span>
+                                <span class="fs-2qx fw-bold"><?php echo $totalreg; ?></span>
                                 <span class="fs-6 fw-semibold text-gray-500">Total Tasks</span>
                             </div>
 
@@ -183,19 +220,19 @@ $query1 = mysqli_query($con, $sql1);
                             <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
                                 <div class="bullet bg-primary me-3"></div>
                                 <div class="text-gray-500">En progreso</div>
-                                <div class="ms-auto fw-bold text-gray-700">30</div>
+                                <div class="ms-auto fw-bold text-gray-700"><?php echo $progreso; ?></div>
                             </div>
 
                             <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
                                 <div class="bullet bg-success me-3"></div>
                                 <div class="text-gray-500">Completados</div>
-                                <div class="ms-auto fw-bold text-gray-700">45</div>
+                                <div class="ms-auto fw-bold text-gray-700"><?php echo $finalizados; ?></div>
                             </div>
 
                             <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
                                 <div class="bullet bg-danger me-3"></div>
                                 <div class="text-gray-500">Destiempo</div>
-                                <div class="ms-auto fw-bold text-gray-700">0</div>
+                                <div class="ms-auto fw-bold text-gray-700"><?php echo $retraso; ?></div>
                             </div>
 
                         </div>
