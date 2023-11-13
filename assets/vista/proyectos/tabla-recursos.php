@@ -628,6 +628,9 @@ $query1 = mysqli_query($con, $sql1);
                         include('../config.php');
                         $sql1 = "SELECT id, nombre, fechaInicio, fechaFin, DATEDIFF(fechaFin, fechaInicio) AS cantidad_dias FROM proyectos WHERE id = '$idProyecto'";
                         $query1 = mysqli_query($con, $sql1);
+                        $sql = "SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, DATEDIFF(proyectos.fechaFin, proyectos.fechaInicio) AS cantidad_dias, proyectosTareas.fechaFin AS fechaLimite FROM proyectos JOIN proyectosTareas ON proyectos.id=proyectosTareas.idProyecto WHERE proyectos.id = '$idProyecto'";
+                        $query = mysqli_query($con, $sql);
+                        $tareas = mysqli_fetch_all($query, MYSQLI_ASSOC);
                         // Verifica que la consulta haya retornado un resultado
                         if($query1 && mysqli_num_rows($query1) > 0) {
                             $result = mysqli_fetch_assoc($query1);
@@ -642,24 +645,28 @@ $query1 = mysqli_query($con, $sql1);
                 </div>
 
                 <div class="card-body p-9 pt-4">
-                    <ul class="nav nav-pills d-flex flex-nowrap hover-scroll-x py-2" role="tablist">
-                        <?php
-                        setlocale(LC_TIME, 'es_ES.UTF-8', 'Spanish_Spain.1252');
-                        for($date = $fechaInicio; $date < $fechaFin; $date->modify('+1 day')) {
-                            $day = $date->format('d'); // Día del mes
-                            // Usar strftime() para obtener la abreviatura del día en español
-                            $dayOfWeek = strftime('%a', $date->getTimestamp()); // Abreviatura del día de la semana en español
-                            $activeClass = $date == $fechaInicio ? 'active' : '';
-                            echo "<li class='nav-item me-1' role='presentation'>
-                                    <a class='nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary'
-                                        data-bs-toggle='tab' href='#kt_schedule_day_" . $date->format('j') . "' aria-selected='false' tabindex='-1' role='tab'>
-                                        <span class='opacity-50 fs-7 fw-semibold'>$dayOfWeek</span>
-                                        <span class='fs-6 fw-bold'>$day</span>
-                                    </a>
-                                </li>";
-                        }
-                        ?>
-                    </ul>
+                    <<ul class="nav nav-pills d-flex flex-nowrap hover-scroll-x py-2" role="tablist">
+                <?php
+                setlocale(LC_TIME, 'es_ES.UTF-8', 'Spanish_Spain.1252');
+                $diasUnicos = [];
+                foreach ($tareas as $tarea) {
+                    // Convertimos la fechaLimite a un objeto DateTime
+                    $fechaLimite = new DateTime($tarea['fechaLimite']);
+                    $dia = $fechaLimite->format('j'); // 'j' dará el día sin ceros iniciales
+                    if (!in_array($dia, $diasUnicos)) { // Verifica si este día ya fue agregado
+                        $diasUnicos[] = $dia; // Agrega el día a la lista de días únicos
+                        $dayOfWeek = strftime('%a', $fechaLimite->getTimestamp());
+                        echo "<li class='nav-item me-1' role='presentation'>
+                                <a class='nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary'
+                                    data-bs-toggle='tab' href='#kt_schedule_day_$dia' aria-selected='false' tabindex='-1' role='tab'>
+                                    <span class='opacity-50 fs-7 fw-semibold'>$dayOfWeek</span>
+                                    <span class='fs-6 fw-bold'>$dia</span>
+                                </a>
+                            </li>";
+                    }
+                }
+                ?>
+            </ul>
                     <?php
                     } else {
                         echo "<div class='fs-6 text-gray-500'>Información no disponible.</div>";
