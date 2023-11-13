@@ -626,7 +626,7 @@ $query1 = mysqli_query($con, $sql1);
                         <h3 class="fw-bold mb-1">Calendario de tareas</h3>
                         <?php
                         include('../config.php');
-                        $sql1 = "SELECT id, nombre, fechaInicio, fechaFin, DATEDIFF(fechaFin, fechaInicio) AS cantidad_dias FROM proyectos WHERE id = '$idProyecto'";
+                        $sql1 = "SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectosTareas.fechaFin as fechaLimite, DATEDIFF(proyectos.fechaFin, proyectos.fechaInicio) AS cantidad_dias FROM proyectos JOIN proyectosTareas ON proyectos.id = proyectosTareas.idProyecto WHERE proyectos.id = '$idProyecto'";
                         $query1 = mysqli_query($con, $sql1);
                         // Verifica que la consulta haya retornado un resultado
                         if($query1 && mysqli_num_rows($query1) > 0) {
