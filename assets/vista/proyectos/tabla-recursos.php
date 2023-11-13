@@ -626,7 +626,7 @@ $query1 = mysqli_query($con, $sql1);
                         <h3 class="fw-bold mb-1">Calendario de tareas</h3>
                         <?php
                         include('../config.php');
-                        $sql1 = "SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectosTareas.fechaFin as fechaLimite, DATEDIFF(proyectos.fechaFin, proyectos.fechaInicio) AS cantidad_dias FROM proyectos JOIN proyectosTareas ON proyectos.id = proyectosTareas.idProyecto WHERE proyectos.id = '$idProyecto'";
+                        $sql1 = "SELECT id, nombre, fechaInicio, fechaFin, DATEDIFF(fechaFin, fechaInicio) AS cantidad_dias FROM proyectos WHERE id = '$idProyecto'";
                         $query1 = mysqli_query($con, $sql1);
                         // Verifica que la consulta haya retornado un resultado
                         if($query1 && mysqli_num_rows($query1) > 0) {
@@ -636,7 +636,6 @@ $query1 = mysqli_query($con, $sql1);
                             // Incrementar un día porque la fecha final es inclusiva
                             $fechaFin->modify('+1 day'); 
                             echo "<div class='fs-6 text-gray-500'>El proyecto abarca " . $result['cantidad_dias'] . " días.</div>";
-                        }
                         ?>
                     </div>
                     
@@ -644,32 +643,58 @@ $query1 = mysqli_query($con, $sql1);
 
                 <div class="card-body p-9 pt-4">
                     <ul class="nav nav-pills d-flex flex-nowrap hover-scroll-x py-2" role="tablist">
-                        
-                        <li class='nav-item me-1' role='presentation'>
+                        <?php
+                        setlocale(LC_TIME, 'es_ES.UTF-8', 'Spanish_Spain.1252');
+                        for($date = $fechaInicio; $date < $fechaFin; $date->modify('+1 day')) {
+                            $day = $date->format('d'); // Día del mes
+                            // Usar strftime() para obtener la abreviatura del día en español
+                            $dayOfWeek = strftime('%a', $date->getTimestamp()); // Abreviatura del día de la semana en español
+                            $activeClass = $date == $fechaInicio ? 'active' : '';
+                            echo "<li class='nav-item me-1' role='presentation'>
                                     <a class='nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 btn-active-primary'
-                                        data-bs-toggle='tab' aria-selected='false' tabindex='-1' role='tab'>
-                                        <span class='opacity-50 fs-7 fw-semibold'>Lun</span>
-                                        <span class='fs-6 fw-bold'>1</span>
+                                        data-bs-toggle='tab' href='#kt_schedule_day_" . $date->format('j') . "' aria-selected='false' tabindex='-1' role='tab'>
+                                        <span class='opacity-50 fs-7 fw-semibold'>$dayOfWeek</span>
+                                        <span class='fs-6 fw-bold'>$day</span>
                                     </a>
-                                </li>
-                     
+                                </li>";
+                        }
+                        ?>
                     </ul>
-                    
+                    <?php
+                    } else {
+                        echo "<div class='fs-6 text-gray-500'>Información no disponible.</div>";
+                    }
+                    ?>
                     <div class="tab-content">
-                            <div id="kt_schedule_day_0" class="tab-pane fade show" role="tabpanel">
+                        <?php 
+                        $sqlTareas = "SELECT * FROM proyectosTareas WHERE idProyecto = '$idProyecto'";
+                        $queryTareas = mysqli_query($con, $sqlTareas);
+                        $tareas = mysqli_fetch_all($queryTareas, MYSQLI_ASSOC);
+                        foreach ($tareas as $tarea): ?>
+                            <?php 
+                            // Convertimos la fechaFin a un objeto DateTime
+                            $fechaFin = new DateTime($tarea['fechaFin']);
+                            // Extraemos el día del objeto DateTime
+                            $dia = $fechaFin->format('j'); // 'j' dará el día sin ceros iniciales
+                            ?>
+                            <div id="kt_schedule_day_<?php echo $dia; ?>" class="tab-pane fade show" role="tabpanel">
                                 <div class="d-flex flex-stack position-relative mt-8">
                                     <!-- Tu contenido para cada tarea aquí -->
                                     <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0"></div>
                                     <div class="fw-semibold ms-5 text-gray-600">
                                         <!-- Descripción de la tarea -->
                                         <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">
-                                            Nombre tarea
+                                            <?php echo $tarea['nombre']; ?>
                                         </a>
+                                        <!-- Más información de la tarea -->
+                                        <div class="text-gray-500">
+                                            Lead by <a href="#"><?php echo $tarea['lider']; ?></a> <!-- Ajustar según sea necesario -->
+                                        </div>
                                     </div>
-                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
+                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
                                 </div>
                             </div>
-                      
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
