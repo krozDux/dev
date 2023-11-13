@@ -52,9 +52,9 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
                         <div class="d-flex mb-4">
                             <button class="btn btn-sm btn-bg-light btn-active-color-primary me-3 modal-trabajo"
-                                data-bs-toggle="modal" data-bs-target="#kt_modal_new_user">Add User</button>
+                                data-bs-toggle="modal" data-bs-target="#kt_modal_new_user">Agregar tarea</button>
                             <a class="btn btn-sm btn-primary me-3" data-bs-toggle="modal"
-                                data-bs-target="#kt_modal_new_user">Add Target</a>
+                                data-bs-target="#kt_modal_new_user">Agregar usuario</a>
                         </div>
                     </div>
 
@@ -364,10 +364,10 @@ $query1 = mysqli_query($con, $sql1);
                     <div class="card-title flex-column">
                         <h3 class="fw-bold mb-1">CONTRIBUIDORES</h3>
 
-                        <div class="fs-6 text-gray-500">El proyecto consta de CONTRIBUIDORES miembros en total</div>
+                        <div class="fs-6 text-gray-500">El proyecto tiene CONTRIBUIDORES miembros activos.</div>
                     </div>
                     <div class="card-toolbar">
-                        <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View All</a>
+                        <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
                     </div>
                 </div>
 
@@ -382,7 +382,7 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
 
                         <div class="fw-semibold">
-                            <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary">Emma Smith</a>
+                            <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary">Nombres Apellidos</a>
                             <div class="text-gray-500">
                                 8 Pending &amp; 97 Completed Tasks </div>
                         </div>
