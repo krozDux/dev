@@ -357,7 +357,7 @@ $query1 = mysqli_query($con, $sql1);
         </div>
         <div class="col-lg-6 mb-6">
             <!--begin:Card-->
-            <div class="card  card-flush h-lg-100">
+            <div class="card  card-flush h-lg-60">
                 <!--begin::Card header-->
                 <div class="card-header mt-6">
                     <!--begin::Card title-->
@@ -377,7 +377,7 @@ $query1 = mysqli_query($con, $sql1);
                 <!--end::Card toolbar-->
 
                 <!--begin::Card body-->
-                <div class="card-body d-flex flex-column p-9 pt-3 mb-9">
+                <div class="card-body d-flex flex-column p-9 pt-3 ">
 
                     <!--begin::Item-->
                     <div class="d-flex align-items-center mb-5">
