@@ -2,10 +2,10 @@
 <?php  if ($session_rol != "invitado" and $session_rol != "cliente" and $session_rol != "proveedor" ) {?>
 <html lang="es">
 <?php include_once '../assets/controlador/sesion.php'?>
-<?php include_once '../assets/vista/plantillas/head-clientes.php'?>
+<?php include_once '../assets/vista/plantillas/head-contratos.php'?>
 
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-    <?php include_once '../assets/vista/plantillas/body-clientes.php'?>
+    <?php include_once '../assets/vista/plantillas/body-contratos.php'?>
     <script>
     var hostUrl = "assets/";
     </script>
@@ -46,7 +46,7 @@
                         columns: [1, 2, 3, 4, 5]
                     },
                     autoFilter: true,
-                    sheetName: 'Reporte - Clientes'
+                    sheetName: 'Reporte - contratos'
                 },
             ],
             language: {
