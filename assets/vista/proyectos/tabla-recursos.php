@@ -372,7 +372,6 @@ $query1 = mysqli_query($con, $sql1);
                 </div>
 
                 <div class="card-body d-flex flex-column p-9 pt-3 ">
-
                     <div class="d-flex align-items-center mb-5">
                         <div class="me-5 position-relative">
                             <div class="symbol symbol-35px symbol-circle">
@@ -380,13 +379,11 @@ $query1 = mysqli_query($con, $sql1);
                             </div>
 
                         </div>
-
                         <div class="fw-semibold">
                             <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary">Nombres Apellidos</a>
                             <div class="text-gray-500">
                                 8 Pending &amp; 97 Completed Tasks </div>
                         </div>
-
                         <div class="badge badge-light ms-auto">5</div>
                     </div>
                 </div>
