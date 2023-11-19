@@ -382,9 +382,9 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="fw-semibold">
                             <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary">Nombres Apellidos</a>
                             <div class="text-gray-500">
-                                8 Pending &amp; 97 Completed Tasks </div>
+                            TOTAL TAREAS COMPLETADAS    &amp; TOTAL TAREAS PENDIENTES</div>
                         </div>
-                        <div class="badge badge-light ms-auto">5</div>
+                        <div class="badge badge-light ms-auto">TOTAL TAREAS</div>
                     </div>
                 </div>
             </div>
