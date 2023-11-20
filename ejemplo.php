@@ -4,7 +4,7 @@ require_once 'vendor/autoload.php';
 use PhpOffice\PhpWord\TemplateProcessor;
 
 // Ruta a la plantilla de Word
-$templateProcessor = new TemplateProcessor('ruta/a/tu/plantilla.docx');
+$templateProcessor = new TemplateProcessor('/nombre.docx');
 
 // Recibir nombre y apellido por algún método, por ejemplo, POST
 $nombre = 'hola';
