@@ -403,10 +403,9 @@ $query1 = mysqli_query($con, $sql1);
                             </div>
                             <div class="fw-semibold">
                                 <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary"><?php echo $DataContri['nombres']; ?> <?php echo $DataContri['apellidos']; ?></a>
-                                <div class="text-gray-500">
-                                <div class="badge badge-light ms-auto"><?php echo $DataContri['cantidad']; ?> tareas en total</div></div>
+                                
                             </div>
-                            <div class="badge badge-light ms-auto">Ver</div>
+                            <div class="badge badge-light ms-auto"><?php echo $DataContri['cantidad']; ?> tareas en total</div>
                         </div>
                     <?php } ?>
                     
