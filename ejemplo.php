@@ -1,16 +1,14 @@
 <?php 
-require_once '../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 use PhpOffice\PhpWord\TemplateProcessor;
 
 // Ruta a la plantilla de Word
-$templateProcessor = new TemplateProcessor('/plantilla.docx');
+$templateProcessor = new TemplateProcessor('ruta/a/tu/plantilla.docx');
 
 // Recibir nombre y apellido por algún método, por ejemplo, POST
-// $nombre = $_POST['nombre'];
-// $apellido = $_POST['apellido'];
-$nombre = 'Carlos';
-$apellido = 'Andres';
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
 
 // Reemplazar los marcadores de posición en la plantilla
 $templateProcessor->setValue('nombre', $nombre);
