@@ -1,6 +1,9 @@
 <?php
 include('../config.php');
-$sql1 = ('SELECT usuarios.id, usuarios.nombres, usuarios.apellidos, usuarios.rol, usuarios.direccion, usuarios.numero, usuarios.email, contratos.observacion, contratos.recomendacion, contratos.fechaInicio, contratos.fechaFin, contratos.idUsuario, INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaInicio != "" AND contratos.fechaFin != ""');
+$sql1 = ('SELECT usuarios.id, usuarios.nombres, usuarios.apellidos, usuarios.rol, usuarios.direccion, usuarios.numero, usuarios.email, contratos.observacion, contratos.recomendacion, contratos.fechaInicio, contratos.fechaFin
+FROM usuarios
+INNER JOIN contratos ON usuarios.id = contratos.idUsuario
+WHERE contratos.fechaInicio IS NOT NULL AND contratos.fechaFin IS NOT NULL;');
 $query1 = mysqli_query($con, $sql1);
 ?>
 <table class="table align-middle table-row-dashed fs-6 gy-5 " id="kt_table_users">
@@ -40,7 +43,7 @@ $query1 = mysqli_query($con, $sql1);
             <td ><?php echo $dataUsuario1['nombres']; ?></td>
             <td><?php echo $dataUsuario1['apellidos']; ?></td>
             <?php 
-			if ($dataUsuario1['rol'] == "admin") { ?>
+			if ($dataUsuario1['rol'] == "admin") { ?>A
             <td> <div class="badge badge-light-danger fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div> </td>
             <?php } else if ($dataUsuario1['rol'] == "cliente") { ?>
             <td> <div class="badge badge-light-success fw-bolder"><?php echo ucfirst($dataUsuario1['rol']); ?></div> </td>
