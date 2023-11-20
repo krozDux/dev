@@ -7,8 +7,8 @@ use PhpOffice\PhpWord\TemplateProcessor;
 $templateProcessor = new TemplateProcessor('ruta/a/tu/plantilla.docx');
 
 // Recibir nombre y apellido por algún método, por ejemplo, POST
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
+$nombre = 'hola';
+$apellido = 'hola';
 
 // Reemplazar los marcadores de posición en la plantilla
 $templateProcessor->setValue('nombre', $nombre);
