@@ -1,6 +1,6 @@
 <?php
 include('../config.php');
-$sql1 = ('SELECT usuarios.id, usuarios.nombres, usuarios.apellidos, usuarios.rol, usuarios.direccion, usuarios.numero, usuarios.email, contratos.observacion, contratos.recomendacion, contratos.fechaInicio, contratos.fechaFin
+$sql1 = ('SELECT usuarios.id, usuarios.nombres, usuarios.apellidos, usuarios.imagen, usuarios.rol, usuarios.direccion, usuarios.numero, usuarios.email, contratos.observacion, contratos.recomendacion, contratos.fechaInicio, contratos.fechaFin
 FROM usuarios
 INNER JOIN contratos ON usuarios.id = contratos.idUsuario
 WHERE contratos.fechaInicio IS NOT NULL AND contratos.fechaFin IS NOT NULL;');
