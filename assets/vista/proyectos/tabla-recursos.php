@@ -406,7 +406,7 @@ $query1 = mysqli_query($con, $sql1);
                                 <div class="text-gray-500">
                                 <div class="badge badge-light ms-auto"><?php echo $DataContri['cantidad']; ?> tareas en total</div></div>
                             </div>
-                            <div class="badge badge-light ms-auto"><?php echo $DataContri['nombres']; ?></div>
+                            <div class="badge badge-light ms-auto">Ver</div>
                         </div>
                     <?php } ?>
                     
