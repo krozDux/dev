@@ -17,7 +17,6 @@
     $(document).ready(function() {
 
         $('#kt_table_users').DataTable({
-
             dom: 'fBrtip',
             "sScrollX": "100%",
             "sScrollXInner": "110%",
@@ -28,10 +27,10 @@
                         '<path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>' +
                         '<path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>' +
                         '</svg>' +
-                        '</span>Registrar',
+                        '</span>Renovar contrato',
                     className: 'btn btn-primary',
                     action: function(e, dt, node, config) {
-                        $('#kt_modal_add_user').modal('show');
+                        $('#kt_modal_new_user').modal('show');
                     }
                 },
                 {
@@ -43,10 +42,10 @@
                         '</span>Exportar</button>',
                     className: 'btn btn-primary ',
                     exportOptions: {
-                        columns: [1, 2, 3, 4, 5]
+                        columns: [1, 2, 3, 4, 5, 6, 7]
                     },
                     autoFilter: true,
-                    sheetName: 'Reporte - contratos'
+                    sheetName: 'Reporte - Usuarios'
                 },
             ],
             language: {
@@ -61,14 +60,13 @@
                 infoFiltered: '(filtrado de _MAX_ registros en total)',
                 zeroRecords: 'No se encontraron registros coincidentes',
             },
+            order: [
+                [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
+            ]
         });
     });
     </script>
-    <script src="assets/js/widgets.bundle.js"></script>
-    <script src="assets/js/custom/widgets.js"></script>
-    <script src="assets/js/custom/apps/chat/chat.js"></script>
-    <script src="assets/js/custom/utilities/modals/create-app.js"></script>
-    <script src="assets/js/custom/utilities/modals/users-search.js"></script>
+
     <script>
     $('.del-usuario').on('click', function() {
         var id = $(this).data('id');
@@ -84,34 +82,113 @@
     </script>
 
     <script>
-    $('.edit-usuario').on('click', function() {
+    $('.ver-contrato').on('click', function() {
+        var id1 = $(this).data('id1');
+        var email1 = $(this).data('email1');
+        var nombres1 = $(this).data('nombres1');
+        var apellidos1 = $(this).data('apellidos1');
+        var rol1 = $(this).data('rol1');
+        var direccion1 = $(this).data('direccion1');
+        var numero1 = $(this).data('numero1');
+        var observacion1 = $(this).data('observacion1');
+        var recomendacion1 = $(this).data('recomendacion1');
+        var fechainicio1 = $(this).data('fechainicio1');
+        var fechafin1 = $(this).data('fechafin1');
+        $('#viewId').val(id1);
+        $('#viewNombres').val(nombres1 + " " + apellidos1);
+        $('#viewEmail').val(email1);
+        $('#viewDireccion').val(direccion1);
+        $('#viewNumero').val(numero1);
+        $('#viewRol').val(rol1);
+        $('#viewFechaInicio').val(fechainicio1);
+        $('#viewFechaFin').val(fechafin1);
+        $('#viewObservacion').val(observacion1);
+        $('#viewRecomendacion').val(recomendacion1);
+        $('#kt_modal_view_user').modal('show');
+    });
+    </script>
+
+    <script>
+    $('.reg-contrato').on('click', function() {
         var id = $(this).data('id');
         var email = $(this).data('email');
         var nombres = $(this).data('nombres');
         var apellidos = $(this).data('apellidos');
+        var rol = $(this).data('rol');
         var direccion = $(this).data('direccion');
         var numero = $(this).data('numero');
-        var imagen = $(this).data('imagen');
-        $('#editId').val(id);
+        var observacion = $(this).data('observacion');
+        var recomendacion = $(this).data('recomendacion');
+        var fechainicio = $(this).data('fechainicio');
+        var fechafin = $(this).data('fechafin');
+        $('#regId').val(id);
         $('#resetId').val(id);
         $('#resetNombres').val(nombres + " " + apellidos);
-        $('#editEmail').val(email);
-        $('#editNombres').val(nombres + " " + apellidos);
-        $('#editDireccion').val(direccion);
-        $('#editNumero').val(numero);
-        document.getElementById("editImagen").style.backgroundImage = "url(assets/media/avatars/" + imagen +
-        ")";
-        $('#kt_modal_edit_user').modal('show');
+        $('#regEmail').val(email);
+        $('#regNombres').val(nombres + " " + apellidos);
+        $('#regDireccion').val(direccion);
+        $('#regNumero').val(numero);
+        $('#regRol').val(rol);
+        $('#regObservacion').val(observacion);
+        $('#regRecomendacion').val(recomendacion);
+        $('#kt_modal_reg_user').modal('show');
+
+        if (fechainicio != "-") {
+            $('#regFechaInicio').val(fechainicio);
+        }
+        if (fechafin != "-") {
+            $('#regFechaFin').val(fechafin);
+        }
+
+        // Obtén los elementos de fecha de inicio y fecha de fin
+        var fechaInicioInput = document.getElementById("regFechaInicio");
+        var fechaFinInput = document.getElementById("regFechaFin");
+
+        // Agrega un evento change a fecha de inicio
+        fechaInicioInput.addEventListener("change", function() {
+            // Convierte las fechas en objetos Date
+            var fechaInicio = new Date(fechaInicioInput.value);
+            var fechaFin = new Date(fechaFinInput.value);
+
+            // Valida si fecha de inicio es mayor que fecha de fin
+            if (fechaInicio > fechaFin) {
+                // Establece la fecha de fin igual a fecha de inicio
+                fechaFinInput.value = fechaInicioInput.value;
+            }
+        });
+
+        // Agrega un evento change a fecha de fin
+        fechaFinInput.addEventListener("change", function() {
+            // Convierte las fechas en objetos Date
+            var fechaInicio = new Date(fechaInicioInput.value);
+            var fechaFin = new Date(fechaFinInput.value);
+
+            // Valida si fecha de fin es menor que fecha de inicio
+            if (fechaFin < fechaInicio) {
+                // Establece la fecha de inicio igual a fecha de fin
+                fechaInicioInput.value = fechaFinInput.value;
+            }
+        });
     });
     </script>
+
+
 
     <script>
     $('.modal-close').on('click', function() {
         $('#kt_modal_remove_user').modal('hide');
         $('#kt_modal_add_user').modal('hide');
-        $('#kt_modal_edit_user').modal('hide');
+        $('#kt_modal_new_user').modal('hide');
+        $('#kt_modal_reg_user').modal('hide');
+        $('#kt_modal_view_user').modal('hide');
     });
     </script>
+
+    <script src="assets/js/widgets.bundle.js"></script>
+    <script src="assets/js/custom/widgets.js"></script>
+    <script src="assets/js/custom/apps/chat/chat.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-app.js"></script>
+    <script src="assets/js/custom/utilities/modals/users-search.js"></script>
 </body>
 
 </html>
