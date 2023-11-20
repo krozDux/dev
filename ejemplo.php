@@ -8,10 +8,12 @@ $templateProcessor = new TemplateProcessor('/nombre.docx');
 
 // Recibir nombre y apellido por algún método, por ejemplo, POST
 $nombre = 'hola';
+echo ($nombre);
 $apellido = 'hola';
-
+echo ($nombre);
 // Reemplazar los marcadores de posición en la plantilla
 $templateProcessor->setValue('nombre', $nombre);
+echo ($templateProcessor);
 $templateProcessor->setValue('apellido', $apellido);
 
 // Guardar el documento resultante
