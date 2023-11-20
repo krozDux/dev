@@ -1,25 +1,33 @@
-<?php 
+<?php
 require_once 'vendor/autoload.php';
 
 use PhpOffice\PhpWord\TemplateProcessor;
 
-// Ruta a la plantilla de Word
-$templateProcessor = new TemplateProcessor('/nombre.docx');
+try {
+    // Ruta a la plantilla de Word
+    $templateProcessor = new TemplateProcessor('nombre.docx');
 
-// Recibir nombre y apellido por algún método, por ejemplo, POST
-$nombre = 'hola';
-echo ($nombre);
-$apellido = 'asd';
-echo ($apellido);
-// Reemplazar los marcadores de posición en la plantilla
-$templateProcessor->setValue('nombre', $nombre);
-$templateProcessor->setValue('apellido', $apellido);
+    // Recibir nombre y apellido por algún método, por ejemplo, POST
+    $nombre = 'hola'; // Aquí deberías usar $_POST['nombre'] si esperas un POST
+    $apellido = 'asd'; // Y $_POST['apellido'] para el apellido
 
-// Guardar el documento resultante
-$templateProcessor->saveAs('documento-final.docx');
+    // Reemplazar los marcadores de posición en la plantilla
+    $templateProcessor->setValue('nombre', $nombre);
+    $templateProcessor->setValue('apellido', $apellido);
 
+    // Guardar el documento resultante
+    $documentPath = 'documento-final.docx';
+    $templateProcessor->saveAs($documentPath);
 
-// Enviar el documento al navegador para la descarga
-header('Content-Disposition: attachment; filename=documento-final.docx');
-readfile('documento-final.docx');
+    // Enviar el documento al navegador para la descarga
+    header('Content-Disposition: attachment; filename=' . basename($documentPath));
+    header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+    header('Content-Length: ' . filesize($documentPath));
+    header('Cache-Control: max-age=0');
+    readfile($documentPath);
+    exit;
+} catch (Exception $e) {
+    // Manejo de la excepción
+    echo 'Error: ' . $e->getMessage();
+}
 ?>
