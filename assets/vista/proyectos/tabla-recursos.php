@@ -363,29 +363,53 @@ $query1 = mysqli_query($con, $sql1);
                     <!--begin::Card title-->
                     <div class="card-title flex-column">
                         <h3 class="fw-bold mb-1">CONTRIBUIDORES</h3>
-
-                        <div class="fs-6 text-gray-500">El proyecto tiene CONTRIBUIDORES miembros activos.</div>
+                        <?php
+                        include('../config.php');
+                        $sqlContri = ("SELECT
+                        usuarios.imagen, usuarios.nombres, usuarios.apellidos, proyectos.id as idProyecto, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idUsuario,
+                        COUNT(tareasInfo.idUsuario) AS cantidad FROM  proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto JOIN 
+                        tareasInfo ON proyectosInfo.idUsuario = tareasInfo.idUsuario JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE 
+                        proyectos.id = '$idProyecto' GROUP BY proyectosInfo.idUsuario;
+                        ");
+                        $queryContri = mysqli_query($con, $sqlContri);
+                        if ($queryContri) {
+                            $totalContribuidores = mysqli_num_rows($queryContri); // Contamos el total de registros
+                        }?>
+                        <div class="fs-6 text-gray-500">El proyecto tiene <?php echo $totalContribuidores; ?> miembros.</div>
                     </div>
                     <div class="card-toolbar">
                         <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
                     </div>
                 </div>
-
+                
                 <div class="card-body d-flex flex-column p-9 pt-3 ">
-                    <div class="d-flex align-items-center mb-5">
-                        <div class="me-5 position-relative">
-                            <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="/assets/media/avatars/300-6.jpg">
+                    <?php while ($DataContri = mysqli_fetch_assoc($queryContri)) {    ?>
+                        <div class="d-flex align-items-center mb-5">
+                            <div class="me-5 position-relative">
+                                <?php
+                                if ($DataContri['imagen'] != "blank.png") {
+                                        echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                                                title="' . $DataContri['nombres'] . ' ' . $DataContri['apellidos'] . '">
+                                                <img src="assets/media/avatars/' . $DataContri['imagen'] . '" alt="user-image">
+                                            </div>';
+                                    } else {
+                                        $iniciales = substr($DataContri['nombres'], 0, 1) . substr($DataContri['apellidos'], 0, 1);
+                                        echo '<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
+                                                title="' . $DataContri['nombres'] . ' ' . $DataContri['apellidos'] . '">
+                                                <span class="symbol-label bg-dark text-inverse-primary fw-bold">' . $iniciales . '</span>
+                                            </div>';
+                                    }
+                                ?>
                             </div>
-
+                            <div class="fw-semibold">
+                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary"><?php echo $DataContri['nombres']; ?> <?php echo $DataContri['apellidos']; ?></a>
+                                <div class="text-gray-500">
+                                <div class="badge badge-light ms-auto"><?php echo $DataContri['cantidad']; ?> tareas en total</div></div>
+                            </div>
+                            <div class="badge badge-light ms-auto"><?php echo $DataContri['nombres']; ?></div>
                         </div>
-                        <div class="fw-semibold">
-                            <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary">Nombres Apellidos</a>
-                            <div class="text-gray-500">
-                            TOTAL TAREAS COMPLETADAS    &amp; TOTAL TAREAS PENDIENTES</div>
-                        </div>
-                        <div class="badge badge-light ms-auto">TOTAL TAREAS</div>
-                    </div>
+                    <?php } ?>
+                    
                 </div>
             </div>
         </div>
