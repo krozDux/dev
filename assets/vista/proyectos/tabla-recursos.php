@@ -210,8 +210,8 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="d-flex flex-column justify-content-center flex-row-fluid pe-11 mb-5">
                             <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
                                 <div class="bullet bg-warning me-3"></div>
-                                <div class="text-gray-500">En progreso</div>
-                                <div class="ms-auto fw-bold text-gray-700"><?php echo $progreso; ?></div>
+                                <div class="text-gray-500">Total de actividades</div>
+                                <div class="ms-auto fw-bold text-gray-700"><?php echo ($progreso-$retraso); ?></div>
                             </div>
 
                             <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
@@ -346,7 +346,7 @@ $query1 = mysqli_query($con, $sql1);
                                         <?php echo $tarea['nombre']; ?>
                                     </a>
                                 </div>
-                                <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+                                <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
                             </div>
                             <?php endforeach; ?>
                         </div>
