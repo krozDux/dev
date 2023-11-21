@@ -376,15 +376,13 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
                         <!--end::Card body-->
                     </div>
-                    <!--end::Card-->
-                    <!--begin::Card-->
                     <div class="card mb-6 mb-xl-9">
                         <!--begin::Card body-->
                         <div class="card-body">
                             <!--begin::Header-->
                             <div class="d-flex flex-stack mb-3">
                                 <!--begin::Badge-->
-                                <div class="badge badge-light">Phase 2.6 QA</div>
+                                <div class="badge badge-light">Phase 2.6ga</div>
                                 <!--end::Badge-->
                                 <!--begin::Menu-->
                                 <div>
@@ -520,12 +518,8 @@ $query1 = mysqli_query($con, $sql1);
                                         <span class="symbol-label bg-success text-inverse-success fw-bolder">R</span>
                                     </div>
                                 </div>
-                                <!--end::Users-->
-                                <!--begin::Stats-->
                                 <div class="d-flex my-1">
-                                    <!--begin::Stat-->
                                     <div class="border border-dashed border-gray-300 rounded py-2 px-3">
-                                        <!--begin::Svg Icon | path: icons/duotune/communication/com008.svg-->
                                         <span class="svg-icon svg-icon-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none">
@@ -537,13 +531,9 @@ $query1 = mysqli_query($con, $sql1);
                                                     fill="currentColor"></path>
                                             </svg>
                                         </span>
-                                        <!--end::Svg Icon-->
                                         <span class="ms-1 fs-7 fw-bolder text-gray-600">1</span>
                                     </div>
-                                    <!--end::Stat-->
-                                    <!--begin::Stat-->
                                     <div class="border border-dashed border-gray-300 rounded py-2 px-3 ms-3">
-                                        <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                                         <span class="svg-icon svg-icon-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none">
@@ -556,33 +546,23 @@ $query1 = mysqli_query($con, $sql1);
                                                 </rect>
                                             </svg>
                                         </span>
-                                        <!--end::Svg Icon-->
                                         <span class="ms-1 fs-7 fw-bolder text-gray-600">6</span>
                                     </div>
-                                    <!--end::Stat-->
                                 </div>
-                                <!--end::Stats-->
                             </div>
-                            <!--end::Footer-->
                         </div>
-                        <!--end::Card body-->
                     </div>
                 </div>
-                <!--end::Col-->
-                <!--begin::Col-->
                 <div class="col-md-4 col-lg-12 col-xl-4">
-                    <!--begin::Col header-->
                     <div class="mb-9">
                         <div class="d-flex flex-stack">
                             <div class="fw-bolder fs-4">Pendiente
                                 <span class="fs-6 text-gray-400 ms-2"><?php echo ($progreso-$retraso); ?></span>
                             </div>
-                            <!--begin::Menu-->
                             <div>
                                 <button type="button"
                                     class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
                                     data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                    <!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
                                     <span class="svg-icon svg-icon-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
                                             viewBox="0 0 24 24">
@@ -598,15 +578,11 @@ $query1 = mysqli_query($con, $sql1);
                                             </g>
                                         </svg>
                                     </span>
-                                    <!--end::Svg Icon-->
                                 </button>
                             </div>
-                            <!--end::Menu-->
                         </div>
                         <div class="h-3px w-100 bg-warning"></div>
                     </div>
-                    <!--end::Col header-->
-                    <!--begin::Card-->
                     <div class="card mb-6 mb-xl-9">
                         <!--begin::Card body-->
                         <div class="card-body">
@@ -795,8 +771,6 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
                         <!--end::Card body-->
                     </div>
-                    <!--end::Card-->
-                    <!--begin::Card-->
                     <div class="card mb-6 mb-xl-9">
                         <!--begin::Card body-->
                         <div class="card-body">
@@ -982,16 +956,10 @@ $query1 = mysqli_query($con, $sql1);
                                         <!--end::Svg Icon-->
                                         <span class="ms-1 fs-7 fw-bolder text-gray-600">4</span>
                                     </div>
-                                    <!--end::Stat-->
                                 </div>
-                                <!--end::Stats-->
                             </div>
-                            <!--end::Footer-->
                         </div>
-                        <!--end::Card body-->
                     </div>
-                    <!--end::Card-->
-                    <!--begin::Card-->
                     <div class="card mb-6 mb-xl-9">
                         <!--begin::Card body-->
                         <div class="card-body">
@@ -1184,8 +1152,7 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
                         <!--end::Card body-->
                     </div>
-                    <!--end::Card-->
-                    <!--begin::Card-->
+                   
                     <div class="card mb-6 mb-xl-9">
                         <!--begin::Card body-->
                         <div class="card-body">
@@ -2107,7 +2074,6 @@ $query1 = mysqli_query($con, $sql1);
                                 <td>
                                     <span class="badge badge-light fw-bold me-auto">UI Design</span>
                                 </td>
-                                <td>Oct 1, 2020</td>
                                 <td>
                                     <!--begin::Members-->
                                     <div class="symbol-group symbol-hover fs-8">
