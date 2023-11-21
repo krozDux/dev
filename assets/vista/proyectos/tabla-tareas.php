@@ -2098,14 +2098,6 @@ $query1 = mysqli_query($con, $sql1);
                         class="table table-row-bordered table-row-dashed gy-4 align-middle fw-bolder">
                         <!--begin::Table head-->
                         <thead class="fs-7 text-gray-400 text-uppercase">
-                            <tr>
-                                <th class="min-w-250px">Target</th>
-                                <th class="min-w-90px">Section</th>
-                                <th class="min-w-150px">Due Date</th>
-                                <th class="min-w-90px">Members</th>
-                                <th class="min-w-90px">Status</th>
-                                <th class="min-w-50px"></th>
-                            </tr>
                         </thead>
                         <tbody class="fs-6">
                             <tr>
@@ -2224,12 +2216,6 @@ $query1 = mysqli_query($con, $sql1);
                                         </div>
                                     </div>
                                     <!--end::Members-->
-                                </td>
-                                <td>
-                                    <span class="badge badge-light-success fw-bolder me-auto">Completed</span>
-                                </td>
-                                <td class="text-end">
-                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
                                 </td>
                             </tr>
                             <!--end::Table row-->
