@@ -210,7 +210,7 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="d-flex flex-column justify-content-center flex-row-fluid pe-11 mb-5">
                             <div class="d-flex fs-6 fw-semibold align-items-center mb-3">
                                 <div class="bullet bg-warning me-3"></div>
-                                <div class="text-gray-500">Total de actividades</div>
+                                <div class="text-gray-500">Pendientes</div>
                                 <div class="ms-auto fw-bold text-gray-700"><?php echo ($progreso-$retraso); ?></div>
                             </div>
 
