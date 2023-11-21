@@ -1,32 +1,41 @@
 <?php
+// Incluir el archivo de configuración que contiene la conexión a la base de datos
 include('../config.php');
-$sql1 = ("SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectos.descripcion, proyectos.fechaCreacion, proyectos.estado, proyectosInfo.tipo, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idProyecto, GROUP_CONCAT(proyectosInfo.idUsuario) AS idUsuarios
+
+// Consulta SQL para seleccionar proyectos junto con información adicional y usuarios asociados al proyecto
+$sql1 = "SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectos.descripcion, proyectos.fechaCreacion, proyectos.estado, proyectosInfo.tipo, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idProyecto, GROUP_CONCAT(proyectosInfo.idUsuario) AS idUsuarios
 FROM proyectos
 JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInfo.idUsuario = '$session_id'
-GROUP BY proyectos.id");
-$query1 = mysqli_query($con, $sql1);
-$sql2 = ("SELECT proyectos.id, proyectos.nombre, proyectos.fechaInicio, proyectos.fechaFin, proyectos.descripcion, proyectos.fechaCreacion, proyectos.estado, proyectosInfo.tipo, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idProyecto, GROUP_CONCAT(proyectosInfo.idUsuario) AS idUsuarios
-FROM proyectos
-JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto WHERE proyectosInfo.idUsuario = '$session_id'
-GROUP BY proyectos.id");
-$query2 = mysqli_query($con, $sql2);
+GROUP BY proyectos.id";
+
+// Ejecutar la consulta en la base de datos y almacenar el resultado
+$query2 = mysqli_query($con, $sql1);
 ?>
 
+<?php 
+// Inicializar un array para almacenar los datos de los usuarios del proyecto
+$dataUsuario3Array = array();
 
-    <?php 
-    $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
-                        
-    while ($dataUsuario2 = mysqli_fetch_array($query2)) {
-        $idProyecto = $dataUsuario2['id'];
-        $hasData = true;
-        include('../config.php');
-        $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
-        $query3 = mysqli_query($con, $sql3);
-        // Almacenar los datos de $query3 en el array
-        $dataUsuario3Array[$idProyecto] = array();
-        while ($dataUsuario3 = mysqli_fetch_array($query3)) {
-            $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
-        }
+// Iterar sobre los resultados de la consulta anterior
+while ($dataUsuario2 = mysqli_fetch_array($query2)) {
+    $idProyecto = $dataUsuario2['id']; // Almacenar el ID del proyecto
+    $hasData = true; // Indicar que hay datos disponibles
+
+    
+    // Consulta SQL para seleccionar toda la información de los proyectos y usuarios asociados
+    $sql3 = "SELECT * FROM proyectos 
+    JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto 
+    LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id 
+    WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';";
+    
+    // Ejecutar la consulta y almacenar el resultado
+    $query3 = mysqli_query($con, $sql3);
+    
+    // Almacenar los datos de la consulta en el array, agrupados por ID de proyecto
+    $dataUsuario3Array[$idProyecto] = array();
+    while ($dataUsuario3 = mysqli_fetch_array($query3)) {
+        $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
+    }
     ?>
 <div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
     <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
@@ -100,14 +109,12 @@ $query2 = mysqli_query($con, $sql2);
     </div>
     <?php }?>
     <?php 
-    if (!$hasData) {?>
-    <div class="row g-6 g-xl-9" id="card_proyectos">
-    <div class="content mb-0" id="kt_content">
-        <div class="card mb-0">
-            <div class="card-body py-4 mb-0">
-                ga
+    if (!$hasData) {
+        ?>
+            <!-- Contenido mostrado si no hay proyectos -->
+            <div class="row g-6 g-xl-9" id="card_proyectos">
+                No hay proyectos
             </div>
-        </div>
-    </div>
-    </div>
-    <?php }?>
+        <?php 
+        } // Fin del if
+        ?>
