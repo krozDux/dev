@@ -253,112 +253,16 @@ $query1 = mysqli_query($con, $sql1);
                                             </g>
                                         </svg>
                                     </span>
-                                    <!--end::Svg Icon-->
                                 </button>
-                                <!--begin::Menu 1-->
-                                <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true"
-                                    id="kt_menu_62444cca3c174">
-                                    <!--begin::Header-->
-                                    <div class="px-7 py-5">
-                                        <div class="fs-5 text-dark fw-bolder">Filter Options</div>
-                                    </div>
-                                    <!--end::Header-->
-                                    <!--begin::Menu separator-->
-                                    <div class="separator border-gray-200"></div>
-                                    <!--end::Menu separator-->
-                                    <!--begin::Form-->
-                                    <div class="px-7 py-5">
-                                        <!--begin::Input group-->
-                                        <div class="mb-10">
-                                            <!--begin::Label-->
-                                            <label class="form-label fw-bold">Status:</label>
-                                            <!--end::Label-->
-                                            <!--begin::Input-->
-                                            <div>
-                                                <select class="form-select form-select-solid" data-kt-select2="true"
-                                                    data-placeholder="Select option"
-                                                    data-dropdown-parent="#kt_menu_62444cca3c174"
-                                                    data-allow-clear="true">
-                                                    <option></option>
-                                                    <option value="1">Approved</option>
-                                                    <option value="2">Pending</option>
-                                                    <option value="2">In Process</option>
-                                                    <option value="2">Rejected</option>
-                                                </select>
-                                            </div>
-                                            <!--end::Input-->
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="mb-10">
-                                            <!--begin::Label-->
-                                            <label class="form-label fw-bold">Member Type:</label>
-                                            <!--end::Label-->
-                                            <!--begin::Options-->
-                                            <div class="d-flex">
-                                                <!--begin::Options-->
-                                                <label
-                                                    class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                    <input class="form-check-input" type="checkbox" value="1">
-                                                    <span class="form-check-label">Author</span>
-                                                </label>
-                                                <!--end::Options-->
-                                                <!--begin::Options-->
-                                                <label
-                                                    class="form-check form-check-sm form-check-custom form-check-solid">
-                                                    <input class="form-check-input" type="checkbox" value="2"
-                                                        checked="checked">
-                                                    <span class="form-check-label">Customer</span>
-                                                </label>
-                                                <!--end::Options-->
-                                            </div>
-                                            <!--end::Options-->
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="mb-10">
-                                            <!--begin::Label-->
-                                            <label class="form-label fw-bold">Notifications:</label>
-                                            <!--end::Label-->
-                                            <!--begin::Switch-->
-                                            <div
-                                                class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    name="notifications" checked="checked">
-                                                <label class="form-check-label">Enabled</label>
-                                            </div>
-                                            <!--end::Switch-->
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Actions-->
-                                        <div class="d-flex justify-content-end">
-                                            <button type="reset"
-                                                class="btn btn-sm btn-light btn-active-light-primary me-2"
-                                                data-kt-menu-dismiss="true">Reset</button>
-                                            <button type="submit" class="btn btn-sm btn-primary"
-                                                data-kt-menu-dismiss="true">Apply</button>
-                                        </div>
-                                        <!--end::Actions-->
-                                    </div>
-                                    <!--end::Form-->
-                                </div>
-                                <!--end::Menu 1-->
                             </div>
-                            <!--end::Menu-->
                         </div>
                         <div class="h-3px w-100 bg-danger"></div>
                     </div>
-                    <!--end::Col header-->
-                    <!--begin::Card-->
                     <div class="card mb-6 mb-xl-9">
-                        <!--begin::Card body-->
                         <div class="card-body">
-                            <!--begin::Header-->
                             <div class="d-flex flex-stack mb-3">
-                                <!--begin::Badge-->
                                 <div class="badge badge-light">UI Design</div>
-                                <!--end::Badge-->
-                                <!--begin::Menu-->
+                                
                                 <div>
                                     <button type="button"
                                         class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
@@ -2203,10 +2107,7 @@ $query1 = mysqli_query($con, $sql1);
                                 <th class="min-w-50px"></th>
                             </tr>
                         </thead>
-                        <!--end::Table head-->
-                        <!--begin::Table body-->
                         <tbody class="fs-6">
-                            <!--begin::Table row-->
                             <tr>
                                 <td class="fw-bolder">
                                     <a href="#" class="text-gray-900 text-hover-primary">Meeting with customer</a>
@@ -2233,45 +2134,6 @@ $query1 = mysqli_query($con, $sql1);
                                         </div>
                                     </div>
                                     <!--end::Members-->
-                                </td>
-                                <td>
-                                    <span class="badge badge-light-primary fw-bolder me-auto">In Progress</span>
-                                </td>
-                                <td class="text-end">
-                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                </td>
-                            </tr>
-                            <!--end::Table row-->
-                            <!--begin::Table row-->
-                            <tr>
-                                <td class="fw-bolder">
-                                    <a href="#" class="text-gray-900 text-hover-primary">User Module Testing</a>
-                                </td>
-                                <td>
-                                    <span class="badge badge-light fw-bold me-auto">Phase 2.6 QA</span>
-                                </td>
-                                <td>Apr 10, 2020</td>
-                                <td>
-                                    <!--begin::Members-->
-                                    <div class="symbol-group symbol-hover fs-8">
-                                        <div class="symbol symbol-25px symbol-circle" data-bs-toggle="tooltip"
-                                            title="Alan Warden">
-                                            <span
-                                                class="symbol-label bg-warning text-inverse-warning fw-bolder">A</span>
-                                        </div>
-                                        <div class="symbol symbol-25px symbol-circle" data-bs-toggle="tooltip"
-                                            title="Robin Watterman">
-                                            <span
-                                                class="symbol-label bg-success text-inverse-success fw-bolder">R</span>
-                                        </div>
-                                    </div>
-                                    <!--end::Members-->
-                                </td>
-                                <td>
-                                    <span class="badge badge-light-success fw-bolder me-auto">Completed</span>
-                                </td>
-                                <td class="text-end">
-                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
                                 </td>
                             </tr>
                             <!--end::Table row-->
@@ -2300,14 +2162,11 @@ $query1 = mysqli_query($con, $sql1);
                                             <span class="symbol-label bg-info text-inverse-info fw-bolder">M</span>
                                         </div>
                                     </div>
-                                    <!--end::Members-->
                                 </td>
                                 <td>
                                     <span class="badge badge-light fw-bolder me-auto">Yet to start</span>
                                 </td>
                             </tr>
-                            <!--end::Table row-->
-                            <!--begin::Table row-->
                             <tr>
                                 <td class="fw-bolder">
                                     <a href="#" class="text-gray-900 text-hover-primary">Meeting with customer</a>
