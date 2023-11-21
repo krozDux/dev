@@ -81,13 +81,35 @@ $query1 = mysqli_query($con, $sql1);
 
                                 <div class="fw-semibold fs-6 text-gray-500">Fecha límite</div>
                             </div>
+                            
 
+
+
+
+                        <?php
+                        $totaldocs = 0;
+                        $sql15 = "SELECT GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios, 
+                                        proyectosTareas.id,
+                                        proyectosTareas.nombre,
+                                        proyectosTareas.estado,
+                                        proyectosTareas.fechaFin,
+                                        tareasInfo.idTarea, 
+                                        proyectosTareas.idProyecto 
+                                FROM tareasInfo 
+                                JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id 
+                                WHERE proyectosTareas.idProyecto = '$idProyecto'
+                                GROUP BY proyectosTareas.id;";
+                        $query15 = mysqli_query($con, $sql15);
+                        if ($query15) {
+                            $totaldocs = mysqli_num_rows($query15); // Contamos el total de registros
+                        }
+                        ?>
                             <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                 <div class="d-flex align-items-center">
                                     <i class="ki-duotone ki-arrow-down fs-3 text-danger"><span
                                             class="path1"></span><span class="path2"></span></i>
                                     <div class="fs-4 fw-bold counted" data-kt-countup="true" data-kt-countup-value="75"
-                                        data-kt-initialized="1">75</div>
+                                        data-kt-initialized="1"><?php echo $totaldocs ?></div>
                                 </div>
 
                                 <div class="fw-semibold fs-6 text-gray-500">Documentos adjuntos</div>
