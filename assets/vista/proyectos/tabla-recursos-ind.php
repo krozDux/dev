@@ -113,7 +113,7 @@ while ($dataUsuario2 = mysqli_fetch_array($query2)) {
         ?>
             <!-- Contenido mostrado si no hay proyectos -->
             <div class="row g-6 g-xl-9" id="card_proyectos">
-                No hay proyectos
+                No tienes proyectos
             </div>
         <?php 
         } // Fin del if
