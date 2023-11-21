@@ -673,7 +673,7 @@ $query1 = mysqli_query($con, $sql1);
                     <!--begin::Col header-->
                     <div class="mb-9">
                         <div class="d-flex flex-stack">
-                            <div class="fw-bolder fs-4">Pendientes
+                            <div class="fw-bolder fs-4">Pendiente
                                 <span class="fs-6 text-gray-400 ms-2"><?php echo ($progreso-$retraso); ?></span>
                             </div>
                             <!--begin::Menu-->
@@ -1570,7 +1570,7 @@ $query1 = mysqli_query($con, $sql1);
                     <!--begin::Col header-->
                     <div class="mb-9">
                         <div class="d-flex flex-stack">
-                            <div class="fw-bolder fs-4">Completados
+                            <div class="fw-bolder fs-4">Completado
                                 <span class="fs-6 text-gray-400 ms-2"><?php echo ($finalizados); ?></span>
                             </div>
                             <!--begin::Menu-->
