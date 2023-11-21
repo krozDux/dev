@@ -54,7 +54,7 @@
                             <h1 class="d-flex text-dark fw-bolder my-1 fs-3">Recursos</h1>
                         </div>
                     </div>
-                    <?php include_once 'tabla-recursos.php'?>
+                    <?php include_once 'tabla-tareas.php'?>
                     <div class="footer py-4 d-flex flex-column flex-md-row flex-stack" id="kt_footer">
                         <?php include_once 'footer-proyectos.php'?>
                     </div>
