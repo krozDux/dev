@@ -6,11 +6,9 @@ JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto where proyectos.id
 GROUP BY proyectos.id");
 $query1 = mysqli_query($con, $sql1);
 ?>
-
 <div class="content flex-column-fluid" id="kt_content">
     <?php 
     $dataUsuario3Array = array(); // Array para almacenar los datos de $query3
-                        
     while ($dataUsuario1 = mysqli_fetch_array($query1)) {
         include('../config.php');
         $sql3 = ("SELECT * FROM proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto LEFT JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectosInfo.idProyecto = '$idProyecto' AND proyectosInfo.estado='1';");
@@ -36,10 +34,7 @@ $query1 = mysqli_query($con, $sql1);
                                 <?php } else { ?>
                                 <span class="badge badge-light-success me-auto">Finalizado</span>
                                 <?php } ?>
-
-
                             </div>
-
                             <div class="d-flex flex-wrap fw-semibold mb-4 fs-5 text-gray-500">
                                 <?php 
 									if ($dataUsuario1['descripcion'] != "") { ?>
@@ -47,7 +42,6 @@ $query1 = mysqli_query($con, $sql1);
                                 <?php } else { ?>
                                 -
                                 <?php } ?>
-
                             </div>
                         </div>
                         <div class="d-flex mb-4">
@@ -81,11 +75,6 @@ $query1 = mysqli_query($con, $sql1);
 
                                 <div class="fw-semibold fs-6 text-gray-500">Fecha límite</div>
                             </div>
-
-
-
-
-
                             <?php
                         $totaldocs = 0;
                         $sql15 = "SELECT GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios, 
@@ -114,10 +103,7 @@ $query1 = mysqli_query($con, $sql1);
 
                                 <div class="fw-semibold fs-6 text-gray-500">Documentos adjuntos</div>
                             </div>
-
-
                         </div>
-
                         <div class="symbol-group symbol-hover mb-3">
                             <?php foreach ($dataUsuario3Array[$dataUsuario1['id']] as $dataUsuario3) {
                                 if ($dataUsuario3['imagen'] != "blank.png") {
@@ -138,9 +124,7 @@ $query1 = mysqli_query($con, $sql1);
                     </div>
                 </div>
             </div>
-
             <div class="separator"></div>
-
             <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
                 <li class="nav-item">
                     <a class="nav-link text-active-primary py-5 me-6 "
@@ -176,16 +160,12 @@ $query1 = mysqli_query($con, $sql1);
         </div>
     </div>
     <div class="tab-content">
-        <!--begin::Tab pane-->
         <div id="kt_project_targets_card_pane" class="tab-pane fade show active">
-            <!--begin::Row-->
             <div class="row g-9">
-                <!--begin::Col-->
                 <div class="col-md-4 col-lg-12 col-xl-4">
-                    <!--begin::Col header-->
                     <div class="mb-9">
                         <div class="d-flex flex-stack">
-                        <?php
+                            <?php
                         include('../config.php');
 
                         // Variables para contar los diferentes estados
@@ -193,10 +173,8 @@ $query1 = mysqli_query($con, $sql1);
                         $finalizados = 0;
                         $retraso = 0;
                         $totalreg = 0;
-
                         // Fecha actual
                         $fechaActual = new DateTime();
-
                         $sql14 = "SELECT GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios, 
                                         proyectosTareas.id,
                                         proyectosTareas.nombre,
@@ -208,12 +186,9 @@ $query1 = mysqli_query($con, $sql1);
                                 JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id 
                                 WHERE proyectosTareas.idProyecto = '$idProyecto' and tareasInfo.idUsuario= '$session_id'
                                 GROUP BY proyectosTareas.id;";
-
                         $query14 = mysqli_query($con, $sql14);
-
                         if ($query14) {
                             $totalreg = mysqli_num_rows($query14); // Contamos el total de registros
-
                             while ($tarea = mysqli_fetch_assoc($query14)) {
                                 // Incrementamos según el estado
                                 if ($tarea['estado'] == '1') {
@@ -232,12 +207,10 @@ $query1 = mysqli_query($con, $sql1);
                             <div class="fw-bolder fs-4">Destiempo
                                 <span class="fs-6 text-gray-400 ms-2"><?php echo $retraso++; ?></span>
                             </div>
-                            <!--begin::Menu-->
                             <div>
                                 <button type="button"
                                     class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
                                     data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                    <!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
                                     <span class="svg-icon svg-icon-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
                                             viewBox="0 0 24 24">
@@ -262,12 +235,11 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="card-body">
                             <div class="d-flex flex-stack mb-3">
                                 <div class="badge badge-light">UI Design</div>
-                                
+
                                 <div>
                                     <button type="button"
                                         class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
                                         data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                        <!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
                                         <span class="svg-icon svg-icon-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
                                                 viewBox="0 0 24 24">
@@ -297,24 +269,15 @@ $query1 = mysqli_query($con, $sql1);
                                             <a href="#" class="menu-link px-3">Settings</a>
                                         </div>
                                     </div>
-                                    <!--end::Menu 3-->
                                 </div>
-                                <!--end::Menu-->
                             </div>
-                            <!--end::Header-->
-                            <!--begin::Title-->
                             <div class="mb-2">
                                 <a href="#" class="fs-4 fw-bolder mb-1 text-gray-900 text-hover-primary">Meeting with
                                     customer</a>
                             </div>
-                            <!--end::Title-->
-                            <!--begin::Content-->
                             <div class="fs-6 fw-bold text-gray-600 mb-5">First, a disclaimer – the entire process
                                 writing a blog post often takes a couple of hours if you can type</div>
-                            <!--end::Content-->
-                            <!--begin::Footer-->
                             <div class="d-flex flex-stack flex-wrapr">
-                                <!--begin::Users-->
                                 <div class="symbol-group symbol-hover my-1">
                                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
                                         title="Melody Macy">
@@ -329,12 +292,8 @@ $query1 = mysqli_query($con, $sql1);
                                         <span class="symbol-label bg-primary text-inverse-primary fw-bolder">S</span>
                                     </div>
                                 </div>
-                                <!--end::Users-->
-                                <!--begin::Stats-->
                                 <div class="d-flex my-1">
-                                    <!--begin::Stat-->
                                     <div class="border border-dashed border-gray-300 rounded py-2 px-3">
-                                        <!--begin::Svg Icon | path: icons/duotune/communication/com008.svg-->
                                         <span class="svg-icon svg-icon-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none">
@@ -346,13 +305,9 @@ $query1 = mysqli_query($con, $sql1);
                                                     fill="currentColor"></path>
                                             </svg>
                                         </span>
-                                        <!--end::Svg Icon-->
                                         <span class="ms-1 fs-7 fw-bolder text-gray-600">3</span>
                                     </div>
-                                    <!--end::Stat-->
-                                    <!--begin::Stat-->
                                     <div class="border border-dashed border-gray-300 rounded py-2 px-3 ms-3">
-                                        <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                                         <span class="svg-icon svg-icon-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none">
@@ -365,16 +320,11 @@ $query1 = mysqli_query($con, $sql1);
                                                 </rect>
                                             </svg>
                                         </span>
-                                        <!--end::Svg Icon-->
                                         <span class="ms-1 fs-7 fw-bolder text-gray-600">10</span>
                                     </div>
-                                    <!--end::Stat-->
                                 </div>
-                                <!--end::Stats-->
                             </div>
-                            <!--end::Footer-->
                         </div>
-                        <!--end::Card body-->
                     </div>
                     <div class="card mb-6 mb-xl-9">
                         <!--begin::Card body-->
@@ -1152,7 +1102,7 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
                         <!--end::Card body-->
                     </div>
-                   
+
                     <div class="card mb-6 mb-xl-9">
                         <!--begin::Card body-->
                         <div class="card-body">
