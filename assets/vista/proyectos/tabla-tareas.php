@@ -266,15 +266,18 @@ $query1 = mysqli_query($con, $sql1);
                             verificacion = 2;";
                         $query15 = mysqli_query($con, $sql15);
                         ?>
-                        <?php 
+                    <?php 
 												$i = 1;
 												while ($dataUsuario15 = mysqli_fetch_array($query15)) { 
+                                                    $fechaOriginal = $dataUsuario15['fechaFin'];
+                                                    // Convierte la fecha a un formato de fecha en español
+                                                    $fechaFormateada = date("j \D\E F \D\E\L Y", strtotime($fechaOriginal));
                                                     if ($dataUsuario15['verificacion'] == '2') { ?>
                     <div class="card mb-6 mb-xl-9">
-                    
+
                         <div class="card-body">
                             <div class="d-flex flex-stack mb-3">
-                            <div class="badge badge-light"><?php echo $dataUsuario15['fechaFin']; ?></div>
+                                <div class="badge badge-light"><?php echo $fechaFormateada; ?></div>
                                 <div>
                                     <button type="button"
                                         class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
@@ -298,14 +301,11 @@ $query1 = mysqli_query($con, $sql1);
                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3"
                                         data-kt-menu="true">
                                         <div class="menu-item px-3">
-                                            <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments
+                                            <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">OPÇIONES
                                             </div>
                                         </div>
                                         <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3">Create Invoice</a>
-                                        </div>
-                                        <div class="menu-item px-3 my-1">
-                                            <a href="#" class="menu-link px-3">Settings</a>
+                                            <a href="#" class="menu-link px-3">AGREGAR DOCUMENTO</a>
                                         </div>
                                     </div>
                                 </div>
@@ -325,9 +325,9 @@ $query1 = mysqli_query($con, $sql1);
                                                     fill="currentColor"></path>
                                             </svg>
                                         </span>
-                                        <span class="ms-1 fs-7 fw-bolder text-gray-600">3</span>
+                                        <span class="ms-1 fs-7 fw-bolder text-gray-600">DOCUMENTOS ADJUNTOS</span>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
