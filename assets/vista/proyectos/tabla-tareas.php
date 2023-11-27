@@ -790,22 +790,23 @@ $query1 = mysqli_query($con, $sql1);
                     <?php
                         include('../config.php');
                         $sql17 = "SELECT
-                                tareasInfo.idUsuario,
-                                proyectosTareas.id,
-                                proyectosTareas.nombre,
-                                proyectosTareas.estado,
-                                proyectosTareas.fechaFin,
-                                tareasInfo.idTarea,
-                                proyectosTareas.idProyecto,
-                                CASE
-                                    WHEN proyectosTareas.fechaFin < CURDATE() THEN 2
-                                    ELSE 1
-                                END AS verificacion
-                            FROM
-                                tareasInfo
-                            JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
-                            WHERE
-                                proyectosTareas.idProyecto = '$idProyecto'";
+                        tareasInfo.idUsuario,
+                        proyectosTareas.id,
+                        proyectosTareas.nombre,
+                        proyectosTareas.estado,
+                        proyectosTareas.fechaFin,
+                        tareasInfo.idTarea,
+                        proyectosTareas.idProyecto,
+                        CASE
+                            WHEN proyectosTareas.fechaFin < CURDATE() THEN 2
+                            ELSE 1
+                        END AS verificacion
+                    FROM
+                        tareasInfo
+                    JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
+                    WHERE
+                        proyectosTareas.idProyecto = '$idProyecto'
+                    GROUP BY tareasInfo.idTarea;";
                         $query17 = mysqli_query($con, $sql17);
                         ?>
                     <?php 
