@@ -261,6 +261,7 @@ $query1 = mysqli_query($con, $sql1);
                             WHERE
                                 proyectosTareas.idProyecto = '$idProyecto'
                                 AND tareasInfo.idUsuario = '$session_id'
+                            	AND proyectosTareas.estado = 1
                         ) AS subconsulta
                         WHERE
                             verificacion = 2;";
