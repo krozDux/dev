@@ -266,6 +266,10 @@ $query1 = mysqli_query($con, $sql1);
                         WHERE
                             verificacion = 2";
                         $query15 = mysqli_query($con, $sql15);
+                      
+if (!$query15) {
+    die("Error en la consulta: " . mysqli_error($con));
+}
                         ?>
                         <?php 
 												$i = 1;
