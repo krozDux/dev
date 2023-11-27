@@ -268,7 +268,8 @@ $query1 = mysqli_query($con, $sql1);
                         ?>
                         <?php 
 												$i = 1;
-												while ($dataUsuario15 = mysqli_fetch_array($query15)) { ?>
+												while ($dataUsuario15 = mysqli_fetch_array($query15)) { 
+                                                    if ($dataUsuario15['verificacion'] == '2') { ?>
                     <div class="card mb-6 mb-xl-9">
                     
                         <div class="card-body">
@@ -331,7 +332,7 @@ $query1 = mysqli_query($con, $sql1);
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php }} ?>
                 </div>
                 <div class="col-md-4 col-lg-12 col-xl-4">
                     <div class="mb-9">
