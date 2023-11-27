@@ -269,14 +269,12 @@ $query1 = mysqli_query($con, $sql1);
                         ?>
                         <?php 
 												$i = 1;
-												while ($dataUsuario15 = mysqli_fetch_array($query15)) { 
-                                                    $fechaOriginal = $dataUsuario15['fechaFin'];
-                                                    $fechaFormateada = date("j \D\E F \D\E\L Y", strtotime($fechaOriginal));?>
+												while ($dataUsuario15 = mysqli_fetch_array($query15)) { ?>
                     <div class="card mb-6 mb-xl-9">
                     
                         <div class="card-body">
                             <div class="d-flex flex-stack mb-3">
-                            <div class="badge badge-light"><?php echo $fechaFormateada; ?></div>
+                            <div class="badge badge-light"><?php echo $dataUsuario15['fechaFin']; ?></div>
                                 <div>
                                     <button type="button"
                                         class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
