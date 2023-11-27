@@ -325,7 +325,7 @@ $query1 = mysqli_query($con, $sql1);
                                                     fill="currentColor"></path>
                                             </svg>
                                         </span>
-                                        <span class="ms-1 fs-7 fw-bolder text-gray-600">CANTIDAD DE ARCHIVOS</span>
+                                        <span class="ms-1 fs-7 fw-bolder text-gray-600">3</span>
                                     </div>
                                     
                                 </div>
