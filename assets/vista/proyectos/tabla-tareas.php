@@ -601,10 +601,11 @@ $query1 = mysqli_query($con, $sql1);
                             JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
                             WHERE
                                 proyectosTareas.idProyecto = '$idProyecto'
-                            	AND proyectosTareas.estado = 1
+                                AND proyectosTareas.estado = 1
                         ) AS subconsulta
                         WHERE
-                            verificacion = 2;";
+                            verificacion = 2
+                        GROUP BY idTarea;";
                         $query15 = mysqli_query($con, $sql15);
                         ?>
                     <?php 
@@ -705,9 +706,11 @@ $query1 = mysqli_query($con, $sql1);
                             JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
                             WHERE
                                 proyectosTareas.idProyecto = '$idProyecto'
-                                ) AS subconsulta
+                                AND proyectosTareas.estado = 1
+                        ) AS subconsulta
                         WHERE
-                            verificacion = 1;";
+                            verificacion = 1
+                        GROUP BY idTarea;";
                         $query16 = mysqli_query($con, $sql16);
                         ?>
                     <?php 
