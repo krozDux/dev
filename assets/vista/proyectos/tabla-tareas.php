@@ -1746,7 +1746,6 @@ $query1 = mysqli_query($con, $sql1);
                                     <span class="badge badge-light fw-bold me-auto">UI Design</span>
                                 </td>
                                 <td>
-                                    <!--begin::Members-->
                                     <div class="symbol-group symbol-hover fs-8">
                                         <div class="symbol symbol-25px symbol-circle" data-bs-toggle="tooltip"
                                             title="Melody Macy">
@@ -1762,11 +1761,8 @@ $query1 = mysqli_query($con, $sql1);
                                                 class="symbol-label bg-primary text-inverse-primary fw-bolder">S</span>
                                         </div>
                                     </div>
-                                    <!--end::Members-->
                                 </td>
                             </tr>
-                            <!--end::Table row-->
-                            <!--begin::Table row-->
                             <tr>
                                 <td class="fw-bolder">
                                     <a href="#" class="text-gray-900 text-hover-primary">Sales report page</a>
@@ -1776,7 +1772,6 @@ $query1 = mysqli_query($con, $sql1);
                                 </td>
                                 <td>Oct 15, 2020</td>
                                 <td>
-                                    <!--begin::Members-->
                                     <div class="symbol-group symbol-hover fs-8">
                                         <div class="symbol symbol-25px symbol-circle" data-bs-toggle="tooltip"
                                             title="Melody Macy">
@@ -1796,38 +1791,6 @@ $query1 = mysqli_query($con, $sql1);
                                     <span class="badge badge-light fw-bolder me-auto">Yet to start</span>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="fw-bolder">
-                                    <a href="#" class="text-gray-900 text-hover-primary">Meeting with customer</a>
-                                </td>
-                                <td>
-                                    <span class="badge badge-light fw-bold me-auto">Prototype</span>
-                                </td>
-                                <td>Jul 14, 2020</td>
-                                <td>
-                                    <!--begin::Members-->
-                                    <div class="symbol-group symbol-hover fs-8">
-                                        <div class="symbol symbol-25px symbol-circle" data-bs-toggle="tooltip"
-                                            title="Robin Watterman">
-                                            <span
-                                                class="symbol-label bg-success text-inverse-success fw-bolder">R</span>
-                                        </div>
-                                        <div class="symbol symbol-25px symbol-circle" data-bs-toggle="tooltip"
-                                            title="Brian Cox">
-                                            <img alt="Pic" src="assets/media/avatars/300-5.jpg">
-                                        </div>
-                                    </div>
-                                    <!--end::Members-->
-                                </td>
-                                <td>
-                                    <span class="badge badge-light-success fw-bolder me-auto">Completed</span>
-                                </td>
-                                <td class="text-end">
-                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                </td>
-                            </tr>
-                            <!--end::Table row-->
-                            <!--begin::Table row-->
                             <tr>
                                 <td class="fw-bolder">
                                     <a href="#" class="text-gray-900 text-hover-primary">Design main Dashboard</a>
