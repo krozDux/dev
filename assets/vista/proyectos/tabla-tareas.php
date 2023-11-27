@@ -239,7 +239,6 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
                         <div class="h-3px w-100 bg-danger"></div>
                     </div>
-                    <div class="card mb-6 mb-xl-9">
                     <?php
                         include('../config.php');
                         $sql15 = "SELECT *
@@ -270,6 +269,8 @@ $query1 = mysqli_query($con, $sql1);
                         <?php 
 												$i = 1;
 												while ($dataUsuario15 = mysqli_fetch_array($query15)) { ?>
+                    <div class="card mb-6 mb-xl-9">
+                    
                         <div class="card-body">
                             <div class="d-flex flex-stack mb-3">
                                 <div>
@@ -360,9 +361,8 @@ $query1 = mysqli_query($con, $sql1);
                                 </div>
                             </div>
                         </div>
-                        <?php } ?>
                     </div>
-                    
+                    <?php } ?>
                 </div>
                 <div class="col-md-4 col-lg-12 col-xl-4">
                     <div class="mb-9">
