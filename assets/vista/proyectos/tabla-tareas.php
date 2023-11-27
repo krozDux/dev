@@ -433,7 +433,7 @@ $query1 = mysqli_query($con, $sql1);
                                     </div>
                                 </div>
                             </div>
-                            <div class="fs-4 fw-bolder mt-1 mb-1 text-gray-900 text-hover-primary"><?php echo $dataUsuario15['nombre']; ?></div>
+                            <div class="fs-4 fw-bolder mt-1 mb-1 text-gray-900 text-hover-primary"><?php echo $dataUsuario16['nombre']; ?></div>
                             <div class="d-flex flex-stack flex-wrapr">
                                 <div class="d-flex my-1">
                                     <div class="border border-dashed border-gray-300 rounded py-2 px-3">
@@ -511,11 +511,11 @@ $query1 = mysqli_query($con, $sql1);
                         ?>
                     <?php 
 												$i = 1;
-												while ($dataUsuario16 = mysqli_fetch_array($query16)) { 
-                                                    $fecha = $dataUsuario16['fechaFin'];
+												while ($dataUsuario17 = mysqli_fetch_array($query17)) { 
+                                                    $fecha = $dataUsuario17['fechaFin'];
                                                     setlocale(LC_TIME, 'es_ES'); // Establecer la configuración regional a español
                                                     $fechaFormateada = strftime("%d de %B del %Y", strtotime($fecha));
-                                                    if ($dataUsuario16['estado'] == '2') { ?>
+                                                    if ($dataUsuario17['estado'] == '2') { ?>
                     <div class="card mb-6 mb-xl-9">
                         <div class="card-body">
                             <div class="d-flex flex-stack mb-1">
@@ -552,7 +552,7 @@ $query1 = mysqli_query($con, $sql1);
                                     </div>
                                 </div>
                             </div>
-                            <div class="fs-4 fw-bolder mt-1 mb-1 text-gray-900 text-hover-primary"><?php echo $dataUsuario15['nombre']; ?></div>
+                            <div class="fs-4 fw-bolder mt-1 mb-1 text-gray-900 text-hover-primary"><?php echo $dataUsuario17['nombre']; ?></div>
                             <div class="d-flex flex-stack flex-wrapr">
                                 <div class="d-flex my-1">
                                     <div class="border border-dashed border-gray-300 rounded py-2 px-3">
