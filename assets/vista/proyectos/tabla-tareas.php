@@ -272,7 +272,7 @@ $query1 = mysqli_query($con, $sql1);
                                                     $fecha = $dataUsuario15['fechaFin'];
                                                     setlocale(LC_TIME, 'es_ES'); // Establecer la configuración regional a español
                                                     $fechaFormateada = strftime("%d de %B del %Y", strtotime($fecha));
-                                                    if ($dataUsuario15['verificacion'] == '2') { ?>
+                                                    if ($dataUsuario15['verificacion'] == '2' and $dataUsuario16['estado'] != '2') { ?>
                     <div class="card mb-6 mb-xl-9">
                         <div class="card-body">
                             <div class="d-flex flex-stack mb-1">
@@ -487,10 +487,44 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
                         <div class="h-3px w-100 bg-success"></div>
                     </div>
+                    <?php
+                        include('../config.php');
+                        $sql17 = "SELECT *
+                        FROM (
+                            SELECT
+                                tareasInfo.idUsuario,
+                                proyectosTareas.id,
+                                proyectosTareas.nombre,
+                                proyectosTareas.estado,
+                                proyectosTareas.fechaFin,
+                                tareasInfo.idTarea,
+                                proyectosTareas.idProyecto,
+                                CASE
+                                    WHEN proyectosTareas.fechaFin < CURDATE() THEN 2
+                                    ELSE 1
+                                END AS verificacion
+                            FROM
+                                tareasInfo
+                            JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
+                            WHERE
+                                proyectosTareas.idProyecto = '$idProyecto'
+                                AND tareasInfo.idUsuario = '$session_id'
+                        ) AS subconsulta
+                        WHERE
+                            verificacion = 2;";
+                        $query17 = mysqli_query($con, $sql17);
+                        ?>
+                    <?php 
+												$i = 1;
+												while ($dataUsuario16 = mysqli_fetch_array($query16)) { 
+                                                    $fecha = $dataUsuario16['fechaFin'];
+                                                    setlocale(LC_TIME, 'es_ES'); // Establecer la configuración regional a español
+                                                    $fechaFormateada = strftime("%d de %B del %Y", strtotime($fecha));
+                                                    if ($dataUsuario16['estado'] == '2') { ?>
                     <div class="card mb-6 mb-xl-9">
                         <div class="card-body">
-                            <div class="d-flex flex-stack mb-3">
-                                <div class="badge badge-light">UI Designasda</div>
+                            <div class="d-flex flex-stack mb-1">
+                                <div class="badge badge-light"><?php echo $fechaFormateada; ?></div>
                                 <div>
                                     <button type="button"
                                         class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
@@ -511,29 +545,20 @@ $query1 = mysqli_query($con, $sql1);
                                             </svg>
                                         </span>
                                     </button>
+                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3"
+                                        data-kt-menu="true">
+                                        <div class="menu-item px-3">
+                                            <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">OPCIONES
+                                            </div>
+                                        </div>
+                                        <div class="menu-item px-3">
+                                            <a href="#" class="menu-link px-3">Agregar documento</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="mb-2">
-                                <a href="#" class="fs-4 fw-bolder mb-1 text-gray-900 text-hover-primary">Branding
-                                    Logo</a>
-                            </div>
-                            <div class="fs-6 fw-bold text-gray-600 mb-5">First, a disclaimer – the entire process
-                                writing a blog post often takes a couple of hours if you can type</div>
+                            <div class="fs-4 fw-bolder mt-1 mb-1 text-gray-900 text-hover-primary"><?php echo $dataUsuario15['nombre']; ?></div>
                             <div class="d-flex flex-stack flex-wrapr">
-                                <div class="symbol-group symbol-hover my-1">
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                        title="Perry Matthew">
-                                        <span class="symbol-label bg-success text-inverse-success fw-bolder">R</span>
-                                    </div>
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                        title="Barry Walter">
-                                        <img alt="Pic" src="assets/media/avatars/300-12.jpg">
-                                    </div>
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                        title="Susan Redwood">
-                                        <span class="symbol-label bg-primary text-inverse-primary fw-bolder">S</span>
-                                    </div>
-                                </div>
                                 <div class="d-flex my-1">
                                     <div class="border border-dashed border-gray-300 rounded py-2 px-3">
                                         <span class="svg-icon svg-icon-3">
@@ -547,27 +572,14 @@ $query1 = mysqli_query($con, $sql1);
                                                     fill="currentColor"></path>
                                             </svg>
                                         </span>
-                                        <span class="ms-1 fs-7 fw-bolder text-gray-600">9</span>
+                                        <span class="ms-1 fs-7 fw-bolder text-gray-600">DOCUMENTOS ADJUNTOS</span>
                                     </div>
-                                    <div class="border border-dashed border-gray-300 rounded py-2 px-3 ms-3">
-                                        <span class="svg-icon svg-icon-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none">
-                                                <path opacity="0.3"
-                                                    d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z"
-                                                    fill="currentColor"></path>
-                                                <rect x="6" y="12" width="7" height="2" rx="1" fill="currentColor">
-                                                </rect>
-                                                <rect x="6" y="7" width="12" height="2" rx="1" fill="currentColor">
-                                                </rect>
-                                            </svg>
-                                        </span>
-                                        <span class="ms-1 fs-7 fw-bolder text-gray-600">1</span>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php }}?>
                 </div>
             </div>
         </div>
