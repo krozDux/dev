@@ -273,6 +273,7 @@ $query1 = mysqli_query($con, $sql1);
                     
                         <div class="card-body">
                             <div class="d-flex flex-stack mb-3">
+                            <div class="badge badge-light"><?php echo $dataUsuario15['fechaFin']; ?></div>
                                 <div>
                                     <button type="button"
                                         class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
@@ -308,26 +309,8 @@ $query1 = mysqli_query($con, $sql1);
                                     </div>
                                 </div>
                             </div>
-                            <div class="mb-2">
-                                <a class="fs-4 fw-bolder mb-1 text-gray-900 text-hover-primary"><?php echo $dataUsuario1['nombres']; ?></a>
-                            </div>
-                            <div class="fs-6 fw-bold text-gray-600 mb-5">First, a disclaimer – the entire process
-                                writing a blog post often takes a couple of hours if you can type</div>
+                            <div class="fs-6 fw-bold text-gray-600 mb-5"><?php echo $dataUsuario15['nombre']; ?></div>
                             <div class="d-flex flex-stack flex-wrapr">
-                                <div class="symbol-group symbol-hover my-1">
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                        title="Melody Macy">
-                                        <img alt="Pic" src="assets/media/avatars/300-2.jpg">
-                                    </div>
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                        title="Harry Mcpherson">
-                                        <img alt="Pic" src="assets/media/avatars/300-19.jpg">
-                                    </div>
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
-                                        title="Susan Redwood">
-                                        <span class="symbol-label bg-primary text-inverse-primary fw-bolder">S</span>
-                                    </div>
-                                </div>
                                 <div class="d-flex my-1">
                                     <div class="border border-dashed border-gray-300 rounded py-2 px-3">
                                         <span class="svg-icon svg-icon-3">
