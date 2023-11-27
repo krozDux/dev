@@ -310,7 +310,7 @@ $query1 = mysqli_query($con, $sql1);
                                     </div>
                                 </div>
                             </div>
-                            <div class="fs-4 fw-bolder mb-1 text-gray-900 text-hover-primary"><?php echo $dataUsuario15['nombre']; ?></div>
+                            <div class="fs-4 fw-bolder mt-1 mb-1 text-gray-900 text-hover-primary"><?php echo $dataUsuario15['nombre']; ?></div>
                             <div class="d-flex flex-stack flex-wrapr">
                                 <div class="d-flex my-1">
                                     <div class="border border-dashed border-gray-300 rounded py-2 px-3">
