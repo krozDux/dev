@@ -205,7 +205,7 @@ $query1 = mysqli_query($con, $sql1);
                         }
                         ?>
                             <div class="fw-bolder fs-4">Destiempo
-                                <span class="fs-6 text-gray-400 ms-2"><?php echo $retraso++; ?></span>
+                                <span class="fs-6 text-gray-400 ms-2"><?php echo $retraso; ?></span>
                             </div>
                             <div>
                                 <button type="button"
