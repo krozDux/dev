@@ -276,7 +276,7 @@ $query1 = mysqli_query($con, $sql1);
                     <div class="card mb-6 mb-xl-9">
 
                         <div class="card-body">
-                            <div class="d-flex flex-stack mb-2">
+                            <div class="d-flex flex-stack mb-1">
                                 <div class="badge badge-light"><?php echo $fechaFormateada; ?></div>
                                 <div>
                                     <button type="button"
