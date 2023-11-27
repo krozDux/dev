@@ -183,7 +183,6 @@ $query1 = mysqli_query($con, $sql1);
                         proyectosTareas.fechaFin,
                         tareasInfo.idTarea,
                         proyectosTareas.idProyecto,
-                        proyectosTareas.documento,
                         CASE
                             WHEN proyectosTareas.fechaFin < CURDATE() THEN 2
                             ELSE 1
