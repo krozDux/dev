@@ -387,7 +387,7 @@ $query1 = mysqli_query($con, $sql1);
                                 AND tareasInfo.idUsuario = '$session_id'
                         ) AS subconsulta
                         WHERE
-                            verificacion = 2;";
+                            verificacion = 1;";
                         $query16 = mysqli_query($con, $sql16);
                         ?>
                     <?php 
