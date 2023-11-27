@@ -270,8 +270,8 @@ $query1 = mysqli_query($con, $sql1);
 												$i = 1;
 												while ($dataUsuario15 = mysqli_fetch_array($query15)) { 
                                                     $fecha = $dataUsuario15['fechaFin'];
-    setlocale(LC_TIME, 'es_ES'); // Establecer la configuración regional a español
-    $fechaFormateada = strftime("%d de %B de %Y", strtotime($fecha));
+                                                    setlocale(LC_TIME, 'es_ES'); // Establecer la configuración regional a español
+                                                    $fechaFormateada = strftime("%d de %B del %Y", strtotime($fecha));
                                                     if ($dataUsuario15['verificacion'] == '2') { ?>
                     <div class="card mb-6 mb-xl-9">
 
@@ -310,7 +310,7 @@ $query1 = mysqli_query($con, $sql1);
                                     </div>
                                 </div>
                             </div>
-                            <div class="fs-6 fw-bold text-gray-600 mb-5"><?php echo $dataUsuario15['nombre']; ?></div>
+                            <div class="fs-6 fw-bold text-black-600 mb-5"><?php echo $dataUsuario15['nombre']; ?></div>
                             <div class="d-flex flex-stack flex-wrapr">
                                 <div class="d-flex my-1">
                                     <div class="border border-dashed border-gray-300 rounded py-2 px-3">
