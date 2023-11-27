@@ -242,9 +242,7 @@ $query1 = mysqli_query($con, $sql1);
                     </div>
                     <?php
                         include('../config.php');
-                        $sql15 = "SELECT *
-                        FROM (
-                            SELECT
+                        $sql15 = "SELECT
                                 tareasInfo.idUsuario,
                                 proyectosTareas.id,
                                 proyectosTareas.nombre,
@@ -261,16 +259,9 @@ $query1 = mysqli_query($con, $sql1);
                             JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
                             WHERE
                                 proyectosTareas.idProyecto = '$idProyecto'
-                                AND tareasInfo.idUsuario = '$session_id'
-                        ) AS subconsulta
-                        WHERE
-                            verificacion = 2";
+                                AND tareasInfo.idUsuario = '$session_id';";
                         $query15 = mysqli_query($con, $sql15);
-                        if (!$query15) {
-                            die("Error en la consulta: " . mysqli_error($con));
-                        }
-                        echo "idProyecto: " . $idProyecto . "<br>";
-echo "session_id: " . $session_id . "<br>";
+                        
                         ?>
                         <?php 
 												$i = 1;
