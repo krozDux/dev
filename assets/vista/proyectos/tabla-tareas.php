@@ -240,10 +240,38 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="h-3px w-100 bg-danger"></div>
                     </div>
                     <div class="card mb-6 mb-xl-9">
+                    <?php
+                        include('../config.php');
+                        $sql15 = "SELECT *
+                        FROM (
+                            SELECT
+                                tareasInfo.idUsuario,
+                                proyectosTareas.id,
+                                proyectosTareas.nombre,
+                                proyectosTareas.estado,
+                                proyectosTareas.fechaFin,
+                                tareasInfo.idTarea,
+                                proyectosTareas.idProyecto,
+                                CASE
+                                    WHEN proyectosTareas.fechaFin < CURDATE() THEN 2
+                                    ELSE 1
+                                END AS verificacion
+                            FROM
+                                tareasInfo
+                            JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
+                            WHERE
+                                proyectosTareas.idProyecto = '$idProyecto'
+                                AND tareasInfo.idUsuario = '$session_id'
+                        ) AS subconsulta
+                        WHERE
+                            verificacion = 2;";
+                        $query15 = mysqli_query($con, $sql15);
+                        ?>
+                        <?php 
+												$i = 1;
+												while ($dataUsuario15 = mysqli_fetch_array($query15)) { ?>
                         <div class="card-body">
                             <div class="d-flex flex-stack mb-3">
-                                <div class="badge badge-light">UI Design</div>
-
                                 <div>
                                     <button type="button"
                                         class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
@@ -280,8 +308,7 @@ $query1 = mysqli_query($con, $sql1);
                                 </div>
                             </div>
                             <div class="mb-2">
-                                <a href="#" class="fs-4 fw-bolder mb-1 text-gray-900 text-hover-primary">Meeting with
-                                    customer</a>
+                                <a class="fs-4 fw-bolder mb-1 text-gray-900 text-hover-primary"><?php echo $dataUsuario1['nombres']; ?></a>
                             </div>
                             <div class="fs-6 fw-bold text-gray-600 mb-5">First, a disclaimer – the entire process
                                 writing a blog post often takes a couple of hours if you can type</div>
@@ -333,6 +360,7 @@ $query1 = mysqli_query($con, $sql1);
                                 </div>
                             </div>
                         </div>
+                        <?php } ?>
                     </div>
                     
                 </div>
