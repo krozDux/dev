@@ -269,9 +269,8 @@ $query1 = mysqli_query($con, $sql1);
                     <?php 
 												$i = 1;
 												while ($dataUsuario15 = mysqli_fetch_array($query15)) { 
-                                                    $fechaOriginal = $dataUsuario15['fechaFin'];
-                                                    // Convierte la fecha a un formato de fecha en español
-                                                    $fechaFormateada = date("d de F de Y", strtotime($fechaOriginal));
+                                                    $fecha = $dataUsuario15['fechaFin'];
+    $fechaFormateada = date("d de F de Y", strtotime($fecha));
                                                     if ($dataUsuario15['verificacion'] == '2') { ?>
                     <div class="card mb-6 mb-xl-9">
 
