@@ -554,7 +554,6 @@ $query1 = mysqli_query($con, $sql1);
                     JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
                     WHERE
                         proyectosTareas.idProyecto = '$idProyecto'
-                        AND tareasInfo.idUsuario = '$session_id'
                     GROUP BY proyectosTareas.id;";
                         $query14 = mysqli_query($con, $sql14);
                         if ($query14) {
