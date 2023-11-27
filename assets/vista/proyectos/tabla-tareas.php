@@ -272,7 +272,7 @@ $query1 = mysqli_query($con, $sql1);
                                                     $fecha = $dataUsuario15['fechaFin'];
                                                     setlocale(LC_TIME, 'es_ES'); // Establecer la configuración regional a español
                                                     $fechaFormateada = strftime("%d de %B del %Y", strtotime($fecha));
-                                                    if ($dataUsuario15['verificacion'] == '2' and $dataUsuario16['estado'] != 2) { ?>
+                                                    if ($dataUsuario15['verificacion'] == '2' AND $dataUsuario16['estado'] != '2') { ?>
                     <div class="card mb-6 mb-xl-9">
                         <div class="card-body">
                             <div class="d-flex flex-stack mb-1">
