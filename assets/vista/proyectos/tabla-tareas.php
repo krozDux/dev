@@ -215,27 +215,7 @@ $query1 = mysqli_query($con, $sql1);
                             <div class="fw-bolder fs-4">Destiempo
                                 <span class="fs-6 text-gray-400 ms-2"><?php echo $retraso; ?></span>
                             </div>
-                            <div>
-                                <button type="button"
-                                    class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                    <span class="svg-icon svg-icon-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                            viewBox="0 0 24 24">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <rect x="5" y="5" width="5" height="5" rx="1" fill="currentColor">
-                                                </rect>
-                                                <rect x="14" y="5" width="5" height="5" rx="1" fill="currentColor"
-                                                    opacity="0.3"></rect>
-                                                <rect x="5" y="14" width="5" height="5" rx="1" fill="currentColor"
-                                                    opacity="0.3"></rect>
-                                                <rect x="14" y="14" width="5" height="5" rx="1" fill="currentColor"
-                                                    opacity="0.3"></rect>
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </button>
-                            </div>
+
                         </div>
                         <div class="h-3px w-100 bg-danger"></div>
                     </div>
@@ -340,27 +320,6 @@ $query1 = mysqli_query($con, $sql1);
                             <div class="fw-bolder fs-4">Pendiente
                                 <span class="fs-6 text-gray-400 ms-2"><?php echo ($progreso-$retraso); ?></span>
                             </div>
-                            <div>
-                                <button type="button"
-                                    class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                    <span class="svg-icon svg-icon-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                            viewBox="0 0 24 24">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <rect x="5" y="5" width="5" height="5" rx="1" fill="currentColor">
-                                                </rect>
-                                                <rect x="14" y="5" width="5" height="5" rx="1" fill="currentColor"
-                                                    opacity="0.3"></rect>
-                                                <rect x="5" y="14" width="5" height="5" rx="1" fill="currentColor"
-                                                    opacity="0.3"></rect>
-                                                <rect x="14" y="14" width="5" height="5" rx="1" fill="currentColor"
-                                                    opacity="0.3"></rect>
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </button>
-                            </div>
                         </div>
                         <div class="h-3px w-100 bg-warning"></div>
                     </div>
@@ -463,27 +422,6 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="d-flex flex-stack">
                             <div class="fw-bolder fs-4">Completado
                                 <span class="fs-6 text-gray-400 ms-2"><?php echo ($finalizados); ?></span>
-                            </div>
-                            <div>
-                                <button type="button"
-                                    class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                    <span class="svg-icon svg-icon-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
-                                            viewBox="0 0 24 24">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <rect x="5" y="5" width="5" height="5" rx="1" fill="currentColor">
-                                                </rect>
-                                                <rect x="14" y="5" width="5" height="5" rx="1" fill="currentColor"
-                                                    opacity="0.3"></rect>
-                                                <rect x="5" y="14" width="5" height="5" rx="1" fill="currentColor"
-                                                    opacity="0.3"></rect>
-                                                <rect x="14" y="14" width="5" height="5" rx="1" fill="currentColor"
-                                                    opacity="0.3"></rect>
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </button>
                             </div>
                         </div>
                         <div class="h-3px w-100 bg-success"></div>
