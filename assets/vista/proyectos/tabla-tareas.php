@@ -175,17 +175,25 @@ $query1 = mysqli_query($con, $sql1);
                         $totalreg = 0;
                         // Fecha actual
                         $fechaActual = new DateTime();
-                        $sql14 = "SELECT GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios, 
-                                        proyectosTareas.id,
-                                        proyectosTareas.nombre,
-                                        proyectosTareas.estado,
-                                        proyectosTareas.fechaFin,
-                                        tareasInfo.idTarea, 
-                                        proyectosTareas.idProyecto 
-                                FROM tareasInfo 
-                                JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id 
-                                WHERE proyectosTareas.idProyecto = '$idProyecto' and tareasInfo.idUsuario= '$session_id'
-                                GROUP BY proyectosTareas.id;";
+                        $sql14 = "SELECT
+                        GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios,
+                        proyectosTareas.id,
+                        proyectosTareas.nombre,
+                        proyectosTareas.estado,
+                        proyectosTareas.fechaFin,
+                        tareasInfo.idTarea,
+                        proyectosTareas.idProyecto,
+                        CASE
+                            WHEN proyectosTareas.fechaFin < CURDATE() THEN 2
+                            ELSE 1
+                        END AS verificacion
+                    FROM
+                        tareasInfo
+                    JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
+                    WHERE
+                        proyectosTareas.idProyecto = '$idProyecto'
+                        AND tareasInfo.idUsuario = '$session_id'
+                    GROUP BY proyectosTareas.id;";
                         $query14 = mysqli_query($con, $sql14);
                         if ($query14) {
                             $totalreg = mysqli_num_rows($query14); // Contamos el total de registros
