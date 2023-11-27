@@ -1791,42 +1791,6 @@ $query1 = mysqli_query($con, $sql1);
                                     <span class="badge badge-light fw-bolder me-auto">Yet to start</span>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="fw-bolder">
-                                    <a href="#" class="text-gray-900 text-hover-primary">Create Roles Module</a>
-                                </td>
-                                <td>
-                                    <span class="badge badge-light fw-bold me-auto">Branding</span>
-                                </td>
-                                <td>Jan 13, 2020</td>
-                                <td>
-                                    <!--begin::Members-->
-                                    <div class="symbol-group symbol-hover fs-8">
-                                        <div class="symbol symbol-25px symbol-circle" data-bs-toggle="tooltip"
-                                            title="Michelle Swanston">
-                                            <img alt="Pic" src="assets/media/avatars/300-7.jpg">
-                                        </div>
-                                        <div class="symbol symbol-25px symbol-circle" data-bs-toggle="tooltip"
-                                            title="Robin Watterman">
-                                            <span
-                                                class="symbol-label bg-success text-inverse-success fw-bolder">R</span>
-                                        </div>
-                                        <div class="symbol symbol-25px symbol-circle" data-bs-toggle="tooltip"
-                                            title="Alan Warden">
-                                            <span
-                                                class="symbol-label bg-warning text-inverse-warning fw-bolder">A</span>
-                                        </div>
-                                    </div>
-                                    <!--end::Members-->
-                                </td>
-                                <td>
-                                    <span class="badge badge-light fw-bolder me-auto">Yet to start</span>
-                                </td>
-                                <td class="text-end">
-                                    <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-                                </td>
-                            </tr>
-                            <!--end::Table row-->
                         </tbody>
                         <!--end::Table body-->
                     </table>
