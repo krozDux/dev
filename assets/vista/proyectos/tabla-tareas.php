@@ -266,10 +266,11 @@ $query1 = mysqli_query($con, $sql1);
                         WHERE
                             verificacion = 2";
                         $query15 = mysqli_query($con, $sql15);
-                      
-if (!$query15) {
-    die("Error en la consulta: " . mysqli_error($con));
-}
+                        if (!$query15) {
+                            die("Error en la consulta: " . mysqli_error($con));
+                        }
+                        echo "idProyecto: " . $idProyecto . "<br>";
+echo "session_id: " . $session_id . "<br>";
                         ?>
                         <?php 
 												$i = 1;
