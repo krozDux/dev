@@ -242,7 +242,9 @@ $query1 = mysqli_query($con, $sql1);
                     </div>
                     <?php
                         include('../config.php');
-                        $sql15 = "SELECT
+                        $sql15 = "SELECT *
+                        FROM (
+                            SELECT
                                 tareasInfo.idUsuario,
                                 proyectosTareas.id,
                                 proyectosTareas.nombre,
@@ -259,9 +261,11 @@ $query1 = mysqli_query($con, $sql1);
                             JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
                             WHERE
                                 proyectosTareas.idProyecto = '$idProyecto'
-                                AND tareasInfo.idUsuario = '$session_id';";
+                                AND tareasInfo.idUsuario = '$session_id'
+                        ) AS subconsulta
+                        WHERE
+                            verificacion = 2;";
                         $query15 = mysqli_query($con, $sql15);
-                        
                         ?>
                         <?php 
 												$i = 1;
