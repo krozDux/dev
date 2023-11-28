@@ -162,49 +162,52 @@ $query1 = mysqli_query($con, $sql1);
     <div class="row g-6 g-xl-9">
     <?php
                         include('../config.php');
-                        $sqlContri = ("SELECT
-                        usuarios.imagen, usuarios.nombres, usuarios.apellidos, proyectos.id as idProyecto, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idUsuario,
-                        COUNT(tareasInfo.idUsuario) AS cantidad FROM  proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto JOIN 
-                        tareasInfo ON proyectosInfo.idUsuario = tareasInfo.idUsuario JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE 
-                        proyectos.id = '$idProyecto' GROUP BY proyectosInfo.idUsuario;
-                        ");
+                        $sqlContri = ("SELECT usuarios.imagen, usuarios.nombres, usuarios.apellidos, proyectos.id as idProyecto, proyectosInfo.fechaAdd, proyectosInfo.tip, proyectosInfo.fechaEstado, proyectosInfo.idUsuario, COUNT(tareasInfo.idUsuario) AS cantidad FROM  proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto JOIN tareasInfo ON proyectosInfo.idUsuario = tareasInfo.idUsuario JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectos.id = '$idProyecto' GROUP BY proyectosInfo.idUsuario;");
                         $queryContri = mysqli_query($con, $sqlContri);
                         if ($queryContri) {
                             $totalContribuidores = mysqli_num_rows($queryContri); // Contamos el total de registros
                         }?>
+                        <?php while ($DataContri = mysqli_fetch_assoc($queryContri)) {    ?>
         <div class="col-md-6 col-xxl-4">
             <div class="card">
                 <div class="card-body d-flex flex-center flex-column pt-12 p-9">
-                    <div class="symbol symbol-65px symbol-circle mb-5">
-                        <img src="assets/media//avatars/300-14.jpg" alt="image">
-                    </div>
-                    <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0">Robert Doe</a>
-                    <div class="fw-bold text-gray-400 mb-6">Marketing Analytic at Avito Ltd.</div>
+                <?php
+                                if ($DataContri['imagen'] != "blank.png") {
+                                        echo '<div class="symbol symbol-65px symbol-circle" data-bs-toggle="tooltip"
+                                                title="' . $DataContri['nombres'] . ' ' . $DataContri['apellidos'] . '">
+                                                <img src="assets/media/avatars/' . $DataContri['imagen'] . '" alt="user-image">
+                                            </div>';
+                                    } else {
+                                        $iniciales = substr($DataContri['nombres'], 0, 1) . substr($DataContri['apellidos'], 0, 1);
+                                        echo '<div class="symbol symbol-65px symbol-circle" data-bs-toggle="tooltip"
+                                                title="' . $DataContri['nombres'] . ' ' . $DataContri['apellidos'] . '">
+                                                <span class="symbol-label bg-dark text-inverse-primary fw-bold">' . $iniciales . '</span>
+                                            </div>';
+                                    }
+                                ?>
+                    <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0"><?php echo $DataContri['nombres']; ?>
+                                <?php echo $DataContri['apellidos']; ?></a>
+                                <?php
+                                if ($DataContri['tipo'] == "3") {?>
+                                <div class="fw-bold text-gray-400 mb-6">Encargado</div>
+                                    <?php } ?>
+                                    <?php
+                                if ($DataContri['tipo'] == "2") {?>
+                                <div class="fw-bold text-gray-400 mb-6">Cliente</div>
+                                    <?php } ?>
+                                    <?php
+                                if ($DataContri['tipo'] == "1") {?>
+                                <div class="fw-bold text-gray-400 mb-6">Colaborador</div>
+                                    <?php } ?>
                     <div class="d-flex flex-center flex-wrap">
                         <div class="border border-gray-300 border-dashed rounded min-w-80px py-3 px-4 mx-2 mb-3">
-                            <div class="fs-6 fw-bolder text-gray-700">23</div>
-                            <div class="fw-bold text-gray-400">Tasks</div>
+                            <div class="fs-6 fw-bolder text-gray-700"><?php echo $DataContri['cantidad']; ?></div>
+                            <div class="fw-bold text-gray-400">Tareas</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-xxl-4">
-            <div class="card">
-                <div class="card-body d-flex flex-center flex-column pt-12 p-9">
-                    <div class="symbol symbol-65px symbol-circle mb-5">
-                        <img src="assets/media//avatars/300-14.jpg" alt="image">
-                    </div>
-                    <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0">Robert Doe</a>
-                    <div class="fw-bold text-gray-400 mb-6">Marketing Analytic at Avito Ltd.</div>
-                    <div class="d-flex flex-center flex-wrap">
-                        <div class="border border-gray-300 border-dashed rounded min-w-80px py-3 px-4 mx-2 mb-3">
-                            <div class="fs-6 fw-bolder text-gray-700">23</div>
-                            <div class="fw-bold text-gray-400">Tasks</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <?php }?>
     </div>
 </div>
