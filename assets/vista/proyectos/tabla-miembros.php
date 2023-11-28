@@ -127,17 +127,17 @@ $query1 = mysqli_query($con, $sql1);
             <div class="separator"></div>
             <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6 "
+                    <a class="nav-link text-active-primary py-5 me-6"
                         href="/../proyectos/recursos?idProyecto=<?php echo $idProyecto ?>">
                         Información </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6 active"
+                    <a class="nav-link text-active-primary py-5 me-6"
                         href="/../proyectos/tareas?idProyecto=<?php echo $idProyecto ?>">
                         Tareas </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6 "
+                    <a class="nav-link text-active-primary py-5 me-6 active"
                         href="/../proyectos/miembros?idProyecto=<?php echo $idProyecto ?>">
                         Miembros </a>
                 </li>
