@@ -162,11 +162,8 @@ $query1 = mysqli_query($con, $sql1);
     <div class="row g-6 g-xl-9">
     <?php
                         include('../config.php');
-                        $sqlContri = ("SELECT usuarios.imagen, usuarios.nombres, usuarios.apellidos, proyectos.id as idProyecto, proyectosInfo.fechaAdd, proyectosInfo.tip, proyectosInfo.fechaEstado, proyectosInfo.idUsuario, COUNT(tareasInfo.idUsuario) AS cantidad FROM  proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto JOIN tareasInfo ON proyectosInfo.idUsuario = tareasInfo.idUsuario JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectos.id = '$idProyecto' GROUP BY proyectosInfo.idUsuario;");
-                        $queryContri = mysqli_query($con, $sqlContri);
-                        if ($queryContri) {
-                            $totalContribuidores = mysqli_num_rows($queryContri); // Contamos el total de registros
-                        }?>
+                        $sqlContri = ("SELECT usuarios.imagen, usuarios.nombres, usuarios.apellidos, proyectos.id as idProyecto, proyectosInfo.fechaAdd, proyectosInfo.tip, proyectosInfo.fechaEstado, proyectosInfo.idUsuario, COUNT(tareasInfo.idUsuario) AS cantidad FROM  proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto JOIN tareasInfo ON proyectosInfo.idUsuario = tareasInfo.idUsuario JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE proyectos.id = '$idProyecto' GROUP BY proyectosInfo.idUsuario");
+                        $queryContri = mysqli_query($con, $sqlContri);?>
                         <?php while ($DataContri = mysqli_fetch_assoc($queryContri)) {    ?>
         <div class="col-md-6 col-xxl-4">
             <div class="card">
