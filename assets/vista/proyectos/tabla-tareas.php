@@ -522,7 +522,7 @@ $query1 = mysqli_query($con, $sql1);
         </div>
     </div>
     <?php } else { ?>
-        <div class="tab-content">
+    <div class="tab-content">
         <div id="kt_project_targets_card_pane" class="tab-pane fade show active">
             <div class="row g-9">
                 <div class="col-md-4 col-lg-12 col-xl-4">

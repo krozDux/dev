@@ -160,49 +160,51 @@ $query1 = mysqli_query($con, $sql1);
         </div>
     </div>
     <div class="row g-6 g-xl-9">
+    <?php
+                        include('../config.php');
+                        $sqlContri = ("SELECT
+                        usuarios.imagen, usuarios.nombres, usuarios.apellidos, proyectos.id as idProyecto, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idUsuario,
+                        COUNT(tareasInfo.idUsuario) AS cantidad FROM  proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto JOIN 
+                        tareasInfo ON proyectosInfo.idUsuario = tareasInfo.idUsuario JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE 
+                        proyectos.id = '$idProyecto' GROUP BY proyectosInfo.idUsuario;
+                        ");
+                        $queryContri = mysqli_query($con, $sqlContri);
+                        if ($queryContri) {
+                            $totalContribuidores = mysqli_num_rows($queryContri); // Contamos el total de registros
+                        }?>
         <div class="col-md-6 col-xxl-4">
-            <!--begin::Card-->
             <div class="card">
-                <!--begin::Card body-->
                 <div class="card-body d-flex flex-center flex-column pt-12 p-9">
-                    <!--begin::Avatar-->
                     <div class="symbol symbol-65px symbol-circle mb-5">
                         <img src="assets/media//avatars/300-14.jpg" alt="image">
                     </div>
-                    <!--end::Avatar-->
-                    <!--begin::Name-->
                     <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0">Robert Doe</a>
-                    <!--end::Name-->
-                    <!--begin::Position-->
                     <div class="fw-bold text-gray-400 mb-6">Marketing Analytic at Avito Ltd.</div>
-                    <!--end::Position-->
-                    <!--begin::Info-->
                     <div class="d-flex flex-center flex-wrap">
-                        <!--begin::Stats-->
-                        <div class="border border-gray-300 border-dashed rounded min-w-80px py-3 px-4 mx-2 mb-3">
-                            <div class="fs-6 fw-bolder text-gray-700">$14,560</div>
-                            <div class="fw-bold text-gray-400">Earnings</div>
-                        </div>
-                        <!--end::Stats-->
-                        <!--begin::Stats-->
                         <div class="border border-gray-300 border-dashed rounded min-w-80px py-3 px-4 mx-2 mb-3">
                             <div class="fs-6 fw-bolder text-gray-700">23</div>
                             <div class="fw-bold text-gray-400">Tasks</div>
                         </div>
-                        <!--end::Stats-->
-                        <!--begin::Stats-->
-                        <div class="border border-gray-300 border-dashed rounded min-w-80px py-3 px-4 mx-2 mb-3">
-                            <div class="fs-6 fw-bolder text-gray-700">$236,400</div>
-                            <div class="fw-bold text-gray-400">Sales</div>
-                        </div>
-                        <!--end::Stats-->
                     </div>
-                    <!--end::Info-->
                 </div>
-                <!--end::Card body-->
             </div>
-            <!--end::Card-->
         </div>
-
+        <div class="col-md-6 col-xxl-4">
+            <div class="card">
+                <div class="card-body d-flex flex-center flex-column pt-12 p-9">
+                    <div class="symbol symbol-65px symbol-circle mb-5">
+                        <img src="assets/media//avatars/300-14.jpg" alt="image">
+                    </div>
+                    <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0">Robert Doe</a>
+                    <div class="fw-bold text-gray-400 mb-6">Marketing Analytic at Avito Ltd.</div>
+                    <div class="d-flex flex-center flex-wrap">
+                        <div class="border border-gray-300 border-dashed rounded min-w-80px py-3 px-4 mx-2 mb-3">
+                            <div class="fs-6 fw-bolder text-gray-700">23</div>
+                            <div class="fw-bold text-gray-400">Tasks</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
