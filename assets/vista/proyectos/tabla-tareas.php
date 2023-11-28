@@ -47,8 +47,6 @@ $query1 = mysqli_query($con, $sql1);
                         <div class="d-flex mb-4">
                             <button class="btn btn-sm btn-bg-light btn-active-color-primary me-3 modal-trabajo"
                                 data-bs-toggle="modal" data-bs-target="#kt_modal_new_user">Agregar tarea</button>
-                            <a class="btn btn-sm btn-primary me-3" data-bs-toggle="modal"
-                                data-bs-target="#kt_modal_new_user">Agregar usuario</a>
                         </div>
                     </div>
 
