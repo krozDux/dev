@@ -186,15 +186,15 @@ $query1 = mysqli_query($con, $sql1);
                                 <?php echo $DataContri['apellidos']; ?></a>
                                 <?php
                                 if ($DataContri['tipo'] == "3") {?>
-                                <div class="fw-bold text-gray-400 mb-6">Encargado</div>
+                                <div class="fw-bold text-gray-400 mb-6">ENCARGADO</div>
                                     <?php } ?>
                                     <?php
                                 if ($DataContri['tipo'] == "2") {?>
-                                <div class="fw-bold text-gray-400 mb-6">Cliente</div>
+                                <div class="fw-bold text-gray-400 mb-6">CLIENTE</div>
                                     <?php } ?>
                                     <?php
                                 if ($DataContri['tipo'] == "1") {?>
-                                <div class="fw-bold text-gray-400 mb-6">Colaborador</div>
+                                <div class="fw-bold text-gray-400 mb-6">COLABORADOR</div>
                                     <?php } ?>
                     <div class="d-flex flex-center flex-wrap">
                         <div class="border border-gray-300 border-dashed rounded min-w-80px py-3 px-4 mx-2 mb-3">
