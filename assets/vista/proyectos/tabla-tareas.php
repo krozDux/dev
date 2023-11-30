@@ -526,18 +526,15 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="col-md-4 col-lg-12 col-xl-4">
                     <div class="mb-9">
                         <div class="d-flex flex-stack">
-                        <?php
+                            <?php
                         include('../config.php');
-
                         // Variables para contar los diferentes estados
                         $progreso = 0;
                         $finalizados = 0;
                         $retraso = 0;
                         $totalreg = 0;
-
                         // Fecha actual
                         $fechaActual = new DateTime();
-
                         $sql14 = "SELECT
                         GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios,
                         proyectosTareas.id,
@@ -556,27 +553,18 @@ $query1 = mysqli_query($con, $sql1);
                     WHERE
                         proyectosTareas.idProyecto = '$idProyecto'
                     GROUP BY proyectosTareas.id;";
-
                         $query14 = mysqli_query($con, $sql14);
-
                         if ($query14) {
                             $totalreg = mysqli_num_rows($query14); // Contamos el total de registros
-
                             while ($tarea = mysqli_fetch_assoc($query14)) {
                                 // Incrementamos según el estado
-                                if ($query14) {
-                                    $totalreg = mysqli_num_rows($query14); // Contamos el total de registros
-                                    while ($tarea = mysqli_fetch_assoc($query14)) {
-                                        // Incrementamos según el estado
-                                        if ($tarea['verificacion'] == '1') {
-                                            $progreso++;
-                                        } else if ($tarea['verificacion'] == '2') {
-                                            $retraso++;
-                                        } elseif ($tarea['verificacion'] == '3') {
-                                            $finalizados++;
-                                    }}
-                                }
-                            }
+                                if ($tarea['verificacion'] == '1') {
+                                    $progreso++;
+                                } else if ($tarea['verificacion'] == '2') {
+                                    $retraso++;
+                                } elseif ($tarea['verificacion'] == '3') {
+                                    $finalizados++;
+                            }}
                         }
                         ?>
                             <div class="fw-bolder fs-4">Destiempo
