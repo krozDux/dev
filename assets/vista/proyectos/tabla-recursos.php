@@ -182,17 +182,24 @@ $query1 = mysqli_query($con, $sql1);
                         // Fecha actual
                         $fechaActual = new DateTime();
 
-                        $sql14 = "SELECT GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios, 
-                                        proyectosTareas.id,
-                                        proyectosTareas.nombre,
-                                        proyectosTareas.estado,
-                                        proyectosTareas.fechaFin,
-                                        tareasInfo.idTarea, 
-                                        proyectosTareas.idProyecto 
-                                FROM tareasInfo 
-                                JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id 
-                                WHERE proyectosTareas.idProyecto = '$idProyecto'
-                                GROUP BY proyectosTareas.id;";
+                        $sql14 = "SELECT
+                        GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios,
+                        proyectosTareas.id,
+                        proyectosTareas.nombre,
+                        CASE
+                            WHEN proyectosTareas.estado = 2 THEN 3  -- Si el estado es igual a 2, establecer verificación en 3
+                            WHEN proyectosTareas.fechaFin < CURDATE() THEN 2
+                            ELSE 1
+                        END AS verificacion,
+                        proyectosTareas.fechaFin,
+                        tareasInfo.idTarea,
+                        proyectosTareas.idProyecto
+                    FROM
+                        tareasInfo
+                    JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
+                    WHERE
+                        proyectosTareas.idProyecto = '$idProyecto'
+                    GROUP BY proyectosTareas.id;";
 
                         $query14 = mysqli_query($con, $sql14);
 
@@ -201,15 +208,17 @@ $query1 = mysqli_query($con, $sql1);
 
                             while ($tarea = mysqli_fetch_assoc($query14)) {
                                 // Incrementamos según el estado
-                                if ($tarea['estado'] == '1') {
-                                    $progreso++;
-                                    // Comparamos la fecha de finalización con la fecha actual para ver si está retrasada
-                                    $fechaFin = new DateTime($tarea['fechaFin']);
-                                    if ($fechaFin < $fechaActual) {
-                                        $retraso++;
-                                    }
-                                } elseif ($tarea['estado'] == '2') {
-                                    $finalizados++;
+                                if ($query14) {
+                                    $totalreg = mysqli_num_rows($query14); // Contamos el total de registros
+                                    while ($tarea = mysqli_fetch_assoc($query14)) {
+                                        // Incrementamos según el estado
+                                        if ($tarea['verificacion'] == '1') {
+                                            $progreso++;
+                                        } else if ($tarea['verificacion'] == '2') {
+                                            $retraso++;
+                                        } elseif ($tarea['verificacion'] == '3') {
+                                            $finalizados++;
+                                    }}
                                 }
                             }
                         }
