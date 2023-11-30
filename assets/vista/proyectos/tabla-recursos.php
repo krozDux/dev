@@ -217,7 +217,7 @@ $query1 = mysqli_query($con, $sql1);
                         }
                         ?>
                         <div class="fs-6 fw-semibold text-gray-500">El proyecto tiene <?php echo $totalreg; ?>
-                            actividades.</div>
+                            actividadesga.</div>
                     </div>
                 </div>
 
