@@ -539,14 +539,14 @@ $query1 = mysqli_query($con, $sql1);
                         GROUP_CONCAT(tareasInfo.idUsuario SEPARATOR ',') AS idUsuarios,
                         proyectosTareas.id,
                         proyectosTareas.nombre,
-                        proyectosTareas.estado,
-                        proyectosTareas.fechaFin,
-                        tareasInfo.idTarea,
-                        proyectosTareas.idProyecto,
                         CASE
+                            WHEN proyectosTareas.estado = 2 THEN 3  -- Si el estado es igual a 2, establecer verificación en 3
                             WHEN proyectosTareas.fechaFin < CURDATE() THEN 2
                             ELSE 1
-                        END AS verificacion
+                        END AS verificacion,
+                        proyectosTareas.fechaFin,
+                        tareasInfo.idTarea,
+                        proyectosTareas.idProyecto
                     FROM
                         tareasInfo
                     JOIN proyectosTareas ON tareasInfo.idTarea = proyectosTareas.id
@@ -562,7 +562,7 @@ $query1 = mysqli_query($con, $sql1);
                                     $progreso++;
                                 } else if ($tarea['verificacion'] == '2') {
                                     $retraso++;
-                                } elseif ($tarea['estado'] == '2') {
+                                } elseif ($tarea['verificacion'] == '3') {
                                     $finalizados++;
                             }}
                         }
@@ -674,7 +674,7 @@ $query1 = mysqli_query($con, $sql1);
                     <div class="mb-9">
                         <div class="d-flex flex-stack">
                             <div class="fw-bolder fs-4">Pendiente
-                                <span class="fs-6 text-gray-400 ms-2"><?php echo ($progreso-$retraso); ?></span>
+                                <span class="fs-6 text-gray-400 ms-2"><?php echo ($progreso); ?></span>
                             </div>
                         </div>
                         <div class="h-3px w-100 bg-warning"></div>
