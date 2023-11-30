@@ -172,13 +172,10 @@ $query1 = mysqli_query($con, $sql1);
                         <h3 class="fw-bold mb-1">RESUMEN DE ACTIVIDADES</h3>
                         <?php
                         include('../config.php');
-
-                        // Variables para contar los diferentes estados
                         $progreso = 0;
                         $finalizados = 0;
                         $retraso = 0;
                         $totalreg = 0;
-
                         // Fecha actual
                         $fechaActual = new DateTime();
 
