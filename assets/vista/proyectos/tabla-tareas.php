@@ -558,17 +558,13 @@ $query1 = mysqli_query($con, $sql1);
                             $totalreg = mysqli_num_rows($query14); // Contamos el total de registros
                             while ($tarea = mysqli_fetch_assoc($query14)) {
                                 // Incrementamos según el estado
-                                if ($tarea['estado'] == '1') {
+                                if ($tarea['verificacion'] == '1') {
                                     $progreso++;
-                                    // Comparamos la fecha de finalización con la fecha actual para ver si está retrasada
-                                    $fechaFin = new DateTime($tarea['fechaFin']);
-                                    if ($fechaFin < $fechaActual) {
-                                        $retraso++;
-                                    }
+                                } else if ($tarea['verificacion'] == '2') {
+                                    $retraso++;
                                 } elseif ($tarea['estado'] == '2') {
                                     $finalizados++;
-                                }
-                            }
+                            }}
                         }
                         ?>
                             <div class="fw-bolder fs-4">Destiempo

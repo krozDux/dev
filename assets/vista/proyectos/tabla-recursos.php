@@ -202,13 +202,11 @@ $query1 = mysqli_query($con, $sql1);
                             while ($tarea = mysqli_fetch_assoc($query14)) {
                                 // Incrementamos según el estado
                                 if ($tarea['estado'] == '1') {
-                                    $progreso++; 
+                                    $progreso++;
                                     // Comparamos la fecha de finalización con la fecha actual para ver si está retrasada
                                     $fechaFin = new DateTime($tarea['fechaFin']);
                                     if ($fechaFin < $fechaActual) {
                                         $retraso++;
-                                    } else if ($fechaFin = $fechaActual) {
-                                        $progreso++;
                                     }
                                 } elseif ($tarea['estado'] == '2') {
                                     $finalizados++;
@@ -217,7 +215,7 @@ $query1 = mysqli_query($con, $sql1);
                         }
                         ?>
                         <div class="fs-6 fw-semibold text-gray-500">El proyecto tiene <?php echo $totalreg; ?>
-                            actividadesga.</div>
+                            actividades.</div>
                     </div>
                 </div>
 
