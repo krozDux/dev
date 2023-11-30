@@ -207,7 +207,7 @@ $query1 = mysqli_query($con, $sql1);
                                     $fechaFin = new DateTime($tarea['fechaFin']);
                                     if ($fechaFin < $fechaActual) {
                                         $retraso++;
-                                    } else if ($fechaFin == $fechaActual) {
+                                    } else if ($fechaFin = $fechaActual) {
                                         $progreso++;
                                     }
                                 } elseif ($tarea['estado'] == '2') {
