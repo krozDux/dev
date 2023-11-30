@@ -205,8 +205,10 @@ $query1 = mysqli_query($con, $sql1);
                                     $progreso++; 
                                     // Comparamos la fecha de finalización con la fecha actual para ver si está retrasada
                                     $fechaFin = new DateTime($tarea['fechaFin']);
-                                    if ($fechaFin <= $fechaActual) {
+                                    if ($fechaFin < $fechaActual) {
                                         $retraso++;
+                                    } else if ($fechaFin == $fechaActual) {
+                                        $progreso++;
                                     }
                                 } elseif ($tarea['estado'] == '2') {
                                     $finalizados++;
