@@ -12,7 +12,7 @@ GROUP BY proyectos.id";
 // Ejecutar la consulta en la base de datos y almacenar el resultado
 $query2 = mysqli_query($con, $sql1);
 ?>
-
+<div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
 <?php 
 // Inicializar un array para almacenar los datos de los usuarios del proyecto
 $dataUsuario3Array = array();
@@ -38,7 +38,7 @@ while ($dataUsuario2 = mysqli_fetch_array($query2)) {
         $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
     }
     ?>
-<div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
+
     <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
         <a href="proyectos/recursos.php?idProyecto=<?php echo $dataUsuario2['id']; ?>"
             class="card border-hover-primary">
@@ -107,8 +107,8 @@ while ($dataUsuario2 = mysqli_fetch_array($query2)) {
             </div>
         </a>
     </div>
-    </div>
     <?php }?>
+    </div>
     <?php 
     if (!$hasData) {
         ?>
@@ -132,7 +132,7 @@ GROUP BY proyectos.id";
 // Ejecutar la consulta en la base de datos y almacenar el resultado
 $query2 = mysqli_query($con, $sql1);
 ?>
-
+<div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
 <?php 
 // Inicializar un array para almacenar los datos de los usuarios del proyecto
 $dataUsuario3Array = array();
@@ -158,7 +158,7 @@ while ($dataUsuario2 = mysqli_fetch_array($query2)) {
         $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
     }
     ?>
-<div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
+
     <div class="col-md-6 col-xl-4 mt-2" style="border-radius: 12px;">
         <a href="proyectos/recursos.php?idProyecto=<?php echo $dataUsuario2['id']; ?>"
             class="card border-hover-primary">
@@ -227,8 +227,9 @@ while ($dataUsuario2 = mysqli_fetch_array($query2)) {
             </div>
         </a>
     </div>
-    </div>
+    
     <?php }?>
+    </div>
     <?php 
     if (!$hasData) {
         ?>
