@@ -378,12 +378,39 @@ $query1 = mysqli_query($con, $sql1);
                         <h3 class="fw-bold mb-1">CONTRIBUIDORES</h3>
                         <?php
                         include('../config.php');
-                        $sqlContri = ("SELECT
-                        usuarios.imagen, usuarios.nombres, usuarios.apellidos, proyectos.id as idProyecto, proyectosInfo.fechaAdd, proyectosInfo.fechaEstado, proyectosInfo.idUsuario,
-                        COUNT(tareasInfo.idUsuario) AS cantidad FROM  proyectos JOIN proyectosInfo ON proyectos.id = proyectosInfo.idProyecto JOIN 
-                        tareasInfo ON proyectosInfo.idUsuario = tareasInfo.idUsuario JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id WHERE 
-                        proyectos.id = '$idProyecto' GROUP BY proyectosInfo.idUsuario;
-                        ");
+                        $sqlContri = ("SELECT 
+                        u.imagen, 
+                        u.nombres, 
+                        u.apellidos, 
+                        p.id AS idProyecto, 
+                        pi.fechaAdd, 
+                        pi.fechaEstado, 
+                        pi.idUsuario, 
+                        COALESCE(t.cantidad, 0) AS cantidad
+                    FROM 
+                        proyectos p
+                    JOIN 
+                        proyectosInfo pi ON p.id = pi.idProyecto
+                    LEFT JOIN 
+                        usuarios u ON pi.idUsuario = u.id
+                    LEFT JOIN (
+                        SELECT 
+                            pt.idProyecto, 
+                            ti.idUsuario, 
+                            COUNT(ti.id) AS cantidad
+                        FROM 
+                            proyectosTareas pt
+                        JOIN 
+                            tareasInfo ti ON pt.id = ti.idTarea
+                        WHERE 
+                            pt.idProyecto = '$idProyecto'
+                        GROUP BY 
+                            pt.idProyecto, ti.idUsuario
+                    ) t ON p.id = t.idProyecto AND pi.idUsuario = t.idUsuario
+                    WHERE 
+                        p.id = '$idProyecto'
+                    GROUP BY 
+                        pi.idUsuario;");
                         $queryContri = mysqli_query($con, $sqlContri);
                         if ($queryContri) {
                             $totalContribuidores = mysqli_num_rows($queryContri); // Contamos el total de registros
