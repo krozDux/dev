@@ -149,7 +149,9 @@ if (!empty($_POST['btnregMiembro'])) {
                     $consultaVerificacion = "SELECT * FROM `proyectosInfo` WHERE `idUsuario` = '$value' AND `idProyecto` = '$idProyecto'";
                     $resultadoVerificacion = mysqli_query($con, $consultaVerificacion);
                     
-                    if (mysqli_num_rows($resultadoVerificacion) < 0) {
+                    if (mysqli_num_rows($resultadoVerificacion) > 0) {
+                        echo "El usuario con id '$value' ya está registrado en el proyecto '$idProyecto'.";
+                    } else {
                         // Si no existe, inserta el valor en la tabla MySQL
                         $consulta7 = "INSERT INTO `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`,`idProyecto`) VALUES ('1','1','$fechaAdd','$value','$idProyecto')";
                         $resultado7 = mysqli_query($con, $consulta7);
