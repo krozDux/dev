@@ -381,7 +381,8 @@ $query1 = mysqli_query($con, $sql1);
                         $sqlContri = ("SELECT 
                         u.imagen, 
                         u.nombres, 
-                        u.apellidos, 
+                        u.apellidos,
+                        u.rol,
                         p.id AS idProyecto, 
                         pi.fechaAdd, 
                         pi.fechaEstado, 
@@ -408,7 +409,7 @@ $query1 = mysqli_query($con, $sql1);
                             pt.idProyecto, ti.idUsuario
                     ) t ON p.id = t.idProyecto AND pi.idUsuario = t.idUsuario
                     WHERE 
-                        p.id = '$idProyecto'
+                        p.id = '$idProyecto' and u.rol='proveedor'
                     GROUP BY 
                         pi.idUsuario;");
                         $queryContri = mysqli_query($con, $sqlContri);
