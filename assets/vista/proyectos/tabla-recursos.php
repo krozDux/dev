@@ -409,7 +409,7 @@ $query1 = mysqli_query($con, $sql1);
                             pt.idProyecto, ti.idUsuario
                     ) t ON p.id = t.idProyecto AND pi.idUsuario = t.idUsuario
                     WHERE 
-                        p.id = '$idProyecto' and u.rol='proveedor'
+                        p.id = '$idProyecto' and u.rol!='cliente'
                     GROUP BY 
                         pi.idUsuario;");
                         $queryContri = mysqli_query($con, $sqlContri);
