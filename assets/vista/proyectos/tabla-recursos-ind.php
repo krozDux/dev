@@ -77,10 +77,16 @@ while ($dataUsuario2 = mysqli_fetch_array($query2)) {
                         <div class="fw-semibold text-gray-500">Fecha limite</div>
                     </div>
                 </div>
-                <div class="h-4px w-100 bg-light mb-5" data-bs-toggle="tooltip" aria-label="This project 50% completed"
-                    data-bs-original-title="This project 50% completed" data-kt-initialized="1">
-                    <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow=" 50"
+                <div class="h-4px w-100 bg-light mb-5" data-bs-toggle="tooltip" aria-label="El proyecto esta en curso"
+                    data-bs-original-title="El proyecto esta en curso." data-kt-initialized="1">
+                    <?php if ($dataUsuario2['estado'] == "1") { ?>
+                        <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow=" 50"
                         aria-valuemin="0" aria-valuemax="100"></div>
+                        <?php } else { ?>
+                            <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    <?php } ?>
+                    
                 </div>
                 <div class="symbol-group symbol-hover">
                     <?php 
