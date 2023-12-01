@@ -420,7 +420,7 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
                     </div>
                     <div class="card-toolbar">
-                        <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
+                        <a href="/../proyectos/miembros?idProyecto=<?php echo $idProyecto ?>" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
                     </div>
                 </div>
 
@@ -444,12 +444,11 @@ $query1 = mysqli_query($con, $sql1);
                                 ?>
                         </div>
                         <div class="fw-semibold">
-                            <a href="#"
-                                class="fs-5 fw-bold text-gray-900 text-hover-primary"><?php echo $DataContri['nombres']; ?>
+                            <a class="fs-5 fw-bold text-gray-900 text-hover-primary"><?php echo $DataContri['nombres']; ?>
                                 <?php echo $DataContri['apellidos']; ?></a>
 
                         </div>
-                        <div class="badge badge-light ms-auto"><?php echo $DataContri['cantidad']; ?> tareas en total
+                        <div class="badge badge-light ms-auto"><?php echo $DataContri['cantidad']; ?> tareas
                         </div>
                     </div>
                     <?php } ?>
