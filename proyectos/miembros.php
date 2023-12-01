@@ -308,8 +308,7 @@ if (isset($_GET['idProyecto'])) {
     $(document).ready(function() {
         var input = document.querySelector('input[name="tags1"]'),
         tagify = new Tagify(input, {
-        whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['idUsuario']; ?>]",<?php } ?>],
-        maxTags: 10,
+        whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['idUsuario']; ?>]",<?php } ?>],        maxTags: 10,
         enforceWhitelist: true,
         dropdown: {
             maxItems: 20,           // <- mixumum allowed rendered suggestions
