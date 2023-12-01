@@ -359,7 +359,7 @@ $query1 = mysqli_query($con, $sql1);
                                         <?php echo $tarea['nombre']; ?>
                                     </a>
                                 </div>
-                                <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
+                                <a href="/../proyectos/tareas?idProyecto=<?php echo $idProyecto ?>" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
                             </div>
                             <?php endforeach; ?>
                         </div>
