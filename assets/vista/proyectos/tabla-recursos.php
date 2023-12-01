@@ -432,19 +432,15 @@ $query1 = mysqli_query($con, $sql1);
         <div class="col-lg-6 mb-6">
             <div class="card card-flush h-lg-100">
                 <div class="card-header mt-6">
-                    <!--begin::Card title-->
                     <div class="card-title flex-column">
                         <h3 class="fw-bold mb-1">Latest Files</h3>
 
                         <div class="fs-6 text-gray-500">Total 382 fiels, 2,6GB space usage</div>
                     </div>
-                    <!--end::Card title-->
 
-                    <!--begin::Card toolbar-->
                     <div class="card-toolbar">
                         <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View All</a>
                     </div>
-                    <!--end::Card toolbar-->
                 </div>
                 <!--end::Card header-->
 
