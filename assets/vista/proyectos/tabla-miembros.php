@@ -213,7 +213,7 @@ $query1 = mysqli_query($con, $sql1);
                                             </div>';
                                     }
                                 ?>
-                    <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0"><?php echo $DataContri['nombres']; ?>
+                    <a class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0"><?php echo $DataContri['nombres']; ?>
                                 <?php echo $DataContri['apellidos']; ?></a>
                                 <?php
                                 if ($DataContri['tipo'] == "3") {?>
