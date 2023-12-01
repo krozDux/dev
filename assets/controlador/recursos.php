@@ -150,11 +150,30 @@ if (!empty($_POST['btnregMiembro'])) {
                     $resultadoVerificacion = mysqli_query($con, $consultaVerificacion);
                     
                     if (mysqli_num_rows($resultadoVerificacion) > 0) {
-                        echo "El usuario con id '$value' ya está registrado en el proyecto '$idProyecto'.";
+                        echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
+                            ya hay con ese id
+                        </div>
+                    </div>';
                     } else {
                         // Si no existe, inserta el valor en la tabla MySQL
                         $consulta7 = "INSERT INTO `proyectosInfo` (`tipo`,`estado`,`fechaAdd`,`idUsuario`,`idProyecto`) VALUES ('1','1','$fechaAdd','$value','$idProyecto')";
                         $resultado7 = mysqli_query($con, $consulta7);
+                        echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
+                        <div class="toast-header bg-danger">
+                            <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                            <strong class="me-auto text-white">Alerta</strong>
+                            <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body text-white">
+                            GA.
+                        </div>
+                    </div>';
                         if (!$resultado7) {
                             echo "Error al insertar el valor '$value'. Error: " . mysqli_error($con);
                         }
