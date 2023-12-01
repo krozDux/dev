@@ -56,7 +56,7 @@ if (isset($_GET['idProyecto'])) {
     <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
     <?php
     include('../config.php');
-    $sqlproy1 = ("SELECT proyectosInfo.id,proyectosInfo.idUsuario, proyectosInfo.idProyecto, proyectosInfo.estado,usuarios.nombres, usuarios.apellidos FROM proyectosInfo INNER JOIN proyectos ON proyectosInfo.idProyecto = proyectos.id INNER JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id AND proyectosInfo.estado = '1';");
+    $sqlproy1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaFin > CURDATE() and usuarios.rol!='cliente';");
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
     <script>
@@ -300,7 +300,7 @@ if (isset($_GET['idProyecto'])) {
     <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
     <?php
     include('../config.php');
-    $sqlproy1 = ("SELECT proyectosInfo.id,proyectosInfo.idUsuario, proyectosInfo.idProyecto, proyectosInfo.estado,usuarios.nombres, usuarios.apellidos FROM proyectosInfo INNER JOIN proyectos ON proyectosInfo.idProyecto = proyectos.id INNER JOIN usuarios ON proyectosInfo.idUsuario = usuarios.id AND proyectosInfo.estado = '1';");
+    $sqlproy1 = ("SELECT * FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaFin > CURDATE() and usuarios.rol!='cliente';");
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
     <script>
