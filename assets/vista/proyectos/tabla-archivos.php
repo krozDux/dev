@@ -161,7 +161,52 @@ $query1 = mysqli_query($con, $sql1);
             </ul>
         </div>
     </div>
-    <div class="row g-6 g-xl-9">
+    <div class="card card-flush">
+    <!--begin::Card header-->
+    <div class="card-header pt-8">
+        <div class="card-title">
+            <!--begin::Search-->
+<div class="d-flex align-items-center position-relative my-1">
+    <i class="ki-duotone ki-magnifier fs-1 position-absolute ms-6"><span class="path1"></span><span class="path2"></span></i>    <input type="text" data-kt-filemanager-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Files &amp; Folders">
+</div>
+<!--end::Search--> 
+        </div>
+
+        <!--begin::Card toolbar-->
+        <div class="card-toolbar">
+            <!--begin::Toolbar-->
+<div class="d-flex justify-content-end" data-kt-filemanager-table-toolbar="base">
+    
+    <!--begin::Export-->
+    <button type="button" class="btn btn-flex btn-light-primary me-3" id="kt_file_manager_new_folder">
+        <i class="ki-duotone ki-add-folder fs-2"><span class="path1"></span><span class="path2"></span></i>        New Folder
+    </button>
+    <!--end::Export-->
+
+    <!--begin::Add customer-->
+    <button type="button" class="btn btn-flex btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_upload">
+        <i class="ki-duotone ki-folder-up fs-2"><span class="path1"></span><span class="path2"></span></i>        Upload Files
+    </button>
+    <!--end::Add customer--> 
+</div>
+<!--end::Toolbar-->
+
+<!--begin::Group actions-->
+<div class="d-flex justify-content-end align-items-center d-none" data-kt-filemanager-table-toolbar="selected">
+    <div class="fw-bold me-5">
+        <span class="me-2" data-kt-filemanager-table-select="selected_count"></span> Selected
+    </div>
+
+    <button type="button" class="btn btn-danger" data-kt-filemanager-table-select="delete_selected">
+        Delete Selected
+    </button>
+</div>
+<!--end::Group actions-->        </div>
+        <!--end::Card toolbar-->
+    </div>
+    <!--end::Card header-->
+
+    <!--begin::Card body-->
     <div class="card-body">
         <!--begin::Table header-->
         <div class="d-flex flex-stack">
@@ -8568,5 +8613,6 @@ $query1 = mysqli_query($con, $sql1);
         </table></div></div></div><div class="row"><div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start"></div><div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end"></div></div></div>
         <!--end::Table-->
     </div>
-    </div>
+    <!--end::Card body-->
+</div>
 </div>
