@@ -292,7 +292,7 @@ $query1 = mysqli_query($con, $sql1);
                                         <td><?php echo $DataLTareas['fechaAdd'];?></td>
                                         <td data-order="Invalid date"><?php echo $DataLTareas['fechaMod'];?></td>
                                         <td class="text-end" data-kt-filemanager-table="action_dropdown">
-                                            <div class="d-flex justify-content-end">
+                                            <div class="d-flex justify-content-center">
                                                 <div class="ms-2">
                                                     <button type="button"
                                                         class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2"
