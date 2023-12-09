@@ -476,7 +476,7 @@ $query1 = mysqli_query($con, $sql1);
                         }?>
                     <div class="card-title flex-column">
                         <h3 class="fw-bold mb-1">Archivos subidos</h3>
-                        <div class="fs-6 text-gray-500">Hay un total de <?php echo $totalArchivos; ?> archivos.</div>
+                        <div class="fs-6 text-gray-500">Ultimos 5 archivos subidos.</div>
                     </div>
 
                     <div class="card-toolbar">
