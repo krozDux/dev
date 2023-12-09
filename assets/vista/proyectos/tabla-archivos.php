@@ -236,7 +236,7 @@ $query1 = mysqli_query($con, $sql1);
                                             <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">ULTIMA MODIFICACIÓN</div>
                                         </th>
                                         <th class="w-125px sorting_disabled" rowspan="1" colspan="1"
-                                            style="width: 130px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                            style="width: 200.391px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
                                             <div class="dataTables_sizing" style="height: 0px; overflow: hidden;"> OPCIONES</div>
                                         </th>
                                     </tr>
@@ -293,7 +293,7 @@ $query1 = mysqli_query($con, $sql1);
                                         <td><?php echo $DataLTareas['fechaMod'];?></td>
                                         <td class="text-center">
                                             <div class="justify-content-center">
-                                                <div class="ms-2">
+                                                <div >
                                                     <button type="button"
                                                         class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2"
                                                         data-kt-menu-trigger="click"
