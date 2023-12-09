@@ -162,49 +162,6 @@ $query1 = mysqli_query($con, $sql1);
         </div>
     </div>
     <div class="card card-flush">
-        <div class="card-header pt-8">
-            <div class="card-title">
-                <div class="d-flex align-items-center position-relative my-1">
-                    <i class="ki-duotone ki-magnifier fs-1 position-absolute ms-6"><span class="path1"></span><span
-                            class="path2"></span></i> <input type="text" data-kt-filemanager-table-filter="search"
-                        class="form-control form-control-solid w-250px ps-15" placeholder="Search Files &amp; Folders">
-                </div>
-            </div>
-
-            <div class="card-toolbar">
-                <div class="d-flex justify-content-end" data-kt-filemanager-table-toolbar="base">
-
-                <button type="button" class="btn btn-flex btn-light-primary me-3" id="kt_file_manager_new_folder">
-    <i class="fas fa-folder-plus"></i> New Folder
-</button>
-
-                    <!--begin::Add customer-->
-                    <button type="button" class="btn btn-flex btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#kt_modal_upload">
-                        <i class="ki-duotone ki-folder-up fs-2"><span class="path1"></span><span
-                                class="path2"></span></i> Upload Files
-                    </button>
-                    <!--end::Add customer-->
-                </div>
-                <!--end::Toolbar-->
-
-                <!--begin::Group actions-->
-                <div class="d-flex justify-content-end align-items-center d-none"
-                    data-kt-filemanager-table-toolbar="selected">
-                    <div class="fw-bold me-5">
-                        <span class="me-2" data-kt-filemanager-table-select="selected_count"></span> Selected
-                    </div>
-
-                    <button type="button" class="btn btn-danger" data-kt-filemanager-table-select="delete_selected">
-                        Delete Selected
-                    </button>
-                </div>
-                <!--end::Group actions-->
-            </div>
-            <!--end::Card toolbar-->
-        </div>
-        <!--end::Card header-->
-
         <!--begin::Card body-->
         <div class="card-body">
             <!--begin::Table header-->
@@ -214,9 +171,9 @@ $query1 = mysqli_query($con, $sql1);
                     <div class="d-flex align-items-center flex-wrap">
                         <i class="ki-duotone ki-abstract-32 fs-2 text-primary me-3"><span class="path1"></span><span
                                 class="path2"></span></i> <a href="#">Keenthemes/</a>
-                        <i class="ki-duotone ki-right fs-2 text-primary mx-1"></i> <a href="#">themes</a>
-                        <i class="ki-duotone ki-right fs-2 text-primary mx-1"></i> <a href="#">html</a>
-                        <i class="ki-duotone ki-right fs-2 text-primary mx-1"></i> demo1
+                        <i class="fas fa-arrow-right fs-2 text-primary mx-1"></i> <a href="#">themes</a>
+                        <i class="fas fa-arrow-right fs-2 text-primary mx-1"></i> <a href="#">html</a>
+                        <i class="fas fa-arrow-right fs-2 text-primary mx-1"></i> demo1
                     </div>
                 </div>
                 <!--end::Folder path-->
