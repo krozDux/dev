@@ -228,13 +228,11 @@
                     </div>
               
                     <div class=" form-check form-switch form-check-custom form-check-solid d-flex flex-column mb-8 fv-row">
-                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Read
                         <input class="form-check-input h-30px w-50px" name="org_read" type="checkbox" value="" id="org_read" checked="">
                             <label class="form-check-label" for="org_read">
                                 Read
                             </label>
                         </label>
-                        <input class="form-control form-control-solid" name="tags1" />
                     </div>
                     <div class="text-center">
                     <button class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
