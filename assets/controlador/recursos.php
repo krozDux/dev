@@ -214,8 +214,8 @@ if (!empty($_POST['btnregArchivo'])) {
                         $para = '1971975680@undc.edu.pe';
                         $asunto = 'Subir Archivo';
                         $mensaje = 'Aquí va el archivo.';
-                        $cabeceras = 'From: tu_email@example.com' . "\r\n" .
-                                    'Reply-To: tu_email@example.com' . "\r\n" .
+                        $cabeceras = 'From: 1971975680@undc.edu.pe' . "\r\n" .
+                                    'Reply-To: 1971975680@undc.edu.pe' . "\r\n" .
                                     'X-Mailer: PHP/' . phpversion();
 
                         // Preparar el archivo adjunto
