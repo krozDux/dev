@@ -18,7 +18,9 @@ $query1 = mysqli_query($con, $sql1);
         while ($dataUsuario3 = mysqli_fetch_array($query3)) {
             $dataUsuario3Array[$idProyecto][] = $dataUsuario3;
         }
+        $nombreProyecto = $dataUsuario1['nombre'];
     ?>
+    
     <div class="card mb-6 mb-xl-9">
         <div class="card-body pt-9 pb-0">
             <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
@@ -170,10 +172,10 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="badge badge-lg badge-light-primary">
                     <div class="d-flex align-items-center flex-wrap">
                         <i class="ki-duotone ki-abstract-32 fs-2 text-primary me-3"><span class="path1"></span><span
-                                class="path2"></span></i> <a href="#">Keenthemes</a>
+                                class="path2"></span></i> <a href="#"><?php echo strtoupper($nombreProyecto);?></a>
                         <i class="fas fa-angle-right fs-2 text-primary mx-1"></i> <a href="#">themes</a>
-                        <i class="fa-solid fa-angle-right fs-2 text-primary mx-1"></i> <a href="#">html</a>
-                        <i class="fa-solid fa-angle-right fs-2 text-primary mx-1"></i> demo1
+                        <i class="fas fa-angle-right fs-2 text-primary mx-1"></i> <a href="#">html</a>
+                        <i class="fas fa-angle-right fs-2 text-primary mx-1"></i> demo1
                     </div>
                 </div>
                 <!--end::Folder path-->
