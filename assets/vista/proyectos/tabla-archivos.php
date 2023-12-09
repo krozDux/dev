@@ -258,7 +258,7 @@ $query1 = mysqli_query($con, $sql1);
                                         <td data-order="account">
                                             <div class="d-flex align-items-center">
                                                 <span class="icon-wrapper"><i
-                                                        class="fa-solid fa-folder-open fs-2x text-primary me-4"><span
+                                                        class="fas fa-folder-open fs-2x text-primary me-4"><span
                                                             class="path1"></span><span class="path2"></span></i></span>
                                                 <a href="/metronic8/demo14/?page=apps/file-manager/files/"
                                                     class="text-gray-800 text-hover-primary">account</a>
