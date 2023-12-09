@@ -497,7 +497,7 @@ $query1 = mysqli_query($con, $sql1);
                                     <a class="fs-6 fw-bold text-gray-900 text-hover-primary" href="#"><?php echo $DataArchivo['nombre']; ?> - <?php echo $DataArchivo['documento']; ?></a>
                                     <div class="text-gray-500">
                                     <?php echo $fechaFormateada ?> - 
-                                     <a href="/assets/documentos/<?php echo $DataArchivo['documento']; ?>">Descargar documento</a>
+                                     <a href="/assets/documentos/<?php echo $DataArchivo['documento']; ?>">Descargar</a>
                                     </div>
                                 </div>
                             </div>
