@@ -164,11 +164,8 @@ $query1 = mysqli_query($con, $sql1);
         </div>
     </div>
     <div class="card card-flush">
-        <!--begin::Card body-->
         <div class="card-body">
-            <!--begin::Table header-->
             <div class="d-flex flex-stack">
-                <!--begin::Folder path-->
                 <div class="badge badge-lg badge-light-primary">
                     <div class="d-flex align-items-center flex-wrap">
                         <i class="ki-duotone ki-abstract-32 fs-2 text-primary me-3"><span class="path1"></span><span
