@@ -212,7 +212,7 @@ if (!empty($_POST['btnregArchivo'])) {
                         $consulta = "INSERT proyectosDocumentos (`fechaAdd`,`documento`,`nombre`,`extension`,`link`,`estado`,`idUsuario`,`idProyectoTarea`) VALUES ('$fechaAdd','-','-','-','link','$estado','$idUsuario','$idTarea')";
                         $resultado = mysqli_query($con, $consulta);
                         $id_tareaDoc = mysqli_insert_id($con);
-                        $nuevo_nombre_archivo = $id_tareaDoc . '.' . $extension;
+                        $nuevo_nombre_archivo = $id_tareaDoc . ' [' . $idTarea . '].' . $extension;
                         $ruta_archivo = '../assets/documentos/' . $nuevo_nombre_archivo;
                         move_uploaded_file($temp, $ruta_archivo);
                         $consulta33 = "UPDATE `proyectosDocumentos` SET `documento`='$nuevo_nombre_archivo', `nombre`='$archivo', `extension`='$extension' where id='$id_tareaDoc'";
