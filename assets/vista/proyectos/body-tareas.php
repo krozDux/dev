@@ -199,9 +199,9 @@
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">Descripción de la tarea</span>
+                            <span class="required">Descripción del hito</span>
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                title="Ingresar una descripción breve de la tarea a realizar"></i>
+                                title="Ingresar una descripción de lo que se realizo"></i>
                         </label>
                         <input type="text" class="form-control form-control-solid" placeholder="Nombre"
                             name="nombreTarea" required />
@@ -209,20 +209,20 @@
                     </div>
                     <div class="d-flex flex-stack mb-8 fv-row">
                         <div class="me-5">
-                            <label class="required fs-6 fw-semibold">Notifications</label>
-                            <div class="fs-7 fw-semibold text-muted">Allow Notifications by Phone or Email</div>
+                            <label class="required fs-6 fw-bold">Estado</label>
+                            <div class="fs-7 fw-semibold text-muted">Designa si la tarea ya esta finalizada o aún en proceso.</div>
                         </div>
                         <div class="d-flex">
                             <label class="form-check form-check-custom form-check-solid me-10">
-                                <input class="form-check-input h-20px w-20px" type="checkbox" value="Finalizado"
-                                    name="details_notifications[]">
+                                <input class="form-check-input h-20px w-20px" type="radio" value="Finalizado"
+                                    name="estado" required>
                                 <span class="form-check-label fw-semibold">
                                     Finalizado
                                 </span>
                             </label>
                             <label class="form-check form-check-custom form-check-solid">
-                                <input class="form-check-input h-20px w-20px" type="checkbox" value="Proceso"
-                                    name="details_notifications[]">
+                                <input class="form-check-input h-20px w-20px" type="radio" value="Proceso"
+                                    name="estado" required>
                                 <span class="form-check-label fw-semibold">
                                     En proceso
                                 </span>
@@ -235,10 +235,9 @@
                                 <i class="ki-duotone ki-file-up fs-3hx text-primary"><span class="path1"></span><span
                                         class="path2"></span></i>
                                 <div class="ms-4">
-                                    <h3 class="dfs-3 fw-bold text-gray-900 mb-1">Drop files here or click to upload.
+                                    <h3 class="dfs-3 fw-bold text-gray-900 mb-1">Adjuntar documento
                                     </h3>
                                     <input type="file" name="imagen" accept=".png, .jpg, .jpeg" />
-                                    <span class="fw-semibold fs-4 text-muted">Upload up to 10 files</span>
                                 </div>
                             </div>
                         </div>
