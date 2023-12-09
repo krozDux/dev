@@ -135,12 +135,12 @@ $query1 = mysqli_query($con, $sql1);
                         Tareas </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6 active"
+                    <a class="nav-link text-active-primary py-5 me-6"
                         href="/../proyectos/miembros?idProyecto=<?php echo $idProyecto ?>">
                         Miembros </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6 "
+                    <a class="nav-link text-active-primary py-5 me-6 active"
                         href="/../proyectos/archivos?idProyecto=<?php echo $idProyecto ?>">
                         Archivos </a>
                 </li>
