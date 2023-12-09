@@ -215,17 +215,6 @@ $query1 = mysqli_query($con, $sql1);
                                 <thead>
                                     <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0"
                                         style="height: 0px;">
-                                        <th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1"
-                                            style="width: 29.8906px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
-                                            <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
-                                                <div
-                                                    class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                                    <input class="form-check-input" type="checkbox" data-kt-check="true"
-                                                        data-kt-check-target="#kt_file_manager_list .form-check-input"
-                                                        value="1">
-                                                </div>
-                                            </div>
-                                        </th>
                                         <th class="min-w-250px sorting_disabled" rowspan="1" colspan="1"
                                             style="width: 628.188px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
                                             <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">NOMBRE
@@ -260,7 +249,7 @@ $query1 = mysqli_query($con, $sql1);
                                             </div>
                                         </td>
                                         <td>-</td>
-                                        <td>-</td>
+                                        <td data-order="Invalid date">-</td>
                                         <td class="text-end" data-kt-filemanager-table="action_dropdown">
                                             <div class="d-flex justify-content-end">
                                                 <!--begin::Share link-->
