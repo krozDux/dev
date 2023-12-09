@@ -90,13 +90,17 @@ $query1 = mysqli_query($con, $sql1);
                         if ($query15) {
                             $totaldocs = mysqli_num_rows($query15); // Contamos el total de registros
                         }
-                        ?>
+                        $sqlArchivosT = ("SELECT proyectosTareas.nombre,proyectosDocumentos.fechaAdd,proyectosDocumentos.documento,proyectosDocumentos.extension,proyectosDocumentos.link FROM `proyectosTareas` INNER JOIN proyectosDocumentos ON proyectosTareas.id = proyectosDocumentos.idProyectoTarea  WHERE proyectosTareas.idProyecto = '$idProyecto';");
+                        $queryArchivosT = mysqli_query($con, $sqlArchivosT);
+                        if ($queryArchivosT) {
+                            $totalArchivosT = mysqli_num_rows($queryArchivosT); // Contamos el total de registros
+                        }?>
                             <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                 <div class="d-flex align-items-center">
                                     <i class="ki-duotone ki-arrow-down fs-3 text-danger"><span
                                             class="path1"></span><span class="path2"></span></i>
                                     <div class="fs-4 fw-bold counted" data-kt-countup="true" data-kt-countup-value="75"
-                                        data-kt-initialized="1"><?php echo $totaldocs ?></div>
+                                        data-kt-initialized="1"><?php echo $totalArchivosT ?></div>
                                 </div>
 
                                 <div class="fw-semibold fs-6 text-gray-500">Documentos adjuntos</div>
