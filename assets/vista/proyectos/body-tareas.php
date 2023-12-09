@@ -192,7 +192,7 @@
                 <form class="form" method="POST" enctype="multipart/form-data">
                     <div class="mb-3 text-center">
                         <h1 class="mb-3">SUBIR TAREA</h1>
-                        <input type="text" name="idProyecto" value="<?php echo $idProyecto; ?>" hidden/>
+                        <input type="hidden" id="idProyectoInput" name="idProyecto">
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
