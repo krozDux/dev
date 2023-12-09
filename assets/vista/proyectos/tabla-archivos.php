@@ -317,6 +317,20 @@ $query1 = mysqli_query($con, $sql1);
                                                             </a>
                                                         </div>
                                                     </div>
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4"
+                                                        data-kt-menu="true">
+                                                        <div class="menu-item px-3">
+                                                            <a href="/metronic8/demo14/?page=apps/file-manager/files"
+                                                                class="menu-link px-3">
+                                                                Ver
+                                                            </a>
+                                                        </div>
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3">
+                                                                Descargar
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </td>
