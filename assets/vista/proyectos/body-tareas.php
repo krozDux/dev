@@ -213,18 +213,18 @@
                             <div class="fs-7 fw-semibold text-muted">Designa si la tarea ya esta finalizada o aún en proceso.</div>
                         </div>
                         <div class="d-flex">
+                        <label class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input h-20px w-20px" type="radio" value="Proceso"
+                                    name="estado" required>
+                                <span class="form-check-label fw-semibold">
+                                    En proceso
+                                </span>
+                            </label>
                             <label class="form-check form-check-custom form-check-solid me-10">
                                 <input class="form-check-input h-20px w-20px" type="radio" value="Finalizado"
                                     name="estado" required>
                                 <span class="form-check-label fw-semibold">
                                     Finalizado
-                                </span>
-                            </label>
-                            <label class="form-check form-check-custom form-check-solid">
-                                <input class="form-check-input h-20px w-20px" type="radio" value="Proceso"
-                                    name="estado" required>
-                                <span class="form-check-label fw-semibold">
-                                    En proceso
                                 </span>
                             </label>
                         </div>
