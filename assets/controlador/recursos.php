@@ -219,7 +219,7 @@ if (!empty($_POST['btnregArchivo'])) {
                         $resultado2 = mysqli_query($con, $consulta33);
                         $consulta35 = "UPDATE `proyectosTareas` SET `estado`='$estado' where id='$idTarea'";
                         $resultado23 = mysqli_query($con, $consulta35);
-                        header("location: tareas.php?idProyecto=$idProyecto.php");
+                        header("location: tareas.php?idProyecto=$idProyecto");
                     }
                 }
             } 
