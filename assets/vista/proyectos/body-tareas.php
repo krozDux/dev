@@ -213,7 +213,6 @@
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                 title="Designa si la tarea ya esta finalizada o aún en proceso."></i>
                         </div>
-                        <div class="d-flex">
                         <label class="form-check form-check-custom form-check-solid">
                                 <input class="form-check-input h-20px w-20px" type="radio" value="Proceso"
                                     name="estado" required>
@@ -228,7 +227,6 @@
                                     Finalizado
                                 </span>
                             </label>
-                        </div>
                     </div>
                     <div class="fv-row mb-8">
                         <div class="dropzone dz-clickable" id="kt_modal_create_project_settings_logo">
