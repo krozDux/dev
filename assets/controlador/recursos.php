@@ -189,10 +189,6 @@ if (!empty($_POST['btnregArchivo'])) {
                     $idProyecto = $_POST['idProyecto'];
                     $archivo = $_FILES['archivo']['name'];
                     $fechaAdd = date('Y-m-d H:i:s');
-                    echo $idTarea;
-                    echo $idUsuario;
-                    echo $estado;
-                    echo $archivo;
                     if (isset($archivo) and $archivo!=""){
                         $tipo = $_FILES['archivo']['type'];
                         $temp = $_FILES['archivo']['tmp_name'];
@@ -215,6 +211,31 @@ if (!empty($_POST['btnregArchivo'])) {
                         $nuevo_nombre_archivo = $id_tareaDoc . '[T_' . $idTarea . '].' . $extension;
                         $ruta_archivo = '../assets/documentos/' . $nuevo_nombre_archivo;
                         move_uploaded_file($temp, $ruta_archivo);
+                        $para = '1971975680@undc.edu.pe';
+$asunto = 'Subir Archivo';
+$mensaje = 'Aquí va el archivo.';
+$cabeceras = 'From: tu_email@example.com' . "\r\n" .
+             'Reply-To: tu_email@example.com' . "\r\n" .
+             'X-Mailer: PHP/' . phpversion();
+
+// Preparar el archivo adjunto
+$archivo = chunk_split(base64_encode(file_get_contents($ruta_archivo)));
+$nombreArchivo = basename($ruta_archivo);
+
+// Cabeceras para el archivo adjunto
+$cabeceras .= "MIME-Version: 1.0\r\n";
+$cabeceras .= "Content-Type: multipart/mixed; boundary=\"_1_$boundary\"\r\n\r\n";
+$cabeceras .= "--_1_$boundary\r\n";
+$cabeceras .= "Content-Type: application/octet-stream; name=\"$nombreArchivo\"\r\n";
+$cabeceras .= "Content-Transfer-Encoding: base64\r\n";
+$cabeceras .= "Content-Disposition: attachment; filename=\"$nombreArchivo\"\r\n\r\n";
+$cabeceras .= "$archivo\r\n";
+$cabeceras .= "--_1_$boundary--";
+
+// Enviar el correo
+mail($para, $asunto, $mensaje, $cabeceras);
+
+echo "Archivo enviado por correo electrónico con éxito.";
                         $consulta33 = "UPDATE `proyectosDocumentos` SET `documento`='$nuevo_nombre_archivo', `nombre`='$archivo', `extension`='$extension' where id='$id_tareaDoc'";
                         $resultado2 = mysqli_query($con, $consulta33);
                         $consulta35 = "UPDATE `proyectosTareas` SET `estado`='$estado' where id='$idTarea'";
