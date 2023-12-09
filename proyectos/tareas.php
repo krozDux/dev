@@ -141,7 +141,12 @@ if (isset($_GET['idProyecto'])) {
     });
 // Agrega el evento de clic al botón "Exportar"
     </script>
-
+    <script>
+    $('.modal-trabajo').on('click', function() {
+        var idProyecto = $(this).data('idproyecto');
+        $('#idProyectoInput').val(idProyecto);
+    });
+    </script>
     <script>
     $('.del-usuario').on('click', function() {
         var id = $(this).data('id');
@@ -400,7 +405,12 @@ if (isset($_GET['idProyecto'])) {
         $('#kt_modal_remove_user').modal('show');
     });
     </script>
-
+    <script>
+    $('.modal-trabajo').on('click', function() {
+        var idProyecto = $(this).data('idproyecto');
+        $('#idProyectoInput').val(idProyecto);
+    });
+    </script>
     <script>
     $('.ver-contrato').on('click', function() {
         var id1 = $(this).data('id1');
