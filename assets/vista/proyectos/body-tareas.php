@@ -111,7 +111,7 @@
                 <form class="form" method="POST" enctype="multipart/form-data">
                     <div class="mb-3 text-center">
                         <h1 class="mb-3">CREAR TAREAS PARA EL PROYECTO</h1>
-                        <input type="text" name="idProyecto" value="<?php echo $idProyecto; ?>" hidden/>
+                        <input type="text" name="idProyecto" value="<?php echo $idProyecto; ?>" hidden />
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -119,9 +119,9 @@
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                 title="Ingresar una descripción breve de la tarea a realizar"></i>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Nombre" name="nombreTarea"
-                            required />
-                        
+                        <input type="text" class="form-control form-control-solid" placeholder="Nombre"
+                            name="nombreTarea" required />
+
                     </div>
                     <div class="row g-9 mb-8">
                         <div class="col-md-6 fv-row">
@@ -141,7 +141,10 @@
                                             fill="currentColor" />
                                     </svg>
                                 </span>
-                                <input type="date" class="form-control form-control-solid ps-12" placeholder="Seleccionar fecha" name="fechaFin" min="<?php echo $fechaInicioProyecto; ?>" max="<?php echo $fechaFinProyecto; ?>" required />
+                                <input type="date" class="form-control form-control-solid ps-12"
+                                    placeholder="Seleccionar fecha" name="fechaFin"
+                                    min="<?php echo $fechaInicioProyecto; ?>" max="<?php echo $fechaFinProyecto; ?>"
+                                    required />
                             </div>
                         </div>
                     </div>
@@ -154,7 +157,7 @@
                         <input class="form-control form-control-solid" name="tags1" />
                     </div>
                     <div class="text-center">
-                    <button class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-success" name="btnregTarea" value="regP">
                             <span class="indicator-label">Guardar</span>
                         </button>
@@ -192,7 +195,7 @@
                 <form class="form" method="POST" enctype="multipart/form-data">
                     <div class="mb-3 text-center">
                         <h1 class="mb-3">SUBIR TAREA</h1>
-                        <input type="hidden" id="idProyectoInput" name="idProyecto" >
+                        <input type="hidden" id="idProyectoInput" name="idProyecto">
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-bold mb-2">
@@ -200,9 +203,9 @@
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                 title="Ingresar una descripción breve de la tarea a realizar"></i>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Nombre" name="nombreTarea"
-                            required />
-                        
+                        <input type="text" class="form-control form-control-solid" placeholder="Nombre"
+                            name="nombreTarea" required />
+
                     </div>
                     <div class="row g-9 mb-8">
                         <div class="col-md-6 fv-row">
@@ -222,53 +225,37 @@
                                             fill="currentColor" />
                                     </svg>
                                 </span>
-                                <input type="date" class="form-control form-control-solid ps-12" placeholder="Seleccionar fecha" name="fechaFin" min="<?php echo $fechaInicioProyecto; ?>" max="<?php echo $fechaFinProyecto; ?>" required />
+                                <input type="date" class="form-control form-control-solid ps-12"
+                                    placeholder="Seleccionar fecha" name="fechaFin"
+                                    min="<?php echo $fechaInicioProyecto; ?>" max="<?php echo $fechaFinProyecto; ?>"
+                                    required />
                             </div>
                         </div>
                     </div>
-              
                     <div class="d-flex flex-stack mb-8 fv-row">
-                <!--begin::Label-->
-                <div class="me-5">
-                    <label class="required fs-6 fw-semibold">Notifications</label>
-                    <div class="fs-7 fw-semibold text-muted">Allow Notifications by Phone or Email</div>
-                </div>
-                <!--end::Label-->
-                
-                <!--begin::Checkboxes-->
-                <div class="d-flex">
-                    <!--begin::Checkbox-->
-                    <label class="form-check form-check-custom form-check-solid me-10">
-                        <!--begin::Input-->
-                        <input class="form-check-input h-20px w-20px" type="checkbox" value="email" name="details_notifications[]">
-                        <!--end::Input-->
-
-                        <!--begin::Label-->
-                        <span class="form-check-label fw-semibold">
-                            Email
-                        </span>
-                        <!--end::Label-->
-                    </label>
-                    <!--end::Checkbox-->
-
-                    <!--begin::Checkbox-->
-                    <label class="form-check form-check-custom form-check-solid">
-                        <!--begin::Input-->
-                        <input class="form-check-input h-20px w-20px" type="checkbox" value="phone" checked="" name="details_notifications[]">
-                        <!--end::Input-->
-
-                        <!--begin::Label-->
-                        <span class="form-check-label fw-semibold">
-                            Phone
-                        </span>
-                        <!--end::Label-->
-                    </label>
-                    <!--end::Checkbox-->
-                </div>
-                <!--end::Checkboxes-->
-            </div>
+                        <div class="me-5">
+                            <label class="required fs-6 fw-semibold">Notifications</label>
+                            <div class="fs-7 fw-semibold text-muted">Allow Notifications by Phone or Email</div>
+                        </div>
+                        <div class="d-flex">
+                            <label class="form-check form-check-custom form-check-solid me-10">
+                                <input class="form-check-input h-20px w-20px" type="checkbox" value="Finalizado"
+                                    name="details_notifications[]">
+                                <span class="form-check-label fw-semibold">
+                                    Finalizado
+                                </span>
+                            </label>
+                            <label class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input h-20px w-20px" type="checkbox" value="Proceso"
+                                    name="details_notifications[]">
+                                <span class="form-check-label fw-semibold">
+                                    En proceso
+                                </span>
+                            </label>
+                        </div>
+                    </div>
                     <div class="text-center">
-                    <button class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-success" name="btnregTarea" value="regP">
                             <span class="indicator-label">Guardar</span>
                         </button>
