@@ -170,10 +170,10 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="badge badge-lg badge-light-primary">
                     <div class="d-flex align-items-center flex-wrap">
                         <i class="ki-duotone ki-abstract-32 fs-2 text-primary me-3"><span class="path1"></span><span
-                                class="path2"></span></i> <a href="#">Keenthemes/</a>
-                        <i class="fas fa-arrow-right fs-2 text-primary mx-1"></i> <a href="#">themes</a>
-                        <i class="fas fa-arrow-right fs-2 text-primary mx-1"></i> <a href="#">html</a>
-                        <i class="fas fa-arrow-right fs-2 text-primary mx-1"></i> demo1
+                                class="path2"></span></i> <a href="#">Keenthemes</a>
+                        <i class="fa-solid fa-slash-forward fs-2 text-primary mx-1"></i> <a href="#">themes</a>
+                        <i class="fa-solid fa-slash-forward fs-2 text-primary mx-1"></i> <a href="#">html</a>
+                        <i class="fa-solid fa-slash-forward fs-2 text-primary mx-1"></i> demo1
                     </div>
                 </div>
                 <!--end::Folder path-->
