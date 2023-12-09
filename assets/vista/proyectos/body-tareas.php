@@ -237,7 +237,7 @@
                                 <div class="ms-4">
                                     <h3 class="dfs-3 fw-bold text-gray-900 mb-1">Adjuntar documento
                                     </h3>
-                                    <input type="file" name="archivo"/>
+                                    <input type="file" name="archivo" accept=".doc, .docx, .pdf, .zip, .rar"/>
                                 </div>
                             </div>
                         </div>

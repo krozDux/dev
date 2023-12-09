@@ -500,8 +500,8 @@ $query1 = mysqli_query($con, $sql1);
                                 <div class="fw-semibold">
                                     <a class="fs-6 fw-bold text-gray-900 text-hover-primary" href="#"><?php echo $DataArchivo['nombre']; ?> - <?php echo $DataArchivo['documento']; ?></a>
                                     <div class="text-gray-500">
-                                    <?php echo $fechaFormateada ?> - 
-                                     <a href="/assets/documentos/<?php echo $DataArchivo['documento']; ?>">Descargar</a>
+                                    <?php echo $fechaFormateada ?> 
+                                     <a href="/assets/documentos/<?php echo $DataArchivo['documento']; ?>"> [Descargar]</a>
                                     </div>
                                 </div>
                             </div>
