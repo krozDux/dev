@@ -221,7 +221,7 @@
                                     En proceso
                                 </span>
                             </label>
-                            <label class="form-check form-check-custom form-check-solid me-10">
+                            <label class="form-check form-check-custom form-check-solid me-10 ml-1">
                                 <input class="form-check-input h-20px w-20px" type="radio" value="Finalizado"
                                     name="estado" required>
                                 <span class="form-check-label fw-semibold">
