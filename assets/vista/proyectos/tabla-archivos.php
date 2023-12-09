@@ -249,7 +249,7 @@ $query1 = mysqli_query($con, $sql1);
                                 </thead>
 
                                 <tbody class="fw-semibold text-gray-600">
-                                    <tr class="odd">
+                                    <tr class="xd">
                                         <td>
                                             <div class="form-check form-check-sm form-check-custom form-check-solid">
                                                 <input class="form-check-input" type="checkbox" value="1">
