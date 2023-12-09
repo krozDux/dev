@@ -485,7 +485,10 @@ $query1 = mysqli_query($con, $sql1);
                 </div>
                 <div class="card-body p-9 pt-3">
                     <div class="d-flex flex-column">
-                        <?php while ($DataArchivo = mysqli_fetch_assoc($queryArchivos)) {    ?>
+                        <?php while ($DataArchivo = mysqli_fetch_assoc($queryArchivos)) {    
+                            $fecha = $DataArchivo['fechaAdd'];
+                            setlocale(LC_TIME, 'es_ES'); // Establecer la configuración regional a español
+                            $fechaFormateada = strftime("%d de %B del %Y", strtotime($fecha));?>
                             <div class="d-flex align-items-center mb-5">
                                 <div class="symbol symbol-30px me-5">
                                     <img alt="Icon" src="/assets/media/svg/files/pdf.svg">
@@ -493,7 +496,8 @@ $query1 = mysqli_query($con, $sql1);
                                 <div class="fw-semibold">
                                     <a class="fs-6 fw-bold text-gray-900 text-hover-primary" href="#"><?php echo $DataArchivo['nombre']; ?></a>
                                     <div class="text-gray-500">
-                                    <?php echo $DataArchivo['fecha']; ?> <a href="#">Karina Clark</a>
+                                    <?php echo $fechaFormateada ?>
+                                     <a href="#">Karina Clark</a>
                                     </div>
                                 </div>
                             </div>
