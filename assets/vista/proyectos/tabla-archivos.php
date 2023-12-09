@@ -247,26 +247,39 @@ $query1 = mysqli_query($con, $sql1);
                                 <?php
                                 include('../config.php');
                                 $sqlLTareas = ("SELECT 
-                                    proyectosTareas.id, 
-                                    proyectosTareas.nombre,
-                                    proyectosTareas.fechaAdd,
-                                    MAX(proyectosDocumentos.fechaAdd) AS fechaMod,
-                                    proyectosDocumentos.documento,
-                                    proyectosDocumentos.extension,
-                                    proyectosDocumentos.link 
-                                FROM 
-                                    `proyectosTareas` 
-                                INNER JOIN 
-                                    proyectosDocumentos ON proyectosTareas.id = proyectosDocumentos.idProyectoTarea 
-                                WHERE 
-                                    proyectosTareas.idProyecto = '$idProyecto'
-                                GROUP BY 
-                                    proyectosTareas.id;");
+                                pt.id, 
+                                pt.nombre, 
+                                pt.fechaAdd, 
+                                pd.fechaAdd AS fechaMod, 
+                                pd.documento, 
+                                pd.extension, 
+                                pd.link 
+                            FROM 
+                                `proyectosTareas` pt 
+                            LEFT JOIN 
+                                `proyectosDocumentos` pd ON pt.id = pd.idProyectoTarea 
+                            LEFT JOIN 
+                                (SELECT 
+                                     idProyectoTarea, 
+                                     MAX(fechaAdd) AS MaxFechaAdd 
+                                 FROM 
+                                     `proyectosDocumentos` 
+                                 GROUP BY 
+                                     idProyectoTarea) AS subconsulta 
+                            ON 
+                                pd.idProyectoTarea = subconsulta.idProyectoTarea 
+                                AND pd.fechaAdd = subconsulta.MaxFechaAdd 
+                            WHERE 
+                                pt.idProyecto = 1 
+                            GROUP BY 
+                                pt.id;");
                                 $queryLTareas = mysqli_query($con, $sqlLTareas);?>
-                                <?php while ($DataArchivo = mysqli_fetch_assoc($queryArchivos)) {    
-                                $fecha = $DataArchivo['fechaAdd'];
+                                <?php while ($DataLTareas = mysqli_fetch_assoc($queryLTareas)) {    
+                                $fecha1 = $DataLTareas['fechaAdd'];
+                                $fecha2 = $DataLTareas['fechaMod'];
                                 setlocale(LC_TIME, 'es_ES'); // Establecer la configuración regional a español
-                                $fechaFormateada = strftime("%d de %B del %Y", strtotime($fecha));?>
+                                $fechaFormateada1 = strftime("%d de %B del %Y", strtotime($fecha1));
+                                $fechaFormateada2 = strftime("%d de %B del %Y", strtotime($fecha2));?>
                                     <tr>
                                         <td data-order="account">
                                             <div class="d-flex align-items-center">
@@ -274,11 +287,11 @@ $query1 = mysqli_query($con, $sql1);
                                                         class="fas fa-folder fs-2x text-primary me-4"><span
                                                             class="path1"></span><span class="path2"></span></i></span>
                                                 <a href="/metronic8/demo14/?page=apps/file-manager/files/"
-                                                    class="text-gray-800 text-hover-primary">account</a>
+                                                    class="text-gray-800 text-hover-primary"><?php echo $DataLTareas['nombre'];?></a>
                                             </div>
                                         </td>
-                                        <td>-</td>
-                                        <td data-order="Invalid date">-</td>
+                                        <td><?php echo $DataLTareas['fechaAdd'];?></td>
+                                        <td data-order="Invalid date"><?php echo $DataLTareas['fechaMod'];?></td>
                                         <td class="text-end" data-kt-filemanager-table="action_dropdown">
                                             <div class="d-flex justify-content-end">
                                                 <div class="ms-2">
