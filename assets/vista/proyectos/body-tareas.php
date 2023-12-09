@@ -227,13 +227,46 @@
                         </div>
                     </div>
               
-                    <div class=" form-check form-switch form-check-custom form-check-solid d-flex flex-column mb-8 fv-row">
-                        <input class="form-check-input h-30px w-50px" name="org_read" type="checkbox" value="" id="org_read" checked="">
-                            <label class="form-check-label" for="org_read">
-                                Read
-                            </label>
-                        </label>
-                    </div>
+                    <div class="d-flex flex-stack mb-8 fv-row">
+                <!--begin::Label-->
+                <div class="me-5">
+                    <label class="required fs-6 fw-semibold">Notifications</label>
+                    <div class="fs-7 fw-semibold text-muted">Allow Notifications by Phone or Email</div>
+                </div>
+                <!--end::Label-->
+                
+                <!--begin::Checkboxes-->
+                <div class="d-flex">
+                    <!--begin::Checkbox-->
+                    <label class="form-check form-check-custom form-check-solid me-10">
+                        <!--begin::Input-->
+                        <input class="form-check-input h-20px w-20px" type="checkbox" value="email" name="details_notifications[]">
+                        <!--end::Input-->
+
+                        <!--begin::Label-->
+                        <span class="form-check-label fw-semibold">
+                            Email
+                        </span>
+                        <!--end::Label-->
+                    </label>
+                    <!--end::Checkbox-->
+
+                    <!--begin::Checkbox-->
+                    <label class="form-check form-check-custom form-check-solid">
+                        <!--begin::Input-->
+                        <input class="form-check-input h-20px w-20px" type="checkbox" value="phone" checked="" name="details_notifications[]">
+                        <!--end::Input-->
+
+                        <!--begin::Label-->
+                        <span class="form-check-label fw-semibold">
+                            Phone
+                        </span>
+                        <!--end::Label-->
+                    </label>
+                    <!--end::Checkbox-->
+                </div>
+                <!--end::Checkboxes-->
+            </div>
                     <div class="text-center">
                     <button class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-success" name="btnregTarea" value="regP">
