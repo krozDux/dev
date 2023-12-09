@@ -467,19 +467,23 @@ $query1 = mysqli_query($con, $sql1);
         <div class="col-lg-6 mb-6">
             <div class="card card-flush h-lg-100">
                 <div class="card-header mt-6">
+                <?php
+                        include('../config.php');
+                        $sqlArchivos = ("SELECT * FROM `proyectosTareas` INNER JOIN proyectosDocumentos ON proyectosTareas.id = proyectosDocumentos.idProyectoTarea  WHERE proyectosTareas.idProyecto = '$idProyecto';");
+                        $queryArchivos = mysqli_query($con, $sqlArchivos);
+                        if ($queryArchivos) {
+                            $totalArchivos = mysqli_num_rows($queryArchivos); // Contamos el total de registros
+                        }?>
                     <div class="card-title flex-column">
-                        <h3 class="fw-bold mb-1">Latest Files</h3>
+                        <h3 class="fw-bold mb-1">Archivos subidos</h3>
 
-                        <div class="fs-6 text-gray-500">Total 382 fiels, 2,6GB space usage</div>
+                        <div class="fs-6 text-gray-500">Hay un total de <?php echo $totalArchivos; ?> archivos.</div>
                     </div>
 
                     <div class="card-toolbar">
-                        <a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View All</a>
+                        <a href="/../proyectos/archivos?idProyecto=<?php echo $idProyecto ?>" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
                     </div>
                 </div>
-                <!--end::Card header-->
-
-                <!--begin::Card body-->
                 <div class="card-body p-9 pt-3">
                     <!--begin::Files-->
                     <div class="d-flex flex-column">
