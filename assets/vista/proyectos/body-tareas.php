@@ -227,10 +227,10 @@
                         </div>
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
-                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">Miembros encargados</span>
-                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                title="Seleccionar encargados de la tarea"></i>
+                    <input class="form-check-input h-30px w-50px" name="org_read" type="checkbox" value="" id="org_read" checked="">
+                            <label class="form-check-label" for="org_read">
+                                Read
+                            </label>
                         </label>
                         <input class="form-control form-control-solid" name="tags1" />
                     </div>
