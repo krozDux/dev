@@ -160,14 +160,36 @@ if (isset($_GET['idProyecto'])) {
         $('#kt_modal_remove_user').modal('show');
     });
     </script>
+
     <script>
-    $('.add-proyecto').on('click', function() {
-        $('#kt_modal_new_target').modal('show');
+    $('.ver-contrato').on('click', function() {
+        var id1 = $(this).data('id1');
+        var email1 = $(this).data('email1');
+        var nombres1 = $(this).data('nombres1');
+        var apellidos1 = $(this).data('apellidos1');
+        var rol1 = $(this).data('rol1');
+        var direccion1 = $(this).data('direccion1');
+        var numero1 = $(this).data('numero1');
+        var observacion1 = $(this).data('observacion1');
+        var recomendacion1 = $(this).data('recomendacion1');
+        var fechainicio1 = $(this).data('fechainicio1');
+        var fechafin1 = $(this).data('fechafin1');
+        $('#viewId').val(id1);
+        $('#viewNombres').val(nombres1 + " " + apellidos1);
+        $('#viewEmail').val(email1);
+        $('#viewDireccion').val(direccion1);
+        $('#viewNumero').val(numero1);
+        $('#viewRol').val(rol1);
+        $('#viewFechaInicio').val(fechainicio1);
+        $('#viewFechaFin').val(fechafin1);
+        $('#viewObservacion').val(observacion1);
+        $('#viewRecomendacion').val(recomendacion1);
+        $('#kt_modal_view_user').modal('show');
     });
     </script>
     <script>
-    $('.modal-trabajo1').on('click', function() {
-        $('#kt_modal_new_user1').modal('show');
+    $('.add-proyecto').on('click', function() {
+        $('#kt_modal_new_target').modal('show');
     });
     </script>
     <script>
