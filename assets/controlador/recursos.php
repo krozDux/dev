@@ -186,7 +186,7 @@ if (!empty($_POST['btnregArchivo'])) {
                     $idTarea = $_POST['idTarea'];
                     $idUsuario = $_POST['idUsuario'];
                     $estado = $_POST['estado'];
-                    $idProyecto = $_POST['$idProyecto'];
+                    $idProyecto = $_POST['idProyecto'];
                     $archivo = $_FILES['archivo']['name'];
                     $fechaAdd = date('Y-m-d H:i:s');
                     echo $idTarea;
