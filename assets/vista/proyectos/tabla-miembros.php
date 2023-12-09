@@ -227,12 +227,6 @@ $query1 = mysqli_query($con, $sql1);
                                 if ($DataContri['tipo'] == "1") {?>
                                 <div class="fw-bold text-gray-400 mb-6">COLABORADOR</div>
                                     <?php } ?>
-                    <div class="d-flex flex-center flex-wrap">
-                        <div class="border border-gray-300 border-dashed rounded min-w-80px py-3 px-4 mx-2 mb-3">
-                            <div class="fs-6 fw-bolder text-gray-700"><?php echo $DataContri['cantidad']; ?></div>
-                            <div class="fw-bold text-gray-400">Tareas</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
