@@ -284,7 +284,7 @@ $query1 = mysqli_query($con, $sql1);
                                         </div>
                                         <div class="menu-item px-3">
                                         <button class="menu-link px-3 modal-trabajo" data-idproyecto="<?php echo $dataUsuario17['idProyecto']; ?>" style="border: none; background: none; text-decoration: none; color: inherit; display: inline-block;"
-                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user">Agregar documento</button>
+                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user1">Agregar documento</button>
                                         </div>
                                     </div>
                                 </div>
@@ -389,7 +389,7 @@ $query1 = mysqli_query($con, $sql1);
                                         </div>
                                         <div class="menu-item px-3">
                                             <button class="menu-link px-3 modal-trabajo" data-idproyecto="<?php echo $dataUsuario17['idProyecto']; ?>" style="border: none; background: none; text-decoration: none; color: inherit; display: inline-block;"
-                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user">Agregar documento</button>
+                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user1">Agregar documento</button>
                                         </div>
                                     </div>
                                 </div>
@@ -489,7 +489,7 @@ $query1 = mysqli_query($con, $sql1);
                                         </div>
                                         <div class="menu-item px-3">
                                         <button class="menu-link px-3 modal-trabajo" data-idproyecto="<?php echo $dataUsuario17['idProyecto']; ?>" style="border: none; background: none; text-decoration: none; color: inherit; display: inline-block;"
-                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user">Agregar documento</button>
+                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user1">Agregar documento</button>
                                         </div>
                                     </div>
                                 </div>
@@ -644,7 +644,7 @@ $query1 = mysqli_query($con, $sql1);
                                         </div>
                                         <div class="menu-item px-3">
                                         <button class="menu-link px-3 modal-trabajo" data-idproyecto="<?php echo $dataUsuario17['idProyecto']; ?>" style="border: none; background: none; text-decoration: none; color: inherit; display: inline-block;"
-                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user">Agregar documento</button>
+                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user1">Agregar documento</button>
                                         </div>
                                     </div>
                                 </div>
@@ -750,7 +750,7 @@ $query1 = mysqli_query($con, $sql1);
                                         </div>
                                         <div class="menu-item px-3">
                                         <button class="menu-link px-3 modal-trabajo" data-idproyecto="<?php echo $dataUsuario17['idProyecto']; ?>" style="border: none; background: none; text-decoration: none; color: inherit; display: inline-block;"
-                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user">Agregar documento</button>
+                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user1">Agregar documento</button>
                                         </div>
                                     </div>
                                 </div>
@@ -850,7 +850,7 @@ $query1 = mysqli_query($con, $sql1);
                                         </div>
                                         <div class="menu-item px-3">
                                             <button class="menu-link px-3 modal-trabajo" data-idproyecto="<?php echo $dataUsuario17['idTarea']; ?>" style="border: none; background: none; text-decoration: none; color: inherit; display: inline-block;"
-                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user">Agregar documento</button>
+                                            data-bs-toggle="modal" data-bs-target="#kt_modal_new_user1">Agregar documento</button>
                                         </div>
                                     </div>
                                     
