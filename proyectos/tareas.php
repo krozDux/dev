@@ -43,9 +43,11 @@ if (isset($_GET['idProyecto'])) {
         }
 ?>
 <html lang="es">
+
 <head>
     <?php include_once '../assets/vista/proyectos/head-recursos.php'; ?>
 </head>
+
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
     <?php include_once '../assets/vista/proyectos/body-tareas.php'?>
     <script>
@@ -60,19 +62,23 @@ if (isset($_GET['idProyecto'])) {
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
     <script>
-        var dataTable;
+    var dataTable;
     $(document).ready(function() {
         var input = document.querySelector('input[name="tags1"]'),
-        tagify = new Tagify(input, {
-        whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['idUsuario']; ?>]",<?php } ?>],        maxTags: 10,
-        enforceWhitelist: true,
-        dropdown: {
-            maxItems: 20,           // <- mixumum allowed rendered suggestions
-            classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
-            enabled: 0,             // <- show suggestions on focus
-            closeOnSelect: true    // <- do not hide the suggestions dropdown once an item has been selected
-        }
-        });
+            tagify = new Tagify(input, {
+                whitelist: [
+                    <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?> "<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['idUsuario']; ?>]",
+                    <?php } ?>
+                ],
+                maxTags: 10,
+                enforceWhitelist: true,
+                dropdown: {
+                    maxItems: 20, // <- mixumum allowed rendered suggestions
+                    classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
+                    enabled: 0, // <- show suggestions on focus
+                    closeOnSelect: true // <- do not hide the suggestions dropdown once an item has been selected
+                }
+            });
         var dataTable = $('#kt_table_users').DataTable({
             dom: 'fBrtip',
             "sScrollX": "100%",
@@ -80,7 +86,7 @@ if (isset($_GET['idProyecto'])) {
             "bScrollCollapse": true,
             searching: false,
             paging: false, // Desactiva la paginación
-            info: false,  // Desactiva la información de entradas
+            info: false, // Desactiva la información de entradas
             buttons: [{
                     text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
                         'Vistas',
@@ -128,7 +134,7 @@ if (isset($_GET['idProyecto'])) {
             order: [
                 [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
             ]
-            
+
         });
         $('#exportar-btn').on('click', function() {
             // Extiende la funcionalidad de DataTables para exportar
@@ -139,7 +145,7 @@ if (isset($_GET['idProyecto'])) {
             });
         });
     });
-// Agrega el evento de clic al botón "Exportar"
+    // Agrega el evento de clic al botón "Exportar"
     </script>
     <script>
     $('.modal-trabajo1').on('click', function() {
@@ -280,8 +286,30 @@ if (isset($_GET['idProyecto'])) {
     <script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
     <script src="assets/js/custom/utilities/modals/new-address.js"></script>
     <script src="assets/js/custom/utilities/modals/users-search.js"></script>
-    
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script>
+    <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="assets/js/widgets.bundle.js"></script>
+    <script src="assets/js/custom/widgets.js"></script>
+    <script src="assets/js/custom/apps/chat/chat.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-app.js"></script>
+    <script src="assets/js/custom/utilities/modals/offer-a-deal/type.js"></script>
+    <script src="assets/js/custom/utilities/modals/offer-a-deal/details.js"></script>
+    <script src="assets/js/custom/utilities/modals/offer-a-deal/finance.js"></script>
+    <script src="assets/js/custom/utilities/modals/offer-a-deal/complete.js"></script>
+    <script src="assets/js/custom/utilities/modals/offer-a-deal/main.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/type.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/budget.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/settings.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/team.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/targets.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/files.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/complete.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/main.js"></script>
+    <script src="assets/js/custom/utilities/modals/users-search.js"></script>
+
 </body>
+
 </html>
 <?php 
         $stmt->close();
@@ -291,13 +319,15 @@ if (isset($_GET['idProyecto'])) {
         exit;
     }
 } else {?>
-    <html lang="es">
-    <head>
-        <?php include_once '../assets/vista/proyectos/head-recursos.php'; ?>
-    </head>
-    <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-        <?php include_once '../assets/vista/proyectos/body-recursos-ind.php'?>
-        <script>
+<html lang="es">
+
+<head>
+    <?php include_once '../assets/vista/proyectos/head-recursos.php'; ?>
+</head>
+
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
+    <?php include_once '../assets/vista/proyectos/body-recursos-ind.php'?>
+    <script>
     var hostUrl = "assets/";
     </script>
     <script src="assets/plugins/global/plugins.bundle.js"></script>
@@ -309,20 +339,23 @@ if (isset($_GET['idProyecto'])) {
     $queryproy1 = mysqli_query($con, $sqlproy1);
     ?>
     <script>
-        var dataTable;
+    var dataTable;
     $(document).ready(function() {
         var input = document.querySelector('input[name="tags1"]'),
-        tagify = new Tagify(input, {
-        whitelist: [ <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?>"<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['idUsuario']; ?>]",<?php } ?>],
-        maxTags: 10,
-        enforceWhitelist: true,
-        dropdown: {
-            maxItems: 20,           // <- mixumum allowed rendered suggestions
-            classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
-            enabled: 0,             // <- show suggestions on focus
-            closeOnSelect: true    // <- do not hide the suggestions dropdown once an item has been selected
-        }
-        });
+            tagify = new Tagify(input, {
+                whitelist: [
+                    <?php while ($dataproy1 = mysqli_fetch_array($queryproy1)) { ?> "<?php echo $dataproy1['nombres']; ?> <?php echo $dataproy1['apellidos']; ?> [<?php echo $dataproy1['idUsuario']; ?>]",
+                    <?php } ?>
+                ],
+                maxTags: 10,
+                enforceWhitelist: true,
+                dropdown: {
+                    maxItems: 20, // <- mixumum allowed rendered suggestions
+                    classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
+                    enabled: 0, // <- show suggestions on focus
+                    closeOnSelect: true // <- do not hide the suggestions dropdown once an item has been selected
+                }
+            });
         var dataTable = $('#kt_table_users').DataTable({
             dom: 'fBrtip',
             "sScrollX": "100%",
@@ -330,7 +363,7 @@ if (isset($_GET['idProyecto'])) {
             "bScrollCollapse": true,
             searching: false,
             paging: false, // Desactiva la paginación
-            info: false,  // Desactiva la información de entradas
+            info: false, // Desactiva la información de entradas
             buttons: [{
                     text: '<span class="bi bi-eye-fill fs-6 opacity-50 svg-icon svg-icon-2"></span>' +
                         'Vistas',
@@ -378,7 +411,7 @@ if (isset($_GET['idProyecto'])) {
             order: [
                 [4, 'desc'] // Ordenar la cuarta columna de manera ascendente
             ]
-            
+
         });
         $('#exportar-btn').on('click', function() {
             // Extiende la funcionalidad de DataTables para exportar
@@ -389,7 +422,7 @@ if (isset($_GET['idProyecto'])) {
             });
         });
     });
-// Agrega el evento de clic al botón "Exportar"
+    // Agrega el evento de clic al botón "Exportar"
     </script>
 
     <script>
@@ -514,7 +547,7 @@ if (isset($_GET['idProyecto'])) {
     });
     </script>
 
-    <script src="assets/js/widgets.bundle.js"></script>
+<script src="assets/js/widgets.bundle.js"></script>
     <script src="assets/js/custom/widgets.js"></script>
     <script src="assets/js/custom/apps/chat/chat.js"></script>
     <!-- <script src="assets/js/custom/utilities/modals/new-target.js"></script> -->
@@ -530,7 +563,29 @@ if (isset($_GET['idProyecto'])) {
     <script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
     <script src="assets/js/custom/utilities/modals/new-address.js"></script>
     <script src="assets/js/custom/utilities/modals/users-search.js"></script>
-    
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script>
+    <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="assets/js/widgets.bundle.js"></script>
+    <script src="assets/js/custom/widgets.js"></script>
+    <script src="assets/js/custom/apps/chat/chat.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-app.js"></script>
+    <script src="assets/js/custom/utilities/modals/offer-a-deal/type.js"></script>
+    <script src="assets/js/custom/utilities/modals/offer-a-deal/details.js"></script>
+    <script src="assets/js/custom/utilities/modals/offer-a-deal/finance.js"></script>
+    <script src="assets/js/custom/utilities/modals/offer-a-deal/complete.js"></script>
+    <script src="assets/js/custom/utilities/modals/offer-a-deal/main.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/type.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/budget.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/settings.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/team.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/targets.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/files.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/complete.js"></script>
+    <script src="assets/js/custom/utilities/modals/create-project/main.js"></script>
+    <script src="assets/js/custom/utilities/modals/users-search.js"></script>
+
 </body>
-    </html>
-    <?php }?>
+
+</html>
+<?php }?>
