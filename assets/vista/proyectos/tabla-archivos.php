@@ -280,7 +280,7 @@ $query1 = mysqli_query($con, $sql1);
                                 $fechaFormateada1 = strftime("%d de %B del %Y", strtotime($fecha1));
                                 $fechaFormateada2 = strftime("%d de %B del %Y", strtotime($fecha2));?>
                                     <tr>
-                                        <td data-order="account">
+                                        <td>
                                             <div class="d-flex align-items-center">
                                                 <span class="icon-wrapper"><i
                                                         class="fas fa-folder fs-2x text-primary me-4"><span
@@ -290,8 +290,8 @@ $query1 = mysqli_query($con, $sql1);
                                             </div>
                                         </td>
                                         <td><?php echo $DataLTareas['fechaAdd'];?></td>
-                                        <td data-order="Invalid date"><?php echo $DataLTareas['fechaMod'];?></td>
-                                        <td class="text-end" data-kt-filemanager-table="action_dropdown">
+                                        <td><?php echo $DataLTareas['fechaMod'];?></td>
+                                        <td class="text-center">
                                             <div class="d-flex justify-content-center">
                                                 <div class="ms-2">
                                                     <button type="button"
