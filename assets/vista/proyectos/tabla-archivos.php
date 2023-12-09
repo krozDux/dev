@@ -207,7 +207,7 @@ $query1 = mysqli_query($con, $sql1);
                                             <th class="min-w-125px sorting_disabled" rowspan="1" colspan="1"
                                                 style="width: 381.281px;">ULTIMA MODIFICACIÓN</th>
                                             <th class="w-125px sorting_disabled" rowspan="1" colspan="1"
-                                                style="width: 125px;">OPCIONES</th>
+                                                style="width: 130px;">OPCIONES</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -237,7 +237,7 @@ $query1 = mysqli_query($con, $sql1);
                                                 Modified</div>
                                         </th>
                                         <th class="w-125px sorting_disabled" rowspan="1" colspan="1"
-                                            style="width: 125px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                            style="width: 130px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
                                             <div class="dataTables_sizing" style="height: 0px; overflow: hidden;"> OPCIONES</div>
                                         </th>
                                     </tr>
