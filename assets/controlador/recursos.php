@@ -186,8 +186,11 @@ if (!empty($_POST['btnregArchivo'])) {
                     $idTarea = $_POST['idTarea'];
                     $idUsuario = $_POST['idUsuario'];
                     $estado = $_POST['estado'];
-                    $archivo = $_POST['archivo'];
+                    $archivo = $_FILES['archivo']['name'];
                     $fechaAdd = date('Y-m-d H:i:s');
+                    echo $idTarea;
+                    echo $idUsuario;
+                    echo $estado;
                     echo $archivo;
                     if (isset($archivo) and $archivo!=""){
                         $tipo = $_FILES['archivo']['type'];
