@@ -203,9 +203,9 @@ $query1 = mysqli_query($con, $sql1);
                                             <th class="min-w-250px sorting_disabled" rowspan="1" colspan="1"
                                                 style="width: 628.188px;">NOMBRE</th>
                                             <th class="min-w-10px sorting_disabled" rowspan="1" colspan="1"
-                                                style="width: 144.391px;">CREACIÓN</th>
+                                                style="width: 200.391px;">CREACIÓN</th>
                                             <th class="min-w-125px sorting_disabled" rowspan="1" colspan="1"
-                                                style="width: 381.281px;">ULTIMA MODIFICACIÓN</th>
+                                                style="width: 200.391px;">ULTIMA MODIFICACIÓN</th>
                                             <th class="w-125px sorting_disabled" rowspan="1" colspan="1"
                                                 style="width: 130px;">OPCIONES</th>
                                         </tr>
@@ -227,14 +227,13 @@ $query1 = mysqli_query($con, $sql1);
                                             </div>
                                         </th>
                                         <th class="min-w-10px sorting_disabled" rowspan="1" colspan="1"
-                                            style="width: 144.391px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                            style="width: 200.391px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
                                             <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">CREACIÓN
                                             </div>
                                         </th>
                                         <th class="min-w-125px sorting_disabled" rowspan="1" colspan="1"
-                                            style="width: 381.281px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
-                                            <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">ULTIMA MODIFICACIÓN
-                                                Modified</div>
+                                            style="width: 200.391px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                            <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">ULTIMA MODIFICACIÓN</div>
                                         </th>
                                         <th class="w-125px sorting_disabled" rowspan="1" colspan="1"
                                             style="width: 130px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
