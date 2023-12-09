@@ -260,7 +260,7 @@ $query1 = mysqli_query($con, $sql1);
                                             </div>
                                         </td>
                                         <td>-</td>
-                                        <td data-order="Invalid date">-</td>
+                                        <td>-</td>
                                         <td class="text-end" data-kt-filemanager-table="action_dropdown">
                                             <div class="d-flex justify-content-end">
                                                 <!--begin::Share link-->
