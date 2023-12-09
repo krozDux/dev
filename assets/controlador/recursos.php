@@ -208,7 +208,7 @@ if (!empty($_POST['btnregArchivo'])) {
                                 </div>
                             </div>';
                     }else {
-                        $consulta = "INSERT proyectosDocumentos (`fechaAdd`,`documento`,`nombre`,`extension`,`link`,`estado`,`idUsuario`,`idProyectoTarea`) VALUES ('$fechaAdd','-','-','-','link','1','$idUsuario','$idTarea')";
+                        $consulta = "INSERT proyectosDocumentos (`fechaAdd`,`documento`,`nombre`,`extension`,`link`,`estado`,`idUsuario`,`idProyectoTarea`) VALUES ('$fechaAdd','-','-','-','link','$estado','$idUsuario','$idTarea')";
                         $resultado = mysqli_query($con, $consulta);
                         $id_tareaDoc = mysqli_insert_id($con);
                         $nuevo_nombre_archivo = $id_tareaDoc . '.' . $extension;
@@ -216,6 +216,8 @@ if (!empty($_POST['btnregArchivo'])) {
                         move_uploaded_file($temp, $ruta_archivo);
                         $consulta33 = "UPDATE `proyectosDocumentos` SET `documento`='$nuevo_nombre_archivo', `nombre`='$id_tareaDoc', `extension`='$extension' where id='$id_tareaDoc'";
                         $resultado2 = mysqli_query($con, $consulta33);
+                        $consulta35 = "UPDATE `proyectosTareas` SET `estado`='$estado' where id='$idTarea'";
+                        $resultado23 = mysqli_query($con, $consulta35);
                         header("location: index.php");
                     }
                 }
