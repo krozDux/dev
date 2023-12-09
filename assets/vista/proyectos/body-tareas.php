@@ -230,22 +230,16 @@
                         </div>
                     </div>
                     <div class="fv-row mb-8">
-                        <!--begin::Dropzone-->
                         <div class="dropzone dz-clickable" id="kt_modal_create_project_settings_logo">
-                            <!--begin::Message-->
                             <div class="dz-message needsclick">
-                                <!--begin::Icon-->
                                 <i class="ki-duotone ki-file-up fs-3hx text-primary"><span class="path1"></span><span
                                         class="path2"></span></i>
-                                <!--end::Icon-->
-
-                                <!--begin::Info-->
                                 <div class="ms-4">
                                     <h3 class="dfs-3 fw-bold text-gray-900 mb-1">Drop files here or click to upload.
                                     </h3>
+                                    <input type="file" name="imagen" accept=".png, .jpg, .jpeg" />
                                     <span class="fw-semibold fs-4 text-muted">Upload up to 10 files</span>
                                 </div>
-                                <!--end::Info-->
                             </div>
                         </div>
                         <!--end::Dropzone-->
