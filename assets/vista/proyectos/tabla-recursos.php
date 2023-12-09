@@ -473,7 +473,7 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="card-header mt-6">
                 <?php
                         include('../config.php');
-                        $sqlArchivos = ("SELECT proyectosTareas.nombre,proyectosDocumentos.fechaAdd,proyectosDocumentos.documento,proyectosDocumentos.extension,proyectosDocumentos.link FROM `proyectosTareas` INNER JOIN proyectosDocumentos ON proyectosTareas.id = proyectosDocumentos.idProyectoTarea  WHERE proyectosTareas.idProyecto = '$idProyecto';");
+                        $sqlArchivos = ("SELECT proyectosTareas.nombre,proyectosDocumentos.fechaAdd,proyectosDocumentos.documento,proyectosDocumentos.extension,proyectosDocumentos.link FROM `proyectosTareas` INNER JOIN proyectosDocumentos ON proyectosTareas.id = proyectosDocumentos.idProyectoTarea WHERE proyectosTareas.idProyecto = '$idProyecto' ORDER BY proyectosTareas.id DESC LIMIT 5;");
                         $queryArchivos = mysqli_query($con, $sqlArchivos);
                         if ($queryArchivos) {
                             $totalArchivos = mysqli_num_rows($queryArchivos); // Contamos el total de registros
