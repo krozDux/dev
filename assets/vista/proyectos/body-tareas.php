@@ -226,8 +226,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex flex-column mb-8 fv-row">
-                    <input class="form-check-input h-30px w-50px" name="org_read" type="checkbox" value="" id="org_read" checked="">
+              
+                    <div class=" form-check form-switch form-check-custom form-check-solid d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Read
+                        <input class="form-check-input h-30px w-50px" name="org_read" type="checkbox" value="" id="org_read" checked="">
                             <label class="form-check-label" for="org_read">
                                 Read
                             </label>
