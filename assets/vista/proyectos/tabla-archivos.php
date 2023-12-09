@@ -172,23 +172,16 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="badge badge-lg badge-light-primary">
                     <div class="d-flex align-items-center flex-wrap">
                         <i class="ki-duotone ki-abstract-32 fs-2 text-primary me-3"><span class="path1"></span><span
-                                class="path2"></span></i> <a href="#"><?php echo strtoupper($nombreProyecto);?></a>
-                        <i class="fas fa-angle-right fs-2 text-primary mx-1"></i> <a href="#">themes</a>
-                        <i class="fas fa-angle-right fs-2 text-primary mx-1"></i> <a href="#">html</a>
-                        <i class="fas fa-angle-right fs-2 text-primary mx-1"></i> demo1
+                                class="path2"></span></i> <a href="/../proyectos/recursos?idProyecto=<?php echo $idProyecto ?>"><?php echo strtoupper($nombreProyecto);?></a>
+                        <i class="fas fa-angle-right fs-2 text-primary mx-1"></i> <a href="/../proyectos/tareas?idProyecto=<?php echo $idProyecto ?>">TAREAS</a>
                     </div>
                 </div>
-                <!--end::Folder path-->
 
-                <!--begin::Folder Stats-->
                 <div class="badge badge-lg badge-primary">
                     <span id="kt_file_manager_items_counter">82 items</span>
                 </div>
-                <!--end::Folder Stats-->
             </div>
-            <!--end::Table header-->
 
-            <!--begin::Table-->
             <div id="kt_file_manager_list_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                 <div class="table-responsive">
                     <div class="dataTables_scroll">
