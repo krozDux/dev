@@ -195,7 +195,7 @@
                 <form class="form" method="POST" enctype="multipart/form-data">
                     <div class="mb-3 text-center">
                         <h1 class="mb-3">SUBIR TAREA</h1>
-                        <input type="hidden" value="<?php echo $session_id; ?>" name="idTarea">
+                        <input type="hidden" value="<?php echo $session_id; ?>" name="idUsuario">
                         <input type="hidden" id="idProyectoInput" name="idTarea">
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">
@@ -204,14 +204,14 @@
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                 title="Ingresar una descripción de lo que se realizo"></i>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Nombre"
-                            name="nombreTarea" required />
-
+                        <input type="text" class="form-control form-control-solid" placeholder="Descripción"
+                            name="descripcionTarea" required />
                     </div>
                     <div class="d-flex flex-stack mb-8 fv-row">
                         <div class="me-5">
                             <label class="required fs-6 fw-bold">Estado</label>
-                            <div class="fs-7 fw-semibold text-muted">Designa si la tarea ya esta finalizada o aún en proceso.</div>
+                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
+                                title="Designa si la tarea ya esta finalizada o aún en proceso."></i>
                         </div>
                         <div class="d-flex">
                         <label class="form-check form-check-custom form-check-solid">
