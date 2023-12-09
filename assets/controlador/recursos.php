@@ -214,7 +214,7 @@ if (!empty($_POST['btnregArchivo'])) {
                         $nuevo_nombre_archivo = $id_tareaDoc . '.' . $extension;
                         $ruta_archivo = '../assets/documentos/' . $nuevo_nombre_archivo;
                         move_uploaded_file($temp, $ruta_archivo);
-                        $consulta33 = "UPDATE `proyectosDocumentos` SET `documento`='$nuevo_nombre_imagen', `nombre`='$id_tareaDoc', `extension`='$extension' where id='$id_tareaDoc'";
+                        $consulta33 = "UPDATE `proyectosDocumentos` SET `documento`='$nuevo_nombre_archivo', `nombre`='$id_tareaDoc', `extension`='$extension' where id='$id_tareaDoc'";
                         $resultado2 = mysqli_query($con, $consulta33);
                         header("location: index.php");
                     }
