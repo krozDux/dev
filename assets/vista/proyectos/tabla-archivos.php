@@ -195,13 +195,13 @@ $query1 = mysqli_query($con, $sql1);
                                     <thead>
                                         <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                                             <th class="min-w-250px sorting_disabled" rowspan="1" colspan="1"
-                                                style="width: 628.188px;">Name</th>
+                                                style="width: 628.188px;">NOMBRE</th>
                                             <th class="min-w-10px sorting_disabled" rowspan="1" colspan="1"
-                                                style="width: 144.391px;">Size</th>
+                                                style="width: 144.391px;">CREACIÓN</th>
                                             <th class="min-w-125px sorting_disabled" rowspan="1" colspan="1"
-                                                style="width: 381.281px;">Last Modified</th>
+                                                style="width: 381.281px;">ULTIMA MODIFICACIÓN</th>
                                             <th class="w-125px sorting_disabled" rowspan="1" colspan="1"
-                                                style="width: 125px;"></th>
+                                                style="width: 125px;">OPCIONES</th>
                                         </tr>
                                     </thead>
                                 </table>
