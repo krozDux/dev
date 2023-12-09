@@ -491,7 +491,7 @@ $query1 = mysqli_query($con, $sql1);
                             $fechaFormateada = strftime("%d de %B del %Y", strtotime($fecha));?>
                             <div class="d-flex align-items-center mb-5">
                                 <div class="symbol symbol-30px me-5">
-                                    <img alt="Icon" src="/assets/media/svg/files/zip.svg">
+                                    <img alt="Icon" src="/assets/media/svg/files/<?php echo $DataArchivo['extension']; ?>.svg">
                                 </div>
                                 <div class="fw-semibold">
                                     <a class="fs-6 fw-bold text-gray-900 text-hover-primary" href="#"><?php echo $DataArchivo['nombre']; ?> - <?php echo $DataArchivo['documento']; ?></a>
