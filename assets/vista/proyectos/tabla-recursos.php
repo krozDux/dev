@@ -142,23 +142,28 @@ $query1 = mysqli_query($con, $sql1);
                         Información </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6" href="/../proyectos/tareas?idProyecto=<?php echo $idProyecto ?>">
+                    <a class="nav-link text-active-primary py-5 me-6"
+                        href="/../proyectos/tareas?idProyecto=<?php echo $idProyecto ?>">
                         Tareas </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6 " href="/../proyectos/miembros?idProyecto=<?php echo $idProyecto ?>">
+                    <a class="nav-link text-active-primary py-5 me-6 "
+                        href="/../proyectos/miembros?idProyecto=<?php echo $idProyecto ?>">
                         Miembros </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6 " href="/../proyectos/archivos?idProyecto=<?php echo $idProyecto ?>">
+                    <a class="nav-link text-active-primary py-5 me-6 "
+                        href="/../proyectos/archivos?idProyecto=<?php echo $idProyecto ?>">
                         Archivos </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6 " href="/../proyectos/actividad?idProyecto=<?php echo $idProyecto ?>">
+                    <a class="nav-link text-active-primary py-5 me-6 "
+                        href="/../proyectos/actividad?idProyecto=<?php echo $idProyecto ?>">
                         Actividad </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6 " href="/../proyectos/configuracion?idProyecto=<?php echo $idProyecto ?>">
+                    <a class="nav-link text-active-primary py-5 me-6 "
+                        href="/../proyectos/configuracion?idProyecto=<?php echo $idProyecto ?>">
                         Configuración </a>
                 </li>
             </ul>
@@ -359,7 +364,8 @@ $query1 = mysqli_query($con, $sql1);
                                         <?php echo $tarea['nombre']; ?>
                                     </a>
                                 </div>
-                                <a href="/../proyectos/tareas?idProyecto=<?php echo $idProyecto ?>" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
+                                <a href="/../proyectos/tareas?idProyecto=<?php echo $idProyecto ?>"
+                                    class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
                             </div>
                             <?php endforeach; ?>
                         </div>
@@ -416,11 +422,13 @@ $query1 = mysqli_query($con, $sql1);
                         if ($queryContri) {
                             $totalContribuidores = mysqli_num_rows($queryContri); // Contamos el total de registros
                         }?>
-                        <div class="fs-6 text-gray-500">El proyecto tiene <?php echo $totalContribuidores; ?> miembro(s).
+                        <div class="fs-6 text-gray-500">El proyecto tiene <?php echo $totalContribuidores; ?>
+                            miembro(s).
                         </div>
                     </div>
                     <div class="card-toolbar">
-                        <a href="/../proyectos/miembros?idProyecto=<?php echo $idProyecto ?>" class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
+                        <a href="/../proyectos/miembros?idProyecto=<?php echo $idProyecto ?>"
+                            class="btn btn-bg-light btn-active-color-primary btn-sm">Ver</a>
                     </div>
                 </div>
 

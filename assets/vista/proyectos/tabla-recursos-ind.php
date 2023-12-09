@@ -13,7 +13,7 @@ GROUP BY proyectos.id";
 $query2 = mysqli_query($con, $sql1);
 ?>
 <div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
-<?php 
+    <?php 
 // Inicializar un array para almacenar los datos de los usuarios del proyecto
 $dataUsuario3Array = array();
 
@@ -80,10 +80,10 @@ while ($dataUsuario2 = mysqli_fetch_array($query2)) {
                 <div class="h-4px w-100 bg-light mb-5" data-bs-toggle="tooltip" aria-label="El proyecto esta en curso"
                     data-bs-original-title="El proyecto esta en curso." data-kt-initialized="1">
                     <?php if ($dataUsuario2['estado'] == "1") { ?>
-                        <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow=" 50"
+                    <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow=" 50"
                         aria-valuemin="0" aria-valuemax="100"></div>
-                        <?php } else { ?>
-                            <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow="100"
+                    <?php } else { ?>
+                    <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow="100"
                         aria-valuemin="0" aria-valuemax="100"></div>
                     <?php } ?>
                 </div>
@@ -113,15 +113,15 @@ while ($dataUsuario2 = mysqli_fetch_array($query2)) {
         </a>
     </div>
     <?php }?>
-    </div>
-    <?php 
+</div>
+<?php 
     if (!$hasData) {
         ?>
-            <!-- Contenido mostrado si no hay proyectos -->
-            <div class="row g-6 g-xl-9" id="card_proyectos">
-                No tienes proyectos
-            </div>
-        <?php 
+<!-- Contenido mostrado si no hay proyectos -->
+<div class="row g-6 g-xl-9" id="card_proyectos">
+    No tienes proyectos
+</div>
+<?php 
         } // Fin del if
         ?>
 <?php } else { 
@@ -138,7 +138,7 @@ GROUP BY proyectos.id";
 $query2 = mysqli_query($con, $sql1);
 ?>
 <div class="row g-6 g-xl-9 mt-1" id="card_proyectos">
-<?php 
+    <?php 
 // Inicializar un array para almacenar los datos de los usuarios del proyecto
 $dataUsuario3Array = array();
 
@@ -205,10 +205,10 @@ while ($dataUsuario2 = mysqli_fetch_array($query2)) {
                 <div class="h-4px w-100 bg-light mb-5" data-bs-toggle="tooltip" aria-label="El proyecto esta en curso"
                     data-bs-original-title="El proyecto esta en curso." data-kt-initialized="1">
                     <?php if ($dataUsuario2['estado'] == "1") { ?>
-                        <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow=" 50"
+                    <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow=" 50"
                         aria-valuemin="0" aria-valuemax="100"></div>
-                        <?php } else { ?>
-                            <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow="100"
+                    <?php } else { ?>
+                    <div class="bg-primary rounded h-4px" role="progressbar" style="width: 50%" aria-valuenow="100"
                         aria-valuemin="0" aria-valuemax="100"></div>
                     <?php } ?>
                 </div>
@@ -237,17 +237,17 @@ while ($dataUsuario2 = mysqli_fetch_array($query2)) {
             </div>
         </a>
     </div>
-    
+
     <?php }?>
-    </div>
-    <?php 
+</div>
+<?php 
     if (!$hasData) {
         ?>
-            <!-- Contenido mostrado si no hay proyectos -->
-            <div class="row g-6 g-xl-9" id="card_proyectos">
-                No tienes proyectos
-            </div>
-        <?php 
+<!-- Contenido mostrado si no hay proyectos -->
+<div class="row g-6 g-xl-9" id="card_proyectos">
+    No tienes proyectos
+</div>
+<?php 
         } // Fin del if
         ?>
 
