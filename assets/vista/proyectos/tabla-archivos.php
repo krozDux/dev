@@ -291,7 +291,7 @@ $query1 = mysqli_query($con, $sql1);
                                         </td>
                                         <td><?php echo $DataLTareas['fechaAdd'];?></td>
                                         <td><?php echo $DataLTareas['fechaMod'];?></td>
-                                        <td class="text-center">
+                                        <td>
                                             <div class="justify-content-center">
                                                 <div >
                                                     <button type="button"
