@@ -209,7 +209,7 @@
                     </div>
                     <div class="d-flex flex-stack mb-8 fv-row">
                         <div class="me-5">
-                            <label class="required fs-6 fw-bold">Estado</label>
+                            <label class="required fs-6 fw-bold">Estado de la tarea</label>
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                 title="Designa si la tarea ya esta finalizada o aún en proceso."></i>
                         </div>
