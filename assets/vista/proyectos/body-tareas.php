@@ -214,14 +214,14 @@
                                 title="Designa si la tarea ya esta finalizada o aún en proceso."></i>
                         </div>
                         <label class="form-check form-check-custom form-check-solid">
-                                <input class="form-check-input h-20px w-20px" type="radio" value="Proceso"
+                                <input class="form-check-input h-20px w-20px" type="radio" value="1"
                                     name="estado" required>
                                 <span class="form-check-label fw-semibold">
                                     En proceso
                                 </span>
                             </label>
                             <label class="form-check form-check-custom form-check-solid me-10 ml-1">
-                                <input class="form-check-input h-20px w-20px" type="radio" value="Finalizado"
+                                <input class="form-check-input h-20px w-20px" type="radio" value="2"
                                     name="estado" required>
                                 <span class="form-check-label fw-semibold">
                                     Finalizado
@@ -236,15 +236,14 @@
                                 <div class="ms-4">
                                     <h3 class="dfs-3 fw-bold text-gray-900 mb-1">Adjuntar documento
                                     </h3>
-                                    <input type="file" name="imagen" accept=".png, .jpg, .jpeg" />
+                                    <input type="file" name="archivo"/>
                                 </div>
                             </div>
                         </div>
-                        <!--end::Dropzone-->
                     </div>
                     <div class="text-center">
                         <button class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-success" name="btnregTarea" value="regP">
+                        <button type="submit" class="btn btn-success" name="btnregArchivo" value="regP">
                             <span class="indicator-label">Guardar</span>
                         </button>
                     </div>
