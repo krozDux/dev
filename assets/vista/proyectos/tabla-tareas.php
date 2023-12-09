@@ -486,7 +486,7 @@ $query1 = mysqli_query($con, $sql1);
                                             </div>
                                         </div>
                                         <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3">Agregar documento</a>
+                                            <button href="#" class="menu-link px-3">Agregar documento</button>
                                         </div>
                                     </div>
                                 </div>
