@@ -162,84 +162,8411 @@ $query1 = mysqli_query($con, $sql1);
         </div>
     </div>
     <div class="row g-6 g-xl-9">
-    <?php
-                        include('../config.php');
-                        $sqlContri = ("SELECT 
-                        u.imagen, 
-                        u.nombres, 
-                        u.apellidos,
-                        u.rol,
-                        p.id AS idProyecto, 
-                        pi.fechaAdd, 
-                        pi.fechaEstado, 
-                        pi.idUsuario, 
-                        COALESCE(t.cantidad, 0) AS cantidad
-                    FROM 
-                        proyectos p
-                    JOIN 
-                        proyectosInfo pi ON p.id = pi.idProyecto
-                    LEFT JOIN 
-                        usuarios u ON pi.idUsuario = u.id
-                    LEFT JOIN (
-                        SELECT 
-                            pt.idProyecto, 
-                            ti.idUsuario, 
-                            COUNT(ti.id) AS cantidad
-                        FROM 
-                            proyectosTareas pt
-                        JOIN 
-                            tareasInfo ti ON pt.id = ti.idTarea
-                        WHERE 
-                            pt.idProyecto = '$idProyecto'
-                        GROUP BY 
-                            pt.idProyecto, ti.idUsuario
-                    ) t ON p.id = t.idProyecto AND pi.idUsuario = t.idUsuario
-                    WHERE 
-                        p.id = '$idProyecto' and u.rol!='cliente'
-                    GROUP BY 
-                        pi.idUsuario;");
-                        $queryContri = mysqli_query($con, $sqlContri);?>
-                        <?php while ($DataContri = mysqli_fetch_assoc($queryContri)) {    ?>
-        <div class="col-md-6 col-xxl-4">
-            <div class="card">
-                <div class="card-body d-flex flex-center flex-column pt-12 p-9">
-                <?php
-                                if ($DataContri['imagen'] != "blank.png") {
-                                        echo '<div class="symbol symbol-65px symbol-circle" data-bs-toggle="tooltip"
-                                                title="' . $DataContri['nombres'] . ' ' . $DataContri['apellidos'] . '">
-                                                <img src="assets/media/avatars/' . $DataContri['imagen'] . '" alt="user-image">
-                                            </div>';
-                                    } else {
-                                        $iniciales = substr($DataContri['nombres'], 0, 1) . substr($DataContri['apellidos'], 0, 1);
-                                        echo '<div class="symbol symbol-65px symbol-circle" data-bs-toggle="tooltip"
-                                                title="' . $DataContri['nombres'] . ' ' . $DataContri['apellidos'] . '">
-                                                <span class="symbol-label bg-dark text-inverse-primary fw-bold">' . $iniciales . '</span>
-                                            </div>';
-                                    }
-                                ?>
-                    <a class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0"><?php echo $DataContri['nombres']; ?>
-                                <?php echo $DataContri['apellidos']; ?></a>
-                                <?php
-                                if ($DataContri['tipo'] == "3") {?>
-                                <div class="fw-bold text-gray-400 mb-6">ENCARGADO</div>
-                                    <?php } ?>
-                                    <?php
-                                if ($DataContri['tipo'] == "2") {?>
-                                <div class="fw-bold text-gray-400 mb-6">CLIENTE</div>
-                                    <?php } ?>
-                                    <?php
-                                if ($DataContri['tipo'] == "1") {?>
-                                <div class="fw-bold text-gray-400 mb-6">COLABORADOR</div>
-                                    <?php } ?>
-                    <div class="d-flex flex-center flex-wrap">
-                        <div class="border border-gray-300 border-dashed rounded min-w-80px py-3 px-4 mx-2 mb-3">
-                            <div class="fs-6 fw-bolder text-gray-700"><?php echo $DataContri['cantidad']; ?></div>
-                            <div class="fw-bold text-gray-400">Tareas</div>
-                        </div>
-                    </div>
+    <div class="card-body">
+        <!--begin::Table header-->
+        <div class="d-flex flex-stack">
+            <!--begin::Folder path-->
+            <div class="badge badge-lg badge-light-primary">
+                <div class="d-flex align-items-center flex-wrap">
+                    <i class="ki-duotone ki-abstract-32 fs-2 text-primary me-3"><span class="path1"></span><span class="path2"></span></i>                    <a href="#">Keenthemes</a>
+                    <i class="ki-duotone ki-right fs-2 text-primary mx-1"></i>                    <a href="#">themes</a>
+                    <i class="ki-duotone ki-right fs-2 text-primary mx-1"></i>                    <a href="#">html</a>
+                    <i class="ki-duotone ki-right fs-2 text-primary mx-1"></i>                    demo1
                 </div>
             </div>
+            <!--end::Folder path-->
+
+            <!--begin::Folder Stats-->
+            <div class="badge badge-lg badge-primary">
+                <span id="kt_file_manager_items_counter">82 items</span>
+            </div>
+            <!--end::Folder Stats-->
         </div>
-    <?php }?>
+        <!--end::Table header-->
+
+        <!--begin::Table-->
+        <div id="kt_file_manager_list_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="table-responsive"><div class="dataTables_scroll"><div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;"><div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width: 1383.5px; padding-right: 5px;"><table data-kt-filemanager-table="folders" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer" style="margin-left: 0px; width: 1383.5px;"><thead>
+                <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0"><th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1" style="width: 29.8906px;">
+                        <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
+                            <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_file_manager_list .form-check-input" value="1">
+                        </div>
+                    </th><th class="min-w-250px sorting_disabled" rowspan="1" colspan="1" style="width: 628.188px;">Name</th><th class="min-w-10px sorting_disabled" rowspan="1" colspan="1" style="width: 144.391px;">Size</th><th class="min-w-125px sorting_disabled" rowspan="1" colspan="1" style="width: 381.281px;">Last Modified</th><th class="w-125px sorting_disabled" rowspan="1" colspan="1" style="width: 125px;"></th></tr>
+            </thead></table></div></div><div class="dataTables_scrollBody" style="position: relative; overflow: auto; max-height: 700px; width: 100%;"><table id="kt_file_manager_list" data-kt-filemanager-table="folders" class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer" style="width: 100%;"><thead>
+                <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0" style="height: 0px;"><th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1" style="width: 29.8906px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+                        <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
+                            <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_file_manager_list .form-check-input" value="1">
+                        </div>
+                    </div></th><th class="min-w-250px sorting_disabled" rowspan="1" colspan="1" style="width: 628.188px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Name</div></th><th class="min-w-10px sorting_disabled" rowspan="1" colspan="1" style="width: 144.391px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Size</div></th><th class="min-w-125px sorting_disabled" rowspan="1" colspan="1" style="width: 381.281px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Last Modified</div></th><th class="w-125px sorting_disabled" rowspan="1" colspan="1" style="width: 125px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;"></div></th></tr>
+            </thead>
+            
+            <tbody class="fw-semibold text-gray-600">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                            <tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="account"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">account</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="apps"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">apps</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="widgets"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">widgets</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="assets"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">assets</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="documentation"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">documentation</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="layouts"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">layouts</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="modals"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">modals</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="authentication"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">authentication</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="dashboards"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">dashboards</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="media"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">media</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="customers"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">customers</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="user-management"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">user-management</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="subscriptions"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">subscriptions</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="forms"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">forms</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="buttons"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">buttons</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="datatables"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">datatables</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="account"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">account</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="apps"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">apps</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="widgets"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">widgets</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="assets"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">assets</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="documentation"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">documentation</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="layouts"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">layouts</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="modals"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">modals</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="authentication"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">authentication</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="dashboards"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">dashboards</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="media"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">media</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="customers"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">customers</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="user-management"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">user-management</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="subscriptions"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">subscriptions</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="forms"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">forms</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="buttons"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">buttons</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="datatables"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">datatables</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="account"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">account</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="apps"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">apps</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="widgets"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">widgets</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="assets"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">assets</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="documentation"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">documentation</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="layouts"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">layouts</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="modals"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">modals</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="authentication"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">authentication</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="dashboards"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">dashboards</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="media"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">media</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="customers"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">customers</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="user-management"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">user-management</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="subscriptions"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">subscriptions</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="forms"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">forms</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="buttons"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">buttons</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="datatables"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">datatables</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="account"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">account</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="apps"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">apps</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="widgets"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">widgets</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="assets"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">assets</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="documentation"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">documentation</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="layouts"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">layouts</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="modals"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">modals</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="authentication"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">authentication</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="dashboards"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">dashboards</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="media"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">media</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="customers"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">customers</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="user-management"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">user-management</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="subscriptions"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">subscriptions</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="forms"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">forms</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="buttons"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">buttons</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="datatables"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">datatables</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="account"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">account</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="apps"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">apps</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="widgets"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">widgets</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="assets"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">assets</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="documentation"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">documentation</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="layouts"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">layouts</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="modals"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">modals</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="authentication"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">authentication</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="dashboards"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">dashboards</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="media"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">media</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="customers"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">customers</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="user-management"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">user-management</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="subscriptions"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">subscriptions</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="forms"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">forms</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="buttons"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">buttons</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="datatables"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-folder fs-2x text-primary me-4"><span class="path1"></span><span class="path2"></span></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">datatables</a>
+                            </div></td>
+                        <td>-</td>
+                        <td data-order="Invalid date">-</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="odd">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="index.html"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-files fs-2x text-primary me-4"></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">index.html</a>
+                            </div></td>
+                        <td>583 KB</td>
+                        <td data-order="2023-11-10T14:40:00-05:00">10 Nov 2023, 2:40 pm</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr><tr class="even">
+                        <td><div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="1">
+                            </div></td>
+                        <td data-order="landing.html"><div class="d-flex align-items-center">
+                                <span class="icon-wrapper"><i class="ki-duotone ki-files fs-2x text-primary me-4"></i></span>
+                                <a href="/metronic8/demo14/?page=apps/file-manager/files/" class="text-gray-800 text-hover-primary">landing.html</a>
+                            </div></td>
+                        <td>87 KB</td>
+                        <td data-order="2023-02-21T17:30:00-05:00">21 Feb 2023, 5:30 pm</td>
+                        <td class="text-end" data-kt-filemanager-table="action_dropdown"><div class="d-flex justify-content-end">
+                                <!--begin::Share link-->
+                                <div class="ms-2" data-kt-filemanger-table="copy_link">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-fasten fs-5 m-0"><span class="path1"></span><span class="path2"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-300px" data-kt-menu="true">
+    <!--begin::Card-->
+    <div class="card card-flush">
+        <div class="card-body p-5">
+            <!--begin::Loader-->
+            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
+                <!--begin::Spinner-->
+                <div class="me-5" data-kt-indicator="on">
+                    <span class="indicator-progress">
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </div>
+                <!--end::Spinner-->
+
+                <!--begin::Label-->
+                <div class="fs-6 text-gray-900">Generating Share Link...</div>
+                <!--end::Label-->
+            </div>
+            <!--end::Loader-->
+
+            <!--begin::Link-->
+            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
+                <div class="d-flex mb-3">
+                    <i class="ki-duotone ki-check fs-2 text-success me-3"></i>                    <div class="fs-6 text-gray-900">Share Link Generated</div>
+                </div>
+                <input type="text" class="form-control form-control-sm" value="https://path/to/file/or/folder/">
+                <div class="text-muted fw-normal mt-2 fs-8 px-3">Read only. <a href="/metronic8/demo14/?page=apps/file-manager/settings/" class="ms-2">Change permissions</a></div>
+            </div>
+            <!--end::Link-->
+        </div>
+    </div>
+    <!--end::Card-->
+</div>
+<!--end::Menu-->                                    <!--end::Share link-->
+                                </div>
+
+                                <!--begin::More-->
+                                <div class="ms-2">
+                                    <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                                    </button>
+                                    <!--begin::Menu-->
+<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-150px py-4" data-kt-menu="true">
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="/metronic8/demo14/?page=apps/file-manager/files" class="menu-link px-3">
+            View
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table="rename">
+            Rename
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3">
+            Download Folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link px-3" data-kt-filemanager-table-filter="move_row" data-bs-toggle="modal" data-bs-target="#kt_modal_move_to_folder">
+            Move to folder
+        </a>
+    </div>
+    <!--end::Menu item-->
+
+    <!--begin::Menu item-->
+    <div class="menu-item px-3">
+        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">
+            Delete
+        </a>
+    </div>
+    <!--end::Menu item-->
+</div>
+<!--end::Menu-->                                    <!--end::More-->
+                                </div>
+                            </div></td>
+                    </tr></tbody>
+        </table></div></div></div><div class="row"><div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start"></div><div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end"></div></div></div>
+        <!--end::Table-->
+    </div>
     </div>
 </div>
