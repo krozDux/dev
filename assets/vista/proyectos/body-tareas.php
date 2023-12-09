@@ -196,6 +196,7 @@
                     <div class="mb-3 text-center">
                         <h1 class="mb-3">SUBIR TAREA</h1>
                         <input type="hidden" value="<?php echo $session_id; ?>" name="idUsuario">
+                        <input type="hidden" value="<?php echo $idProyecto; ?>" name="idProyecto">
                         <input type="hidden" id="idProyectoInput" name="idTarea">
                     </div>
                     <div class="d-flex flex-column mb-8 fv-row">

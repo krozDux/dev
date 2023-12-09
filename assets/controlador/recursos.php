@@ -186,6 +186,7 @@ if (!empty($_POST['btnregArchivo'])) {
                     $idTarea = $_POST['idTarea'];
                     $idUsuario = $_POST['idUsuario'];
                     $estado = $_POST['estado'];
+                    $idProyecto = $_POST['$idProyecto'];
                     $archivo = $_FILES['archivo']['name'];
                     $fechaAdd = date('Y-m-d H:i:s');
                     echo $idTarea;
@@ -218,7 +219,7 @@ if (!empty($_POST['btnregArchivo'])) {
                         $resultado2 = mysqli_query($con, $consulta33);
                         $consulta35 = "UPDATE `proyectosTareas` SET `estado`='$estado' where id='$idTarea'";
                         $resultado23 = mysqli_query($con, $consulta35);
-                        header("location: index.php");
+                        header("location: tareas.php?idProyecto=$idProyecto.php");
                     }
                 }
             } 
