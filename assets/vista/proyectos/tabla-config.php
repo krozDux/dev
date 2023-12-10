@@ -215,7 +215,7 @@ $query1 = mysqli_query($con, $sql1);
                                             fill="currentColor" />
                                     </svg>
                                 </span>
-                                <input type="date" class="form-control form-control-solid ps-6"
+                                <input type="date" class="form-control form-control-solid ps-12"
                                     placeholder="Seleccionar fecha" name="fechaInicio" required />
                             </div>
                             <div class="position-relative d-flex align-items-center">
@@ -233,7 +233,7 @@ $query1 = mysqli_query($con, $sql1);
                                             fill="currentColor" />
                                     </svg>
                                 </span>
-                                <input type="date" class="form-control form-control-solid ps-6"
+                                <input type="date" class="form-control form-control-solid ps-12"
                                     placeholder="Seleccionar fecha" name="fechaInicio" required />
                             </div>
             </div>
