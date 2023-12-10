@@ -1,6 +1,6 @@
 <?php
 include('../config.php');
-$sql1 = ('SELECT contratos.id,usuarios.nombres,usuarios.apellidos,usuarios.rol,contratos.fechaInicio,contratos.fechaFin,contratos.observacion,contratos.recomendacion,contratos.idUsuario FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaInicio IS NOT NULL AND contratos.fechaFin IS NOT NULL ORDER BY contratos.id DESC;');
+$sql1 = ('SELECT contratos.id,usuarios.nombres,usuarios.apellidos,usuarios.rol,usuarios.imagen,usuarios.numero,contratos.fechaInicio,contratos.fechaFin,contratos.observacion,contratos.recomendacion,contratos.idUsuario FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaInicio IS NOT NULL AND contratos.fechaFin IS NOT NULL ORDER BY contratos.id DESC;');
 $query1 = mysqli_query($con, $sql1);
 ?>
 <table class="table align-middle table-row-dashed fs-6 gy-5 " id="kt_table_users">
