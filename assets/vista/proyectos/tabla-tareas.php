@@ -148,11 +148,7 @@ $query1 = mysqli_query($con, $sql1);
                         href="/../proyectos/archivos?idProyecto=<?php echo $idProyecto ?>">
                         Archivos </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-active-primary py-5 me-6 "
-                        href="/../proyectos/actividad?idProyecto=<?php echo $idProyecto ?>">
-                        Actividad </a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link text-active-primary py-5 me-6 "
                         href="/../proyectos/configuracion?idProyecto=<?php echo $idProyecto ?>">
