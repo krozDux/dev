@@ -2,11 +2,9 @@
 require_once 'vendor/autoload.php';
 
 use PhpOffice\PhpWord\TemplateProcessor;
-
 $idContrato = $_GET['idContrato'];
-
-$nombre = 'ga'; // Asegúrate de que estos campos coincidan con los de tu base de datos
-    $apellido = 'ga';
+    $nombre = 'ga'; 
+    $apellido = 'gas';
 try {
     // Ruta a la plantilla de Word
     $templateProcessor = new TemplateProcessor('nombre.docx');
