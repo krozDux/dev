@@ -88,9 +88,9 @@ $query1 = mysqli_query($con, $sql1);
             <?php $fechaActual = date('Y-m-d'); 
             if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "" && strtotime($dataUsuario1['fechaFin']) < strtotime($fechaActual)) { ?>
                 <td>
-                    <input type="text" name="apellido" class="form-control form-control-solid mb-3 mb-lg-0" value="<?php echo $dataUsuario1['apellidos']; ?>" hidden />
-                    <buttton type="submit" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"><span
-                        class="bi bi-eye-fill fs-7 opacity-50"></buttton>
+                <a href="../ejemplo.php" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato">
+                        <span class="bi bi-eye-fill fs-7 opacity-50"></span> Ir a la página
+                    </a>
                 </td>
             <?php } else { ?>
             <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
