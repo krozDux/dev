@@ -214,7 +214,7 @@
                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
                                 title="Designa si la tarea ya esta finalizada o aún en proceso."></i>
                         </div>
-                        <label class="form-check form-check-custom form-check-solid">
+                            <label class="form-check form-check-custom form-check-solid">
                                 <input class="form-check-input h-20px w-20px" type="radio" value="1"
                                     name="estado" required>
                                 <span class="form-check-label fw-semibold">

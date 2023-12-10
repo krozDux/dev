@@ -291,54 +291,29 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="col-xl-9">
                     <div class="d-flex fw-semibold h-100">
                         <div class="form-check form-check-custom form-check-solid me-9">
-                            <input class="form-check-input" type="checkbox" value="" id="email">
-                            <label class="form-check-label ms-3" for="email">
-                                Email
+                            <label class="form-check form-check-custom form-check-solid">
+                                <input class="form-check-input h-20px w-20px" type="radio" value="1"
+                                    name="estado" required>
+                                <span class="form-check-label fw-semibold">
+                                    En proceso
+                                </span>
                             </label>
-                        </div>
-                        <div class="form-check form-check-custom form-check-solid">
-                            <input class="form-check-input" type="checkbox" value="" id="phone" checked="checked">
-                            <label class="form-check-label ms-3" for="phone">
-                                Phone
+                            <label class="form-check form-check-custom form-check-solid me-10 ml-1">
+                                <input class="form-check-input h-20px w-20px" type="radio" value="2"
+                                    name="estado" required>
+                                <span class="form-check-label fw-semibold">
+                                    Finalizado
+                                </span>
                             </label>
                         </div>
                     </div>
                 </div>
-                <!--end::Col-->
             </div>
-            <!--end::Row-->
-
-            <!--begin::Row-->
-            <div class="row">
-                <!--begin::Col-->
-                <div class="col-xl-3">
-                    <div class="fs-6 fw-semibold mt-2 mb-3">Status</div>
-                </div>
-                <!--end::Col-->
-
-                <!--begin::Col-->
-                <div class="col-xl-9">
-                    <div class="form-check form-switch form-check-custom form-check-solid">
-                        <input class="form-check-input" type="checkbox" value="" id="status" name="status" checked="checked">
-                        <label class="form-check-label  fw-semibold text-gray-500 ms-3" for="status">
-                            Active
-                        </label>
-                    </div>
-                </div>
-                <!--end::Col-->
-            </div>
-            <!--end::Row-->
         </div>
-        <!--end::Card body-->
-
-        <!--begin::Card footer-->
         <div class="card-footer d-flex justify-content-end py-6 px-9">
             <button type="reset" class="btn btn-light btn-active-light-primary me-2">Discard</button>
-
             <button type="submit" class="btn btn-primary" id="kt_project_settings_submit">Save Changes</button>
         </div>
-        <!--end::Card footer-->
-    <input type="hidden"></form>
-    <!--end:Form-->
+</form>
 </div>
 </div>
