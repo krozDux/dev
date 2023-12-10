@@ -226,12 +226,7 @@ if (!empty($_POST['btnregArchivo'])) {
 }
 
 if (!empty($_POST['btndescargarArchivos'])) {
-    $con = mysqli_connect("localhost", "u537253387_almidon", "Carloshack1.", "u537253387_almidon");
-
-if (!$con) {
-    die("La conexión ha fallado: " . mysqli_connect_error());
-}
-
+    
     if (!empty($_POST['btndescargarArchivos'])) {
         $idTarea = $_POST['btndescargarArchivos'];
         
@@ -247,7 +242,7 @@ if (!$con) {
             if ($zip->open($nombreZip, ZipArchive::CREATE) === TRUE) {
                 // Añadir archivos al ZIP
                 while ($fila = mysqli_fetch_assoc($resultado)) {
-                    $path = '/assets/documentos/' . $fila['documento']; // Asegúrate de tener la ruta correcta al archivo
+                    $path = '../assets/documentos/' . $fila['documento']; // Asegúrate de tener la ruta correcta al archivo
                     if (file_exists($path)) {
                         $zip->addFile($path, $fila['documento']);
                     }
