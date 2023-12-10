@@ -423,7 +423,7 @@ $query1 = mysqli_query($con, $sql1);
                             $totalContribuidores = mysqli_num_rows($queryContri); // Contamos el total de registros
                         }?>
                         <div class="fs-6 text-gray-500">El proyecto tiene <?php echo $totalContribuidores; ?>
-                            miembro(s).
+                            proveedor(es).
                         </div>
                     </div>
                     <div class="card-toolbar">
