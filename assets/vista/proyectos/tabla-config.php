@@ -237,7 +237,7 @@ $query1 = mysqli_query($con, $sql1);
                                 <input type="date" class="form-control form-control-solid ps-12"
                                     placeholder="Seleccionar fecha" name="fechaInicio" required />
                             </div>
-                <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div></div>
+                        </div>
             </div>
 
             <div class="row mb-8">
