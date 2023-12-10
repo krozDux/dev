@@ -11,10 +11,8 @@ try {
     ON usuarios.id = contratos.idUsuario WHERE contratos.fechaInicio IS NOT NULL AND contratos.fechaFin IS NOT NULL AND id = '$idContrato' ORDER BY contratos.id DESC;";
     $resultado = mysqli_query($con, $consulta);
     // Recibir nombre y apellido por algún método, por ejemplo, POST
-    if ($fila = mysqli_fetch_assoc($resultado)) {
-        $nombre = $fila['nombres'];
-        $apellido = $fila['apellidos'];
-    } 
+    $nombre =  
+    $apellido =  
     // Reemplazar los marcadores de posición en la plantilla
     $templateProcessor->setValue('nombre', $nombre);
     $templateProcessor->setValue('apellido', $apellido);
@@ -30,7 +28,6 @@ try {
     header('Cache-Control: max-age=0');
     readfile($documentPath);
     exit;
-    header("location: index.php");
 } catch (Exception $e) {
     // Manejo de la excepción
     echo 'Error: ' . $e->getMessage();
