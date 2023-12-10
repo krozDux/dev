@@ -225,8 +225,7 @@ if (!empty($_POST['btnregArchivo'])) {
     }
 }
 
-if (!empty($_POST['btndescargarArchivos'])) {
-    
+
     if (!empty($_POST['btndescargarArchivos'])) {
         $idTarea = $_POST['btndescargarArchivos'];
         echo "1";
@@ -269,6 +268,5 @@ if (!empty($_POST['btndescargarArchivos'])) {
         } else {
             echo "No hay archivos para descargar.";
         }
-    }
     }
 ?>
