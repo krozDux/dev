@@ -6,13 +6,20 @@ use PhpOffice\PhpWord\TemplateProcessor;
 try {
     // Ruta a la plantilla de Word
     $templateProcessor = new TemplateProcessor('nombre.docx');
-    $idUsuario = $_GET['idUsuario'];
-    // Recibir nombre y apellido por algún método, por ejemplo, POST
-    $nombre =  
-    $apellido =  
-    // Reemplazar los marcadores de posición en la plantilla
-    $templateProcessor->setValue('nombre', $nombre);
-    $templateProcessor->setValue('apellido', $apellido);
+    $idContrato = $_GET['idContrato'];
+    $consulta = "SELECT contratos.id,usuarios.nombres,usuarios.apellidos,usuarios.rol,contratos.fechaInicio,contratos.fechaFin,contratos.observacion,contratos.recomendacion,contratos.idUsuario FROM usuarios INNER JOIN contratos 
+    ON usuarios.id = contratos.idUsuario WHERE contratos.fechaInicio IS NOT NULL AND contratos.fechaFin IS NOT NULL AND id= '$idContrato' ORDER BY contratos.id DESC;";
+    $resultado = mysqli_query($con, $consulta);
+
+    // Verificar si se obtuvo un resultado
+    if ($fila = mysqli_fetch_assoc($resultado)) {
+        $nombre = $fila['nombres'];
+        $apellido = $fila['apellidos'];
+        
+        // Reemplazar los marcadores de posición en la plantilla
+        $templateProcessor->setValue('nombre', $nombre);
+        $templateProcessor->setValue('apellido', $apellido);
+    }
 
     // Guardar el documento resultante
     $documentPath = 'documento-final.docx';

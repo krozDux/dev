@@ -85,14 +85,14 @@ $query1 = mysqli_query($con, $sql1);
             <?php $fechaActual = date('Y-m-d'); 
             if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "" && strtotime($dataUsuario1['fechaFin']) < strtotime($fechaActual)) { ?>
                 <td>
-                    <a href="../ejemplo.php?idUsuario=<?php echo $dataUsuario1['id']; ?>" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                    <a href="../ejemplo.php?idContrato=<?php echo $dataUsuario1['id']; ?>" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                         <span class="bi bi-eye-fill fs-7 opacity-50"></span>
                     </a>
                 </td>
             <?php } else { ?>
             <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
                 <td>
-                    <a href="../ejemplo.php?idUsuario=<?php echo $dataUsuario1['id']; ?>" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                    <a href="../ejemplo.php?idContrato=<?php echo $dataUsuario1['id']; ?>" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                         <span class="bi bi-eye-fill fs-7 opacity-50"></span>
                     </a>
                 </td>
