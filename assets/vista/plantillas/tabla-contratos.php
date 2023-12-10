@@ -88,14 +88,18 @@ $query1 = mysqli_query($con, $sql1);
             <?php $fechaActual = date('Y-m-d'); 
             if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "" && strtotime($dataUsuario1['fechaFin']) < strtotime($fechaActual)) { ?>
                 <td>
-                    <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"><span
+                <form>
+                    <buttton type="submit" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"><span
                         class="bi bi-eye-fill fs-7 opacity-50"></buttton>
+                </form>
                 </td>
             <?php } else { ?>
             <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
                 <td>
-                    <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"><span
+                <form>
+                    <buttton type="submit" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"><span
                         class="bi bi-eye-fill fs-7 opacity-50"></buttton>
+                </form>
                 </td>
             <?php } ?>
         </tr>
