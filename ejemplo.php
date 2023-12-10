@@ -6,11 +6,10 @@ use PhpOffice\PhpWord\TemplateProcessor;
 try {
     // Ruta a la plantilla de Word
     $templateProcessor = new TemplateProcessor('nombre.docx');
-
+    $idUsuario = $_GET['idUsuario'];
     // Recibir nombre y apellido por algún método, por ejemplo, POST
-    $nombre = $_POST['nombre']; // Aquí deberías usar $_POST['nombre'] si esperas un POST
-    $apellido = $_POST['apellido']; // Y $_POST['apellido'] para el apellido
-
+    $nombre =  
+    $apellido =  
     // Reemplazar los marcadores de posición en la plantilla
     $templateProcessor->setValue('nombre', $nombre);
     $templateProcessor->setValue('apellido', $apellido);

@@ -1,9 +1,6 @@
 <?php
 include('../config.php');
-$sql1 = ('SELECT usuarios.id, usuarios.nombres, usuarios.apellidos, usuarios.imagen, usuarios.rol, usuarios.direccion, usuarios.numero, usuarios.email, contratos.observacion, contratos.recomendacion, contratos.fechaInicio, contratos.fechaFin
-FROM usuarios
-INNER JOIN contratos ON usuarios.id = contratos.idUsuario
-WHERE contratos.fechaInicio IS NOT NULL AND contratos.fechaFin IS NOT NULL;');
+$sql1 = ('SELECT contratos.id,usuarios.nombres,usuarios.apellidos,usuarios.rol,contratos.fechaInicio,contratos.fechaFin,contratos.observacion,contratos.recomendacion,contratos.idUsuario FROM usuarios INNER JOIN contratos ON usuarios.id = contratos.idUsuario WHERE contratos.fechaInicio IS NOT NULL AND contratos.fechaFin IS NOT NULL;');
 $query1 = mysqli_query($con, $sql1);
 ?>
 <table class="table align-middle table-row-dashed fs-6 gy-5 " id="kt_table_users">
@@ -88,15 +85,15 @@ $query1 = mysqli_query($con, $sql1);
             <?php $fechaActual = date('Y-m-d'); 
             if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "" && strtotime($dataUsuario1['fechaFin']) < strtotime($fechaActual)) { ?>
                 <td>
-                <a href="../ejemplo.php" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato">
-                        <span class="bi bi-eye-fill fs-7 opacity-50"></span> Ir a la página
+                    <a href="../ejemplo.php?idUsuario=<?php echo $dataUsuario1['id']; ?>" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                        <span class="bi bi-eye-fill fs-7 opacity-50"></span>
                     </a>
                 </td>
             <?php } else { ?>
             <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
                 <td>
-                    <a href="../ejemplo.php" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato">
-                        <span class="bi bi-eye-fill fs-7 opacity-50"></span> Ir a la página
+                    <a href="../ejemplo.php?idUsuario=<?php echo $dataUsuario1['id']; ?>" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                        <span class="bi bi-eye-fill fs-7 opacity-50"></span>
                     </a>
                 </td>
             <?php } ?>
