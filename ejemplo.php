@@ -30,6 +30,7 @@ try {
     header('Cache-Control: max-age=0');
     readfile($documentPath);
     exit;
+    header("location: index.php");
 } catch (Exception $e) {
     // Manejo de la excepción
     echo 'Error: ' . $e->getMessage();
