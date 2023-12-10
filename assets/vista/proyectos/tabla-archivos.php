@@ -300,8 +300,8 @@ $query1 = mysqli_query($con, $sql1);
                                                         <button type="submit"
                                                             class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2"
                                                             data-kt-menu-trigger="click"
-                                                            data-kt-menu-placement="bottom-end" name="btndescargarArchivos" value="<?php echo $DataLTareas['idTarea'];?>">
-                                                            <i class="ki-duotone ki-dots-square fs-5 m-0"><span
+                                                            data-kt-menu-placement="bottom-end" name="btndescargarArchivos" value="<?php echo $DataLTareas['id'];?>">
+                                                            <i class="fas fa-download fs-5 m-0"><span
                                                                     class="path1"></span><span
                                                                     class="path2"></span><span
                                                                     class="path3"></span><span class="path4"></span></i>
