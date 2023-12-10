@@ -2,15 +2,15 @@
 require_once 'vendor/autoload.php';
 
 use PhpOffice\PhpWord\TemplateProcessor;
-$idContrato = $_GET['idContrato'];
-    $nombre = 'ga'; 
-    $apellido = 'gas';
+
 try {
     // Ruta a la plantilla de Word
     $templateProcessor = new TemplateProcessor('nombre.docx');
+
     // Recibir nombre y apellido por algún método, por ejemplo, POST
-    $nombre =  
-    $apellido =  
+    $nombre = 'hola'; // Aquí deberías usar $_POST['nombre'] si esperas un POST
+    $apellido = 'asd'; // Y $_POST['apellido'] para el apellido
+
     // Reemplazar los marcadores de posición en la plantilla
     $templateProcessor->setValue('nombre', $nombre);
     $templateProcessor->setValue('apellido', $apellido);
