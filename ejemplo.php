@@ -3,6 +3,15 @@ require_once 'vendor/autoload.php';
 
 use PhpOffice\PhpWord\TemplateProcessor;
 
+$idContrato = $_GET['idContrato'];
+$consulta = "SELECT * FROM tablaContratos WHERE id = '$idContrato'";
+$resultado = mysqli_query($con, $consulta);
+if ($fila = mysqli_fetch_assoc($resultado)) {
+    $nombre = $fila['nombre']; // Asegúrate de que estos campos coincidan con los de tu base de datos
+    $apellido = $fila['apellido'];
+    // ... [Otros campos que necesites] ...
+} 
+
 try {
     // Ruta a la plantilla de Word
     $templateProcessor = new TemplateProcessor('nombre.docx');
