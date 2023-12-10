@@ -293,6 +293,7 @@ $query1 = mysqli_query($con, $sql1);
                                             <div class="justify-content-center">
                                                 <form class="form" method="POST" enctype="multipart/form-data">
                                                     <div>
+                                                    <input type="text" value="<?php echo $DataLTareas['nombre'];?>" name="nombreTarea" hidden />
                                                         <button type="submit"
                                                             class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2"
                                                             data-kt-menu-trigger="click"

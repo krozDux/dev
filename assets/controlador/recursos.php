@@ -227,7 +227,7 @@ if (!empty($_POST['btnregArchivo'])) {
 
 if (!empty($_POST['btndescargarArchivos'])) {
     $idTarea = $_POST['btndescargarArchivos'];
-
+    $nombreTarea = $_POST['nombreTarea'];
     // Verifica si hay archivos relacionados con el idTarea
     $consulta = "SELECT * FROM proyectosDocumentos WHERE idProyectoTarea = '$idTarea'";
     $resultado = mysqli_query($con, $consulta);
@@ -235,7 +235,7 @@ if (!empty($_POST['btndescargarArchivos'])) {
     if (mysqli_num_rows($resultado) > 0) {
         // Crear un nuevo archivo ZIP
         $zip = new ZipArchive();
-        $nombreZip = "archivos_$idTarea.zip";
+        $nombreZip = "docs_$nombreTarea.zip";
 
         if ($zip->open($nombreZip, ZipArchive::CREATE) === TRUE) {
             // Añadir archivos al ZIP
