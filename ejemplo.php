@@ -8,8 +8,8 @@ try {
     $templateProcessor = new TemplateProcessor('nombre.docx');
 
     // Recibir nombre y apellido por algún método, por ejemplo, POST
-    $nombre = 'hola'; // Aquí deberías usar $_POST['nombre'] si esperas un POST
-    $apellido = 'asd'; // Y $_POST['apellido'] para el apellido
+    $nombre = $_POST['nombre']; // Aquí deberías usar $_POST['nombre'] si esperas un POST
+    $apellido = $_POST['apellido']; // Y $_POST['apellido'] para el apellido
 
     // Reemplazar los marcadores de posición en la plantilla
     $templateProcessor->setValue('nombre', $nombre);

@@ -159,7 +159,7 @@ $query1 = mysqli_query($con, $sql1);
         <div class="card-header">
             <div class="card-title fs-3 fw-bold">Configuración</div>
         </div>
-
+        
         <form id="kt_project_settings_form" class="form fv-plugins-bootstrap5 fv-plugins-framework"
             novalidate="novalidate">
             <div class="card-body p-9">
@@ -168,12 +168,8 @@ $query1 = mysqli_query($con, $sql1);
                     <div class="col-xl-3">
                         <div class="fs-6 fw-semibold mt-2 mb-3 required">Nombre del proyecto</div>
                     </div>
-
                     <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                        <input type="text" class="form-control form-control-solid" name="name" value="9 Degree Award">
-                        <div
-                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                        </div>
+                        <input type="text" class="form-control form-control-solid" name="name" value="9 Degree Award" required>
                     </div>
                 </div>
 
@@ -184,23 +180,15 @@ $query1 = mysqli_query($con, $sql1);
 
                     <div class="col-xl-9 fv-row fv-plugins-icon-container">
                         <input type="text" class="form-control form-control-solid" name="type"
-                            value="Client Relationship">
-                        <div
-                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                        </div>
+                            value="Client Relationship" required>
                     </div>
                 </div>
-
                 <div class="row mb-8">
                     <div class="col-xl-3">
                         <div class="fs-6 fw-semibold mt-2 mb-3 required">Descripción del proyecto</div>
                     </div>
-
                     <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                        <textarea name="description" class="form-control form-control-solid h-100px">sasa</textarea>
-                        <div
-                            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                        </div>
+                        <textarea name="description" class="form-control form-control-solid h-100px" required>sasa</textarea>
                     </div>
                 </div>
 
@@ -282,7 +270,7 @@ $query1 = mysqli_query($con, $sql1);
                 </div>
             </div>
             <div class="card-footer d-flex justify-content-end py-6 px-9">
-                <button type="submit" class="btn btn-primary" id="kt_project_settings_submit">Confirmar</button>
+                <button type="submit" class="btn btn-primary" id="kt_project_settings_submit" name="btnEditarProy" value="editarP">Confirmar</button>
             </div>
         </form>
     </div>

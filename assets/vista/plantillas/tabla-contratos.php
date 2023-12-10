@@ -88,52 +88,14 @@ $query1 = mysqli_query($con, $sql1);
             <?php $fechaActual = date('Y-m-d'); 
             if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "" && strtotime($dataUsuario1['fechaFin']) < strtotime($fechaActual)) { ?>
                 <td>
-                    <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"
-                    data-id1="<?php echo $dataUsuario1['id']; ?>" 
-                    data-email1="<?php echo $dataUsuario1['email']; ?>"
-                    data-nombres1="<?php echo $dataUsuario1['nombres']; ?>"
-                    data-apellidos1="<?php echo $dataUsuario1['apellidos']; ?>"
-                    data-direccion1="<?php echo $dataUsuario1['direccion']; ?>"
-                    data-rol1="<?php echo ucfirst($dataUsuario1['rol']); ?>"
-                    data-numero1="<?php echo $dataUsuario1['numero']; ?>"
-                    data-observacion1="<?php echo $dataUsuario1['observacion']; ?>"
-                    data-recomendacion1="<?php echo $dataUsuario1['recomendacion']; ?>"
-                    data-fechainicio1="<?php echo $dataUsuario1['fechaInicio']; ?>"
-                    data-fechafin1="<?php echo $dataUsuario1['fechaFin']; ?>"><span
+                    <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"><span
                         class="bi bi-eye-fill fs-7 opacity-50"></buttton>
                 </td>
             <?php } else { ?>
             <?php  if ($dataUsuario1['fechaFin'] != "" and $dataUsuario1['fechaInicio'] != "") { ?>
                 <td>
-                    <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"
-                    data-id1="<?php echo $dataUsuario1['id']; ?>" 
-                    data-email1="<?php echo $dataUsuario1['email']; ?>"
-                    data-nombres1="<?php echo $dataUsuario1['nombres']; ?>"
-                    data-apellidos1="<?php echo $dataUsuario1['apellidos']; ?>"
-                    data-direccion1="<?php echo $dataUsuario1['direccion']; ?>"
-                    data-rol1="<?php echo ucfirst($dataUsuario1['rol']); ?>"
-                    data-numero1="<?php echo $dataUsuario1['numero']; ?>"
-                    data-observacion1="<?php echo $dataUsuario1['observacion']; ?>"
-                    data-recomendacion1="<?php echo $dataUsuario1['recomendacion']; ?>"
-                    data-fechainicio1="<?php echo $dataUsuario1['fechaInicio']; ?>"
-                    data-fechafin1="<?php echo $dataUsuario1['fechaFin']; ?>"><span
+                    <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm ver-contrato"><span
                         class="bi bi-eye-fill fs-7 opacity-50"></buttton>
-                </td>
-            <?php } else { ?>
-                <td>
-                    <buttton type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm reg-contrato"
-                    data-id="<?php echo $dataUsuario1['id']; ?>"
-                    data-email="<?php echo $dataUsuario1['email']; ?>"
-                    data-nombres="<?php echo $dataUsuario1['nombres']; ?>"
-                    data-apellidos="<?php echo $dataUsuario1['apellidos']; ?>"
-                    data-direccion="<?php echo $dataUsuario1['direccion']; ?>"
-                    data-rol="<?php echo ucfirst($dataUsuario1['rol']); ?>"
-                    data-numero="<?php echo $dataUsuario1['numero']; ?>"
-                    data-observacion="<?php echo $dataUsuario1['observacion']; ?>"
-                    data-recomendacion="<?php echo $dataUsuario1['recomendacion']; ?>"
-                    data-fechainicio="<?php echo $dataUsuario1['fechaInicio']; ?>"
-                    data-fechafin="<?php echo $dataUsuario1['fechaFin']; ?>"><span
-                        class="bi bi-plus-square-fill fs-7 opacity-50"></buttton>
                 </td>
             <?php } ?>
         </tr>
