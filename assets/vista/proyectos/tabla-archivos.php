@@ -46,10 +46,6 @@ $query1 = mysqli_query($con, $sql1);
                                 <?php } ?>
                             </div>
                         </div>
-                        <div class="d-flex mb-4">
-                            <button class="btn btn-sm btn-bg-light btn-active-color-primary me-3 modal-trabajo"
-                                data-bs-toggle="modal" data-bs-target="#kt_modal_new_user">Agregar miembro</button>
-                        </div>
                     </div>
 
                     <div class="d-flex flex-wrap justify-content-start">

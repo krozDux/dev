@@ -97,36 +97,6 @@
                     </span>
                 </div>
             </div>
-            <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-                <?php
-                    include('../config.php');
-                    $sql13 = "SELECT * FROM proyectos WHERE id='$idProyecto'";
-                    $query13 = mysqli_query($con, $sql13);
-                    $result13 = mysqli_fetch_assoc($query13);
-                    $fechaFinProyecto = $result13['fechaFin'];
-                    $fechaInicioProyecto = $result13['fechaInicio'];
-                ?>
-                <form class="form" method="POST" enctype="multipart/form-data">
-                    <div class="mb-3 text-center">
-                        <h1 class="mb-3">AÑADIR MIEMBROS</h1>
-                        <input type="text" name="idProyecto" value="<?php echo $idProyecto; ?>" hidden/>
-                    </div>
-                    <div class="d-flex flex-column mb-8 fv-row">
-                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                            <span class="required">Proveedores</span>
-                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"
-                                title="Seleccionar miembros a agregar"></i>
-                        </label>
-                        <input class="form-control form-control-solid" name="tags1" />
-                    </div>
-                    <div class="text-center">
-                    <button class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-success" name="btnregMiembro" value="regM">
-                            <span class="indicator-label">Guardar</span>
-                        </button>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
 </div>
