@@ -6,10 +6,6 @@ use PhpOffice\PhpWord\TemplateProcessor;
 try {
     // Ruta a la plantilla de Word
     $templateProcessor = new TemplateProcessor('nombre.docx');
-    $idContrato = $_GET['idContrato'];
-    $consulta = "SELECT contratos.id,usuarios.nombres,usuarios.apellidos,usuarios.rol,contratos.fechaInicio,contratos.fechaFin,contratos.observacion,contratos.recomendacion,contratos.idUsuario FROM usuarios INNER JOIN contratos 
-    ON usuarios.id = contratos.idUsuario WHERE contratos.fechaInicio IS NOT NULL AND contratos.fechaFin IS NOT NULL AND id = '$idContrato' ORDER BY contratos.id DESC;";
-    $resultado = mysqli_query($con, $consulta);
     // Recibir nombre y apellido por algún método, por ejemplo, POST
     $nombre =  
     $apellido =  
