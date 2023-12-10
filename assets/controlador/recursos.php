@@ -225,48 +225,41 @@ if (!empty($_POST['btnregArchivo'])) {
     }
 }
 
+if (!empty($_POST['btndescargarArchivos'])) {
+    $idTarea = $_POST['btndescargarArchivos'];
 
-    if (!empty($_POST['btndescargarArchivos'])) {
-        $idTarea = $_POST['btndescargarArchivos'];
-        echo "1";
-        // Verifica si hay archivos relacionados con el idTarea
-        $consulta = "SELECT * FROM proyectosDocumentos WHERE idProyectoTarea = '$idTarea'";
-        $resultado = mysqli_query($con, $consulta);
-        echo "2";
-        if (mysqli_num_rows($resultado) > 0) {
-            // Crear un nuevo archivo ZIP
-            $zip = new ZipArchive();
-            $nombreZip = "archivos_$idTarea.zip";
-            echo "3";
-            if ($zip->open($nombreZip, ZipArchive::CREATE) === TRUE) {
-                // Añadir archivos al ZIP
-                while ($fila = mysqli_fetch_assoc($resultado)) {
-                    $path = '../assets/documentos/' . $fila['documento']; // Asegúrate de tener la ruta correcta al archivo
-                    if (file_exists($path)) {
-                        $zip->addFile($path, $fila['documento']);
-                    }
+    // Verifica si hay archivos relacionados con el idTarea
+    $consulta = "SELECT * FROM proyectosDocumentos WHERE idProyectoTarea = '$idTarea'";
+    $resultado = mysqli_query($con, $consulta);
+
+    if (mysqli_num_rows($resultado) > 0) {
+        // Crear un nuevo archivo ZIP
+        $zip = new ZipArchive();
+        $nombreZip = "archivos_$idTarea.zip";
+        if ($zip->open($nombreZip, ZipArchive::CREATE) === TRUE) {
+            // Añadir archivos al ZIP
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                $path = '../assets/documentos/' . $fila['documento']; // Asegúrate de tener la ruta correcta al archivo
+                if (file_exists($path)) {
+                    $zip->addFile($path, $fila['documento']);
                 }
-                echo "4";
-                // Finalizar ZIP
-                $zip->close();
-                echo "5";
-                // Forzar la descarga del archivo ZIP
-                header('Content-Type: application/zip');
-                header('Content-Disposition: attachment; filename="'.basename($nombreZip).'"');
-                header('Content-Length: ' . filesize($nombreZip));
-                flush();
-                echo "6";
-                readfile($nombreZip);
-                echo "7";
-                // Eliminar archivo ZIP después de la descarga
-                echo "8";
-                unlink($nombreZip);
-                echo "9";
-                exit;
-                echo "10";
             }
-        } else {
-            echo "No hay archivos para descargar.";
+            // Finalizar ZIP
+            $zip->close();
+
+            // Forzar la descarga del archivo ZIP
+            header('Content-Type: application/zip');
+            header('Content-Disposition: attachment; filename="'.basename($nombreZip).'"');
+            header('Content-Length: ' . filesize($nombreZip));
+            readfile($nombreZip);
+
+            // Eliminar archivo ZIP después de la descarga
+            unlink($nombreZip);
+            exit;
         }
+    } else {
+        echo "No hay archivos para descargar.";
     }
+}
+?>
 ?>
