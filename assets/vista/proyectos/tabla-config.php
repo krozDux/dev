@@ -210,7 +210,7 @@ $query1 = mysqli_query($con, $sql1);
                     </div>
 
                     <div class="col-xl-4 fv-row fv-plugins-icon-container">
-                        <label class="required fs-6 semibold mb-2">Fecha de inicio</label>
+                        <label class="fs-6 semibold mb-2">Fecha de inicio</label>
                         <div class="position-relative d-flex align-items-center">
                             <span class="svg-icon svg-icon-2 position-absolute mx-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -231,7 +231,7 @@ $query1 = mysqli_query($con, $sql1);
                         </div>
                     </div>
                     <div class="col-xl-4 fv-row fv-plugins-icon-container">
-                        <label class="required fs-6 semibold mb-2">Fecha límite</label>
+                        <label class="fs-6 semibold mb-2">Fecha límite</label>
                         <div class="position-relative d-flex align-items-center">
                             <span class="svg-icon svg-icon-2 position-absolute mx-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -248,7 +248,7 @@ $query1 = mysqli_query($con, $sql1);
                                 </svg>
                             </span>
                             <input type="date" class="form-control form-control-solid ps-12"
-                                placeholder="Seleccionar fecha" name="fechaInicio" required />
+                                placeholder="Seleccionar fecha" name="fechaFin" required />
                         </div>
                     </div>
                 </div>
