@@ -166,7 +166,7 @@ $query1 = mysqli_query($con, $sql1);
 
                 <div class="row mb-8">
                     <div class="col-xl-3">
-                        <div class="fs-6 fw-semibold mt-2 mb-3">Nombre del proyecto</div>
+                        <div class="fs-6 fw-semibold mt-2 mb-3 required">Nombre del proyecto</div>
                     </div>
 
                     <div class="col-xl-9 fv-row fv-plugins-icon-container">
