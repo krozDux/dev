@@ -291,7 +291,7 @@ if (isset($_GET['idProyecto'])) {
         <?php include_once '../assets/vista/proyectos/head-recursos.php'; ?>
     </head>
     <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-        <?php include_once '../assets/vista/proyectos/body-archivos.php'?>
+        <?php include_once '../assets/vista/proyectos/body-config.php'?>
         <script>
     var hostUrl = "assets/";
     </script>
@@ -572,7 +572,7 @@ if (isset($_GET['idProyecto'])) {
     <?php include_once '../assets/vista/proyectos/head-recursos.php'; ?>
 </head>
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-    <?php include_once '../assets/vista/proyectos/body-archivos.php'?>
+    <?php include_once '../assets/vista/proyectos/body-config.php'?>
     <script>
     var hostUrl = "assets/";
     </script>
@@ -816,7 +816,7 @@ if (isset($_GET['idProyecto'])) {
         <?php include_once '../assets/vista/proyectos/head-recursos.php'; ?>
     </head>
     <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-        <?php include_once '../assets/vista/proyectos/body-archivos.php'?>
+        <?php include_once '../assets/vista/proyectos/body-config.php'?>
         <script>
     var hostUrl = "assets/";
     </script>
@@ -1091,7 +1091,7 @@ if (isset($_GET['idTarea'])) {
     <?php include_once '../assets/vista/proyectos/head-recursos.php'; ?>
 </head>
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-    <?php include_once '../assets/vista/proyectos/body-archivos.php'?>
+    <?php include_once '../assets/vista/proyectos/body-config.php'?>
     <script>
     var hostUrl = "assets/";
     </script>
@@ -1335,7 +1335,7 @@ if (isset($_GET['idTarea'])) {
         <?php include_once '../assets/vista/proyectos/head-recursos.php'; ?>
     </head>
     <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-        <?php include_once '../assets/vista/proyectos/body-archivos.php'?>
+        <?php include_once '../assets/vista/proyectos/body-config.php'?>
         <script>
     var hostUrl = "assets/";
     </script>
