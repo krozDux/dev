@@ -253,6 +253,7 @@ $query1 = mysqli_query($con, $sql1);
                                     En proceso
                                 </span>
                             </label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
                             <label class="form-check form-check-custom form-check-solid me-10 ml-1">
                                 <input class="form-check-input h-20px w-20px" type="radio" value="2"
                                     name="estado" required>
