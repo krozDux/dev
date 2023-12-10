@@ -226,48 +226,48 @@ if (!empty($_POST['btnregArchivo'])) {
 }
 
 if (!empty($_POST['btndescargarArchivos'])) {
-    if (!empty($_POST['idTarea'])) {
-        if (!empty($_POST['idUsuario'])) {
-            if (!empty($_POST['estado'])) {
-                    $idTarea = $_POST['idTarea'];
-                    $idUsuario = $_POST['idUsuario'];
-                    $estado = $_POST['estado'];
-                    $idProyecto = $_POST['idProyecto'];
-                    $archivo = $_FILES['archivo']['name'];
-                    $fechaAdd = date('Y-m-d H:i:s');
-                    if (isset($archivo) and $archivo!=""){
-                        $tipo = $_FILES['archivo']['type'];
-                        $temp = $_FILES['archivo']['tmp_name'];
-                        $extension = pathinfo($archivo,PATHINFO_EXTENSION);
-                    if (!((strpos($tipo, 'pdf')) or (strpos($tipo, 'doc')) or (strpos($tipo, 'docx')) or (strpos($tipo, 'zip')) or (strpos($tipo, 'rar')))){
-                        echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
-                                <div class="toast-header bg-danger">
-                                    <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
-                                    <strong class="me-auto text-white">Alerta</strong>
-                                    <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
-                                </div>
-                                <div class="toast-body text-white">
-                                    Solo se permiten archivos con extensión pdf, doc, docx, zip o rar.
-                                </div>
-                            </div>';
-                    }else {
-                        $consulta = "INSERT proyectosDocumentos (`fechaAdd`,`documento`,`nombre`,`extension`,`link`,`estado`,`idUsuario`,`idProyectoTarea`) VALUES ('$fechaAdd','-','-','-','link','$estado','$idUsuario','$idTarea')";
-                        $resultado = mysqli_query($con, $consulta);
-                        $id_tareaDoc = mysqli_insert_id($con);
-                        $nuevo_nombre_archivo = $id_tareaDoc . '[' . $idTarea . '].' . $extension;
-                        $ruta_archivo = '../assets/documentos/' . $nuevo_nombre_archivo;
-                        move_uploaded_file($temp, $ruta_archivo);
+    $con = mysqli_connect("localhost", "u537253387_almidon", "Carloshack1.", "u537253387_almidon");
 
-                        echo "Archivo enviado por correo electrónico con éxito.";
-                        $consulta33 = "UPDATE `proyectosDocumentos` SET `documento`='$nuevo_nombre_archivo', `nombre`='$archivo', `extension`='$extension' where id='$id_tareaDoc'";
-                        $resultado2 = mysqli_query($con, $consulta33);
-                        $consulta35 = "UPDATE `proyectosTareas` SET `estado`='$estado' where id='$idTarea'";
-                        $resultado23 = mysqli_query($con, $consulta35);
-                        header("location: tareas.php?idProyecto=$idProyecto");
+if (!$con) {
+    die("La conexión ha fallado: " . mysqli_connect_error());
+}
+
+    if (!empty($_POST['btndescargarArchivos'])) {
+        $idTarea = $_POST['btndescargarArchivos'];
+        
+        // Verifica si hay archivos relacionados con el idTarea
+        $consulta = "SELECT * FROM proyectosDocumentos WHERE idProyectoTarea = '$idTarea'";
+        $resultado = mysqli_query($con, $consulta);
+        
+        if (mysqli_num_rows($resultado) > 0) {
+            // Crear un nuevo archivo ZIP
+            $zip = new ZipArchive();
+            $nombreZip = "archivos_$idTarea.zip";
+            
+            if ($zip->open($nombreZip, ZipArchive::CREATE) === TRUE) {
+                // Añadir archivos al ZIP
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    $path = '/assets/documentos/' . $fila['documento']; // Asegúrate de tener la ruta correcta al archivo
+                    if (file_exists($path)) {
+                        $zip->addFile($path, $fila['documento']);
                     }
                 }
-            } 
+                // Finalizar ZIP
+                $zip->close();
+                
+                // Forzar la descarga del archivo ZIP
+                header('Content-Type: application/zip');
+                header('Content-Disposition: attachment; filename="'.basename($nombreZip).'"');
+                header('Content-Length: ' . filesize($nombreZip));
+                flush();
+                readfile($nombreZip);
+                // Eliminar archivo ZIP después de la descarga
+                unlink($nombreZip);
+                exit;
+            }
+        } else {
+            echo "No hay archivos para descargar.";
         }
     }
-}
+    }
 ?>
