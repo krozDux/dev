@@ -20,7 +20,7 @@ $query1 = mysqli_query($con, $sql1);
         }
         $nombreProyecto = $dataUsuario1['nombre'];
     ?>
-    
+
     <div class="card mb-6 mb-xl-9">
         <div class="card-body pt-9 pb-0">
             <div class="d-flex flex-wrap flex-sm-nowrap mb-6">
@@ -169,8 +169,10 @@ $query1 = mysqli_query($con, $sql1);
                 <div class="badge badge-lg badge-light-primary">
                     <div class="d-flex align-items-center flex-wrap">
                         <i class="ki-duotone ki-abstract-32 fs-2 text-primary me-3"><span class="path1"></span><span
-                                class="path2"></span></i> <a href="/../proyectos/recursos?idProyecto=<?php echo $idProyecto ?>"><?php echo strtoupper($nombreProyecto);?></a>
-                        <i class="fas fa-angle-right fs-2 text-primary mx-1"></i> <a href="/../proyectos/tareas?idProyecto=<?php echo $idProyecto ?>">TAREAS</a>
+                                class="path2"></span></i> <a
+                            href="/../proyectos/recursos?idProyecto=<?php echo $idProyecto ?>"><?php echo strtoupper($nombreProyecto);?></a>
+                        <i class="fas fa-angle-right fs-2 text-primary mx-1"></i> <a
+                            href="/../proyectos/tareas?idProyecto=<?php echo $idProyecto ?>">TAREAS</a>
                     </div>
                 </div>
                 <?php
@@ -225,22 +227,25 @@ $query1 = mysqli_query($con, $sql1);
                                         </th>
                                         <th class="min-w-10px sorting_disabled" rowspan="1" colspan="1"
                                             style="width: 200.391px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
-                                            <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">CREACIÓN
+                                            <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+                                                CREACIÓN
                                             </div>
                                         </th>
                                         <th class="min-w-125px sorting_disabled" rowspan="1" colspan="1"
                                             style="width: 200.391px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
-                                            <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">ULTIMA MODIFICACIÓN</div>
+                                            <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">ULTIMA
+                                                MODIFICACIÓN</div>
                                         </th>
                                         <th class="w-125px sorting_disabled" rowspan="1" colspan="1"
                                             style="width: 200.391px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
-                                            <div class="dataTables_sizing" style="height: 0px; overflow: hidden;"> OPCIONES</div>
+                                            <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+                                                OPCIONES</div>
                                         </th>
                                     </tr>
                                 </thead>
 
                                 <tbody class="fw-semibold text-gray-600">
-                                <?php
+                                    <?php
                                 include('../config.php');
                                 $sqlLTareas = ("SELECT 
                                 pt.id, 
@@ -270,7 +275,7 @@ $query1 = mysqli_query($con, $sql1);
                             GROUP BY 
                                 pt.id;");
                                 $queryLTareas = mysqli_query($con, $sqlLTareas);?>
-                                <?php while ($DataLTareas = mysqli_fetch_assoc($queryLTareas)) {    
+                                    <?php while ($DataLTareas = mysqli_fetch_assoc($queryLTareas)) {    
                                 $fecha1 = $DataLTareas['fechaAdd'];
                                 $fecha2 = $DataLTareas['fechaMod'];
                                 setlocale(LC_TIME, 'es_ES'); // Establecer la configuración regional a español
@@ -282,7 +287,7 @@ $query1 = mysqli_query($con, $sql1);
                                                 <span class="icon-wrapper"><i
                                                         class="fas fa-folder fs-2x text-primary me-4"><span
                                                             class="path1"></span><span class="path2"></span></i></span>
-                                                <a href="/metronic8/demo14/?page=apps/file-manager/files/"
+                                                <a
                                                     class="text-gray-800 text-hover-primary"><?php echo $DataLTareas['nombre'];?></a>
                                             </div>
                                         </td>
@@ -290,24 +295,19 @@ $query1 = mysqli_query($con, $sql1);
                                         <td><?php echo $DataLTareas['fechaMod'];?></td>
                                         <td>
                                             <div class="justify-content-center">
-                                                <div >
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2"
-                                                        data-kt-menu-trigger="click"
-                                                        data-kt-menu-placement="bottom-end">
-                                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span
-                                                                class="path1"></span><span class="path2"></span><span
-                                                                class="path3"></span><span class="path4"></span></i>
-                                                    </button>
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2"
-                                                        data-kt-menu-trigger="click"
-                                                        data-kt-menu-placement="bottom-end">
-                                                        <i class="ki-duotone ki-dots-square fs-5 m-0"><span
-                                                                class="path1"></span><span class="path2"></span><span
-                                                                class="path3"></span><span class="path4"></span></i>
-                                                    </button>
-                                                </div>
+                                                <form class="form" method="POST" enctype="multipart/form-data">
+                                                    <div>
+                                                        <button type="submit"
+                                                            class="btn btn-sm btn-icon btn-light btn-active-light-primary me-2"
+                                                            data-kt-menu-trigger="click"
+                                                            data-kt-menu-placement="bottom-end" name="btndescargarArchivos" value="<?php echo $DataLTareas['idTarea'];?>">
+                                                            <i class="ki-duotone ki-dots-square fs-5 m-0"><span
+                                                                    class="path1"></span><span
+                                                                    class="path2"></span><span
+                                                                    class="path3"></span><span class="path4"></span></i>
+                                                        </button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>

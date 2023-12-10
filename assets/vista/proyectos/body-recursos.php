@@ -154,7 +154,7 @@
                         <input class="form-control form-control-solid" name="tags1" />
                     </div>
                     <div class="text-center">
-                    <button class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-light me-3" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-success" name="btnreg" value="regP">
                             <span class="indicator-label">Guardar</span>
                         </button>
