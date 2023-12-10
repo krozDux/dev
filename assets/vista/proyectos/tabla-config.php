@@ -185,22 +185,21 @@ $query1 = mysqli_query($con, $sql1);
 
             <div class="row mb-8">
                 <div class="col-xl-3">
-                    <div class="fs-6 fw-semibold mt-2 mb-3">Project Description</div>
+                    <div class="fs-6 fw-semibold mt-2 mb-3">Descripción del proyecto</div>
                 </div>
 
                 <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                    <textarea name="description" class="form-control form-control-solid h-100px">                    Organize your thoughts with an outline. Here’s the outlining strategy I use. I promise it works like a charm. Not only will it make writing your blog post easier, it’ll help you make your message
-                    </textarea>
+                    <textarea name="description" class="form-control form-control-solid h-100px">sasa</textarea>
                 <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div></div>
             </div>
 
             <div class="row mb-8">
                 <div class="col-xl-3">
-                    <div class="fs-6 fw-semibold mt-2 mb-3">Due Date</div>
+                    <div class="fs-6 fw-semibold mt-2 mb-3">Fechas del proyecto</div>
                 </div>
 
                 <div class="col-xl-9 fv-row fv-plugins-icon-container">
-                <label class="required fs-6 fw-bold mb-2">Fecha de inicio</label>
+                <label class="required fs-6 semibold mb-2">Fecha de inicio</label>
                             <div class="position-relative d-flex align-items-center">
                                 <span class="svg-icon svg-icon-2 position-absolute mx-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
