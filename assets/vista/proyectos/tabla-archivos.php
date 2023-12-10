@@ -263,7 +263,7 @@ $query1 = mysqli_query($con, $sql1);
                                 pd.idProyectoTarea = subconsulta.idProyectoTarea 
                                 AND pd.fechaAdd = subconsulta.MaxFechaAdd 
                             WHERE 
-                                pt.idProyecto = 1 
+                                pt.idProyecto = '$idProyecto' 
                             GROUP BY 
                                 pt.id;");
                                 $queryLTareas = mysqli_query($con, $sqlLTareas);?>
