@@ -179,7 +179,7 @@ $query1 = mysqli_query($con, $sql1);
 
                 <div class="row mb-8">
                     <div class="col-xl-3">
-                        <div class="fs-6 fw-semibold mt-2 mb-3">Nombre del cliente</div>
+                        <div class="fs-6 fw-semibold mt-2 mb-3 required">Nombre del cliente</div>
                     </div>
 
                     <div class="col-xl-9 fv-row fv-plugins-icon-container">
@@ -193,7 +193,7 @@ $query1 = mysqli_query($con, $sql1);
 
                 <div class="row mb-8">
                     <div class="col-xl-3">
-                        <div class="fs-6 fw-semibold mt-2 mb-3">Descripción del proyecto</div>
+                        <div class="fs-6 fw-semibold mt-2 mb-3 required">Descripción del proyecto</div>
                     </div>
 
                     <div class="col-xl-9 fv-row fv-plugins-icon-container">
@@ -206,7 +206,7 @@ $query1 = mysqli_query($con, $sql1);
 
                 <div class="row mb-8">
                     <div class="col-xl-3">
-                        <div class="fs-6 fw-semibold mt-2 mb-3">Fechas del proyecto</div>
+                        <div class="fs-6 fw-semibold mt-2 mb-3 required">Fechas del proyecto</div>
                     </div>
 
                     <div class="col-xl-4 fv-row fv-plugins-icon-container">
@@ -255,7 +255,7 @@ $query1 = mysqli_query($con, $sql1);
 
                 <div class="row mb-8">
                     <div class="col-xl-3">
-                        <div class="fs-6 fw-semibold mt-2 mb-3">Estado del proyecto</div>
+                        <div class="fs-6 fw-semibold mt-2 mb-3 required">Estado del proyecto</div>
                     </div>
 
                     <div class="col-xl-9">
