@@ -236,30 +236,48 @@ if (!empty($_POST['btndescargarArchivos'])) {
         // Crear un nuevo archivo ZIP
         $zip = new ZipArchive();
         $nombreZip = "archivos_$idTarea.zip";
+
         if ($zip->open($nombreZip, ZipArchive::CREATE) === TRUE) {
             // Añadir archivos al ZIP
             while ($fila = mysqli_fetch_assoc($resultado)) {
-                $path = '../assets/documentos/' . $fila['documento']; // Asegúrate de tener la ruta correcta al archivo
+                $path = '../assets/documentos/' . $fila['documento'];
                 if (file_exists($path)) {
                     $zip->addFile($path, $fila['documento']);
                 }
             }
-            // Finalizar ZIP
             $zip->close();
+
+            // Limpia el búfer de salida
+            ob_end_clean();
 
             // Forzar la descarga del archivo ZIP
             header('Content-Type: application/zip');
             header('Content-Disposition: attachment; filename="'.basename($nombreZip).'"');
             header('Content-Length: ' . filesize($nombreZip));
+            header('Connection: close');
             readfile($nombreZip);
 
             // Eliminar archivo ZIP después de la descarga
             unlink($nombreZip);
             exit;
+        } else {
+            // Agregar manejo de errores aquí
+            echo "No se pudo crear el archivo ZIP.";
         }
     } else {
-        echo "No hay archivos para descargar.";
+        echo '<div class="toast show position-fixed bottom-0 end-0 p-2 bg-danger" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
+                                <div class="toast-header bg-danger">
+                                    <i class="ki-duotone ki-abstract-39 fs-2 bg-danger"><span class="path1 bg-danger"></span><span class="path2 bg-danger"></span></i>
+                                    <strong class="me-auto text-white">Alerta</strong>
+                                    <button type="button" class="btn-close bg-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                                <div class="toast-body text-white">
+                                    No hay documentos que descargar para esta tarea
+                                </div>
+                            </div>';
     }
 }
-?>
+
+// En caso de que haya cualquier salida, limpia el búfer
+ob_end_flush();
 ?>
