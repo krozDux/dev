@@ -1,5 +1,3 @@
-<html lang="es">
-
 <head>
     <base href="../">
     <title>SistemaWEB | <?php echo ucfirst($titulo); ?></title>
