@@ -2,7 +2,7 @@
 <html lang="es">
 <?php $titulo = "panel"; ?>
 <?php include_once '../assets/controlador/sesion.php'?>
-<?php include_once '../assets/vista/header.php'?>
+<?php include_once '../assets/vista/panel/head-panel.php'?>
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
     <?php include_once '../assets/vista/panel/body-'.$titulo.'.php'?>
     <script src="assets/plugins/global/plugins.bundle.js"></script>
