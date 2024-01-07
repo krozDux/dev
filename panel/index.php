@@ -4,7 +4,7 @@
 <?php include_once '../assets/controlador/sesion.php'?>
 <?php include_once '../assets/vista/header.php'?>
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed">
-    <?php include_once '../assets/vista/panel/body-panel.php'?>
-    <?php include_once '../assets/vista/panel/scripts.php'?>
+    <?php include_once '../assets/vista/'.$titulo.'/body-'.$titulo.'.php'?>
+    <?php include_once '../assets/vista/'.$titulo.'/scripts.php'?>
 </body>
 </html>
