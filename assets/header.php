@@ -1,5 +1,4 @@
 <head>
-    <base href="../">
     <title>SistemaWEB | <?php echo ucfirst($titulo); ?></title>
     <meta charset="utf-8" />
     <meta name="description" content="descripción" />
